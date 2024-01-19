@@ -1,0 +1,3 @@
+{
+  "extends": "@chefs-diary/typescript-config/base.json"
+}

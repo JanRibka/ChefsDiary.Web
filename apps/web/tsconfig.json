@@ -1,0 +1,5 @@
+{
+  "extends": "@chefs-diary/typescript-config/base.json",
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
