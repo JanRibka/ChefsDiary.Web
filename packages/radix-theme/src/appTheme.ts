@@ -63,9 +63,8 @@ export const getColorDefinitions = (
   );
 
   if (!alpha) {
-    colors[
-      `${getColorTokenName(9, useTailwindColorNames, alpha)}-contrast`
-    ] = `var(--${color}-9-contrast)`;
+    colors[`${getColorTokenName(9, useTailwindColorNames, alpha)}-contrast`] =
+      `var(--${color}-9-contrast)`;
     colors["surface"] = `var(--${color}-surface)`;
     colors["DEFAULT"] = `var(--${color}-9)`;
     if (color === "accent") {
@@ -207,9 +206,8 @@ const radixThemePlugin = plugin.withOptions(
       };
 
       if (grayColorNames.includes(colorName)) {
-        c[
-          `${getColorTokenName(2, useTailwindColorNames, false)}-translucent`
-        ] = `var(--${colorName}-2-translucent)`;
+        c[`${getColorTokenName(2, useTailwindColorNames, false)}-translucent`] =
+          `var(--${colorName}-2-translucent)`;
       }
 
       return c;
