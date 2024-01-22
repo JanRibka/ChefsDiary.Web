@@ -1,26 +1,19 @@
 {
-  "name": "@chefs-diary/ui",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@repo/ui",
+  "version": "1.0.0",
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./counter": "./components/counter.ts",
+    "./header": "./components/header.ts",
+    "./setup-counter": "./utils/counter.ts"
   },
+  "license": "MIT",
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "lint": "eslint \"**/*.ts\""
   },
   "devDependencies": {
-    "@chefs-diary/eslint-config": "workspace:*",
-    "@chefs-diary/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.11.3",
-    "@types/node": "^20.10.6",
-    "@types/eslint": "^8.56.1",
-    "@types/react": "^18.2.46",
-    "@types/react-dom": "^18.2.18",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "eslint": "^8.56.0",
-    "react": "^18.2.0",
     "typescript": "^5.3.3"
   }
 }

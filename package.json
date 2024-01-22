@@ -14,13 +14,10 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@chefs-diary/eslint-config": "workspace:*",
-    "@chefs-diary/typescript-config": "workspace:*",
+    "eslint": "^8.56.0",
+    "@repo/eslint-config": "workspace:*",
     "prettier": "^3.1.1",
     "turbo": "latest"
   },
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=18"
-  }
+  "packageManager": "pnpm@8.9.0"
 }

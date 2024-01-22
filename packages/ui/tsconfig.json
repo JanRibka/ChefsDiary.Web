@@ -1,8 +1,5 @@
 {
-  "extends": "@chefs-diary/typescript-config/packages.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "extends": "@repo/typescript-config/base.json",
+  "include": ["."],
+  "exclude": ["node_modules"]
 }
