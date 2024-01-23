@@ -1,13 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <meta name="author" content="Ing. Jan Ribka, weby.ribka@gmail.com" />
+    <meta name="robots" content="%VITE_ROBOTS%" />
+    <link rel="canonical" href="%BASE_URL%" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+      
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Aplikace na jídelníčky</title>
+    <meta name="description" content="Aplikace na jídelníčky" />
+
+    <!-- Open graph -->
+    <meta property="og:locale" content="cs_CZ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Aplikace na jídelníčky" />
+    <meta property="og:description" content="Aplikace na jídelníčky" />
+    <meta property="og:url" content="%PUBLIC_URL%" />
+    <meta property="og:site_name" content="Jidelnicky" />
+    <meta property="og:image" content="" />
+    <meta property="og:image:secure_url" content="" />
+    <meta property="og:image:width" content="959" />
+    <meta property="og:image:height" content="540" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
