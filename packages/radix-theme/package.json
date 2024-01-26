@@ -10,6 +10,7 @@
     "lint": "eslint \"**/*.ts\""
   },
   "devDependencies": {
+    "@radix-ui/themes": "^2.0.3",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "^18.2.48",
