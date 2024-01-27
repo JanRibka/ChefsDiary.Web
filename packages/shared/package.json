@@ -1,0 +1,18 @@
+{
+  "name": "@repo/shared",
+  "version": "1.0.0",
+  "exports": {
+    "./UserRoleEnum": "./enums/UserRoleEnum.ts"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"**/*.ts\""
+  },
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {}
+}

@@ -51,6 +51,9 @@ importers:
       '@repo/radix-theme':
         specifier: workspace:*
         version: link:../../packages/radix-theme
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/config-tailwind
@@ -152,6 +155,21 @@ importers:
       react:
         specifier: ^18.2.0
         version: 18.2.0
+      typescript:
+        specifier: ^5.3.3
+        version: 5.3.3
+
+  packages/shared:
+    devDependencies:
+      '@repo/eslint-config':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../config-typescript
+      eslint:
+        specifier: ^8.56.0
+        version: 8.56.0
       typescript:
         specifier: ^5.3.3
         version: 5.3.3

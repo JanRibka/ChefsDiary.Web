@@ -3,12 +3,11 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { mainBaseApi } from "../../shared/api/mainBaseApi";
+import authReducer from "./auth/authSlice";
 
 export const rootReducer = combineReducers({
   [mainBaseApi.reducerPath]: mainBaseApi.reducer,
-  // common: commonReducer,
-  // prehled: prehledReducer,
-  // notification: notificationReducer,
+  auth: authReducer,
 });
 
 export const store = configureStore({
