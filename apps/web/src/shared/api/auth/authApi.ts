@@ -1,5 +1,10 @@
+import "@reduxjs/toolkit/dist/query/react/buildHooks";
+import "../../../../node_modules/@reduxjs/toolkit/dist/query/react/buildHooks";
+
 import { mainBaseApi } from "../mainBaseApi";
 import { REGISTER } from "./endpoints";
+
+//import type { WritableDraft } from "@reduxjs/toolkit/node_modules/immer/dist/internal";
 
 const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({

@@ -3,7 +3,7 @@ import UserRoleEnum from "@repo/shared/UserRoleEnum";
 
 import { RootState } from "../store";
 
-export interface AuthSlice {
+export interface AuthState {
   idUser: number;
   userName: string;
   password: string;
@@ -11,7 +11,7 @@ export interface AuthSlice {
   accessToken: string;
 }
 
-export const initialState: AuthSlice = {
+export const initialState: AuthState = {
   idUser: 0,
   userName: "",
   password: "",
@@ -23,7 +23,7 @@ export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    update: (state, action: PayloadAction<Partial<AuthSlice>>) => {
+    update: (state, action: PayloadAction<Partial<AuthState>>) => {
       return {
         ...state,
         ...action.payload,
