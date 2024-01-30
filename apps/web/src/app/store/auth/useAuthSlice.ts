@@ -1,10 +1,10 @@
 import { useAppDispatch } from "../store";
-import { actions, AuthSlice } from "./authSlice";
+import { actions, AuthState } from "./authSlice";
 
 export const useAuthSlice = () => {
   const dispatch = useAppDispatch();
 
-  const update = (data: Partial<AuthSlice>) => {
+  const update = (data: Partial<AuthState>) => {
     dispatch(actions.update(data));
   };
 
