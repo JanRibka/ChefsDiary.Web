@@ -1,3 +1,5 @@
+import "@radix-ui/themes/styles.css";
+
 import { Provider } from "react-redux";
 
 import { Theme } from "@radix-ui/themes";
