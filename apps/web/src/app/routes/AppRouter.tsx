@@ -17,6 +17,10 @@ const AppRouter = () => {
 
       <Route path={AppRoutes.Home} element={<Layout />}>
         <Route path={AppRoutes.Home} element={<Home />} />
+        <Route path={AppRoutes.Recipes} element={<Home />} />
+        <Route path={AppRoutes.TipsAndTricks} element={<Home />} />
+        <Route path={AppRoutes.Wordbook} element={<Home />} />
+        <Route path={AppRoutes.Substitutes} element={<Home />} />
       </Route>
     </Routes>
   );

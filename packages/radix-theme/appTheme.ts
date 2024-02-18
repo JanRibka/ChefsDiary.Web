@@ -1,5 +1,8 @@
 import plugin from "tailwindcss/plugin";
 
+const colorPrimary = "rgb(44, 59, 75)";
+const colorPrimaryDark = "rgb(17, 29, 40)";
+
 const radixThemePlugin = plugin.withOptions(
   () => {
     return ({ addBase }) => {
@@ -96,29 +99,28 @@ const radixThemePlugin = plugin.withOptions(
         colors: {
           error: "rgb(204, 0, 0)",
           primary: {
-            light: "rgb(254, 205, 210)",
-            DEFAULT: "rgb(253, 126, 143)",
-            dark: "rgb(227, 113, 128)",
+            light: "rgb(81, 100, 120)",
+            DEFAULT: colorPrimary,
+            dark: colorPrimaryDark,
           },
           secondary: {
             light: "rgb(252, 252, 252)",
             DEFAULT: "rgb(238, 238, 238)",
             dark: "rgb(214, 214, 214)",
           },
+          "page-background": "red",
         },
         extend: {
           keyframes: {
-            "fade-in": {
-              "0%": { opacity: "0" },
-              "100%": { opacity: "1" },
-            },
-            "fade-out": {
-              "0%": { opacity: "1" },
-              "100%": { opacity: "0" },
+            icon: {
+              from: { color: colorPrimary },
+              to: {
+                color: colorPrimaryDark,
+              },
             },
           },
           animation: {
-            test: "fade-in 1s ease-in-out",
+            icon: "icon 300ms ease-in-out",
           },
         },
       },

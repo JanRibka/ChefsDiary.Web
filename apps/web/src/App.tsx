@@ -8,6 +8,7 @@ import { ThemeProvider } from "@repo/radix-theme/ThemeProvider";
 import AppRouter from "./app/routes/AppRouter";
 import { store } from "./app/store/store";
 
+// TODO: Zjistit jak zmenit tuto barvu. Bud Radix, nebo tailwind     --color-page-background: white;
 const App = () => {
   return (
     <Provider store={store}>

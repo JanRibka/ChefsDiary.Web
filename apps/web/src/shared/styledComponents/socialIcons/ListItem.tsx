@@ -1,3 +1,5 @@
+import Icon from "../icon/Icon";
+
 interface IProps {
   title: string;
   href: string;
@@ -13,7 +15,7 @@ const ListItem = (props: IProps) => {
         target="_blank"
         aria-label={props.title}
       >
-        {props.icon}
+        <Icon icon={props.icon} />
       </a>
     </li>
   );
