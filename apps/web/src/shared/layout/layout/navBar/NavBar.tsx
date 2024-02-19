@@ -3,7 +3,7 @@ import UpperBar from "./upperBar/UpperBar";
 
 const NavBar = () => {
   return (
-    <header>
+    <header className="bg-page-primary">
       <UpperBar />
       <BottomBar />
     </header>

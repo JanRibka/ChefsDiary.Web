@@ -1,10 +1,11 @@
 import Register from "../features/login/register/Register";
+import PageBase from "../shared/styledComponents/pageBase/PageBase";
 
 const RegisterPage = () => {
   return (
-    <main>
+    <PageBase>
       <Register />
-    </main>
+    </PageBase>
   );
 };
 

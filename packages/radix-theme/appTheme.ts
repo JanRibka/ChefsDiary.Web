@@ -96,6 +96,11 @@ const radixThemePlugin = plugin.withOptions(
         maxWidth: {
           main: "1140px",
         },
+        backgroundColor: {
+          page: {
+            primary: "rgb(238, 238, 238)",
+          },
+        },
         colors: {
           error: "rgb(204, 0, 0)",
           primary: {
@@ -108,7 +113,7 @@ const radixThemePlugin = plugin.withOptions(
             DEFAULT: "rgb(238, 238, 238)",
             dark: "rgb(214, 214, 214)",
           },
-          "page-background": "red",
+          dark: {},
         },
         extend: {
           keyframes: {
