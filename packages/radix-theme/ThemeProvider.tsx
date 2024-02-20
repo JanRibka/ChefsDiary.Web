@@ -31,7 +31,7 @@ export const ThemeProvider = ({
 
   useEffect(() => {
     const root = window.document.documentElement;
-    debugger;
+
     root.classList.remove("light", "dark");
 
     if (theme === "system") {

@@ -1,4 +1,5 @@
 import Search from "./search/Search";
+import ThemeColor from "./themeColor/ThemeColor";
 import UserLogin from "./userLogin/UserLogin";
 
 const RightMenu = () => {
@@ -6,6 +7,7 @@ const RightMenu = () => {
     <div className="flex">
       <Search />
       <UserLogin />
+      <ThemeColor />
     </div>
   );
 };
