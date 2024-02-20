@@ -20,6 +20,7 @@
     "redux": "^5.0.1"
   },
   "devDependencies": {
+    "@radix-ui/react-hover-card": "^1.0.7",
     "@repo/eslint-config": "workspace:*",
     "@repo/radix-theme": "workspace:*",
     "@repo/shared": "workspace:*",

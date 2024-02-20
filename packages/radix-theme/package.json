@@ -2,8 +2,7 @@
   "name": "@repo/radix-theme",
   "version": "1.0.0",
   "exports": {
-    "./ThemeProvider": "./ThemeProvider.tsx",
-    "./appTheme": "./appTheme.ts"
+    "./ThemeProvider": "./ThemeProvider.tsx"
   },
   "license": "MIT",
   "scripts": {

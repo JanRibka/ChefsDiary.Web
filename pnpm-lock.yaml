@@ -48,6 +48,9 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
     devDependencies:
+      '@radix-ui/react-hover-card':
+        specifier: ^1.0.7
+        version: 1.0.7(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../../packages/config-eslint
@@ -110,6 +113,10 @@ importers:
         version: 9.1.0(eslint@8.56.0)
 
   packages/config-tailwind:
+    dependencies:
+      '@radix-ui/colors':
+        specifier: ^3.0.0
+        version: 3.0.0
     devDependencies:
       '@repo/radix-theme':
         specifier: workspace:*
@@ -171,16 +178,19 @@ importers:
 
   packages/ui:
     dependencies:
-      '@radix-ui/themes':
-        specifier: ^2.0.3
-        version: 2.0.3(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
     devDependencies:
+      '@radix-ui/themes':
+        specifier: ^2.0.3
+        version: 2.0.3(@types/react-dom@18.2.18)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:../config-tailwind
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../config-typescript

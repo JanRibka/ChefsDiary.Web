@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "exports": {
-    "./tailwind.config.ts": "./tailwind.config.ts"
+    "./tailwind.config.ts": "./tailwind.config.ts",
+    "./appTheme": "./appTheme.ts"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*",
     "@repo/radix-theme": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0"
   }
 }

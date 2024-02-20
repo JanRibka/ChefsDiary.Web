@@ -3,7 +3,7 @@ interface IProps {
 }
 
 const PageBase = (props: IProps) => {
-  return <main className="bg-page-primary">{props.children}</main>;
+  return <main>{props.children}</main>;
 };
 
 export default PageBase;
