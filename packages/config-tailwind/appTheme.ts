@@ -120,32 +120,29 @@ const radixThemePlugin = plugin.withOptions(
         },
         extend: {
           keyframes: {
-            hoverCardSlideUpAndFade: {
+            slideUpAndFade: {
               "0%": { opacity: "0", transform: "translateY(2px)" },
               "100%": { opacity: "1", transform: "translateY(0)" },
             },
-            hoverCardSlideDownFade: {
+            slideDownFade: {
               "0%": { opacity: "0", transform: "translateY(-2px)" },
               "100%": { opacity: "1", transform: "translateY(0)" },
             },
-            hoverCardSlideRightFade: {
+            slideRightFade: {
               "0%": { opacity: "0", transform: "translateX(-2px)" },
               "100%": { opacity: "1", transform: "translateX(0)" },
             },
-            hoverCardSlideLeftFade: {
+            slideLeftFade: {
               "0%": { opacity: "0", transform: "translateX(2px)" },
               "100%": { opacity: "1", transform: "translateX(0)" },
             },
           },
           animation: {
-            hoverCardSlideUpFade:
-              "hoverCardSlideUpAndFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
-            hoverCardSlideDownFade:
-              "hoverCardSlideDownFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
-            hoverCardSlideRightFade:
-              "hoverCardSlideRightFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
-            hoverCardSlideLeftFade:
-              "hoverCardSlideLeftFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+            slideUpFade: "slideUpAndFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+            slideDownFade: "slideDownFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+            slideRightFade:
+              "slideRightFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+            slideLeftFade: "slideLeftFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
           },
         },
       },

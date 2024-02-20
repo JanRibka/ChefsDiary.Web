@@ -6,22 +6,21 @@ interface IProps {
   content: JSX.Element;
   contentClassName?: string;
 }
-
+// TODO: Dat shadow do default theme
 const AppHoverCard = (props: IProps) => {
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild className={props.triggerClassName}>
-        {/* {props.trigger} */}
-        <div>fsfd</div>
+        {props.trigger}
       </HoverCard.Trigger>
       <HoverCard.Portal>
         <HoverCard.Content
           className={
             props.contentClassName +
-            ` data-[side=bottom]:animate-hoverCardSlideUpFade
-            data-[side=right]:animate-hoverCardSlideLeftFade
-            data-[side=left]:animate-hoverCardSlideRightFade
-            data-[side=top]:animate-hoverCardSlideDownFade
+            ` data-[side=bottom]:animate-slideUpFade
+            data-[side=right]:animate-slideLeftFade
+            data-[side=left]:animate-slideRightFade
+            data-[side=top]:animate-slideDownFade
             rounded-md bg-white p-5
             shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
             data-[state=open]:transition-all`
