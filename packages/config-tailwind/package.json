@@ -7,7 +7,6 @@
     "./appTheme": "./appTheme.ts"
   },
   "devDependencies": {
-    "@repo/radix-theme": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "tailwindcss": "^3.4.1"
   },

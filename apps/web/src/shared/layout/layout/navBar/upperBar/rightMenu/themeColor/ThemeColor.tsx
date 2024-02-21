@@ -1,13 +1,29 @@
-import { useContext } from "react";
-import { IoSunnyOutline } from "react-icons/io5";
-import { RxMoon } from "react-icons/rx";
+import { useSelector } from "react-redux";
 
-import { ThemeProviderContext } from "@repo/radix-theme/ThemeProvider";
+import {
+  AppTheme,
+  selectTheme,
+} from "../../../../../../../app/store/theme/themeSlice";
+import { useThemeSlice } from "../../../../../../../app/store/theme/useThemeSlice";
+import ThemeIcon from "./ThemeIcon";
 
 const ThemeColor = () => {
-  const xxxxx = useContext(ThemeProviderContext);
+  const theme = useSelector(selectTheme);
+  const { setTheme } = useThemeSlice();
 
-  return <button onClick={() => {}}>ghg</button>;
+  // Other
+  const handleOnClickThemeChange = () => {
+    const newTheme: AppTheme = theme.theme === "light" ? "dark" : "light";
+
+    setTheme(newTheme);
+  };
+
+  return (
+    <ThemeIcon
+      theme={theme.theme}
+      handleOnClickIcon={handleOnClickThemeChange}
+    />
+  );
 };
 
 export default ThemeColor;

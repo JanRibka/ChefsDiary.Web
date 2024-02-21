@@ -5,9 +5,11 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import { mainBaseApi } from "../../shared/api/mainBaseApi";
 import { authSlice } from "./auth/authSlice";
+import { themeSlice } from "./theme/themeSlice";
 
 export const rootReducer = combineReducers({
   [mainBaseApi.reducerPath]: mainBaseApi.reducer,
+  theme: themeSlice.reducer,
   auth: authSlice.reducer,
 });
 

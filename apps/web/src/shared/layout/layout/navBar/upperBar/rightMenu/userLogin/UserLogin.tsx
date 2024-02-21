@@ -5,12 +5,10 @@ import Icon from "../../../../../../styledComponents/icon/Icon";
 
 const UserLogin = () => {
   return (
-    <div className=" ">
-      <AppHoverCard
-        trigger={<Icon icon={<FaRegCircleUser />} />}
-        content={<div>Jsem tu asdf asdf asdf asdf asdf</div>}
-      />
-    </div>
+    <AppHoverCard
+      trigger={<Icon icon={<FaRegCircleUser />} />}
+      content={<div>Jsem tu asdf asdf asdf asdf asdf</div>}
+    />
   );
 };
 
