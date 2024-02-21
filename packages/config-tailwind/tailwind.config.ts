@@ -6,6 +6,11 @@ const config: Omit<Config, "content"> = {
   theme: {
     extend: {},
   },
-  plugins: [radixThemePlugin({})],
+  plugins: [
+    radixThemePlugin({
+      useTailwindColorNames: true,
+      mapMissingTailwindColors: true,
+    }),
+  ],
 };
 export default config;

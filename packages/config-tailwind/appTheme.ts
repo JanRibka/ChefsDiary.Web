@@ -1,12 +1,110 @@
+import colors from "tailwindcss/colors";
 import plugin from "tailwindcss/plugin";
 
-import { mauve } from "@radix-ui/colors";
+import { blackA, mauve } from "@radix-ui/colors";
+import * as radixTheme from "@radix-ui/themes";
+
+export const accentColorNames: string[] = [];
+export const grayColorNames: string[] = [];
+
+const radixColorScales = 12;
+type RadixColorScales = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+
+radixTheme.themeAccentColorsGrouped.map((group) => {
+  accentColorNames.push(...group.values.filter((color) => color !== "gray"));
+});
+radixTheme.themeGrayColorsGrouped.map((group) => {
+  grayColorNames.push(...group.values.filter((color) => color !== "auto"));
+});
+
+export function getColorTokenName(
+  number: RadixColorScales,
+  useTailwindColorNames?: boolean,
+  alpha?: boolean
+): number | string {
+  const map: Record<number, number> = {
+    1: 25,
+    2: 50,
+    3: 100,
+    4: 200,
+    5: 300,
+    6: 400,
+    7: 500,
+    8: 600,
+    9: 700,
+    10: 800,
+    11: 900,
+    12: 950,
+  } as const;
+
+  if (!useTailwindColorNames) {
+    return alpha ? number + "A" : number;
+  }
+
+  return alpha ? ((map[number] + "A") as string) : (map[number] as number);
+}
+
+export const getColorDefinitions = (
+  color: string,
+  alpha?: boolean,
+  useTailwindColorNames?: boolean
+) => {
+  const colors = Array.from(Array(radixColorScales).keys()).reduce(
+    (acc, _, i) => {
+      acc[
+        getColorTokenName(
+          (i + 1) as RadixColorScales,
+          useTailwindColorNames,
+          alpha
+        )
+      ] = `var(--${color}-${alpha ? "a" : ""}${i + 1})`;
+      return acc;
+    },
+    {} as Record<string, string>
+  );
+
+  if (!alpha) {
+    colors[`${getColorTokenName(9, useTailwindColorNames, alpha)}-contrast`] =
+      `var(--${color}-9-contrast)`;
+    colors["surface"] = `var(--${color}-surface)`;
+    colors["DEFAULT"] = `var(--${color}-9)`;
+    if (color === "accent") {
+      colors["surface"] = `var(--color-surface-accent)`;
+    }
+  }
+
+  return colors;
+};
+
+type RadixColors = Exclude<
+  | (typeof radixTheme.themeAccentColorsOrdered)[number]
+  | (typeof radixTheme.themeGrayColorsGrouped)[0]["values"][number],
+  "auto"
+>;
+
+export const tailwindColorsToRadixMap: Record<
+  "zinc" | "neutral" | "stone" | "emerald" | "fuchsia" | "rose",
+  RadixColors | Record<string, string>
+> = {
+  zinc: "sand",
+  neutral: "sage",
+  stone: "sand",
+  emerald: "grass",
+  fuchsia: "plum",
+  rose: "crimson",
+};
+
+export type RadixThemePluginOptions = {
+  useTailwindColorNames?: boolean;
+  mapMissingTailwindColors?: boolean | Partial<typeof tailwindColorsToRadixMap>;
+};
 
 const colorPrimary = "rgb(44, 59, 75)";
 const colorPrimaryDark = "rgb(17, 29, 40)";
 
 const radixThemePlugin = plugin.withOptions(
-  () => {
+  // eslint-disable-next-line no-empty-pattern
+  ({}: RadixThemePluginOptions) => {
     return ({ addBase }) => {
       addBase({
         "*": {
@@ -83,7 +181,71 @@ const radixThemePlugin = plugin.withOptions(
       });
     };
   },
-  () => {
+  ({
+    useTailwindColorNames = true,
+    mapMissingTailwindColors = true,
+  }: RadixThemePluginOptions) => {
+    function generateTailwindColors(colorName: string) {
+      const c = {
+        ...getColorDefinitions(colorName, false, useTailwindColorNames),
+        ...getColorDefinitions(colorName, true, useTailwindColorNames),
+      };
+
+      if (grayColorNames.includes(colorName)) {
+        c[`${getColorTokenName(2, useTailwindColorNames, false)}-translucent`] =
+          `var(--${colorName}-2-translucent)`;
+      }
+
+      return c;
+    }
+
+    const allRadixColors = [...accentColorNames, ...grayColorNames].reduce<
+      Record<string, Record<string, string>>
+    >((acc, colorName) => {
+      acc[colorName] = { ...generateTailwindColors(colorName) };
+      return acc;
+    }, {});
+
+    let mappingsOfMissingTailwindColors = {};
+
+    if (typeof mapMissingTailwindColors === "boolean") {
+      mappingsOfMissingTailwindColors = {
+        zinc: generateTailwindColors("sand"),
+        neutral: generateTailwindColors("sage"),
+        stone: generateTailwindColors("mauve"),
+        emerald: generateTailwindColors("grass"),
+        fuchsia: generateTailwindColors("plum"),
+        rose: generateTailwindColors("crimson"),
+      };
+    } else if (typeof mapMissingTailwindColors === "object") {
+      mappingsOfMissingTailwindColors = {
+        zinc:
+          typeof mapMissingTailwindColors["zinc"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["zinc"])
+            : mapMissingTailwindColors["zinc"],
+        neutral:
+          typeof mapMissingTailwindColors["neutral"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["neutral"])
+            : mapMissingTailwindColors["neutral"],
+        stone:
+          typeof mapMissingTailwindColors["stone"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["stone"])
+            : mapMissingTailwindColors["stone"],
+        emerald:
+          typeof mapMissingTailwindColors["emerald"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["emerald"])
+            : mapMissingTailwindColors["emerald"],
+        fuchsia:
+          typeof mapMissingTailwindColors["fuchsia"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["fuchsia"])
+            : mapMissingTailwindColors["fuchsia"],
+        rose:
+          typeof mapMissingTailwindColors["rose"] === "string"
+            ? generateTailwindColors(mapMissingTailwindColors["rose"])
+            : mapMissingTailwindColors["rose"],
+      };
+    }
+
     return {
       darkMode: "class",
       theme: {
@@ -115,6 +277,27 @@ const radixThemePlugin = plugin.withOptions(
             DEFAULT: "rgb(238, 238, 238)",
             dark: "rgb(214, 214, 214)",
           },
+          inherit: "inherit",
+          transparent: "transparent",
+          current: "currentColor",
+          white: colors.white,
+          black: colors.black,
+          background: "var(--color-background)",
+          surface: {
+            DEFAULT: "var(--color-surface)",
+            accent: "var(--color-surface-accent)",
+          },
+          overlay: "var(--color-overlay)",
+          panel: {
+            solid: "var(--color-panel-solid)",
+            translucent: "var(--color-panel-translucent)",
+          },
+          selection: "var(--color-selection-root)",
+          accent: generateTailwindColors("accent"),
+          gray: generateTailwindColors("gray"),
+          ...allRadixColors,
+          ...mappingsOfMissingTailwindColors,
+          ...blackA,
           ...mauve,
           dark: {},
         },
