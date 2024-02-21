@@ -1,9 +1,15 @@
-import AppTextField from "../../shared/styledComponents/textField/AppTextFiels";
+import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 
 const Home = () => {
   return (
     <div>
-      <AppTextField />
+      <AppTextField
+        value="2"
+        OnChange={() => {}}
+        size={"3"}
+        variant="classic"
+        type="text"
+      />
     </div>
   );
 };
