@@ -1,21 +1,25 @@
 import { ChangeEvent, forwardRef, useState } from "react";
 
 import { Responsive, Text, TextField } from "@radix-ui/themes";
+import AppTextFieldBase from "@repo/ui/AppTextFieldBase";
+import AppTextFieldBaseProps from "@repo/ui/AppTextFieldBaseProps";
 
-interface IProps {
-  value: string | null;
-  label: string;
-  size?: Responsive<"1" | "2" | "3">;
-  variant?: "classic" | "surface" | "soft";
-  radius?: "none" | "small" | "medium" | "large" | "full";
-  placeholder?: string;
-  type?: "text" | "password" | "email";
-  required?: boolean;
-  tabIndex?: number;
-  disabled?: boolean;
-  autocomplete?: "username" | "current-password";
-  onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+// interface IProps {
+//   value: string | null;
+//   label: string;
+//   size?: Responsive<"1" | "2" | "3">;
+//   variant?: "classic" | "surface" | "soft";
+//   radius?: "none" | "small" | "medium" | "large" | "full";
+//   placeholder?: string;
+//   type?: "text" | "password" | "email";
+//   required?: boolean;
+//   tabIndex?: number;
+//   disabled?: boolean;
+//   autocomplete?: "username" | "current-password";
+//   onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
+// }
+
+interface IProps extends AppTextFieldBaseProps {}
 
 const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
   // Props
@@ -45,41 +49,43 @@ const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
     setActualValue(value);
   };
 
-  return (
-    <label
-      ref={ref}
-      {...restProps}
-      aria-required={required}
-      aria-disabled={disabled}
-    >
-      <Text
-        as="div"
-        size="2"
-        mb="1"
-        weight="bold"
-        aria-required={required}
-        aria-disabled={disabled}
-      >
-        {label}
-      </Text>
+  return <AppTextFieldBase value="df" name="ffe" label="fe" />;
 
-      <TextField.Input
-        value={actualValue}
-        size={size ?? "2"}
-        variant={variant ?? "classic"}
-        type={type ?? "text"}
-        radius={radius ?? "medium"}
-        placeholder={placeholder}
-        required={required}
-        aria-required={required}
-        tabIndex={tabIndex}
-        autoComplete={autocomplete}
-        disabled={disabled}
-        onChange={handleOnChange}
-        onBlur={onBlur}
-      />
-    </label>
-  );
+  // return (
+  //   <label
+  //     ref={ref}
+  //     {...restProps}
+  //     aria-required={required}
+  //     aria-disabled={disabled}
+  //   >
+  //     <Text
+  //       as="div"
+  //       size="2"
+  //       mb="1"
+  //       weight="bold"
+  //       aria-required={required}
+  //       aria-disabled={disabled}
+  //     >
+  //       {label}
+  //     </Text>
+
+  //     <TextField.Input
+  //       value={actualValue}
+  //       size={size ?? "2"}
+  //       variant={variant ?? "classic"}
+  //       type={type ?? "text"}
+  //       radius={radius ?? "medium"}
+  //       placeholder={placeholder}
+  //       required={required}
+  //       aria-required={required}
+  //       tabIndex={tabIndex}
+  //       autoComplete={autocomplete}
+  //       disabled={disabled}
+  //       onChange={handleOnChange}
+  //       onBlur={onBlur}
+  //     />
+  //   </label>
+  // );
 });
 
 export default AppTextField;
