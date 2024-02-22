@@ -1,78 +1,84 @@
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent, forwardRef, useState } from "react";
 
 import { Responsive, Text, TextField } from "@radix-ui/themes";
 
-type Color =
-  | "tomato"
-  | "red"
-  | "ruby"
-  | "crimson"
-  | "pink"
-  | "plum"
-  | "purple"
-  | "violet"
-  | "iris"
-  | "indigo"
-  | "blue"
-  | "cyan"
-  | "teal"
-  | "jade"
-  | "green"
-  | "grass"
-  | "brown"
-  | "orange"
-  | "sky"
-  | "mint"
-  | "lime"
-  | "yellow"
-  | "amber"
-  | "gold"
-  | "bronze"
-  | "gray";
-
 interface IProps {
-  value: string;
+  value: string | null;
+  label: string;
   size?: Responsive<"1" | "2" | "3">;
   variant?: "classic" | "surface" | "soft";
-  color?: Color;
   radius?: "none" | "small" | "medium" | "large" | "full";
   placeholder?: string;
   type?: "text" | "password" | "email";
   required?: boolean;
   tabIndex?: number;
+  disabled?: boolean;
   autocomplete?: "username" | "current-password";
-  OnChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 }
-//TODO: Dod2lat referenci
-const AppTextField = forwardRef((props: IProps) => {
+
+const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
+  // Props
+  const {
+    value,
+    label,
+    size,
+    variant,
+    radius,
+    placeholder,
+    type,
+    required,
+    tabIndex,
+    disabled,
+    autocomplete,
+    onBlur,
+    ...restProps
+  } = props;
+
+  // State
+  const [actualValue, setActualValue] = useState<string>(value ?? "");
+
+  // Other
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value: string = e.target.value;
+
+    setActualValue(value);
+  };
+
   return (
-    <label>
-      <Text as="div" size="2" mb="1" weight="bold">
-        Name
+    <label
+      ref={ref}
+      {...restProps}
+      aria-required={required}
+      aria-disabled={disabled}
+    >
+      <Text
+        as="div"
+        size="2"
+        mb="1"
+        weight="bold"
+        aria-required={required}
+        aria-disabled={disabled}
+      >
+        {label}
       </Text>
+
       <TextField.Input
-        size={props.size ?? "2"}
-        variant={props.variant ?? "classic"}
-        type={props.type ?? "text"}
-        defaultValue="Freja Johnsen"
-        placeholder="Enter your full name"
+        value={actualValue}
+        size={size ?? "2"}
+        variant={variant ?? "classic"}
+        type={type ?? "text"}
+        radius={radius ?? "medium"}
+        placeholder={placeholder}
+        required={required}
+        aria-required={required}
+        tabIndex={tabIndex}
+        autoComplete={autocomplete}
+        disabled={disabled}
+        onChange={handleOnChange}
+        onBlur={onBlur}
       />
     </label>
-    // <TextField.Root
-    //   size={props.size}
-    //   variant={props.variant}
-    //   color={props.color}
-    //   radius={props.radius}
-    // >
-    //   <TextField.Input
-    //     value={props.value}
-    //     placeholder={props.placeholder}
-    //     type={props.type}
-    //     required={props.required}
-    //     tabIndex={props.tabIndex}
-    //     onChange={props.OnChange}
-    //   />
-    // </TextField.Root>
   );
 });
 
