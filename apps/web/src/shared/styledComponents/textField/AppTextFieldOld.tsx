@@ -1,9 +1,5 @@
 import { ChangeEvent, forwardRef, useState } from "react";
 
-import { Responsive, Text, TextField } from "@radix-ui/themes";
-import AppTextFieldBase from "@repo/ui/AppTextFieldBase";
-import AppTextFieldBaseProps from "@repo/ui/AppTextFieldBaseProps";
-
 // interface IProps {
 //   value: string | null;
 //   label: string;
@@ -19,9 +15,9 @@ import AppTextFieldBaseProps from "@repo/ui/AppTextFieldBaseProps";
 //   onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 // }
 
-interface IProps extends AppTextFieldBaseProps {}
+interface IProps extends AppTextFieldProps {}
 
-const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
+const AppTextFieldOld = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
   // Props
   const {
     value,
@@ -56,6 +52,7 @@ const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
       name={name}
       label={label}
       type={type}
+      size={size}
     />
   );
 
@@ -96,4 +93,4 @@ const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
   // );
 });
 
-export default AppTextField;
+export default AppTextFieldOld;

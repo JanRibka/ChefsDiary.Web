@@ -1,2 +1,2 @@
-export { default as AppTextFieldBase } from "./components/textField/AppTextFieldBase";
-export type { default as AppTextFieldBaseProps } from "./components/textField/AppTextFieldBaseProps";
+export { default as AppTextFieldBase } from "./styledComponents/textField/AppTextField";
+export type { default as AppTextFieldBaseProps } from "./styledComponents/textField/AppTextFieldBaseProps";
