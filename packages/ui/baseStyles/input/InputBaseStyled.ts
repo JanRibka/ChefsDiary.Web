@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import styled, { css, CSSObject, CSSProperties } from 'styled-components';
 
-const InputBaseStyled = styled.div``;
+// TODO:
+const InputBaseStyled = styled.div<baseprops inputu>`
+  color: red;
+  background-color: ${props => props.variant === 'primary' ? 'darkblue' : 'darkgray'};
+` as CSSProperties;
 
 export default InputBaseStyled;
