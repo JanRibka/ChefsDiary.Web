@@ -25,12 +25,13 @@ const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
   // Props
   const {
     value,
+    name,
     label,
+    type,
     size,
     variant,
     radius,
     placeholder,
-    type,
     required,
     tabIndex,
     disabled,
@@ -49,7 +50,14 @@ const AppTextField = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
     setActualValue(value);
   };
 
-  return <AppTextFieldBase value="df" name="ffe" label="fe" />;
+  return (
+    <AppTextFieldBase
+      value={actualValue}
+      name={name}
+      label={label}
+      type={type}
+    />
+  );
 
   // return (
   //   <label

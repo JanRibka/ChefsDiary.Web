@@ -5,8 +5,12 @@ const AppTextFieldBase = (props: AppTextFieldBaseProps) => {
   return (
     <AppTextFieldBaseStyled>
       <label>
-        <input type="" />
-        <span>Test</span>
+        <input
+          value={props.value ?? ""}
+          name={props.name}
+          type={props.type ?? "text"}
+        />
+        <span>{props.label}</span>
       </label>
     </AppTextFieldBaseStyled>
   );
