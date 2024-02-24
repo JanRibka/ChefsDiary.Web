@@ -9,6 +9,7 @@ const config: Omit<Config, "content"> = {
   plugins: [
     radixThemePlugin({
       useTailwindColorNames: true,
+      useTailwindRadiusNames: true,
       mapMissingTailwindColors: true,
     }),
   ],

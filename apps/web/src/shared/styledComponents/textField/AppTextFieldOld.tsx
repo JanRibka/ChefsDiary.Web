@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef, useState } from "react";
+import { forwardRef } from "react";
 
 // interface IProps {
 //   value: string | null;
@@ -15,45 +15,46 @@ import { ChangeEvent, forwardRef, useState } from "react";
 //   onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 // }
 
-interface IProps extends AppTextFieldProps {}
+interface IProps {}
 
-const AppTextFieldOld = forwardRef<HTMLLabelElement, IProps>((props, ref) => {
+const AppTextFieldOld = forwardRef<HTMLLabelElement, IProps>(() => {
   // Props
-  const {
-    value,
-    name,
-    label,
-    type,
-    size,
-    variant,
-    radius,
-    placeholder,
-    required,
-    tabIndex,
-    disabled,
-    autocomplete,
-    onBlur,
-    ...restProps
-  } = props;
+  // const {
+  //   value,
+  //   name,
+  //   label,
+  //   type,
+  //   size,
+  //   variant,
+  //   radius,
+  //   placeholder,
+  //   required,
+  //   tabIndex,
+  //   disabled,
+  //   autocomplete,
+  //   onBlur,
+  //   ...restProps
+  // } = props;
 
   // State
-  const [actualValue, setActualValue] = useState<string>(value ?? "");
+  // const [actualValue, setActualValue] = useState<string>(value ?? "");
 
   // Other
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value: string = e.target.value;
+  // const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  //   const value: string = e.target.value;
 
-    setActualValue(value);
-  };
+  //   setActualValue(value);
+  // };
 
   return (
-    <AppTextFieldBase
-      value={actualValue}
-      name={name}
-      label={label}
-      type={type}
-      size={size}
-    />
+    <></>
+    // <AppTextFieldBase
+    //   value={actualValue}
+    //   name={name}
+    //   label={label}
+    //   type={type}
+    //   size={size}
+    // />
   );
 
   // return (

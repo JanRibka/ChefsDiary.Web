@@ -8,8 +8,8 @@ export interface AppTextFieldProps extends InputBaseProps {
 
 const AppTextFieldBase = (props: AppTextFieldProps) => {
   return (
-    <div>
-      <label>
+    <div className="">
+      <label className="">
         <InputBase
           value={props.value ?? ""}
           name={props.name}
