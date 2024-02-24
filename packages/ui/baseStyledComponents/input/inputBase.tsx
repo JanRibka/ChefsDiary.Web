@@ -13,8 +13,8 @@ const InputBase = (props: InputBaseProps) => {
       name={props.name}
       type={props.type ?? "text"}
       placeholder={props.placeholder || " "}
-      // className="block w-full px-2 text-sm text-primary appearance-none bg-white border-solid border-gray-300 border-2"
-      className="block w-full mx-2"
+      //className="block w-full px-2.5 text-sm text-primary appearance-none bg-white border-solid border-gray-300 border-2"
+      className="block w-full px-2.5 text-sm text-primary appearance-none bg-white border-solid border-2 border-primary"
       onChange={() => {}}
     />
   );
