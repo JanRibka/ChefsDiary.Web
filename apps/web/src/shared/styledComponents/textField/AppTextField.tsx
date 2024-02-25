@@ -32,7 +32,8 @@ const AppTextField = (props: AppTextFieldProps) => {
           value={value}
           name={props.name}
           type={props.type ?? "text"}
-          placeholder=" "
+          placeholder={props.placeholder ?? " "}
+          autocomplete={props.autocomplete}
           onChange={handleOnChange}
           onBlur={props.onBlur}
         />
