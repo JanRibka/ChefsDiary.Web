@@ -1,9 +1,10 @@
+// TODO: Pro admina tu budou různé skupiny a každá skupina bude mít jinačí práva.
+
 enum UserRoleEnum {
   UNDEFINED = 0,
-  SUPER_ADMIN = 4820, // Má kompletní práva. Může měnit celý web
-  ADMIN = 5150, // Práva na kontrolu vložených receptů, atd..
-  EDITOR = 1984, // Přidávat recepty, atd...
-  USER = 2001, // V podstatě to není potřeba
+  ADMIN = 5150,
+  EDITOR = 1984,
+  USER = 2001,
 }
 
 export default UserRoleEnum;
