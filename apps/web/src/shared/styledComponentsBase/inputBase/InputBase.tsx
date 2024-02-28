@@ -19,7 +19,7 @@ const InputBase = (props: InputBaseProps) => {
       type={props.type ?? "text"}
       placeholder={props.placeholder || " "}
       autoComplete={props.autocomplete}
-      className="block w-full px-2.5 text-sm text-primary appearance-none bg-white border-solid border-gray-300 border-2"
+      className="block w-full px-2.5 text-sm text-primary appearance-none bg-white border-solid border-gray-300 border-1"
       onChange={props.onChange}
       onBlur={props.onBlur}
     />

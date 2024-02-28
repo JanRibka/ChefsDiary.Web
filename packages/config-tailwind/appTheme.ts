@@ -433,6 +433,18 @@ const radixThemePlugin = plugin.withOptions(
           [getRadiusTokenName(6, useTailwindRadiusNames)]: "var(--radius-6)",
           full: "99999px",
         },
+        borderWidth: {
+          "1": "1px",
+          "2": "2px",
+          "3": "3px",
+          "4": "4px",
+          "5": "5px",
+          "6": "6px",
+          "7": "7px",
+          "8": "8px",
+          "9": "9px",
+          "10": "10px",
+        },
         maxWidth: {
           main: "1140px",
         },
