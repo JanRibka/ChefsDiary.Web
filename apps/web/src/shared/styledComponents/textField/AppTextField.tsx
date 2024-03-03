@@ -10,7 +10,7 @@ import InputLabelBase, {
 export interface AppTextFieldProps
   extends InputBaseProps,
     Omit<InputLabelBaseProps, "children"> {
-  type?: "text" | "password" | "email" | "tel";
+  type?: "text" | "password" | "email" | "tel" | "search";
 }
 
 const AppTextField = (props: AppTextFieldProps) => {
