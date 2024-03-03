@@ -32,13 +32,13 @@ const InputBase = (props: InputBaseProps) => {
   switch (size) {
     case "small":
       if (variant === "filled") sizeClassName = " pb-1.5 pt-4";
-      else if (variant === "standard") sizeClassName = " py-2";
+      else if (variant === "standard") sizeClassName = " pb-1 pt-3";
       else sizeClassName = " pb-2 pt-2.5";
 
       break;
     default:
       if (variant === "filled") sizeClassName = " pb-2.5 pt-5";
-      else if (variant === "standard") sizeClassName = " py-2.5";
+      else if (variant === "standard") sizeClassName = " pb-1 pt-4";
       else sizeClassName = " pb-3 pt-3.5";
   }
 
