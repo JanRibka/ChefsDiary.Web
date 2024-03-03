@@ -1,12 +1,12 @@
 import Icon from "../icon/Icon";
 
-interface IProps {
+interface Props {
   title: string;
   href: string;
   icon: JSX.Element;
 }
 
-const ListItem = (props: IProps) => {
+const ListItem = (props: Props) => {
   return (
     <li className="mr-3 last-of-type:mr-0">
       <a

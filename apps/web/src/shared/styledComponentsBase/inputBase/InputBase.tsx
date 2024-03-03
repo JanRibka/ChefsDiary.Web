@@ -12,9 +12,11 @@ export interface InputBaseProps {
 }
 
 const InputBase = (props: InputBaseProps) => {
-  const XXXX = () => {
+  function XXXX() {
     return 2;
-  };
+  }
+
+  XXXX();
 
   return (
     <input

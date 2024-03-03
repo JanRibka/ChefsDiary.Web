@@ -1,8 +1,8 @@
-interface IProps {
+interface Props {
   children: JSX.Element;
 }
 
-const PageBase = (props: IProps) => {
+const PageBase = (props: Props) => {
   return <main>{props.children}</main>;
 };
 

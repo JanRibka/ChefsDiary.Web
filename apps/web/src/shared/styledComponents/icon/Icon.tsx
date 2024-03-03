@@ -1,10 +1,10 @@
 import { forwardRef } from "react";
 
-interface IProps {
+interface Props {
   icon: JSX.Element;
 }
 
-const Icon = forwardRef<HTMLDivElement, IProps>((props, ref) => {
+const Icon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { icon, ...restProps } = props;
 
   return (

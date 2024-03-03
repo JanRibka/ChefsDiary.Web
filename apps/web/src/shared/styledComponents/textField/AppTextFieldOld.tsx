@@ -15,9 +15,9 @@ import { forwardRef } from "react";
 //   onBlur: (e: ChangeEvent<HTMLInputElement>) => void;
 // }
 
-interface IProps {}
+interface Props {}
 
-const AppTextFieldOld = forwardRef<HTMLLabelElement, IProps>(() => {
+const AppTextFieldOld = forwardRef<HTMLLabelElement, Props>(() => {
   // Props
   // const {
   //   value,

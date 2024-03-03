@@ -20,30 +20,20 @@ module.exports = {
     camelcase: "error",
     "@typescript-eslint/naming-convention": [
       "error",
-      // {
-      //   selector: "variable",
-      //   format: ["camelCase", "UPPER_CASE"],
-      //   leadingUnderscore: "allow",
-      //   modifiers: ["exported"],
-      // },
-      // {
-      //   selector: "variable",
-      //   format: ["UPPER_CASE"],
-      //   leadingUnderscore: "forbid",
-      //   modifiers: ["global"],
-      // },
-      // {
-      //   selector: "function",
-      //   format: ["camelCase"],
-      //   leadingUnderscore: "forbid",
-      //   modifiers: ["exported"],
-      // },
-      // {
-      //   selector: ["typeMethod"],
-      //   format: ["camelCase"],
-      //   leadingUnderscore: "forbid",
-      //   modifiers: ["exported"],
-      // },
+      {
+        selector: "variable",
+        format: ["PascalCase", "camelCase"],
+        leadingUnderscore: "forbid",
+        modifiers: ["global"],
+      },
+      {
+        selector: "variable",
+        // format: ["camelCase", "UPPER_CASE", "PascalCase"],
+        format: ["UPPER_CASE"],
+        leadingUnderscore: "allow",
+        modifiers: ["const"],
+        // types: ["function"],
+      },
       {
         selector: "interface",
         format: ["PascalCase"],

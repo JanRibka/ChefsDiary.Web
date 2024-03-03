@@ -1,13 +1,13 @@
 import ListItem from "./ListItem";
 
-interface IProps {
+interface Props {
   facebookIcon: JSX.Element;
   instagramIcon: JSX.Element;
   tikTokIcon: JSX.Element;
   className?: string;
 }
 
-const SocialIcons = (props: IProps) => {
+const SocialIcons = (props: Props) => {
   return (
     <ul className={props.className}>
       <ListItem

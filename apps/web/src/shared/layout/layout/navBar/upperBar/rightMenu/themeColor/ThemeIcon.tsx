@@ -5,12 +5,12 @@ import { RxMoon } from "react-icons/rx";
 import { AppTheme } from "../../../../../../../app/store/theme/themeSlice";
 import Icon from "../../../../../../styledComponents/icon/Icon";
 
-interface IProps {
+interface Props {
   theme: AppTheme;
   handleOnClickIcon: () => void;
 }
 
-const ThemeIcon = (props: IProps) => {
+const ThemeIcon = (props: Props) => {
   if (props.theme === "light") {
     return <Icon icon={<IoSunnyOutline onClick={props.handleOnClickIcon} />} />;
   } else if (props.theme === "dark") {
