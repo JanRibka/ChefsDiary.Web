@@ -16,7 +16,7 @@ export interface InputBaseProps {
 }
 
 const InputBase = (props: InputBaseProps) => {
-  const { value, autocomplete, variant, size, ...restProps } = props;
+  const { value, placeholder, variant, size, ...restProps } = props;
 
   const variantClassName: string =
     variant === "filled"
@@ -48,7 +48,7 @@ const InputBase = (props: InputBaseProps) => {
   return (
     <input
       value={value as string | number}
-      autoComplete={autocomplete || " "}
+      placeholder={placeholder || " "}
       className={className}
       {...restProps}
     />
