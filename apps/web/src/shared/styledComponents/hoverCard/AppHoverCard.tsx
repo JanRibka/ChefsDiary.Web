@@ -1,13 +1,13 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 
-interface IProps {
+interface Props {
   trigger: JSX.Element;
   triggerClassName?: string;
   content: JSX.Element;
   contentClassName?: string;
 }
 // TODO: Dat shadow do default theme
-const AppHoverCard = (props: IProps) => {
+const AppHoverCard = (props: Props) => {
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild className={props.triggerClassName}>

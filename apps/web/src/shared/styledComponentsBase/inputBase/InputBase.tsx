@@ -12,6 +12,10 @@ export interface InputBaseProps {
 }
 
 const InputBase = (props: InputBaseProps) => {
+  const XXXX = () => {
+    return 2;
+  };
+
   return (
     <input
       value={props.value ?? ""}

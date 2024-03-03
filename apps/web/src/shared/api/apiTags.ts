@@ -1,7 +1,7 @@
 export type ApiTagsType = "";
 
-const ApiTags: Record<ApiTagsType, ApiTagsType> = {
+const apiTags: Record<ApiTagsType, ApiTagsType> = {
   "": "",
 };
 
-export default ApiTags;
+export default apiTags;

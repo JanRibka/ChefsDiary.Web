@@ -11,7 +11,7 @@ export interface ThemeState {
 export const initialState: ThemeState = {
   theme:
     (localStorage.getItem(
-      import.meta.env.VITE_THEME_STORAGE_KEY
+      import.meta.env.VITE_THEME_STORAGE_KEY,
     ) as AppTheme) || "light",
 };
 
@@ -38,7 +38,7 @@ export const themeSlice = createSlice({
 
       localStorage.setItem(
         import.meta.env.VITE_THEME_STORAGE_KEY,
-        action.payload
+        action.payload,
       );
 
       return {
