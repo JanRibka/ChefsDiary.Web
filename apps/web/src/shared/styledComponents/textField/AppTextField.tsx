@@ -30,22 +30,29 @@ const AppTextField = (props: AppTextFieldProps) => {
     setValue(value);
     props.onChange?.(e);
   };
-
+  //TODO: Pridat helper text
   return (
     <div className="relative">
       <InputBase
         id={id}
         value={value}
         name={props.name}
+        disable={props.disable}
         variant={props.variant}
         size={props.size}
         type={props.type ?? "text"}
         placeholder={props.placeholder}
-        autocomplete={props.autocomplete}
+        autoComplete={props.autoComplete}
         onChange={handleOnChange}
         onBlur={props.onBlur}
       />
-      <InputLabelBase htmlFor={id} label={props.label} />
+      <InputLabelBase
+        htmlFor={id}
+        label={props.label}
+        variant={props.variant}
+        size={props.size}
+        disable={props.disable}
+      />
     </div>
   );
 };
