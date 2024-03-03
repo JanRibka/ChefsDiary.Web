@@ -20,7 +20,7 @@ radixTheme.themeGrayColorsGrouped.map((group) => {
 export function getColorTokenName(
   number: RadixColorScales,
   useTailwindColorNames?: boolean,
-  alpha?: boolean,
+  alpha?: boolean
 ): number | string {
   const map: Record<number, number> = {
     1: 25,
@@ -47,7 +47,7 @@ export function getColorTokenName(
 export const getColorDefinitions = (
   color: string,
   alpha?: boolean,
-  useTailwindColorNames?: boolean,
+  useTailwindColorNames?: boolean
 ) => {
   const colors = Array.from(Array(radixColorScales).keys()).reduce(
     (acc, _, i) => {
@@ -55,12 +55,12 @@ export const getColorDefinitions = (
         getColorTokenName(
           (i + 1) as RadixColorScales,
           useTailwindColorNames,
-          alpha,
+          alpha
         )
       ] = `var(--${color}-${alpha ? "a" : ""}${i + 1})`;
       return acc;
     },
-    {} as Record<string, string>,
+    {} as Record<string, string>
   );
 
   if (!alpha) {
@@ -105,7 +105,7 @@ const radixRadiusToTailwindMap = {
 
 export function getRadiusTokenName(
   radius: keyof typeof radixRadiusToTailwindMap,
-  useTailwindColorNames?: boolean,
+  useTailwindColorNames?: boolean
 ): string | number {
   return useTailwindColorNames ? radixRadiusToTailwindMap[radius] : radius;
 }
@@ -434,16 +434,17 @@ const radixThemePlugin = plugin.withOptions(
           full: "99999px",
         },
         borderWidth: {
-          "1": "calc(1px * var(--scaling)",
-          "2": "calc(2px * var(--scaling)",
-          "3": "calc(3px * var(--scaling)",
-          "4": "calc(4px * var(--scaling)",
-          "5": "calc(5px * var(--scaling)",
-          "6": "calc(6px * var(--scaling)",
-          "7": "calc(7px * var(--scaling)",
-          "8": "calc(8px * var(--scaling)",
-          "9": "calc(9px * var(--scaling)",
-          "10": "calc(10px * var(--scaling)",
+          "0": "0px",
+          "1": "calc(1px * var(--scaling))",
+          "2": "calc(2px * var(--scaling))",
+          "3": "calc(3px * var(--scaling))",
+          "4": "calc(4px * var(--scaling))",
+          "5": "calc(5px * var(--scaling))",
+          "6": "calc(6px * var(--scaling))",
+          "7": "calc(7px * var(--scaling))",
+          "8": "calc(8px * var(--scaling))",
+          "9": "calc(9px * var(--scaling))",
+          "10": "calc(10px * var(--scaling))",
         },
         maxWidth: {
           main: "1140px",
@@ -513,7 +514,7 @@ const radixThemePlugin = plugin.withOptions(
         },
       },
     };
-  },
+  }
 );
 
 export default radixThemePlugin;

@@ -2,7 +2,8 @@
   "name": "@repo/shared",
   "version": "1.0.0",
   "exports": {
-    "./UserRoleEnum": "./enums/UserRoleEnum.ts"
+    "./UserRoleEnum": "./enums/UserRoleEnum.ts",
+    "./useUniqueId": "./hooks/useUniqueId.ts"
   },
   "license": "MIT",
   "scripts": {
@@ -11,8 +12,12 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@types/react": "^18.2.48",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0"
   }
 }

@@ -28,11 +28,14 @@ module.exports = {
       },
       {
         selector: "variable",
-        // format: ["camelCase", "UPPER_CASE", "PascalCase"],
-        format: ["UPPER_CASE"],
+        format: ["camelCase"],
         leadingUnderscore: "allow",
         modifiers: ["const"],
-        // types: ["function"],
+      },
+      {
+        selector: "function",
+        format: ["camelCase"],
+        leadingUnderscore: "forbid",
       },
       {
         selector: "interface",

@@ -9,6 +9,7 @@ const Home = () => {
         name="sdf"
         label="Email"
         size="small"
+        variant="filled"
         onBlur={() => {}}
       />
     </div>

@@ -1,5 +1,7 @@
 import { ChangeEvent, useState } from "react";
 
+import useUniqueId from "@repo/shared/useUniqueId";
+
 import InputBase, {
   InputBaseProps,
 } from "../../styledComponentsBase/inputBase/InputBase";
@@ -8,12 +10,16 @@ import InputLabelBase, {
 } from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
 
 export interface AppTextFieldProps
-  extends InputBaseProps,
-    Omit<InputLabelBaseProps, "children"> {
+  extends Omit<InputBaseProps, "id">,
+    Omit<InputLabelBaseProps, "htmlFor"> {
+  value?: string | null;
   type?: "text" | "password" | "email" | "tel" | "search";
 }
 
 const AppTextField = (props: AppTextFieldProps) => {
+  // Constants
+  const id = useUniqueId(props.name);
+
   // State
   const [value, setValue] = useState<string>(props.value ?? "");
 
@@ -26,18 +32,20 @@ const AppTextField = (props: AppTextFieldProps) => {
   };
 
   return (
-    <div className="">
-      <InputLabelBase label={props.label}>
-        <InputBase
-          value={value}
-          name={props.name}
-          type={props.type ?? "text"}
-          placeholder={props.placeholder}
-          autocomplete={props.autocomplete}
-          onChange={handleOnChange}
-          onBlur={props.onBlur}
-        />
-      </InputLabelBase>
+    <div className="relative">
+      <InputBase
+        id={id}
+        value={value ?? ""}
+        name={props.name}
+        variant={props.variant}
+        size={props.size}
+        type={props.type ?? "text"}
+        placeholder={props.placeholder}
+        autocomplete={props.autocomplete}
+        onChange={handleOnChange}
+        onBlur={props.onBlur}
+      />
+      <InputLabelBase htmlFor={id} label={props.label} />
     </div>
   );
 };
