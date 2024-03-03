@@ -35,7 +35,7 @@ const AppTextField = (props: AppTextFieldProps) => {
     <div className="relative">
       <InputBase
         id={id}
-        value={value ?? ""}
+        value={value}
         name={props.name}
         variant={props.variant}
         size={props.size}
