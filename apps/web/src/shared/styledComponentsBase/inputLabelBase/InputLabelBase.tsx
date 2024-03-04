@@ -8,9 +8,11 @@ export interface InputLabelBaseProps extends FieldBaseProps {
 }
 
 const InputLabelBase = (props: InputLabelBaseProps) => {
+  // Props
   const { label, htmlFor, variant, size, required, error, ...restProps } =
     props;
 
+  // Styles
   const variantClassName: string =
     variant === "filled"
       ? " start-2.5 peer-placeholder-shown:translate-y-0"

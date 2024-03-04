@@ -1,7 +1,14 @@
-import { ChangeEvent, FocusEvent, HTMLInputTypeAttribute } from "react";
+import {
+  ChangeEvent,
+  FocusEvent,
+  HTMLInputTypeAttribute,
+  useState,
+} from "react";
 
 import { FieldBaseProps } from "@repo/shared/interfaces";
 import { InputBaseSizeType } from "@repo/shared/types";
+
+import Icon from "../../styledComponents/icon/Icon";
 
 export interface InputBaseProps extends FieldBaseProps {
   id: string;
@@ -12,11 +19,14 @@ export interface InputBaseProps extends FieldBaseProps {
   autoComplete?: string;
   type?: HTMLInputTypeAttribute;
   size?: InputBaseSizeType;
+  endIcon?: JSX.Element;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
+  endIconOnClick?: () => void;
 }
 
 const InputBase = (props: InputBaseProps) => {
+  // Props
   const {
     value,
     disable,
@@ -25,9 +35,18 @@ const InputBase = (props: InputBaseProps) => {
     error,
     variant,
     size,
+    endIcon,
+    onChange,
+    endIconOnClick,
     ...restProps
   } = props;
 
+  // State
+  const [actualValue, setActualValue] = useState<string | number | undefined>(
+    value as string | number | undefined
+  );
+
+  // Styles
   const variantClassName: string =
     variant === "filled"
       ? " px-2.5 bg-gray-50 border-0 border-b-2 rounded-t-sm hover:bg-gray-100 disabled:bg-gray-200 focus:ring-0"
@@ -60,17 +79,36 @@ const InputBase = (props: InputBaseProps) => {
     sizeClassName +
     borderColorClassName;
 
+  // Other
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value: string = e.target.value;
+
+    setActualValue(value);
+    onChange?.(e);
+  };
+
   return (
-    <input
-      value={value as string | number | undefined}
-      placeholder={placeholder || " "}
-      disabled={disable}
-      aria-disabled={disable}
-      required={required}
-      aria-required={required}
-      className={className}
-      {...restProps}
-    />
+    <>
+      <input
+        value={actualValue}
+        placeholder={placeholder || " "}
+        disabled={disable}
+        aria-disabled={disable}
+        required={required}
+        aria-required={required}
+        onChange={handleOnChange}
+        className={className}
+        {...restProps}
+      />
+      {endIcon && (
+        <button
+          className="absolute end-0 pe-3 inset-y-0"
+          onClick={endIconOnClick}
+        >
+          <Icon icon={endIcon} />
+        </button>
+      )}
+    </>
   );
 };
 

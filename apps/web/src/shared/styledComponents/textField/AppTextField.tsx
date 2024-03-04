@@ -1,5 +1,3 @@
-import { ChangeEvent, useState } from "react";
-
 import { useUniqueId } from "@repo/shared/hooks";
 
 import HelperTextBase, {
@@ -24,24 +22,13 @@ const AppTextField = (props: AppTextFieldProps) => {
   // Constants
   const id = useUniqueId(props.name);
 
-  // State
-  const [value, setValue] = useState<string>(props.value ?? "");
-
-  // Other
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value: string = e.target.value;
-
-    setValue(value);
-    props.onChange?.(e);
-  };
-
   //TODO: ZKusit, co se všechno renderuje, když zapisuju do state na onchange a popř úředělat na signal
   return (
     <div>
       <div className="relative">
         <InputBase
           id={id}
-          value={value}
+          value={props.value ?? ""}
           name={props.name}
           disable={props.disable}
           variant={props.variant}
@@ -51,8 +38,10 @@ const AppTextField = (props: AppTextFieldProps) => {
           required={props.required}
           error={props.error}
           autoComplete={props.autoComplete}
-          onChange={handleOnChange}
+          endIcon={props.endIcon}
+          onChange={props.onChange}
           onBlur={props.onBlur}
+          endIconOnClick={props.endIconOnClick}
         />
         <InputLabelBase
           htmlFor={id}
