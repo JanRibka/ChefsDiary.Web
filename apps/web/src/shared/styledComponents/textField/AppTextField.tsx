@@ -33,6 +33,7 @@ const AppTextField = (props: AppTextFieldProps) => {
   //TODO: Pridat helper text
     //TODO: Pridat required
     //TODO: Pokud kliknu na input, bude border 2
+    //TODO: Pokud error, tak bude vše červené, krom textu
   return (
     <div className="relative">
       <InputBase
