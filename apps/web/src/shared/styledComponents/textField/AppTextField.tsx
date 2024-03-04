@@ -34,6 +34,7 @@ const AppTextField = (props: AppTextFieldProps) => {
     //TODO: Pridat required
     //TODO: Pokud kliknu na input, bude border 2
     //TODO: Pokud error, tak bude vše červené, krom textu
+  //TODO: ZKusit, co se všechno renderuje, když zapisuju do state na onchange a popř úředělat na signal
   return (
     <div className="relative">
       <InputBase
