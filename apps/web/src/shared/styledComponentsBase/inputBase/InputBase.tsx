@@ -49,7 +49,7 @@ const InputBase = (props: InputBaseProps) => {
 
   return (
     <input
-      value={value as string | number}
+      value={value as string | number | undefined}
       placeholder={placeholder || " "}
       className={className}
       disabled={disable}
