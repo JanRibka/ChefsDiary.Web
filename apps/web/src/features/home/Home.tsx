@@ -1,14 +1,15 @@
 import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 
+// TODO: ZKusit d8t do shared export do kazdeho dresare a exportovat indexy, jestli pujde exportovat adresarova struktura
 // TODO: Pokud zadám do prohlížeče nějakou stránku a přesměruje mě to na přihlášení, tak po přihlášení mě to musí vrátit tam, kde jsem chtěl původně jít
 const Home = () => {
   return (
     <div className="mx-2">
       <AppTextField
         name="sdf"
-        size="small"
-        variant="standard"
+        variant="outlined"
         label="Email"
+        helperText="kjhgj"
         onBlur={() => {}}
       />
     </div>

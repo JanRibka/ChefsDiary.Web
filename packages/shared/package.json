@@ -2,8 +2,10 @@
   "name": "@repo/shared",
   "version": "1.0.0",
   "exports": {
-    "./UserRoleEnum": "./enums/UserRoleEnum.ts",
-    "./useUniqueId": "./hooks/useUniqueId.ts"
+    "./enums": "./enums/index.ts",
+    "./hooks": "./hooks/index.ts",
+    "./interfaces": "./interfaces/index.ts",
+    "./types": "./types/index.ts"
   },
   "license": "MIT",
   "scripts": {

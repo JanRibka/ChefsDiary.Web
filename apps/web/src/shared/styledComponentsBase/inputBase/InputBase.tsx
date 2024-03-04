@@ -1,9 +1,9 @@
 import { ChangeEvent, FocusEvent, HTMLInputTypeAttribute } from "react";
 
-export type InputBaseSizeType = "small" | "normal";
-export type InputBaseVariantType = "outlined" | "filled" | "standard";
+import { FieldBaseProps } from "@repo/shared/interfaces";
+import { InputBaseSizeType } from "@repo/shared/types";
 
-export interface InputBaseProps {
+export interface InputBaseProps extends FieldBaseProps {
   id: string;
   value?: string | number | null;
   name: string;
@@ -11,21 +11,29 @@ export interface InputBaseProps {
   placeholder?: string;
   autoComplete?: string;
   type?: HTMLInputTypeAttribute;
-  variant?: InputBaseVariantType;
   size?: InputBaseSizeType;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
 }
 
 const InputBase = (props: InputBaseProps) => {
-  const { value, disable, placeholder, variant, size, ...restProps } = props;
+  const {
+    value,
+    disable,
+    placeholder,
+    required,
+    error,
+    variant,
+    size,
+    ...restProps
+  } = props;
 
   const variantClassName: string =
     variant === "filled"
-      ? " px-2.5 bg-gray-50 border-0 border-b-2 rounded-t-sm hover:bg-gray-100"
+      ? " px-2.5 bg-gray-50 border-0 border-b-2 rounded-t-sm hover:bg-gray-100 disabled:bg-gray-200 focus:ring-0"
       : variant === "standard"
-        ? " px-0 bg-transparent border-0 border-b-2"
-        : " px-2.5 bg-transparent rounded-sm border-1";
+        ? " px-0 bg-transparent border-0 border-b-2 focus:ring-0"
+        : " px-2.5 bg-transparent rounded-sm border-1 focus:ring-1";
 
   let sizeClassName: string = "";
 
@@ -42,18 +50,25 @@ const InputBase = (props: InputBaseProps) => {
       else sizeClassName = " pb-3 pt-3.5";
   }
 
+  const borderColorClassName: string = error
+    ? " border-error ring-error"
+    : " border-gray-500 hover:border-black disabled:hover:border-gray-500 focus:border-primary ring-primary";
+
   const className: string =
-    "block w-full text-sm text-gray-950 border-gray-500 appearance-none peer hover:border-black focus:outline-none focus:ring-0 focus:border-primary " +
+    "block w-full text-sm text-gray-950 appearance-none peer disabled:text-gray-700 focus:outline-none" +
     variantClassName +
-    sizeClassName;
+    sizeClassName +
+    borderColorClassName;
 
   return (
     <input
       value={value as string | number | undefined}
       placeholder={placeholder || " "}
-      className={className}
       disabled={disable}
       aria-disabled={disable}
+      required={required}
+      aria-required={required}
+      className={className}
       {...restProps}
     />
   );

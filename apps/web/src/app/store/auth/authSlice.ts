@@ -1,7 +1,7 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import UserRoleEnum from "@repo/shared/UserRoleEnum";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { UserRoleEnum } from '@repo/shared/enums';
 
-import { RootState } from "../store";
+import { RootState } from '../store';
 
 export interface AuthState {
   idUser: number;

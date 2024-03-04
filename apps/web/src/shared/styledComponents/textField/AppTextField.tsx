@@ -1,7 +1,10 @@
 import { ChangeEvent, useState } from "react";
 
-import useUniqueId from "@repo/shared/useUniqueId";
+import { useUniqueId } from "@repo/shared/hooks";
 
+import HelperTextBase, {
+  HelperTextBaseProps,
+} from "../../styledComponentsBase/helperTextBase/HelperTextBase";
 import InputBase, {
   InputBaseProps,
 } from "../../styledComponentsBase/inputBase/InputBase";
@@ -11,7 +14,8 @@ import InputLabelBase, {
 
 export interface AppTextFieldProps
   extends Omit<InputBaseProps, "id">,
-    Omit<InputLabelBaseProps, "htmlFor"> {
+    Omit<InputLabelBaseProps, "htmlFor">,
+    HelperTextBaseProps {
   value?: string | null;
   type?: "text" | "password" | "email" | "tel" | "search";
 }
@@ -30,33 +34,36 @@ const AppTextField = (props: AppTextFieldProps) => {
     setValue(value);
     props.onChange?.(e);
   };
-  //TODO: Pridat helper text
-    //TODO: Pridat required
-    //TODO: Pokud kliknu na input, bude border 2
-    //TODO: Pokud error, tak bude vše červené, krom textu
+
   //TODO: ZKusit, co se všechno renderuje, když zapisuju do state na onchange a popř úředělat na signal
   return (
-    <div className="relative">
-      <InputBase
-        id={id}
-        value={value}
-        name={props.name}
-        disable={props.disable}
-        variant={props.variant}
-        size={props.size}
-        type={props.type ?? "text"}
-        placeholder={props.placeholder}
-        autoComplete={props.autoComplete}
-        onChange={handleOnChange}
-        onBlur={props.onBlur}
-      />
-      <InputLabelBase
-        htmlFor={id}
-        label={props.label}
-        variant={props.variant}
-        size={props.size}
-        disable={props.disable}
-      />
+    <div>
+      <div className="relative">
+        <InputBase
+          id={id}
+          value={value}
+          name={props.name}
+          disable={props.disable}
+          variant={props.variant}
+          size={props.size}
+          type={props.type ?? "text"}
+          placeholder={props.placeholder}
+          required={props.required}
+          error={props.error}
+          autoComplete={props.autoComplete}
+          onChange={handleOnChange}
+          onBlur={props.onBlur}
+        />
+        <InputLabelBase
+          htmlFor={id}
+          label={props.label}
+          variant={props.variant}
+          size={props.size}
+          required={props.required}
+          error={props.error}
+        />
+      </div>
+      <HelperTextBase helperText={props.helperText} error={props.error} />
     </div>
   );
 };

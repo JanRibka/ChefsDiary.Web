@@ -1,18 +1,15 @@
-import {
-  InputBaseSizeType,
-  InputBaseVariantType,
-} from "../inputBase/InputBase";
+import { FieldBaseProps } from "@repo/shared/interfaces";
+import { InputBaseSizeType } from "@repo/shared/types";
 
-export interface InputLabelBaseProps {
+export interface InputLabelBaseProps extends FieldBaseProps {
   label: string;
   htmlFor: string;
-  variant?: InputBaseVariantType;
   size?: InputBaseSizeType;
-  disable?: boolean;
 }
 
 const InputLabelBase = (props: InputLabelBaseProps) => {
-  const { label, htmlFor, variant, size, disable, ...restProps } = props;
+  const { label, htmlFor, variant, size, required, error, ...restProps } =
+    props;
 
   const variantClassName: string =
     variant === "filled"
@@ -42,18 +39,24 @@ const InputLabelBase = (props: InputLabelBaseProps) => {
           " -translate-y-4 top-1.5 peer-focus:top-1.5 peer-focus:-translate-y-4";
   }
 
+  const colorClassName: string = error
+    ? " text-error"
+    : " text-gray-700 peer-focus:text-primary";
+
   const className: string =
-    "absolute text-sm text-gray-700 duration-300 transform scale-75 origin-[0] z-10 peer-placeholder-shown:scale-100 peer-focus:scale-75 peer-focus:text-primary" +
+    "absolute text-sm duration-300 transform scale-75 origin-[0] z-10 peer-placeholder-shown:scale-100 peer-focus:scale-75" +
     variantClassName +
-    sizeClassName;
+    sizeClassName +
+    colorClassName;
+
   return (
     <label
       htmlFor={htmlFor}
-      aria-disabled={disable}
+      aria-required={required}
       className={className}
       {...restProps}
     >
-      {label}
+      {label + (required ? " *" : "")}
     </label>
   );
 };
