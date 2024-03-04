@@ -22,7 +22,6 @@ const AppTextField = (props: AppTextFieldProps) => {
   // Constants
   const id = useUniqueId(props.name);
 
-  //TODO: ZKusit, co se všechno renderuje, když zapisuju do state na onchange a popř úředělat na signal
   return (
     <div>
       <div className="relative">
