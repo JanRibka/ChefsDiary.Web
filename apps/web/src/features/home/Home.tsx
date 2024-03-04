@@ -9,7 +9,6 @@ const Home = () => {
         name="sdf"
         variant="outlined"
         label="Email"
-        helperText="kjhgj"
         onBlur={() => {}}
       />
     </div>
