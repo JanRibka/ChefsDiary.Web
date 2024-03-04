@@ -32,6 +32,7 @@ const AppTextField = (props: AppTextFieldProps) => {
   };
   //TODO: Pridat helper text
     //TODO: Pridat required
+    //TODO: Pokud kliknu na input, bude border 2
   return (
     <div className="relative">
       <InputBase
