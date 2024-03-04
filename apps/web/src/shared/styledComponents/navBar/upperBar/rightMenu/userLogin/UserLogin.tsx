@@ -1,7 +1,7 @@
 import { FaRegCircleUser } from "react-icons/fa6";
 
-import AppHoverCard from "../../../../../../styledComponents/hoverCard/AppHoverCard";
-import Icon from "../../../../../../styledComponents/icon/Icon";
+import AppHoverCard from "../../../../hoverCard/AppHoverCard";
+import Icon from "../../../../icon/Icon";
 
 const UserLogin = () => {
   return (

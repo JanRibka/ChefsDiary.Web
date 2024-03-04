@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "exports": {
     "./enums": "./enums/index.ts",
+    "./helpers": "./helpers/index.ts",
     "./hooks": "./hooks/index.ts",
     "./interfaces": "./interfaces/index.ts",
     "./types": "./types/index.ts"

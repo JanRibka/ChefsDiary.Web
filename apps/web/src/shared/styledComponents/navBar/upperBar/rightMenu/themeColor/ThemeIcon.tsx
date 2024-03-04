@@ -2,8 +2,8 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { MdComputer } from "react-icons/md";
 import { RxMoon } from "react-icons/rx";
 
-import { AppTheme } from "../../../../../../../app/store/theme/themeSlice";
-import Icon from "../../../../../../styledComponents/icon/Icon";
+import { AppTheme } from "../../../../../../app/store/theme/themeSlice";
+import Icon from "../../../../icon/Icon";
 
 interface Props {
   theme: AppTheme;

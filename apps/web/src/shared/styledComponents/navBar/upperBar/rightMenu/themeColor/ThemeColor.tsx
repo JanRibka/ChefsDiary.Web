@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import {
   AppTheme,
   selectTheme,
-} from "../../../../../../../app/store/theme/themeSlice";
-import { useThemeSlice } from "../../../../../../../app/store/theme/useThemeSlice";
+} from "../../../../../../app/store/theme/themeSlice";
+import { useThemeSlice } from "../../../../../../app/store/theme/useThemeSlice";
 import ThemeIcon from "./ThemeIcon";
 
 const ThemeColor = () => {

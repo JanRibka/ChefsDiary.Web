@@ -1,6 +1,6 @@
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa";
 
-import SocialIcons from "../../../../styledComponents/socialIcons/SocialIcons";
+import SocialIcons from "../../socialIcons/SocialIcons";
 import MainMenu from "./mainMenu/MainMenu";
 import RightMenu from "./rightMenu/RightMenu";
 

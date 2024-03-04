@@ -1,6 +1,7 @@
 import {
   ChangeEvent,
   FocusEvent,
+  forwardRef,
   HTMLInputTypeAttribute,
   useState,
 } from "react";
@@ -25,7 +26,7 @@ export interface InputBaseProps extends FieldBaseProps {
   endIconOnClick?: () => void;
 }
 
-const InputBase = (props: InputBaseProps) => {
+const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
   // Props
   const {
     value,
@@ -90,6 +91,7 @@ const InputBase = (props: InputBaseProps) => {
   return (
     <>
       <input
+        ref={ref}
         value={actualValue}
         placeholder={placeholder || " "}
         disabled={disable}
@@ -110,6 +112,6 @@ const InputBase = (props: InputBaseProps) => {
       )}
     </>
   );
-};
+});
 
 export default InputBase;

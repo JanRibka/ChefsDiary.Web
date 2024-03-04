@@ -1,4 +1,4 @@
-import NavLinksMainMenu from "../../../../../navLinks/NavLinksMainMenu";
+import NavLinksMainMenu from "../../../../navLinks/NavLinksMainMenu";
 
 const MainMenu = () => {
   return (

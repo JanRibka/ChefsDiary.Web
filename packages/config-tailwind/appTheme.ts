@@ -485,6 +485,9 @@ const radixThemePlugin = plugin.withOptions(
           ...mauve,
           dark: {},
         },
+        container: {
+          center: true,
+        },
         extend: {
           keyframes: {
             slideUpAndFade: {

@@ -1,6 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 
-import Icon from "../../../../../../styledComponents/icon/Icon";
+import Icon from "../../../../icon/Icon";
 
 const Search = () => {
   return <Icon icon={<FaSearch />} />;
