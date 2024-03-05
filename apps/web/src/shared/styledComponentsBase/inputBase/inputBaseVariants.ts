@@ -18,8 +18,8 @@ export const inputBaseVariants = cva(
         standard: "px-0 bg-transparent border-0 border-b-2 focus:ring-0",
         outlined: "px-2.5 bg-transparent border-1 focus:ring-1",
       },
-      radius: { none: "", normal: "", large: "", full: "" },
       size: { small: "", normal: "" },
+      radius: { none: "", normal: "", large: "", full: "" },
     },
     compoundVariants: [
       { size: "small", variant: "filled", class: "pb-1.5 pt-4" },
