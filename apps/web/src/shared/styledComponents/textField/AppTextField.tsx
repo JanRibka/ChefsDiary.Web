@@ -26,7 +26,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
     const id = useUniqueId(props.name);
 
     return (
-      <div>
+      <div className={props.className}>
         <div className="relative">
           <InputBase
             ref={ref}

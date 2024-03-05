@@ -1,4 +1,7 @@
+import { mergeStyles } from "@repo/shared/helpers";
 import { FieldBaseProps } from "@repo/shared/interfaces";
+
+import { helperTextVariants } from "./helperTextBaseVariants";
 
 export interface HelperTextBaseProps extends FieldBaseProps {
   helperText?: string;
@@ -7,9 +10,16 @@ export interface HelperTextBaseProps extends FieldBaseProps {
 const HelperTextBase = (props: HelperTextBaseProps) => {
   if (!props.helperText) return undefined;
 
-  const colorClassName: string = props.error ? " text-error" : " text-gray-700";
-
-  return <p className={"text-xs mt-1" + colorClassName}>{props.helperText}</p>;
+  return (
+    <p
+      className={mergeStyles(
+        helperTextVariants({ error: props.error }),
+        props.className
+      )}
+    >
+      {props.helperText}
+    </p>
+  );
 };
 
 export default HelperTextBase;

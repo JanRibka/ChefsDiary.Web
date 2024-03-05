@@ -6,10 +6,12 @@ import {
   useState,
 } from "react";
 
+import { mergeStyles } from "@repo/shared/helpers";
 import { FieldBaseProps } from "@repo/shared/interfaces";
 import { InputBaseSizeType } from "@repo/shared/types";
 
 import Icon from "../../styledComponents/icon/Icon";
+import { inputBaseVariants } from "./inputBaseVariants";
 
 export interface InputBaseProps extends FieldBaseProps {
   id: string;
@@ -37,6 +39,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
     variant,
     size,
     endIcon,
+    className,
     onChange,
     endIconOnClick,
     ...restProps
@@ -46,39 +49,6 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
   const [actualValue, setActualValue] = useState<string | number | undefined>(
     value as string | number | undefined
   );
-
-  // Styles
-  const variantClassName: string =
-    variant === "filled"
-      ? " px-2.5 bg-gray-50 border-0 border-b-2 rounded-t-sm hover:bg-gray-100 disabled:bg-gray-200 focus:ring-0"
-      : variant === "standard"
-        ? " px-0 bg-transparent border-0 border-b-2 focus:ring-0"
-        : " px-2.5 bg-transparent rounded-sm border-1 focus:ring-1";
-
-  let sizeClassName: string = "";
-
-  switch (size) {
-    case "small":
-      if (variant === "filled") sizeClassName = " pb-1.5 pt-4";
-      else if (variant === "standard") sizeClassName = " pb-1 pt-3";
-      else sizeClassName = " pb-2 pt-2.5";
-
-      break;
-    default:
-      if (variant === "filled") sizeClassName = " pb-2.5 pt-5";
-      else if (variant === "standard") sizeClassName = " pb-1 pt-4";
-      else sizeClassName = " pb-3 pt-3.5";
-  }
-
-  const borderColorClassName: string = error
-    ? " border-error ring-error"
-    : " border-gray-500 hover:border-black disabled:hover:border-gray-500 focus:border-primary ring-primary";
-
-  const className: string =
-    "block w-full text-sm text-gray-950 appearance-none peer disabled:text-gray-700 focus:outline-none" +
-    variantClassName +
-    sizeClassName +
-    borderColorClassName;
 
   // Other
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -99,7 +69,10 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         required={required}
         aria-required={required}
         onChange={handleOnChange}
-        className={className}
+        className={mergeStyles(
+          inputBaseVariants({ error: error, size: size, variant: variant }),
+          className
+        )}
         {...restProps}
       />
       {endIcon && (
