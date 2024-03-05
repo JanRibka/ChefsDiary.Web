@@ -8,7 +8,7 @@ import AppTextField from "../../../../shared/styledComponents/textField/AppTextF
 
 const LoginForm = () => {
   // References
-  const refLogin = useRef<HTMLInputElement>(null);
+  // const refLogin = useRef<HTMLInputElement>(null);
 
   // Constants
 
@@ -27,7 +27,6 @@ const LoginForm = () => {
       </Heading>
       <form action={handleAction}>
         <AppTextField
-          ref={refLogin}
           name="login"
           label="Uživatelské jméno"
           onBlur={() => {}}
@@ -45,7 +44,7 @@ const SubmitButton = () => {
   const isLoading = data.pending;
 
   // TODO: dat do shared
-  return <button disabled={isLoading}></button>;
+  return <button disabled={isLoading}>Submit</button>;
 };
 
 export default LoginForm;

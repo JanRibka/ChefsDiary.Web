@@ -446,9 +446,6 @@ const radixThemePlugin = plugin.withOptions(
           "9": "calc(9px * var(--scaling))",
           "10": "calc(10px * var(--scaling))",
         },
-        maxWidth: {
-          main: "1140px",
-        },
         colors: {
           error: "rgb(204, 0, 0)",
           primary: {

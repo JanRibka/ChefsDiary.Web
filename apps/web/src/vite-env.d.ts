@@ -3,6 +3,7 @@
 /// <reference types="react-dom/experimental" />
 
 interface ImportMetaEnv {
+  readonly VITE_APP_NAME: string;
   readonly VITE_ENABLE_DEVTOOLS: string;
   readonly VITE_ROBOTS: string;
   readonly VITE_API_BASE_URL: string;
