@@ -4,14 +4,10 @@ import logo from "../img/logo-light.png";
 const LayoutLoginInfoDetail = () => {
   // TODO: Tady se bude na49tat dodatecne info, podle videa router. Je to n2kde na konci
   return (
-    <div className="z-2 w-full h-full flex flex-col">
-      <div className="flex">
-        <div className="mx-5">
-          <div className="my-5 lg:mb-0">
-            {/* // <div className="z-2 relative mx-auto flex flex-col h-full w-full box-border gap-0">
-    //   <div className="gap-0 flex flex-wrap">
-    //     <div className="mx-auto columns-11 lg:columns-10 w-full max-w-full px-3">
-    //       <div className="my-10 box-border"> */}
+    <div className="z-2 w-full h-full flex flex-col relative">
+      <div className="flex w-full">
+        <div className="mx-5 w-full">
+          <div className="my-10 lg:mb-0 w-fit">
             <a
               href={import.meta.env.BASE_URL}
               title={import.meta.env.VITE_APP_NAME}
@@ -25,7 +21,15 @@ const LayoutLoginInfoDetail = () => {
           </div>
         </div>
       </div>
-      <div className="z-0">V9tejte</div>
+      <div className="z-0">
+        <div className="mx-5">
+          <h1 className="text-white mb-6">Vítejte zpět!</h1>
+          <em className="text-white tracking-wider ">
+            Získejte přístup k vaším receptům, jídelníčkům a vytvářejte nákupní
+            seznamy
+          </em>
+        </div>
+      </div>
     </div>
   );
 };

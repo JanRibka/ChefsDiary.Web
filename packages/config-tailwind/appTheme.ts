@@ -132,69 +132,69 @@ const radixThemePlugin = plugin.withOptions(
           "-webkit-font-smoothing": "antialiased",
           "-moz-osx-font-smoothing": "grayscale",
         },
-        // em: {
-        //   fontFamily: "var(--em-font-family)",
-        //   fontWeight: "var(--em-font-weight)",
-        //   fontSize: "calc(var(--em-font-size-adjust) * 1em)",
-        //   fontStyle: "var(--em-font-style)",
-        //   lineHeight: "1.25",
-        //   letterSpacing:
-        //     "calc(var(--em-letter-spacing) + var(--letter-spacing, var(--default-letter-spacing)))",
-        // },
-        // h6: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-4) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-4) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-4)",
-        // },
-        // h5: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-5) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-5) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-5)",
-        // },
-        // h4: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-6) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-6) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-6)",
-        // },
-        // h3: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-7) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-7) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-7)",
-        // },
-        // h2: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-8) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-8) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-8)",
-        // },
-        // h1: {
-        //   fontFamily: "var(--heading-font-family)",
-        //   fontWeight: "var(--font-weight-bold)",
-        //   fontSize:
-        //     "calc(var(--font-size-9) * var(--heading-font-size-adjust))",
-        //   letterSpacing:
-        //     "calc(var(--letter-spacing-9) + var(--heading-letter-spacing))",
-        //   lineHeight: "var(--heading-line-height-9)",
-        // },
+        em: {
+          fontFamily: "var(--em-font-family)",
+          fontWeight: "var(--em-font-weight)",
+          fontSize: "calc(var(--em-font-size-adjust) * 1em)",
+          fontStyle: "var(--em-font-style)",
+          lineHeight: "1.25",
+          letterSpacing:
+            "calc(var(--em-letter-spacing) + var(--letter-spacing, var(--default-letter-spacing)))",
+        },
+        h6: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-4) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-4) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-4)",
+        },
+        h5: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-5) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-5) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-5)",
+        },
+        h4: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-6) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-6) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-6)",
+        },
+        h3: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-7) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-7) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-7)",
+        },
+        h2: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-8) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-8) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-8)",
+        },
+        h1: {
+          fontFamily: "var(--heading-font-family)",
+          fontWeight: "var(--font-weight-bold)",
+          fontSize:
+            "calc(var(--font-size-9) * var(--heading-font-size-adjust))",
+          letterSpacing:
+            "calc(var(--letter-spacing-9) + var(--heading-letter-spacing))",
+          lineHeight: "var(--heading-line-height-9)",
+        },
       });
     };
   },
@@ -349,14 +349,14 @@ const radixThemePlugin = plugin.withOptions(
           relaxed: "1.625",
           loose: "2",
         },
-        // fontFamily: {
-        //   sans: "var(--default-font-family)",
-        //   strong: "var(--strong-font-family)",
-        //   heading: "var(--heading-font-family)",
-        //   code: "var(--code-font-family)",
-        //   em: "var(--em-font-family)",
-        //   quote: "var(--quote-font-family)",
-        // },
+        fontFamily: {
+          sans: "var(--default-font-family)",
+          strong: "var(--strong-font-family)",
+          heading: "var(--heading-font-family)",
+          code: "var(--code-font-family)",
+          em: "var(--em-font-family)",
+          quote: "var(--quote-font-family)",
+        },
         letterSpacing: {
           1: "var(--letter-spacing-1)",
           2: "var(--letter-spacing-2)",

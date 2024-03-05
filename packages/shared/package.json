@@ -16,8 +16,10 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@types/react": "^18.2.48",
+    "clsx": "^2.1.0",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "tailwind-merge": "^2.2.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
