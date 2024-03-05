@@ -5,7 +5,7 @@ import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 const Home = () => {
   return (
     <div className="mx-2">
-      <AppTextField name="sdf" label="Email" onBlur={() => {}} />
+      <AppTextField name="sdf" label="Email" radius="full" onBlur={() => {}} />
 
       <AppPasswordField name="password" label="Heslo" onBlur={() => {}} />
     </div>

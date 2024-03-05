@@ -16,8 +16,9 @@ export const inputBaseVariants = cva(
         filled:
           "px-2.5 bg-gray-50 border-0 border-b-2 rounded-t-sm hover:bg-gray-100 disabled:bg-gray-200 focus:ring-0",
         standard: "px-0 bg-transparent border-0 border-b-2 focus:ring-0",
-        outlined: "px-2.5 bg-transparent rounded-sm border-1 focus:ring-1",
+        outlined: "px-2.5 bg-transparent border-1 focus:ring-1",
       },
+      radius: { none: "", normal: "", large: "", full: "" },
       size: { small: "", normal: "" },
     },
     compoundVariants: [
@@ -27,7 +28,11 @@ export const inputBaseVariants = cva(
       { size: "normal", variant: "filled", class: "pb-2.5 pt-5" },
       { size: "normal", variant: "standard", class: "pb-1 pt-4" },
       { size: "normal", variant: "outlined", class: "pb-3 pt-3.5" },
+      { variant: "outlined", radius: "none", class: "rounded-none" },
+      { variant: "outlined", radius: "normal", class: "rounded-sm" },
+      { variant: "outlined", radius: "large", class: "rounded-lg" },
+      { variant: "outlined", radius: "full", class: "rounded-full" },
     ],
-    defaultVariants: { variant: "outlined", size: "normal" },
+    defaultVariants: { variant: "outlined", size: "normal", radius: "normal" },
   }
 );

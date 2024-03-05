@@ -37,6 +37,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
             variant={props.variant}
             size={props.size}
             type={props.type ?? "text"}
+            radius={props.radius}
             placeholder={props.placeholder}
             required={props.required}
             error={props.error}

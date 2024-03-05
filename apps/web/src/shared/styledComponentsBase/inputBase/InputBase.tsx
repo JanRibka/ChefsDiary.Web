@@ -8,7 +8,7 @@ import {
 
 import { mergeStyles } from "@repo/shared/helpers";
 import { FieldBaseProps } from "@repo/shared/interfaces";
-import { InputBaseSizeType } from "@repo/shared/types";
+import { InputBaseSizeType, RadiusType } from "@repo/shared/types";
 
 import Icon from "../../styledComponents/icon/Icon";
 import { inputBaseVariants } from "./inputBaseVariants";
@@ -22,6 +22,7 @@ export interface InputBaseProps extends FieldBaseProps {
   autoComplete?: string;
   type?: HTMLInputTypeAttribute;
   size?: InputBaseSizeType;
+  radius?: RadiusType;
   endIcon?: JSX.Element;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
@@ -38,6 +39,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
     error,
     variant,
     size,
+    radius,
     endIcon,
     className,
     onChange,
@@ -70,7 +72,12 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         aria-required={required}
         onChange={handleOnChange}
         className={mergeStyles(
-          inputBaseVariants({ error: error, size: size, variant: variant }),
+          inputBaseVariants({
+            error: error,
+            size: size,
+            variant: variant,
+            radius: radius,
+          }),
           className
         )}
         {...restProps}
