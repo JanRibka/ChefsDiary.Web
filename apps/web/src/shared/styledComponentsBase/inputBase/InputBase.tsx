@@ -1,33 +1,10 @@
-import {
-  ChangeEvent,
-  FocusEvent,
-  forwardRef,
-  HTMLInputTypeAttribute,
-  useState,
-} from "react";
+import { ChangeEvent, forwardRef, useState } from "react";
 
 import { mergeStyles } from "@repo/shared/helpers";
-import { FieldBaseProps } from "@repo/shared/interfaces";
-import { InputBaseSizeType, RadiusType } from "@repo/shared/types";
+import { InputBaseProps } from "@repo/shared/interfaces";
 
 import Icon from "../../styledComponents/icon/Icon";
 import { inputBaseVariants } from "./inputBaseVariants";
-
-export interface InputBaseProps extends FieldBaseProps {
-  id: string;
-  value?: string | number | null;
-  name: string;
-  disable?: boolean;
-  placeholder?: string;
-  autoComplete?: string;
-  type?: HTMLInputTypeAttribute;
-  size?: InputBaseSizeType;
-  radius?: RadiusType;
-  endIcon?: JSX.Element;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
-  endIconOnClick?: () => void;
-}
 
 const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
   // Props

@@ -1,16 +1,15 @@
 import { forwardRef } from "react";
 
 import { useUniqueId } from "@repo/shared/hooks";
-
-import HelperTextBase, {
+import {
   HelperTextBaseProps,
-} from "../../styledComponentsBase/helperTextBase/HelperTextBase";
-import InputBase, {
   InputBaseProps,
-} from "../../styledComponentsBase/inputBase/InputBase";
-import InputLabelBase, {
   InputLabelBaseProps,
-} from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+} from "@repo/shared/interfaces";
+
+import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
+import InputBase from "../../styledComponentsBase/inputBase/InputBase";
+import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
 
 export interface AppTextFieldProps
   extends Omit<InputBaseProps, "id">,
@@ -43,6 +42,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
             error={props.error}
             autoComplete={props.autoComplete}
             endIcon={props.endIcon}
+            tabIndex={props.tabIndex}
             onChange={props.onChange}
             onBlur={props.onBlur}
             endIconOnClick={props.endIconOnClick}

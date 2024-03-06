@@ -2,16 +2,15 @@ import { forwardRef, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import { useUniqueId } from "@repo/shared/hooks";
-
-import HelperTextBase, {
+import {
   HelperTextBaseProps,
-} from "../../styledComponentsBase/helperTextBase/HelperTextBase";
-import InputBase, {
   InputBaseProps,
-} from "../../styledComponentsBase/inputBase/InputBase";
-import InputLabelBase, {
   InputLabelBaseProps,
-} from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+} from "@repo/shared/interfaces";
+
+import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
+import InputBase from "../../styledComponentsBase/inputBase/InputBase";
+import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
 
 export interface AppPasswordProps
   extends Omit<InputBaseProps, "id" | "endIcon" | "type">,
@@ -34,7 +33,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordProps>(
     };
 
     return (
-      <div>
+      <div className={props.className}>
         <div className="relative">
           <InputBase
             ref={ref}
@@ -49,6 +48,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordProps>(
             required={props.required}
             error={props.error}
             autoComplete={props.autoComplete}
+            tabIndex={props.tabIndex}
             endIcon={showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
             onChange={props.onChange}
             onBlur={props.onBlur}
