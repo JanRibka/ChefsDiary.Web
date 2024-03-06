@@ -1,7 +1,7 @@
 import { ChangeEvent, FocusEvent } from "react";
 
 import { InputBaseSizeType } from "../../types";
-import FieldBaseProps from "./FieldBaseProps";
+import FieldBaseProps from "../fieldBaseProps/FieldBaseProps";
 
 interface InputBaseProps extends FieldBaseProps {
   size?: InputBaseSizeType;

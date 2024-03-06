@@ -1,4 +1,4 @@
-import FieldLabelBaseProps from "./FieldLabelBaseProps";
+import FieldLabelBaseProps from "../fieldLabelBaseProps/FieldLabelBaseProps";
 
 interface InputLabelBaseProps extends FieldLabelBaseProps {}
 
