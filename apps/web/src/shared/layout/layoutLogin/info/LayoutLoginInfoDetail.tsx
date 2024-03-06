@@ -25,8 +25,8 @@ const LayoutLoginInfoDetail = () => {
         <div className="mx-5">
           <h1 className="text-white mb-6">Vítejte zpět!</h1>
           <em className="text-white tracking-wider ">
-            Získejte přístup k vaším receptům, jídelníčkům a vytvářejte nákupní
-            seznamy
+            Získejte přístup k vašim receptům, jídelníčkům a vytváření nákupních
+            seznamů
           </em>
         </div>
       </div>
