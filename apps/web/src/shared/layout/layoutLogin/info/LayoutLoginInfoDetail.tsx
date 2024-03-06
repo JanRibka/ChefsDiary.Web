@@ -7,7 +7,7 @@ const LayoutLoginInfoDetail = () => {
     <div className="z-2 w-full h-full flex flex-col relative">
       <div className="flex w-full">
         <div className="mx-5 w-full">
-          <div className="my-10 lg:mb-0 w-fit">
+          <div className="my-12 lg:mb-0 w-fit">
             <a
               href={import.meta.env.BASE_URL}
               title={import.meta.env.VITE_APP_NAME}
@@ -23,11 +23,13 @@ const LayoutLoginInfoDetail = () => {
       </div>
       <div className="z-0">
         <div className="mx-5">
-          <h1 className="text-white mb-6">Vítejte zpět!</h1>
-          <em className="text-white tracking-wider ">
-            Získejte přístup k vašim receptům, jídelníčkům a vytváření nákupních
-            seznamů
-          </em>
+          <div className="mb-12">
+            <h1 className="text-white mb-6">Vítejte zpět!</h1>
+            <em className="text-white tracking-wider">
+              Získejte přístup k vašim receptům, jídelníčkům a vytváření
+              nákupních seznamů
+            </em>
+          </div>
         </div>
       </div>
     </div>

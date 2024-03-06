@@ -3,7 +3,7 @@ import LayoutLoginInfoDetail from "./LayoutLoginInfoDetail";
 
 const LayoutLoginInfo = () => {
   return (
-    <section className="w-full h-full">
+    <section className="w-full h-full lg:w-3/5">
       <div className="rounded-t-md lg:rounded-e-none lg:rounded-s-md relative overflow-hidden min-h-60 h-full w-full flex items-center">
         <div
           className="z-0 absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover transition-background-image ease-in delay-300"
