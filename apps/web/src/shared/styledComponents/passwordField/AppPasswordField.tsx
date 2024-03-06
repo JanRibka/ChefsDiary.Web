@@ -14,8 +14,8 @@ import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabel
 
 export interface AppPasswordProps
   extends Omit<InputBaseProps, "id" | "endIcon" | "type">,
-    Omit<InputLabelBaseProps, "htmlFor">,
-    HelperTextBaseProps {
+    Omit<InputLabelBaseProps, "htmlFor" | "id">,
+    Omit<HelperTextBaseProps, "id"> {
   value?: string | null;
 }
 

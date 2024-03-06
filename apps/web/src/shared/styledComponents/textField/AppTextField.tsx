@@ -13,8 +13,8 @@ import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabel
 
 export interface AppTextFieldProps
   extends Omit<InputBaseProps, "id">,
-    Omit<InputLabelBaseProps, "htmlFor">,
-    HelperTextBaseProps {
+    Omit<InputLabelBaseProps, "htmlFor" | "id">,
+    Omit<HelperTextBaseProps, "id"> {
   value?: string | null;
   type?: "text" | "password" | "email" | "tel" | "search";
 }

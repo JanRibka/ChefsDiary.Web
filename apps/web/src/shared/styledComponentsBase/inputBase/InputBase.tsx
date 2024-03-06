@@ -61,6 +61,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
       />
       {endIcon && (
         <button
+          type="button"
           className="absolute end-0 pe-3 inset-y-0"
           onClick={endIconOnClick}
         >
