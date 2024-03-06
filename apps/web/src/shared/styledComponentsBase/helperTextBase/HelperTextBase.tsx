@@ -1,23 +1,20 @@
 import { mergeStyles } from "@repo/shared/helpers";
-import { FieldBaseProps } from "@repo/shared/interfaces";
+import { HelperTextBaseProps } from "@repo/shared/interfaces";
 
 import { helperTextVariants } from "./helperTextBaseVariants";
 
-export interface HelperTextBaseProps extends FieldBaseProps {
-  helperText?: string;
-}
-
 const HelperTextBase = (props: HelperTextBaseProps) => {
-  if (!props.helperText) return undefined;
+  // Props
+  const { className, error, helperText, ...restProps } = props;
+
+  if (!helperText) return undefined;
 
   return (
     <p
-      className={mergeStyles(
-        helperTextVariants({ error: props.error }),
-        props.className
-      )}
+      className={mergeStyles(helperTextVariants({ error: error }), className)}
+      {...restProps}
     >
-      {props.helperText}
+      {helperText}
     </p>
   );
 };
