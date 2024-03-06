@@ -1,6 +1,8 @@
-interface ImageProps {
-  source: string;
-  sourceSmall: string;
+import BaseProps from "../baseProps/BaseProps";
+
+interface ImageProps extends BaseProps {
+  src: string;
+  srcSmall: string;
   alt: string;
   loading?: "lazy" | "eager";
 }

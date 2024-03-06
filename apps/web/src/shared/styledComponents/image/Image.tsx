@@ -7,6 +7,9 @@ const Image = (props: ImageProps) => {
   const ref = useRef<HTMLImageElement>(null);
   const refImageSmall = useRef<HTMLDivElement>(null);
 
+  // Props
+  const { loading, srcSmall, ...restProps } = props;
+
   // Other
   const handleOnLoad = () => {
     refImageSmall.current?.classList.remove("before:content-['']");
@@ -20,14 +23,13 @@ const Image = (props: ImageProps) => {
     <div
       ref={refImageSmall}
       className="relative bg-cover bg-center w-full h-full before:content-[''] before:absolute before:inset-0 before:bg-white before:opacity-10 before:animate-pulse"
-      style={{ backgroundImage: `url(${props.sourceSmall})` }}
+      style={{ backgroundImage: `url(${srcSmall})` }}
     >
       <img
         ref={ref}
-        src={props.source}
-        alt={props.alt}
-        loading={props.loading ?? "lazy"}
+        loading={loading ?? "lazy"}
         className="w-full h-full opacity-0 object-center object-cover transition-opacity ease-in-out duration-200"
+        {...restProps}
         onLoad={handleOnLoad}
       />
     </div>
