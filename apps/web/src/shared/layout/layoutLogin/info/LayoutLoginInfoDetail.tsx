@@ -13,8 +13,8 @@ const LayoutLoginInfoDetail = () => {
               title={import.meta.env.VITE_APP_NAME}
             >
               <Image
-                source={logo}
-                sourceSmall=""
+                src={logo}
+                srcSmall=""
                 alt={`Logo | ${import.meta.env.VITE_APP_NAME}`}
               />
             </a>
