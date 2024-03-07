@@ -8,8 +8,7 @@ const config: Omit<Config, "content"> = {
       transitionProperty: {
         "background-image": "background-image",
         opacity: "opacity",
-        all: "all",
-        // TODO: Dodat zde defaultn9 hodnoty
+        "background-color": "background-color",
       },
       maxWidth: {
         main: "1140px",

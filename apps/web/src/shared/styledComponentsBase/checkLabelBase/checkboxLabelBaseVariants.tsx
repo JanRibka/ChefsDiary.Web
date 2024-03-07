@@ -1,5 +1,13 @@
 import { cva } from "class-variance-authority";
 
-export const checkboxLabelBaseVariants = cva("text-xs mt-1", {
-  variants: {},
+const disabledStyle: string = "text-componentText";
+
+export const checkboxLabelBaseVariants = cva("text-sm cursor-pointer ml-2", {
+  variants: {
+    disable: {
+      true: "text-componentText-light cursor-not-allowed",
+      false: disabledStyle,
+      undefined: disabledStyle,
+    },
+  },
 });
