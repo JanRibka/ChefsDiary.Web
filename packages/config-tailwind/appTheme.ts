@@ -1,8 +1,8 @@
-import colors from "tailwindcss/colors";
-import plugin from "tailwindcss/plugin";
+import colors from 'tailwindcss/colors';
+import plugin from 'tailwindcss/plugin';
 
-import { blackA, mauve } from "@radix-ui/colors";
-import * as radixTheme from "@radix-ui/themes";
+import { blackA, mauve } from '@radix-ui/colors';
+import * as radixTheme from '@radix-ui/themes';
 
 export const accentColorNames: string[] = [];
 export const grayColorNames: string[] = [];
@@ -457,6 +457,15 @@ const radixThemePlugin = plugin.withOptions(
             light: "rgb(252, 252, 252)",
             DEFAULT: "rgb(238, 238, 238)",
             dark: "rgb(214, 214, 214)",
+          },
+          componentLabel: { DEFAULT: colors.gray[500] },
+          componentBorder: {
+            DEFAULT: colors.gray[300],
+            dark: colors.gray[500],
+          },
+          componentText: {
+            DEFAULT: colors.gray[900],
+            light: colors.gray[500],
           },
           inherit: "inherit",
           transparent: "transparent",

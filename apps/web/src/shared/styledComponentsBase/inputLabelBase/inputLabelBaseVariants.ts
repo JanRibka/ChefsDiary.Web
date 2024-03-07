@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const noErrorStyle: string = "text-gray-700 peer-focus:text-primary";
+const noErrorStyle: string = "text-componentLabel peer-focus:text-primary";
 
 export const inputLabelBaseVariants = cva(
   "absolute text-sm duration-300 transform scale-75 origin-[0] z-10 peer-placeholder-shown:scale-100 peer-focus:scale-75",

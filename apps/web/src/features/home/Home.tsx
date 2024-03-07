@@ -1,4 +1,4 @@
-import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckBox";
+import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckbox";
 import AppPasswordField from "../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 
@@ -10,7 +10,7 @@ const Home = () => {
 
       <AppPasswordField name="password" label="Heslo" onBlur={() => {}} />
 
-      <AppCheckbox />
+      <AppCheckbox name="dd" label="gds" />
     </div>
   );
 };

@@ -1,23 +1,11 @@
 import { forwardRef } from "react";
 
 import { useUniqueId } from "@repo/shared/hooks";
-import {
-  HelperTextBaseProps,
-  InputBaseProps,
-  InputLabelBaseProps,
-} from "@repo/shared/interfaces";
+import { AppTextFieldProps } from "@repo/shared/interfaces";
 
 import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
-
-export interface AppTextFieldProps
-  extends Omit<InputBaseProps, "id">,
-    Omit<InputLabelBaseProps, "htmlFor" | "id">,
-    Omit<HelperTextBaseProps, "id"> {
-  value?: string | null;
-  type?: "text" | "password" | "email" | "tel" | "search";
-}
 
 const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
   (props, ref) => {
@@ -25,7 +13,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
     const id = useUniqueId(props.name);
 
     return (
-      <div className={props.className}>
+      <div id={props.id} className={props.className}>
         <div className="relative">
           <InputBase
             ref={ref}

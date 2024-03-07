@@ -1,10 +1,10 @@
 import { cva } from "class-variance-authority";
 
 const noErrorStyle: string =
-  "border-gray-500 hover:border-black disabled:hover:border-gray-500 focus:border-primary ring-primary";
+  "border-componentBorder hover:border-componentBorder-dark disabled:hover:border-componentBorder focus:border-primary ring-primary";
 
 export const inputBaseVariants = cva(
-  "block w-full text-sm text-gray-950 appearance-none peer disabled:text-gray-700 focus:outline-none",
+  "block w-full text-sm text-ComponentText appearance-none peer disabled:text-componentText-light focus:outline-none",
   {
     variants: {
       error: {

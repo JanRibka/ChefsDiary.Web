@@ -2,24 +2,13 @@ import { forwardRef, useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 import { useUniqueId } from "@repo/shared/hooks";
-import {
-  HelperTextBaseProps,
-  InputBaseProps,
-  InputLabelBaseProps,
-} from "@repo/shared/interfaces";
+import { AppPasswordFieldProps } from "@repo/shared/interfaces";
 
 import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
 
-export interface AppPasswordProps
-  extends Omit<InputBaseProps, "id" | "endIcon" | "type">,
-    Omit<InputLabelBaseProps, "htmlFor" | "id">,
-    Omit<HelperTextBaseProps, "id"> {
-  value?: string | null;
-}
-
-const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordProps>(
+const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
   (props, ref) => {
     // Constants
     const id = useUniqueId(props.name);
@@ -33,7 +22,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordProps>(
     };
 
     return (
-      <div className={props.className}>
+      <div id={props.id} className={props.className}>
         <div className="relative">
           <InputBase
             ref={ref}
