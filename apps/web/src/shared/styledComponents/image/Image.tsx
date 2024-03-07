@@ -22,7 +22,7 @@ const Image = (props: ImageProps) => {
   return (
     <div
       ref={refImageSmall}
-      className="relative bg-cover bg-center w-full h-full before:content-[''] before:absolute before:inset-0 before:bg-white before:opacity-10 before:animate-pulse"
+      className="relative bg-cover bg-center w-full h-full before:content-[''] before:absolute before:inset-0 before:bg-background before:opacity-10 before:animate-pulse"
       style={{ backgroundImage: `url(${srcSmall})` }}
     >
       <img

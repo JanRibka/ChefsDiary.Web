@@ -16,7 +16,7 @@ export const inputLabelBaseVariants = cva(
         standard:
           "-translate-y-6 top-3 peer-focus:start-0 peer-placeholder-shown:translate-y-0 peer-focus:-translate-y-6",
         outlined:
-          "bg-white px-2 start-2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:px-2",
+          "bg-background px-2 start-2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:px-2",
       },
       size: { small: "", normal: "" },
     },
