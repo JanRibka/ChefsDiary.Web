@@ -12,10 +12,16 @@ const AppCheckbox = (props: AppCheckboxProps) => {
 
   return (
     <div id={props.id} className="flex items-center">
-      <Checkbox.Root id={id} checked>
-        <Checkbox.Indicator>
-          <IoCheckboxOutline />
-        </Checkbox.Indicator>
+      <Checkbox.Root
+        id={id}
+        checked={props.checked ?? false}
+        onClick={props.onClick}
+      >
+        <>
+          <Checkbox.Indicator>
+            {props.checked ? <IoCheckboxOutline /> : <IoCheckboxOutline />}
+          </Checkbox.Indicator>
+        </>
       </Checkbox.Root>
 
       <CheckLabelBase htmlFor={id} label={props.label} />
