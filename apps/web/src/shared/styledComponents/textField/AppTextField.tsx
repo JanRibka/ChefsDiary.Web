@@ -9,42 +9,47 @@ import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabel
 
 const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
   (props, ref) => {
+    // Props
+    const {
+      id,
+      value,
+      type,
+      label,
+      variant,
+      size,
+      required,
+      error,
+      helperText,
+      ...restProps
+    } = props;
+
     // Constants
-    const id = useUniqueId(props.name);
+    const uniqueId = useUniqueId(props.name);
 
     return (
-      <div id={props.id} className={props.className}>
+      <div id={id} className={props.className}>
         <div className="relative">
           <InputBase
             ref={ref}
-            id={id}
-            value={props.value ?? ""}
-            name={props.name}
-            disable={props.disable}
-            variant={props.variant}
-            size={props.size}
-            type={props.type ?? "text"}
-            radius={props.radius}
-            placeholder={props.placeholder}
-            required={props.required}
-            error={props.error}
-            autoComplete={props.autoComplete}
-            endIcon={props.endIcon}
-            tabIndex={props.tabIndex}
-            onChange={props.onChange}
-            onBlur={props.onBlur}
-            endIconOnClick={props.endIconOnClick}
+            id={uniqueId}
+            value={value ?? ""}
+            variant={variant}
+            size={size}
+            type={type ?? "text"}
+            required={required}
+            error={error}
+            {...restProps}
           />
           <InputLabelBase
-            htmlFor={id}
-            label={props.label}
-            variant={props.variant}
-            size={props.size}
-            required={props.required}
-            error={props.error}
+            htmlFor={uniqueId}
+            label={label}
+            variant={variant}
+            size={size}
+            required={required}
+            error={error}
           />
         </div>
-        <HelperTextBase helperText={props.helperText} error={props.error} />
+        <HelperTextBase helperText={helperText} error={error} />
       </div>
     );
   }

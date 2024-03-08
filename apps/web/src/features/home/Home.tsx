@@ -10,24 +10,12 @@ const Home = () => {
 
   return (
     <div className="mx-2">
-      <AppTextField
-        disable
-        name="sdf"
-        label="Email"
-        radius="full"
-        onBlur={() => {}}
-      />
+      <AppTextField name="sdf" label="Email" radius="full" onBlur={() => {}} />
 
-      <AppPasswordField
-        disable
-        name="password"
-        label="Heslo"
-        onBlur={() => {}}
-      />
+      <AppPasswordField name="password" label="Heslo" onBlur={() => {}} />
 
       <AppCheckbox
         checked={checked}
-        disable
         name="dd"
         label="Gds"
         onCheckedChange={() => {

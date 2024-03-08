@@ -6,3 +6,4 @@ export type { default as CheckLabelBaseProps } from "./checkLabelBaseProps/Check
 export type { default as AppTextFieldProps } from "./textFieldProps/AppTextFieldProps";
 export type { default as AppPasswordFieldProps } from "./passwordFieldProps/AppPasswordFieldProps";
 export type { default as AppCheckboxProps } from "./checkboxProps/AppCheckboxProps";
+export type { default as ButtonBaseProps } from "./buttonBaseProps/ButtonBaseProps";

@@ -10,8 +10,23 @@ import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabel
 
 const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
   (props, ref) => {
+    // Props
+    const {
+      id,
+      value,
+      name,
+      className,
+      label,
+      variant,
+      size,
+      required,
+      error,
+      helperText,
+      ...restProps
+    } = props;
+
     // Constants
-    const id = useUniqueId(props.name);
+    const uniqueId = useUniqueId(name);
 
     // State
     const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -22,37 +37,32 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
     };
 
     return (
-      <div id={props.id} className={props.className}>
+      <div id={id} className={className}>
         <div className="relative">
           <InputBase
             ref={ref}
-            id={id}
-            value={props.value ?? ""}
-            name={props.name}
-            disable={props.disable}
-            variant={props.variant}
-            size={props.size}
+            id={uniqueId}
+            value={value ?? ""}
+            name={name}
+            variant={variant}
+            size={size}
             type={showPassword ? "text" : "password"}
-            placeholder={props.placeholder}
-            required={props.required}
-            error={props.error}
-            autoComplete={props.autoComplete}
-            tabIndex={props.tabIndex}
+            required={required}
+            error={error}
             endIcon={showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
-            onChange={props.onChange}
-            onBlur={props.onBlur}
             endIconOnClick={handleOnClickShowPassword}
+            {...restProps}
           />
           <InputLabelBase
-            htmlFor={id}
-            label={props.label}
-            variant={props.variant}
-            size={props.size}
-            required={props.required}
-            error={props.error}
+            htmlFor={uniqueId}
+            label={label}
+            variant={variant}
+            size={size}
+            required={required}
+            error={error}
           />
         </div>
-        <HelperTextBase helperText={props.helperText} error={props.error} />
+        <HelperTextBase helperText={helperText} error={error} />
       </div>
     );
   }

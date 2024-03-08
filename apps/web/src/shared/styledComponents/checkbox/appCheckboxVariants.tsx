@@ -8,7 +8,7 @@ export const appCheckboxVariants = cva(
     variants: {
       size: {
         small: "w-4 h-4",
-        normal: "w-5 h-5",
+        medium: "w-5 h-5",
         large: "w-6 h-6",
       },
       checked: {
@@ -24,6 +24,6 @@ export const appCheckboxVariants = cva(
         full: "rounded-full",
       },
     },
-    defaultVariants: { size: "normal", radius: "normal" },
+    defaultVariants: { size: "medium", radius: "normal" },
   }
 );

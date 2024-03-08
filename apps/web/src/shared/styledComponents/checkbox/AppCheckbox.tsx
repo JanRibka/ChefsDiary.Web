@@ -21,7 +21,7 @@ const AppCheckbox = (props: AppCheckboxProps) => {
     size,
     className,
     label,
-    disable,
+    disabled,
     required,
     radius,
     helperText,
@@ -34,8 +34,8 @@ const AppCheckbox = (props: AppCheckboxProps) => {
         <Checkbox.Root
           id={uniqueId}
           checked={checked ?? false}
-          disabled={disable}
-          aria-disabled={disable}
+          disabled={disabled}
+          aria-disabled={disabled}
           className={mergeStyles(
             appCheckboxVariants({
               size: size,
@@ -53,7 +53,7 @@ const AppCheckbox = (props: AppCheckboxProps) => {
           htmlFor={uniqueId}
           label={label}
           required={required}
-          disable={disable}
+          disabled={disabled}
         />
       </div>
 

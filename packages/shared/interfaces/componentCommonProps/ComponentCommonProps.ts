@@ -1,6 +1,6 @@
 interface ComponentCommonProps {
   name: string;
-  disable?: boolean;
+  disabled?: boolean;
   required?: boolean;
   error?: boolean;
 }

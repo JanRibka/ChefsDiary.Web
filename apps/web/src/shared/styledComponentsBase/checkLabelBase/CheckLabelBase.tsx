@@ -5,13 +5,13 @@ import { checkboxLabelBaseVariants } from "./checkboxLabelBaseVariants";
 
 const CheckLabelBase = (props: CheckLabelBaseProps) => {
   // Props
-  const { label, required, disable, className, ...restProps } = props;
+  const { label, required, disabled, className, ...restProps } = props;
 
   return (
     <label
       aria-required={required}
       className={mergeStyles(
-        checkboxLabelBaseVariants({ disable: disable }),
+        checkboxLabelBaseVariants({ disable: disabled }),
         className
       )}
       {...restProps}

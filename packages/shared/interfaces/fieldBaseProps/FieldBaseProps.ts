@@ -1,7 +1,7 @@
 import { HTMLInputTypeAttribute } from "react";
 
 import { RadiusType } from "../../types";
-import InputBaseVariantType from "../../types/inputBase/InputBaseVariantType";
+import InputBaseVariantType from "../../types/component/ComponentVariantType";
 import BaseProps from "../baseProps/BaseProps";
 import ComponentCommonProps from "../componentCommonProps/ComponentCommonProps";
 

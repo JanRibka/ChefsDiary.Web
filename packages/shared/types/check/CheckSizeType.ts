@@ -1,3 +1,3 @@
-type CheckSizeType = "small" | "normal" | "large";
+type CheckSizeType = "small" | "medium" | "large";
 
 export default CheckSizeType;

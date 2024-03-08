@@ -10,7 +10,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
   // Props
   const {
     value,
-    disable,
+    disabled,
     placeholder,
     required,
     error,
@@ -43,8 +43,8 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         ref={ref}
         value={actualValue}
         placeholder={placeholder || " "}
-        disabled={disable}
-        aria-disabled={disable}
+        disabled={disabled}
+        aria-disabled={disabled}
         required={required}
         aria-required={required}
         onChange={handleOnChange}
