@@ -31,7 +31,6 @@ const LoginForm = () => {
           label="Uživatelské jméno"
           className="mb-3"
           required
-          tabIndex={0}
           autoComplete="username"
           onBlur={() => {}}
         />
@@ -40,7 +39,6 @@ const LoginForm = () => {
           label="Heslo"
           className="mb-3"
           required
-          tabIndex={1}
           autoComplete="current-password"
           onBlur={() => {}}
         />
