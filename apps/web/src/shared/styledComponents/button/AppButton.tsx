@@ -7,28 +7,14 @@ const AppButton = (props: AppButtonProps) => {
   const { children, startIcon, endIcon, ...restProps } = props;
 
   // Icons
-  let buttonChildren: JSX.Element = <span>{children}</span>;
+  let buttonChildren: JSX.Element | string = children;
 
-  if (startIcon) {
+  if (startIcon || endIcon) {
     buttonChildren = (
-      <span>
-        {
-          <>
-            <>{startIcon}</> <>{children}</>
-          </>
-        }
-      </span>
-    );
-  }
-
-  if (endIcon) {
-    buttonChildren = (
-      <span>
-        {
-          <>
-            <>{endIcon}</> <>{children}</>
-          </>
-        }
+      <span className="flex items-center gap-2">
+        {startIcon && startIcon}
+        {children}
+        {endIcon && endIcon}
       </span>
     );
   }

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IoIosCheckbox } from "react-icons/io";
 
 import AppButton from "../../shared/styledComponents/button/AppButton";
 import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckbox";
@@ -20,12 +19,13 @@ const Home = () => {
         checked={checked}
         name="dd"
         label="Gds"
+        disabled
         onCheckedChange={() => {
           setChecked((prev) => !prev);
         }}
       />
 
-      <AppButton startIcon={<IoIosCheckbox />}>Test</AppButton>
+      <AppButton>Test</AppButton>
     </div>
   );
 };
