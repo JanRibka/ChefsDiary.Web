@@ -25,7 +25,7 @@ const Home = () => {
         }}
       />
 
-      <AppButton>Test</AppButton>
+      <AppButton variant="outlined">Test</AppButton>
     </div>
   );
 };

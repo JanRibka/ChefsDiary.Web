@@ -36,7 +36,8 @@ const buttonBaseVariants = cva(
       {
         disabled: true,
         variant: "outlined",
-        class: "bg-background border-gray-500 hover:bg-background",
+        class:
+          "bg-background border-gray-500 hover:bg-background hover:border-gray-500",
       },
     ],
     defaultVariants: {
