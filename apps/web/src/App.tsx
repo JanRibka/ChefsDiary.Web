@@ -18,3 +18,5 @@ const App = () => {
 };
 
 export default App;
+
+// TODO: DO budoucna zvážit zda nepřidat ripple na komponenty podle mui. Dělá to efekt po kliku. Zeptat se bota na toto "User jak po kliku pomocí tailwind docílit efektu vlnu na pozadí, která začíná v místě kliku?"

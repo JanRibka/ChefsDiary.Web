@@ -31,23 +31,25 @@ const AppCheckbox = (props: AppCheckboxProps) => {
   return (
     <div id={id} className="flex flex-col">
       <div className="flex items-center">
-        <Checkbox.Root
-          id={uniqueId}
-          checked={checked ?? false}
-          disabled={disabled}
-          aria-disabled={disabled}
-          className={mergeStyles(
-            appCheckboxVariants({
-              size: size,
-              checked: checked,
-              radius: radius,
-            }),
-            className
-          )}
-          {...restProps}
-        >
-          <Checkbox.Indicator>{<FaCheck />}</Checkbox.Indicator>
-        </Checkbox.Root>
+        <span className="bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex p-2 rounded-full">
+          <Checkbox.Root
+            id={uniqueId}
+            checked={checked ?? false}
+            disabled={disabled}
+            aria-disabled={disabled}
+            className={mergeStyles(
+              appCheckboxVariants({
+                size: size,
+                checked: checked,
+                radius: radius,
+              }),
+              className
+            )}
+            {...restProps}
+          >
+            <Checkbox.Indicator>{<FaCheck />}</Checkbox.Indicator>
+          </Checkbox.Root>
+        </span>
 
         <CheckLabelBase
           htmlFor={uniqueId}
