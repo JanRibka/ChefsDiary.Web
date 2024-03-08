@@ -7,3 +7,4 @@ export type { default as AppTextFieldProps } from "./textFieldProps/AppTextField
 export type { default as AppPasswordFieldProps } from "./passwordFieldProps/AppPasswordFieldProps";
 export type { default as AppCheckboxProps } from "./checkboxProps/AppCheckboxProps";
 export type { default as ButtonBaseProps } from "./buttonBaseProps/ButtonBaseProps";
+export type { default as AppButtonProps } from "./buttonProps/AppButtonProps";

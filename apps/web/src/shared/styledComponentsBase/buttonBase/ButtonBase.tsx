@@ -4,7 +4,7 @@ import { ButtonBaseProps } from "@repo/shared/interfaces";
 import buttonBaseVariants from "./buttonBaseVariants";
 
 const ButtonBase = (props: ButtonBaseProps) => {
-  const { label, disabled, size, variant, className, ...restProps } = props;
+  const { disabled, size, variant, className, children, ...restProps } = props;
   return (
     <button
       disabled={disabled}
@@ -15,7 +15,7 @@ const ButtonBase = (props: ButtonBaseProps) => {
       )}
       {...restProps}
     >
-      {label}
+      {children}
     </button>
   );
 };

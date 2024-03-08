@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const buttonBaseVariants = cva("", {
+const buttonBaseVariants = cva("appearance-none", {
   variants: {
     size: {
       small: "",

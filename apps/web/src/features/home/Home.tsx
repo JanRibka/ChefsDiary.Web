@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { IoIosCheckbox } from "react-icons/io";
 
+import AppButton from "../../shared/styledComponents/button/AppButton";
 import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckbox";
 import AppPasswordField from "../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../shared/styledComponents/textField/AppTextField";
@@ -22,6 +24,8 @@ const Home = () => {
           setChecked((prev) => !prev);
         }}
       />
+
+      <AppButton startIcon={<IoIosCheckbox />}>Test</AppButton>
     </div>
   );
 };

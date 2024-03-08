@@ -3,10 +3,10 @@ import ButtonSizeType from "../../types/button/ButtonSizeType";
 import BaseProps from "../baseProps/BaseProps";
 
 interface ButtonBaseProps extends BaseProps {
-  label: string;
   variant?: ComponentVariantType;
   size?: ButtonSizeType;
   disabled?: boolean;
+  children: JSX.Element | string;
 }
 
 export default ButtonBaseProps;
