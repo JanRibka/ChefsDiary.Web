@@ -1,5 +1,5 @@
 import { mainBaseApi } from "../mainBaseApi";
-import { REGISTER } from "./endpoints";
+import { LOGIN, REGISTER } from "./endpoints";
 
 export const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -14,5 +14,15 @@ export const authApi = mainBaseApi.injectEndpoints({
         body: { params },
       }),
     }),
+
+    login: build.mutation<string, FormData>({
+      query: (loginFormData: FormData) => ({
+        url: `/${LOGIN}`,
+        method: "POST",
+        body: loginFormData,
+      }),
+    }),
   }),
 });
+
+// TODO: export default { useRegisterMutation, useLoginMutation } = authApi;

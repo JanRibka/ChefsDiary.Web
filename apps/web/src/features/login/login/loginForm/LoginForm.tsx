@@ -2,6 +2,7 @@ import { FocusEvent, useEffect, useRef, useState } from "react";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
 
+import { authApi } from "../../../../shared/api/auth/authApi";
 import SubmitButton from "../../../../shared/components/submitButton/SubmitButton";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
@@ -11,8 +12,12 @@ const LoginForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);
 
+  // Store
+  const { useLoginMutation } = authApi;
+  const [login] = useLoginMutation();
+
   // State
-  const [login, setLogin] = useState<string>("");
+  const [userLogin, setUserLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [stayLogged, setStayLogged] = useState<boolean>(false);
 
@@ -26,7 +31,7 @@ const LoginForm = () => {
   const handleOnBlurLogin = (e: FocusEvent<HTMLInputElement, Element>) => {
     const value = e.target.value;
 
-    setLogin(value);
+    setUserLogin(value);
   };
 
   const handleOnBlurPassword = (e: FocusEvent<HTMLInputElement, Element>) => {
@@ -41,8 +46,8 @@ const LoginForm = () => {
     setStayLogged(value);
   };
 
-  const handleAction = (data: FormData) => {
-    console.log(data);
+  const handleAction = async (data: FormData) => {
+    await login(data);
   };
 
   return (
@@ -51,7 +56,7 @@ const LoginForm = () => {
       <form action={handleAction} className="w-full">
         <AppTextField
           ref={refLogin}
-          value={login}
+          value={userLogin}
           name="login"
           label="Uživatelské jméno"
           className="mb-3"
