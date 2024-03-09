@@ -13,7 +13,7 @@ interface AppCheckboxProps
   size?: CheckSizeType;
   radius?: RadiusType;
   checked?: boolean | null;
-  onCheckedChange: (e: Checkbox.CheckedState) => void;
+  onCheckedChange: (state: Checkbox.CheckedState) => void;
 }
 
 export default AppCheckboxProps;

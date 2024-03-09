@@ -29,9 +29,9 @@ const AppCheckbox = (props: AppCheckboxProps) => {
   } = props;
 
   return (
-    <div id={id} className="flex flex-col">
+    <div id={id} className={mergeStyles("flex flex-col", className)}>
       <div className="flex items-center">
-        <span className="bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex p-2 rounded-full">
+        <span className="bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex p-2.5 rounded-full">
           <Checkbox.Root
             id={uniqueId}
             checked={checked ?? false}
@@ -43,7 +43,7 @@ const AppCheckbox = (props: AppCheckboxProps) => {
                 checked: checked,
                 radius: radius,
               }),
-              className
+              ""
             )}
             {...restProps}
           >

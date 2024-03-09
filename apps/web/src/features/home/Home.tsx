@@ -19,7 +19,6 @@ const Home = () => {
         checked={checked}
         name="dd"
         label="Gds"
-        disabled
         onCheckedChange={() => {
           setChecked((prev) => !prev);
         }}

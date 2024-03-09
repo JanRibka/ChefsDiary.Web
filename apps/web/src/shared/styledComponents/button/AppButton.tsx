@@ -14,7 +14,7 @@ const AppButton = (props: AppButtonProps) => {
 
   if (startIcon || endIcon || loading) {
     buttonChildren = (
-      <span className="flex items-center gap-2">
+      <span className="flex items-center justify-center gap-2">
         {loading && <LoadingSpinner />}
         {startIcon && startIcon}
         {children}

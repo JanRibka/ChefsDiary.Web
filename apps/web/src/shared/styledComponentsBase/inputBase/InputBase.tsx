@@ -6,6 +6,7 @@ import { InputBaseProps } from "@repo/shared/interfaces";
 import Icon from "../../styledComponents/icon/Icon";
 import { inputBaseVariants } from "./inputBaseVariants";
 
+// TODO: Dat kolem inputu a cudlu div a nastylovat ho jako input (border a tak) at neni cudl na divu, ale vedle n2ho
 const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
   // Props
   const {
