@@ -78,7 +78,7 @@ const LoginForm = () => {
           onCheckedChange={handleOnCheckedChange}
         />
 
-        <SubmitButton className="w-full" disableLoadingState>
+        <SubmitButton className="w-full" variant="contained">
           Přihlásit
         </SubmitButton>
       </form>
