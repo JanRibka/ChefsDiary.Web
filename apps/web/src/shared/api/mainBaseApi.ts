@@ -10,8 +10,6 @@ export const mainBaseApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
     responseHandler: (response: Response) => {
-      debugger;
-      // TODO: Vyhodnocov8n9 z login bude pouze v authApi
       return response.text();
     },
   }),
