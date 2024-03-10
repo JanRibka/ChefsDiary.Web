@@ -9,6 +9,11 @@ export const mainBaseApi = createApi({
   tagTypes: Object.keys(ApiTags) as ApiTagsType[],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
+    responseHandler: (response: Response) => {
+      debugger;
+      return response.text();
+    },
   }),
+
   endpoints: () => ({}),
 });

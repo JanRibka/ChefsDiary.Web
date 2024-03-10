@@ -60,7 +60,7 @@ const LoginForm = () => {
           name="login"
           label="Uživatelské jméno"
           className="mb-3"
-          required
+          // required
           autoComplete="username"
           onBlur={handleOnBlurLogin}
         />
@@ -70,7 +70,7 @@ const LoginForm = () => {
           name="password"
           label="Heslo"
           className="mb-3"
-          required
+          // required
           autoComplete="current-password"
           onBlur={handleOnBlurPassword}
         />
