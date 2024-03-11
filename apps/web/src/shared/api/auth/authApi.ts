@@ -1,3 +1,5 @@
+import "@reduxjs/toolkit/dist/query/react/buildHooks";
+
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, REGISTER } from "./endpoints";
 
@@ -25,4 +27,4 @@ export const authApi = mainBaseApi.injectEndpoints({
   }),
 });
 
-// TODO: export default { useRegisterMutation, useLoginMutation } = authApi;
+export const { useRegisterMutation, useLoginMutation } = authApi;

@@ -50,9 +50,6 @@ importers:
       react-router-dom:
         specifier: ^6.22.3
         version: 6.22.3(react-dom@18.3.0-canary-034130c02-20240303)(react@18.3.0-canary-034130c02-20240303)
-      redux:
-        specifier: ^5.0.1
-        version: 5.0.1
     devDependencies:
       '@radix-ui/react-hover-card':
         specifier: ^1.0.7
@@ -83,7 +80,7 @@ importers:
         version: 3.6.0(vite@5.1.5)
       autoprefixer:
         specifier: ^10.4.18
-        version: 10.4.18(postcss@8.4.33)
+        version: 10.4.18(postcss@8.4.35)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -4304,7 +4301,7 @@ packages:
       retry: 0.12.0
     dev: true
 
-  /autoprefixer@10.4.18(postcss@8.4.33):
+  /autoprefixer@10.4.18(postcss@8.4.35):
     resolution: {integrity: sha512-1DKbDfsr6KUElM6wg+0zRNkB/Q7WcKYAaK+pzXn+Xqmszm/5Xa9coeNdtP88Vi+dPzZnMjhge8GIV49ZQkDa+g==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -4316,7 +4313,7 @@ packages:
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.33
+      postcss: 8.4.35
       postcss-value-parser: 4.2.0
     dev: true
 
