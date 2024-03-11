@@ -47,7 +47,9 @@ const LoginForm = () => {
   };
 
   const handleAction = async (data: FormData) => {
-    await login(data);
+    const response = await login(data);
+    // TODO: udelat nejaky helper na vyhodnoceni response. BUDE GENERICKY jak na error, bude genericky tak asi i na data
+    debugger;
   };
 
   return (

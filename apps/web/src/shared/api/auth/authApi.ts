@@ -20,15 +20,9 @@ export const authApi = mainBaseApi.injectEndpoints({
         url: `/${LOGIN}`,
         method: "POST",
         body: loginFormData,
-        responseHandler: responseHandler,
       }),
     }),
   }),
 });
-
-const responseHandler = (response: Response) => {
-  debugger;
-  return response.text();
-};
 
 // TODO: export default { useRegisterMutation, useLoginMutation } = authApi;

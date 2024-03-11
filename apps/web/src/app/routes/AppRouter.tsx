@@ -17,8 +17,8 @@ const AppRouter = () => {
         <Route path={AppRoutes.Login} element={<LoginPage />} />
       </Route>
 
-      <Route element={<Layout />}>
-        <Route path={AppRoutes.Home} element={<Home />} />
+      <Route path={AppRoutes.Home} element={<Layout />}>
+        <Route index element={<Home />} />
         <Route path={AppRoutes.Recipes} element={<Home />} />
         <Route path={AppRoutes.TipsAndTricks} element={<Home />} />
         <Route path={AppRoutes.Wordbook} element={<Home />} />
