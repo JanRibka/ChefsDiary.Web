@@ -1,8 +1,6 @@
 {
   "extends": "@repo/typescript-config/vite.json",
   "compilerOptions": {
-    "declaration": false,
-    "declarationMap": false
     // "baseUrl": ".",
     // "paths": {
     //   "@repo/*": ["repo/*"]
