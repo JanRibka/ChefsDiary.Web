@@ -1,5 +1,3 @@
-import "@reduxjs/toolkit/dist/query/react/buildHooks";
-
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, REGISTER } from "./endpoints";
 
