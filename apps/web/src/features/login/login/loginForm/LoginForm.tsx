@@ -2,7 +2,7 @@ import { FocusEvent, useEffect, useRef, useState } from "react";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
 
-import { authApi } from "../../../../shared/api/auth/authApi";
+import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
 import SubmitButton from "../../../../shared/components/submitButton/SubmitButton";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
@@ -12,16 +12,13 @@ const LoginForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);
 
-  // Store
-  const { useLoginMutation } = authApi;
-  const [login] = useLoginMutation();
-
   // State
   const [userLogin, setUserLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [stayLogged, setStayLogged] = useState<boolean>(false);
 
   // Constants
+  const { loginUser } = useLogin();
 
   // Other
   useEffect(() => {
@@ -47,7 +44,7 @@ const LoginForm = () => {
   };
 
   const handleAction = async (data: FormData) => {
-    const response = await login(data);
+    const response = await loginUser(data);
     // TODO: udelat nejaky helper na vyhodnoceni response. BUDE GENERICKY jak na error, bude genericky tak asi i na data
     debugger;
   };
