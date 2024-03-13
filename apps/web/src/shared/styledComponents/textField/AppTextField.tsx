@@ -13,6 +13,8 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
     const {
       id,
       value,
+      name,
+      className,
       type,
       label,
       variant,
@@ -24,15 +26,16 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
     } = props;
 
     // Constants
-    const uniqueId = useUniqueId(props.name);
+    const uniqueId = useUniqueId(name);
 
     return (
-      <div id={id} className={props.className}>
-        <div className="relative">
+      <div id={id} className={className}>
+        <div className='relative'>
           <InputBase
             ref={ref}
             id={uniqueId}
             value={value ?? ""}
+            name={name}
             variant={variant}
             size={size}
             type={type ?? "text"}

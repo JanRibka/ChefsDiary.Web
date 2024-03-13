@@ -2,10 +2,13 @@
   "name": "@repo/shared",
   "version": "1.0.0",
   "exports": {
+    "./apiResponse": "./apiResponse/index.ts",
     "./enums": "./enums/index.ts",
+    "./errorLibrary": "./errorLibrary/index.ts",
     "./helpers": "./helpers/index.ts",
     "./hooks": "./hooks/index.ts",
     "./interfaces": "./interfaces/index.ts",
+    "./scripts": "./scripts/index.ts",
     "./types": "./types/index.ts"
   },
   "license": "MIT",
@@ -24,6 +27,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
     "react": "^18.2.0"
   }
 }

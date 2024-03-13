@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+// import { appFetch } from "@repo/shared/scripts";
 import { RootState } from "../../app/store/store";
 import ApiTags, { ApiTagsType } from "./apiTags";
 
@@ -10,19 +11,23 @@ export const mainBaseApi = createApi({
   tagTypes: Object.keys(ApiTags) as ApiTagsType[],
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_BASE_URL,
-    prepareHeaders: (headers, { getState }) => {
+    prepareHeaders: (headers: Headers, { getState }) => {
       const authorizationHeader = headers.get("Authorization");
+      const authState = (getState() as RootState).auth;
 
-      if (!authorizationHeader) {
-        const authState = (getState() as RootState).auth;
+      if (!authorizationHeader && authState.accessToken) {
         headers.set("Authorization", `Barrier ${authState.accessToken}`);
       }
 
       return headers;
     },
-    responseHandler: (response: Response) => {
-      return response.text();
-    },
+    // responseHandler: async (response: Response) => {
+    //   if (response.status === StatusCodes.FORBIDDEN) {
+    //     // const x = appFetch("");
+    //   }
+    //   debugger;
+    //   return response.text();
+    // },
   }),
 
   endpoints: () => ({}),

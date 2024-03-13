@@ -1,3 +1,5 @@
+import { transformErrorResponse } from "@repo/shared/apiResponse";
+
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, REGISTER } from "./endpoints";
 
@@ -13,6 +15,7 @@ export const authApi = mainBaseApi.injectEndpoints({
         method: "POST",
         body: { params },
       }),
+      transformErrorResponse: transformErrorResponse,
     }),
 
     login: build.mutation<string, FormData>({
@@ -21,6 +24,7 @@ export const authApi = mainBaseApi.injectEndpoints({
         method: "POST",
         body: loginFormData,
       }),
+      transformErrorResponse: transformErrorResponse,
     }),
   }),
 });
