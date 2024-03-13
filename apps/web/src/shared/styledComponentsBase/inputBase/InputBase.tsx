@@ -20,6 +20,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
     radius,
     endIcon,
     className,
+    buttonAriaLable,
     onChange,
     endIconOnClick,
     ...restProps
@@ -60,10 +61,11 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         )}
         {...restProps}
       />
-      {endIcon && (
+      {endIcon && ( // TODO: Tady bude iconButton
         <button
-          type="button"
-          className="absolute end-0 pe-3 inset-y-0"
+          type='button'
+          className='absolute end-0 pe-3 inset-y-0'
+          aria-label={buttonAriaLable}
           onClick={endIconOnClick}
         >
           <Icon icon={endIcon} />

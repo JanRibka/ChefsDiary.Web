@@ -38,7 +38,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
 
     return (
       <div id={id} className={className}>
-        <div className="relative">
+        <div className='relative'>
           <InputBase
             ref={ref}
             id={uniqueId}
@@ -49,6 +49,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
             type={showPassword ? "text" : "password"}
             required={required}
             error={error}
+            buttonAriaLable='Přepnout viditelnost hesla'
             endIcon={showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
             endIconOnClick={handleOnClickShowPassword}
             {...restProps}
