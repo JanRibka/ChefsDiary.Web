@@ -65,9 +65,14 @@ const LoginForm = () => {
 
   const handleAction = async (data: FormData) => {
     const response = await loginUser(data);
-
+    debugger;
     if (response) {
-      update({ accessToken: response });
+      update({
+        uuid: response.uuid,
+        login: response.login,
+        userRoles: response.userRoles,
+        accessToken: response.accessToken,
+      });
     } else {
       refErrorMessage.current?.focus();
     }

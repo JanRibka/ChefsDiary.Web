@@ -5,6 +5,7 @@ import { getErrorTextByKey } from "@repo/shared/errorLibrary";
 import { capitalizeFirstLetter } from "@repo/shared/helpers";
 import { LoginErrorType, ResponseType } from "@repo/shared/types";
 
+import Login from "../../../../entities/auth/Login";
 import { useLoginMutation } from "../../auth/authApi";
 
 const useLogin = () => {
@@ -16,15 +17,17 @@ const useLogin = () => {
   const [loginErrorMessage, setLoginErrorMessage] = useState<string>("");
   const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>("");
 
+  // Constants
   const isLoading = response.isLoading;
 
+  // Login user
   const loginUser = async (data: FormData) => {
     const loginResponse = await login(data);
 
     return handleResponse(loginResponse);
   };
 
-  const handleResponse = (response: ResponseType<string>) => {
+  const handleResponse = (response: ResponseType<Login>) => {
     const error = response?.error;
 
     if (error) {
@@ -55,6 +58,10 @@ const useLogin = () => {
       });
 
       return;
+    } else {
+      setErrorMessage("");
+      setLoginErrorMessage("");
+      setPasswordErrorMessage("");
     }
 
     return response.data;

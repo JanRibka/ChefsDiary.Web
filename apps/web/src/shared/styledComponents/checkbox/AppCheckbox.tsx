@@ -7,7 +7,7 @@ import { useUniqueId } from "@repo/shared/hooks";
 import { AppCheckboxProps } from "@repo/shared/interfaces";
 
 import CheckLabelBase from "../../styledComponentsBase/checkLabelBase/CheckLabelBase";
-import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
+import HelperTextBase from "../helperText/HelperText";
 import { appCheckboxVariants } from "./appCheckboxVariants";
 
 const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(

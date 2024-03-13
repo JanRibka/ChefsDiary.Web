@@ -1,28 +1,25 @@
 import { transformErrorResponse } from "@repo/shared/apiResponse";
 
+import Login from "../../../entities/auth/Login";
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, REGISTER } from "./endpoints";
 
 export const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({
-    register: build.mutation({
-      query: (params: {
-        userName: string;
-        password: string;
-        confirmPassword: string;
-      }) => ({
+    register: build.mutation<string, FormData>({
+      query: (data) => ({
         url: `/${REGISTER}`,
         method: "POST",
-        body: { params },
+        body: data,
       }),
       transformErrorResponse: transformErrorResponse,
     }),
 
-    login: build.mutation<string, FormData>({
-      query: (loginFormData: FormData) => ({
+    login: build.mutation<Login, FormData>({
+      query: (data: FormData) => ({
         url: `/${LOGIN}`,
         method: "POST",
-        body: loginFormData,
+        body: data,
       }),
       transformErrorResponse: transformErrorResponse,
     }),

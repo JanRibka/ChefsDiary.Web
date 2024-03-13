@@ -4,16 +4,16 @@ import { UserRoleEnum } from "@repo/shared/enums";
 import { RootState } from "../store";
 
 export interface AuthState {
-  userUuid: string;
-  userName: string;
-  userRole: UserRoleEnum;
+  uuid: string;
+  login: string;
+  userRoles: UserRoleEnum[];
   accessToken: string;
 }
 
 export const initialState: AuthState = {
-  userUuid: "",
-  userName: "",
-  userRole: UserRoleEnum.UNDEFINED,
+  uuid: "",
+  login: "",
+  userRoles: [],
   accessToken: "",
 };
 
