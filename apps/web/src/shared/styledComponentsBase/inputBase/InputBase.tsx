@@ -20,7 +20,8 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
     radius,
     endIcon,
     className,
-    buttonAriaLable,
+    buttonAriaLabel,
+    ariaDescribedBy,
     onChange,
     endIconOnClick,
     ...restProps
@@ -50,6 +51,7 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         required={required}
         aria-required={required}
         onChange={handleOnChange}
+        aria-describedby={ariaDescribedBy}
         className={mergeStyles(
           inputBaseVariants({
             error: error,
@@ -63,9 +65,9 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
       />
       {endIcon && ( // TODO: Tady bude iconButton
         <button
-          type='button'
-          className='absolute end-0 pe-3 inset-y-0'
-          aria-label={buttonAriaLable}
+          type="button"
+          className="absolute end-0 pe-3 inset-y-0"
+          aria-label={buttonAriaLabel}
           onClick={endIconOnClick}
         >
           <Icon icon={endIcon} />

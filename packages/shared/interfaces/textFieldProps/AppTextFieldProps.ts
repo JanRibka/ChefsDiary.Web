@@ -1,4 +1,4 @@
-import HelperTextBaseProps from "../helperTextBaseProps/HelperTextBaseProps";
+import HelperTextBaseProps from "../helperTextProps/HelperTextProps";
 import InputBaseProps from "../inputBaseProps/InputBaseProps";
 import InputLabelBaseProps from "../inputLabelBaseProps/InputLabelBaseProps";
 

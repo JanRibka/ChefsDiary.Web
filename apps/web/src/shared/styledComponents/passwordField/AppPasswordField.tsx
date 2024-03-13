@@ -4,9 +4,9 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { useUniqueId } from "@repo/shared/hooks";
 import { AppPasswordFieldProps } from "@repo/shared/interfaces";
 
-import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+import HelperText from "../helperText/HelperText";
 
 const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
   (props, ref) => {
@@ -38,7 +38,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
 
     return (
       <div id={id} className={className}>
-        <div className='relative'>
+        <div className="relative">
           <InputBase
             ref={ref}
             id={uniqueId}
@@ -49,7 +49,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
             type={showPassword ? "text" : "password"}
             required={required}
             error={error}
-            buttonAriaLable='Přepnout viditelnost hesla'
+            buttonAriaLabel="Přepnout viditelnost hesla"
             endIcon={showPassword ? <FaRegEyeSlash /> : <FaRegEye />}
             endIconOnClick={handleOnClickShowPassword}
             {...restProps}
@@ -63,7 +63,7 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
             error={error}
           />
         </div>
-        <HelperTextBase helperText={helperText} error={error} />
+        <HelperText helperText={helperText} error={error} />
       </div>
     );
   }

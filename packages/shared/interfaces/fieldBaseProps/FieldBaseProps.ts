@@ -12,6 +12,7 @@ interface FieldBaseProps extends ComponentCommonProps, BaseProps {
   type?: HTMLInputTypeAttribute;
   radius?: RadiusType;
   variant?: InputBaseVariantType;
+  ariaDescribedBy?: string;
 }
 
 export default FieldBaseProps;

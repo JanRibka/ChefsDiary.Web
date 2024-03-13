@@ -3,9 +3,10 @@ import { forwardRef } from "react";
 import { useUniqueId } from "@repo/shared/hooks";
 import { AppTextFieldProps } from "@repo/shared/interfaces";
 
-import HelperTextBase from "../../styledComponentsBase/helperTextBase/HelperTextBase";
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+import DescribedByArea from "../describedByArea/DescribedByArea";
+import HelperText from "../helperText/HelperText";
 
 const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
   (props, ref) => {
@@ -30,7 +31,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
 
     return (
       <div id={id} className={className}>
-        <div className='relative'>
+        <div className="relative">
           <InputBase
             ref={ref}
             id={uniqueId}
@@ -52,7 +53,9 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
             error={error}
           />
         </div>
-        <HelperTextBase helperText={helperText} error={error} />
+        <HelperText helperText={helperText} error={error} />
+
+        <DescribedByArea />
       </div>
     );
   }
