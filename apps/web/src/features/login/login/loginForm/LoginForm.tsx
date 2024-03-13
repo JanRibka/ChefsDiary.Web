@@ -5,7 +5,9 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
 import SubmitButton from "../../../../shared/components/submitButton/SubmitButton";
+import AppAnchor from "../../../../shared/styledComponents/anchor/AppAnchor";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
+import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHoverCard";
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 
@@ -78,56 +80,70 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='flex flex-col items-center'>
-      <h3 className='!text-3xl mb-7'>Přihlášení</h3>
-      {errorMessage && (
-        <p
-          ref={refErrorMessage}
-          className='text-center text-error border-error border-1 rounded-sm p-2.5 mb-3 w-full text-sm bg-red-100 transition-all'
-        >
-          {errorMessage}
-        </p>
-      )}
+    <section>
+      <div className="flex flex-col items-center">
+        <h3 className="!text-3xl mb-7">Přihlášení</h3>
+        {errorMessage && (
+          <p
+            ref={refErrorMessage}
+            className="text-center text-error border-error border-1 rounded-sm p-2.5 mb-3 w-full text-sm bg-red-100 transition-all"
+          >
+            {errorMessage}
+          </p>
+        )}
 
-      <form action={handleAction} className='w-full'>
-        <AppTextField
-          ref={refLogin}
-          value={userLogin}
-          name='login'
-          label='Uživatelské jméno'
-          className='mb-3'
-          // required
-          error={!!loginErrorMessage}
-          helperText={loginErrorMessage}
-          autoComplete='username'
-          onBlur={handleOnBlurLogin}
-        />
+        <form action={handleAction} className="w-full">
+          <AppTextField
+            ref={refLogin}
+            value={userLogin}
+            name="login"
+            label="Uživatelské jméno"
+            className="mb-3"
+            // required
+            error={!!loginErrorMessage}
+            helperText={loginErrorMessage}
+            autoComplete="username"
+            onBlur={handleOnBlurLogin}
+          />
 
-        <AppPasswordField
-          value={password}
-          name='password'
-          label='Heslo'
-          className='mb-3'
-          // required
-          error={!!passwordErrorMessage}
-          helperText={passwordErrorMessage}
-          autoComplete='current-password'
-          onBlur={handleOnBlurPassword}
-        />
+          <AppPasswordField
+            value={password}
+            name="password"
+            label="Heslo"
+            className="mb-3"
+            // required
+            error={!!passwordErrorMessage}
+            helperText={passwordErrorMessage}
+            autoComplete="current-password"
+            onBlur={handleOnBlurPassword}
+          />
 
-        <AppCheckbox
-          checked={stayLogged}
-          name='stayLogged'
-          label='Zůstat přihlášený '
-          className='mb-3'
-          onCheckedChange={handleOnCheckedChange}
-        />
+          <div className="flex items-center justify-between mb-3">
+            <div>
+              <AppHoverCard
+                trigger={
+                  <AppCheckbox
+                    checked={stayLogged}
+                    name="stayLogged"
+                    label="Zůstat přihlášený"
+                    onCheckedChange={handleOnCheckedChange}
+                  />
+                }
+                content={"Odškrtněte, pokud jste na veřejném počítači"}
+              />
+            </div>
 
-        <SubmitButton className='w-full' variant='contained'>
-          Přihlásit
-        </SubmitButton>
-      </form>
-    </div>
+            <p>
+              <AppAnchor href={"#"}>Zapomněli jste heslo?</AppAnchor>
+            </p>
+          </div>
+
+          <SubmitButton className="w-full" variant="contained">
+            Přihlásit
+          </SubmitButton>
+        </form>
+      </div>
+    </section>
   );
 };
 

@@ -9,3 +9,4 @@ export type { default as AppCheckboxProps } from "./checkboxProps/AppCheckboxPro
 export type { default as ButtonBaseProps } from "./buttonBaseProps/ButtonBaseProps";
 export type { default as AppButtonProps } from "./buttonProps/AppButtonProps";
 export type { default as SubmitButtonProps } from "./submitButtonProps/SubmitButtonProps";
+export type { default as AppAnchorProps } from "./anchor/AppAnchorProps";
