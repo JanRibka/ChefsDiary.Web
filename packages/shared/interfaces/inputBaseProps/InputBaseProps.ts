@@ -8,7 +8,8 @@ interface InputBaseProps extends FieldBaseProps {
   endIcon?: JSX.Element;
   buttonAriaLabel?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
+  onBlur?: (e: FocusEvent<HTMLInputElement, Element>) => void;
+  onFocus?: (e: FocusEvent<HTMLInputElement, Element>) => void;
   endIconOnClick?: () => void;
 }
 

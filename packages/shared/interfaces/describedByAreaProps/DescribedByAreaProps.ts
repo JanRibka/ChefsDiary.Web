@@ -1,8 +1,8 @@
 import BaseProps from "../baseProps/BaseProps";
 
 interface DescribedByAreaProps extends BaseProps {
-  children?: JSX.Element;
-  display?: boolean;
+  ariaDescribedByContent?: JSX.Element;
+  ariaDescribedByDisplay?: boolean;
 }
 
 export default DescribedByAreaProps;

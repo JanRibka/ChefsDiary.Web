@@ -1,13 +1,28 @@
 import { mergeStyles } from "@repo/shared/helpers";
 import { DescribedByAreaProps } from "@repo/shared/interfaces";
 
-const DescribedByArea = (props: DescribedByAreaProps) => {
+import { describedByAreaVariants } from "./describedByAreaVariants";
+
+const DescribedByArea = (props: Omit<DescribedByAreaProps, "children">) => {
   // Props
-  const { display, className, ...restProps } = props;
+  const {
+    ariaDescribedByDisplay,
+    className,
+    ariaDescribedByContent,
+    ...restProps
+  } = props;
 
-  if (!display) return;
-
-  return <div className={mergeStyles("", className)} {...restProps} />;
+  return (
+    <div
+      className={mergeStyles(
+        describedByAreaVariants({ display: ariaDescribedByDisplay }),
+        className
+      )}
+      {...restProps}
+    >
+      {ariaDescribedByContent}
+    </div>
+  );
 };
 
 export default DescribedByArea;

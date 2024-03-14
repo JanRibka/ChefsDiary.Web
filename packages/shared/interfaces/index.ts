@@ -11,3 +11,6 @@ export type { default as AppButtonProps } from "./buttonProps/AppButtonProps";
 export type { default as SubmitButtonProps } from "./submitButtonProps/SubmitButtonProps";
 export type { default as AppAnchorProps } from "./anchorProps/AppAnchorProps";
 export type { default as DescribedByAreaProps } from "./describedByAreaProps/DescribedByAreaProps";
+export type { default as ConfirmPasswordProps } from "./confirmPasswordProps/ConfirmPasswordProps";
+export type { default as DescribedByAreaWrapperProps } from "./describedByAreaWrapperProps/DescribedByAreaWrapperProps";
+export type { default as DescribedByAreaItemProps } from "./describedByAreaItemProps/DescribedByAreaItemProps";

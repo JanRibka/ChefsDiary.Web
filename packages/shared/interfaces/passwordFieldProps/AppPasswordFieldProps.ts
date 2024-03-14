@@ -1,3 +1,4 @@
+import { DescribedByAreaProps } from "../";
 import HelperTextBaseProps from "../helperTextProps/HelperTextProps";
 import InputBaseProps from "../inputBaseProps/InputBaseProps";
 import InputLabelBaseProps from "../inputLabelBaseProps/InputLabelBaseProps";
@@ -5,7 +6,8 @@ import InputLabelBaseProps from "../inputLabelBaseProps/InputLabelBaseProps";
 interface AppPasswordFieldProps
   extends Omit<InputBaseProps, "endIcon" | "endIconOnClick" | "type">,
     Omit<InputLabelBaseProps, "htmlFor">,
-    HelperTextBaseProps {
+    HelperTextBaseProps,
+    DescribedByAreaProps {
   value?: string | null;
 }
 

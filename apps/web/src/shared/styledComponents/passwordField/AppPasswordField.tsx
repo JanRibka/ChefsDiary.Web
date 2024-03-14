@@ -6,6 +6,7 @@ import { AppPasswordFieldProps } from "@repo/shared/interfaces";
 
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+import DescribedByArea from "../describedByArea/DescribedByArea";
 import HelperText from "../helperText/HelperText";
 
 const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
@@ -22,6 +23,9 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
       required,
       error,
       helperText,
+      ariaDescribedBy,
+      ariaDescribedByContent,
+      ariaDescribedByDisplay,
       ...restProps
     } = props;
 
@@ -64,6 +68,12 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
           />
         </div>
         <HelperText helperText={helperText} error={error} />
+
+        <DescribedByArea
+          id={ariaDescribedBy}
+          ariaDescribedByContent={ariaDescribedByContent}
+          ariaDescribedByDisplay={ariaDescribedByDisplay}
+        />
       </div>
     );
   }

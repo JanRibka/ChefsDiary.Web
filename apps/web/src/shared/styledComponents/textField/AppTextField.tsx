@@ -23,6 +23,9 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
       required,
       error,
       helperText,
+      ariaDescribedBy,
+      ariaDescribedByContent,
+      ariaDescribedByDisplay,
       ...restProps
     } = props;
 
@@ -42,6 +45,7 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
             type={type ?? "text"}
             required={required}
             error={error}
+            ariaDescribedBy={ariaDescribedBy}
             {...restProps}
           />
           <InputLabelBase
@@ -55,7 +59,11 @@ const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(
         </div>
         <HelperText helperText={helperText} error={error} />
 
-        <DescribedByArea />
+        <DescribedByArea
+          id={ariaDescribedBy}
+          ariaDescribedByContent={ariaDescribedByContent}
+          ariaDescribedByDisplay={ariaDescribedByDisplay}
+        />
       </div>
     );
   }
