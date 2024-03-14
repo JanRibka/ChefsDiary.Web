@@ -8,7 +8,6 @@
     "./helpers": "./helpers/index.ts",
     "./hooks": "./hooks/index.ts",
     "./interfaces": "./interfaces/index.ts",
-    "./scripts": "./scripts/index.ts",
     "./types": "./types/index.ts"
   },
   "license": "MIT",

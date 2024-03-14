@@ -1,5 +1,5 @@
 import ErrorBoundary from "../../../shared/components/errorBoundary/ErrorBoundary";
-import RegisterForm from "./registerForm/ReisterForm";
+import RegisterForm from "./registerForm/RegisterForm";
 
 const Register = () => {
   return (
