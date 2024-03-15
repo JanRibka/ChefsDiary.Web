@@ -49,7 +49,7 @@ const RegisterForm = () => {
 
   const handleAction = async (data: FormData) => {
     const response = await registerUser(data);
-    debugger;
+
     if (response) {
       // update({
       //   uuid: response.uuid,
@@ -96,29 +96,29 @@ const RegisterForm = () => {
   // TODO: Pokud nejsou polozky validn9 a jsou vyplnene, budou lehce podbarveny vervene jinak zxelene
   return (
     <section>
-      <div className="flex flex-col items-center">
-        <h3 className="!text-3xl mb-7">Registrace</h3>
+      <div className='flex flex-col items-center'>
+        <h3 className='!text-3xl mb-7'>Registrace</h3>
         {errorMessage && (
           <p
             ref={refErrorMessage}
-            className="text-center text-error border-error border-1 rounded-sm p-2.5 mb-3 w-full text-sm bg-red-100 transition-all"
+            className='text-center text-error border-error border-1 rounded-sm p-2.5 mb-3 w-full text-sm bg-red-100 transition-all'
           >
             {errorMessage}
           </p>
         )}
 
-        <form action={handleAction} className="w-full">
+        <form action={handleAction} className='w-full'>
           <AppTextField
             ref={refLogin}
             value={login}
-            name="login"
-            label="Uživatelské jméno"
-            className="mb-3"
+            name='login'
+            label='Uživatelské jméno'
+            className='mb-3'
             // required
             error={!!loginErrorMessage}
             helperText={loginErrorMessage}
-            autoComplete="off"
-            ariaDescribedBy="loginNote"
+            autoComplete='off'
+            ariaDescribedBy='loginNote'
             ariaDescribedByContent={<LoginDescribedByArea login={login} />}
             ariaDescribedByDisplay={!!login && loginFocus && !loginValid}
             onChange={handleOnChangeLogin}
@@ -128,14 +128,14 @@ const RegisterForm = () => {
 
           <AppTextField
             value={email}
-            name="email"
-            label="Email"
-            type="email"
-            className="mb-3"
+            name='email'
+            label='Email'
+            type='email'
+            className='mb-3'
             // required
             error={!!emailErrorMessage}
             helperText={emailErrorMessage}
-            autoComplete="email"
+            autoComplete='email'
             onBlur={(e) => setEmail(e.target.value)}
           />
 
@@ -154,7 +154,7 @@ const RegisterForm = () => {
             }
           />
 
-          <SubmitButton className="w-full" variant="contained">
+          <SubmitButton className='w-full' variant='contained'>
             Registrovat
           </SubmitButton>
         </form>
