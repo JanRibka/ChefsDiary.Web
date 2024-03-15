@@ -14,7 +14,6 @@ interface Props {
 }
 
 const PasswordDescribedByArea = (props: Props) => {
-  debugger;
   return (
     <DescribedByAreaWrapper>
       <>

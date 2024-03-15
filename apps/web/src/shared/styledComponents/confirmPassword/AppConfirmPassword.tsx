@@ -1,10 +1,13 @@
-import { ChangeEvent, FocusEvent, useState } from 'react';
+import { ChangeEvent, FocusEvent, useState } from "react";
 
-import { ConfirmPasswordProps } from '@repo/shared/interfaces';
-import { validateConfirmPassword, validatePassword } from '@repo/shared/validations';
+import { ConfirmPasswordProps } from "@repo/shared/interfaces";
+import {
+  validateConfirmPassword,
+  validatePassword,
+} from "@repo/shared/validations";
 
-import ErrorBoundary from '../../components/errorBoundary/ErrorBoundary';
-import AppPasswordField from '../passwordField/AppPasswordField';
+import ErrorBoundary from "../../components/errorBoundary/ErrorBoundary";
+import AppPasswordField from "../passwordField/AppPasswordField";
 
 const AppConfirmPassword = (props: ConfirmPasswordProps) => {
   // State
@@ -28,12 +31,16 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
     }
   };
 
-  const handleOnBlurPassword = () => {
+  const handleOnBlurPassword = (e: FocusEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
     setPasswordFocus(false);
 
-    const valid = validatePassword(props.password);
-
+    const valid = validatePassword(value);
     setPasswordValid(valid);
+
+    const confirmValid = validateConfirmPassword(value, props.confirmPassword);
+    setConfirmPasswordValid(confirmValid);
   };
 
   const handleOnChangeConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +48,7 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
     props.setConfirmPassword(value);
 
-    if (passwordValid) {
+    if (confirmPasswordValid) {
       const valid = validateConfirmPassword(props.password, value);
 
       setConfirmPasswordValid(valid);
@@ -64,14 +71,14 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
         <div>
           <AppPasswordField
             value={props.password}
-            name='password'
-            label='Heslo'
-            className='mb-3'
+            name="password"
+            label="Heslo"
+            className="mb-3"
             // required
             error={!!props.passwordErrorMessage}
             helperText={props.passwordErrorMessage}
-            autoComplete='new-password'
-            ariaDescribedBy='passwordNote'
+            autoComplete="new-password"
+            ariaDescribedBy="passwordNote"
             ariaDescribedByContent={props.passwordAriaDescribedByContent}
             ariaDescribedByDisplay={
               !!props.password && passwordFocus && !passwordValid
@@ -83,16 +90,17 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
           <AppPasswordField
             value={props.confirmPassword}
-            name='confirmPassword'
-            label='Potvrdit heslo'
-            className='mb-3'
+            name="confirmPassword"
+            label="Potvrdit heslo"
+            className="mb-3"
             // required
             error={!!props.confirmPasswordErrorMessage}
             helperText={props.confirmPasswordErrorMessage}
-            autoComplete='new-password'
-            ariaDescribedBy='confirmPasswordNote'
+            autoComplete="new-password"
+            ariaDescribedBy="confirmPasswordNote"
             ariaDescribedByContent={props.confirmPasswordAriaDescribedByContent}
             ariaDescribedByDisplay={
+              !!props.password &&
               !!props.confirmPassword &&
               confirmPasswordFocus &&
               !confirmPasswordValid

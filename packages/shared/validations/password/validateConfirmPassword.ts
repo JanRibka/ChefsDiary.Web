@@ -1,5 +1,5 @@
 const validateConfirmPassword = (password: string, confirmPassword: string) => {
-  let result: boolean = true;
+  let result: boolean = false;
 
   if (password && confirmPassword) {
     result = password === confirmPassword;
