@@ -12,3 +12,7 @@ export const SPECIAL_CHARACTERS_REGEX = "[$@!%*#?&(){}/+\\_\\-.;,~><:|]";
 export const minMaxLengthRegex = (min: number, max?: number) => {
   return `{${min},${max}}`;
 };
+export const ALL_ALFA_NUMERIC_REGEX = "[\\w]";
+export const allAlfaNumericCustomCharRegex = (customChar: string) => {
+  return `[\\w${customChar}]`;
+};

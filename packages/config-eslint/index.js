@@ -22,7 +22,7 @@ module.exports = {
       "error",
       {
         selector: "variable",
-        format: ["PascalCase", "camelCase"],
+        format: ["PascalCase", "camelCase", "UPPER_CASE"],
         leadingUnderscore: "forbid",
         modifiers: ["global"],
       },
