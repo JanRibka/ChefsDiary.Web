@@ -9,6 +9,7 @@ import AppConfirmPassword from "../../../../shared/styledComponents/confirmPassw
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 import LoginDescribedByArea from "./loginDescribedByArea/LoginDescribedByArea";
 
+// TODO:Pokud smazu napr jenom email, smaze s emi erro pouze pro email, ne pro vsechno + hlavni chyba se smaze
 //todo: pOKUD JSou vsechny podminky splneny u popisku napr u hesla, tak ten popisek hned zmizne, proto6e pak nejde kliknout na registrovat
 const RegisterForm = () => {
   // References
