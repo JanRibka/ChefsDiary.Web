@@ -1,14 +1,13 @@
 import { Dispatch, SetStateAction } from "react";
 
+import { RegisterFormModel } from "../../models";
+
 interface ConfirmPasswordProps {
   password: string;
-  setPassword: Dispatch<SetStateAction<string>>;
+  setFormData: Dispatch<SetStateAction<RegisterFormModel>>;
   passwordErrorMessage: string;
-  passwordAriaDescribedByContent: JSX.Element;
   confirmPassword: string;
-  setConfirmPassword: Dispatch<SetStateAction<string>>;
   confirmPasswordErrorMessage: string;
-  confirmPasswordAriaDescribedByContent: JSX.Element;
 }
 
 export default ConfirmPasswordProps;

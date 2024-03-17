@@ -10,7 +10,7 @@ import { useRegisterMutation } from "../../auth/authApi";
 const useRegister = () => {
   // Api
   const [register, response] = useRegisterMutation();
-
+  // TODO: Bude tady setError jako ve validaci registracniho formu
   // State
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [loginErrorMessage, setLoginErrorMessage] = useState<string>("");
@@ -67,58 +67,6 @@ const useRegister = () => {
     }
 
     return response.data;
-  };
-  // TODO: Dopdat funkci
-  // Validate form data
-  // const validateFormData = (data: FormData) => {
-  //   const { login, email, password, confirmPassword } = data;
-  //   let isValid = true;
-
-  //   // Validate login
-  //   if (!login) {
-  //     setLoginErrorMessage("Login is required");
-  //     isValid = false;
-  //   } else {
-  //     setLoginErrorMessage("");
-  //   }
-
-  //   // Validate email
-  //   if (!email) {
-  //     setEmailErrorMessage("Email is required");
-  //     isValid = false;
-  //   } else {
-  //     setEmailErrorMessage("");
-  //   }
-
-  //   // Validate password
-  //   if (!password) {
-  //     setPasswordErrorMessage("Password is required");
-  //     isValid = false;
-  //   } else {
-  //     setPasswordErrorMessage("");
-  //   }
-
-  //   // Validate confirm password
-  //   if (!confirmPassword) {
-  //     setConfirmPasswordErrorMessage("Confirm Password is required");
-  //     isValid = false;
-  //   } else if (password !== confirmPassword) {
-  //     setConfirmPasswordErrorMessage("Passwords do not match");
-  //     isValid = false;
-  //   } else {
-  //     setConfirmPasswordErrorMessage("");
-  //   }
-
-  //   return isValid;
-  // };
-
-  // Update registerUser function
-  const registerUser = async (data: FormData) => {
-    if (validateFormData(data)) {
-      const registerResponse = await register(data);
-      return handleResponse(registerResponse);
-    }
-    return false;
   };
 
   return {

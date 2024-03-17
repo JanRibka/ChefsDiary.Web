@@ -6,6 +6,8 @@ import {
   validatePassword,
 } from "@repo/shared/validations";
 
+import ConfirmPasswordDescribedByArea from "../../../features/login/register/registerForm/confirmPasswordDescribedByArea/ConfirmPasswordDescribedByArea";
+import PasswordDescribedByArea from "../../../features/login/register/registerForm/passwordDescribedByArea/PasswordDescribedByArea";
 import ErrorBoundary from "../../components/errorBoundary/ErrorBoundary";
 import AppPasswordField from "../passwordField/AppPasswordField";
 
@@ -21,8 +23,9 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
   // Other
   const handleOnChangePassword = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
+    const name: string = e.target.name;
 
-    props.setPassword(value);
+    props.setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (passwordValid) {
       const valid = validatePassword(value);
@@ -45,8 +48,9 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
   const handleOnChangeConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
     const value: string = e.target.value;
+    const name: string = e.target.name;
 
-    props.setConfirmPassword(value);
+    props.setFormData((prev) => ({ ...prev, [name]: value }));
 
     if (confirmPasswordValid) {
       const valid = validateConfirmPassword(props.password, value);
@@ -73,13 +77,16 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
             value={props.password}
             name="password"
             label="Heslo"
+            required
+            requiredOnlyLabel
             className="mb-3"
-            // required
             error={!!props.passwordErrorMessage}
             helperText={props.passwordErrorMessage}
             autoComplete="new-password"
             ariaDescribedBy="passwordNote"
-            ariaDescribedByContent={props.passwordAriaDescribedByContent}
+            ariaDescribedByContent={
+              <PasswordDescribedByArea password={props.password} />
+            }
             ariaDescribedByDisplay={
               !!props.password && passwordFocus && !passwordValid
             }
@@ -92,13 +99,19 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
             value={props.confirmPassword}
             name="confirmPassword"
             label="Potvrdit heslo"
+            required
+            requiredOnlyLabel
             className="mb-3"
-            // required
             error={!!props.confirmPasswordErrorMessage}
             helperText={props.confirmPasswordErrorMessage}
             autoComplete="new-password"
             ariaDescribedBy="confirmPasswordNote"
-            ariaDescribedByContent={props.confirmPasswordAriaDescribedByContent}
+            ariaDescribedByContent={
+              <ConfirmPasswordDescribedByArea
+                password={props.password}
+                confirmPassword={props.confirmPassword}
+              />
+            }
             ariaDescribedByDisplay={
               !!props.password &&
               !!props.confirmPassword &&

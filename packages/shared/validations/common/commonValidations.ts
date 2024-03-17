@@ -7,7 +7,10 @@ import {
   SPECIAL_CHARACTERS_REGEX,
   UPPERCASE_REGEX,
 } from "../../regexes";
-import { minMaxLengthRegex } from "../../regexes/common/commonRegexes";
+import {
+  loweUpperCaseNumberSpecialCharRegex,
+  minMaxLengthRegex,
+} from "../../regexes/common/commonRegexes";
 
 export const validateLowerCase = (text: string) => {
   return new RegExp(LOWERCASE_REGEX).test(text);
@@ -19,6 +22,15 @@ export const validateLowerUpperCase = (text: string) => {
 
 export const validateLowerUpperCaseNumbers = (text: string) => {
   return new RegExp(LOWER_UPPERCASE_NUMBERS_REGEX).test(text);
+};
+
+export const validateLowerUpperCaseNumbersSpecialChar = (
+  text: string,
+  specialChar: string
+) => {
+  return new RegExp(
+    `${loweUpperCaseNumberSpecialCharRegex(specialChar)}$`
+  ).test(text);
 };
 
 export const validateUpperCase = (text: string) => {

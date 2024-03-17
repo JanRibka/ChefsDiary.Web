@@ -10,7 +10,8 @@
     "./interfaces": "./interfaces/index.ts",
     "./regexes": "./regexes/index.ts",
     "./types": "./types/index.ts",
-    "./validations": "./validations/index.ts"
+    "./validations": "./validations/index.ts",
+    "./models": "./models/index.ts"
   },
   "license": "MIT",
   "scripts": {
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.1",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "yup": "^1.4.0"
   }
 }

@@ -1,7 +1,6 @@
 import {
-  validateCustomChar,
   validateLowerUpperCase,
-  validateLowerUpperCaseNumbers,
+  validateLowerUpperCaseNumbersSpecialChar,
   validateMinMaxLength,
 } from "@repo/shared/validations";
 
@@ -28,12 +27,12 @@ const LoginDescribedByArea = (props: Props) => {
         </DescribedByAreaItem>
 
         <DescribedByAreaItem
-          itemValid={
-            validateLowerUpperCaseNumbers(props.login) ||
-            validateCustomChar(props.login, "-_")
-          }
+          itemValid={validateLowerUpperCaseNumbersSpecialChar(
+            props.login,
+            "-_"
+          )}
         >
-          Může obsahovat čísla a podtržítko
+          Může obsahovat čísla, pomlčky a podtržítko
         </DescribedByAreaItem>
       </>
     </DescribedByAreaWrapper>

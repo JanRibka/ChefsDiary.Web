@@ -34,7 +34,7 @@ const PasswordDescribedByArea = (props: Props) => {
         <DescribedByAreaItem
           itemValid={validateSpecialCharacters(props.password)}
         >
-          Může obsahovat speciální znaky
+          Doporučujeme použít i speciální znaky
         </DescribedByAreaItem>
       </>
     </DescribedByAreaWrapper>
