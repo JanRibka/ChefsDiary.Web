@@ -5,6 +5,7 @@ type LibraryTypeProperty =
   | "loginStartWithLetter"
   | "loginAllowedCharacters"
   | "emailRequired"
+  | "emailInvalid"
   | "passwordRequired"
   | "passwordMinLength"
   | "passwordMaxLength"

@@ -158,7 +158,7 @@ const RegisterForm = () => {
             value={formData.email}
             name="email"
             label="Email"
-            type="email"
+            type="text"
             required
             requiredOnlyLabel
             className="mb-3"

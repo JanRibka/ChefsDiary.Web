@@ -9,6 +9,7 @@ const errorTexts: LibraryType = {
   loginAllowedCharacters:
     "Uživatelské jméno může obsahovat pouze písmena, čísla, pomlčku a podtržítko",
   emailRequired: "Email je povinný",
+  emailInvalid: "Email není platná emailová adresa",
   passwordRequired: "Heslo je povinné",
   passwordMinLength: "Heslo musí mít alespoň {0} znaků",
   passwordMaxLength: "Heslo může mít maximálně {0} znaků",

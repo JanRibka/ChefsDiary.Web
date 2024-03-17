@@ -10,6 +10,7 @@ import {
   UPPERCASE_REGEX,
 } from "../../../regexes";
 
+// TODO: Na email Pridat regex na .cz .com .net .org
 const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
   login: string()
     .required(getErrorTextByKey("loginRequired"))
@@ -23,7 +24,9 @@ const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
       new RegExp(`${loweUpperCaseNumberSpecialCharRegex("-_")}$`),
       getErrorTextByKey("loginAllowedCharacters")
     ),
-  email: string().email().required(getErrorTextByKey("emailRequired")),
+  email: string()
+    .email(getErrorTextByKey("emailInvalid"))
+    .required(getErrorTextByKey("emailRequired")),
   password: string()
     .required(getErrorTextByKey("passwordRequired"))
     .min(8, getErrorTextByKey("passwordMinLength", "8"))
