@@ -10,7 +10,7 @@ import {
   UPPERCASE_REGEX,
 } from "../../../regexes";
 
-// TODO: Na email Pridat regex na .cz .com .net .org
+// TODO: Na email Pridat regex na .cz .com .net .org a je to dlouhe 2 az 4 znaky
 const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
   login: string()
     .required(getErrorTextByKey("loginRequired"))
