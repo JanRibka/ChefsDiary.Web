@@ -37,7 +37,7 @@ const RegisterForm = () => {
   const handleAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
 
-    if (result && false) {
+    if (result) {
       setErrors(result);
       refErrorMessage.current?.focus();
     } else {
