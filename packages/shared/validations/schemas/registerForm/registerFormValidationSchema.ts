@@ -14,7 +14,7 @@ import {
 const registerFormValidationSchema = object<RegisterFormModel>().shape({
   login: string()
     .required(getErrorTextByKey("loginRequired"))
-    .min(4, getErrorTextByKey("loginMinLength", "1"))
+    .min(4, getErrorTextByKey("loginMinLength", "4"))
     .max(24, getErrorTextByKey("loginMaxLength", "24"))
     .matches(
       new RegExp(`^${LOWER_UPPERCASE_REGEX}`),

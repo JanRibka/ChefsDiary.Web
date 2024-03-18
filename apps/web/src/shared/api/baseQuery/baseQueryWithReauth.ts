@@ -14,7 +14,6 @@ const baseQueryWithReauth: BaseQueryFn<
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
-
   if (result.error && result.error.status === HttpStatusCodes.FORBIDDEN) {
     const refreshResult = await baseQuery("", api, extraOptions);
     // TODO: Dod2lat volan9 refreshtoken a update do store

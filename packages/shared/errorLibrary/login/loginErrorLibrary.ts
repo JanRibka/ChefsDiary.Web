@@ -2,6 +2,7 @@ import { stringFormat } from "../../helpers";
 import { LibraryType } from "../../types";
 
 const errorTexts: LibraryType = {
+  registerUserMainError: "Registrace skončila chybou, zkuste to prosím znovu",
   loginRequired: "Uživatelské jméno je povinné",
   loginMinLength: "Uživatelské jméno musí mít alespoň {0} znaků",
   loginMaxLength: "Uživatelské jméno může mít maximálně {0} znaků",
@@ -10,6 +11,7 @@ const errorTexts: LibraryType = {
     "Uživatelské jméno může obsahovat pouze písmena, čísla, pomlčku a podtržítko",
   emailRequired: "Email je povinný",
   emailInvalid: "Email není platná emailová adresa",
+  emailExists: "Email již existuje",
   passwordRequired: "Heslo je povinné",
   passwordMinLength: "Heslo musí mít alespoň {0} znaků",
   passwordMaxLength: "Heslo může mít maximálně {0} znaků",
@@ -24,7 +26,7 @@ const errorTexts: LibraryType = {
 
 const getErrorTextByKey = (key: keyof LibraryType, ...args: string[]) => {
   if (args.length > 0) {
-    return stringFormat(errorTexts?.[key as keyof LibraryType], ...args);
+    return stringFormat(errorTexts?.[key as keyof LibraryType] ?? key, ...args);
   }
 
   return errorTexts?.[key as keyof LibraryType] ?? key;

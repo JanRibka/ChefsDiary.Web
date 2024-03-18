@@ -1,4 +1,5 @@
 type LibraryTypeProperty =
+  | "registerUserMainError"
   | "loginRequired"
   | "loginMinLength"
   | "loginMaxLength"
@@ -6,6 +7,7 @@ type LibraryTypeProperty =
   | "loginAllowedCharacters"
   | "emailRequired"
   | "emailInvalid"
+  | "emailExists"
   | "passwordRequired"
   | "passwordMinLength"
   | "passwordMaxLength"

@@ -29,10 +29,11 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
     props.setFormData((prev) => ({ ...prev, [name]: value }));
 
-    if (passwordValid) {
-      const valid = validatePassword(value);
+    const valid = validatePassword(value);
+    setPasswordValid(valid);
 
-      setPasswordValid(valid);
+    if (props.errors.password !== "") {
+      props.resetError("password");
     }
   };
 
@@ -41,15 +42,8 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
     setPasswordFocus(false);
 
-    const valid = validatePassword(value);
-    setPasswordValid(valid);
-
     const confirmValid = validateConfirmPassword(value, props.confirmPassword);
     setConfirmPasswordValid(confirmValid);
-
-    if (props.errors.password !== "") {
-      props.resetError("password");
-    }
   };
 
   const handleOnChangeConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -58,20 +52,7 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
     props.setFormData((prev) => ({ ...prev, [name]: value }));
 
-    if (confirmPasswordValid) {
-      const valid = validateConfirmPassword(props.password, value);
-
-      setConfirmPasswordValid(valid);
-    }
-  };
-
-  const handleOnBlurConfirmPassword = (e: FocusEvent<HTMLInputElement>) => {
-    const value: string = e.target.value;
-
-    setConfirmPasswordFocus(false);
-
     const valid = validateConfirmPassword(props.password, value);
-
     setConfirmPasswordValid(valid);
 
     if (props.errors.confirmPassword !== "") {
@@ -127,7 +108,7 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
               !confirmPasswordValid
             }
             onChange={handleOnChangeConfirmPassword}
-            onBlur={handleOnBlurConfirmPassword}
+            onBlur={() => setConfirmPasswordFocus(false)}
             onFocus={() => setConfirmPasswordFocus(true)}
           />
         </div>

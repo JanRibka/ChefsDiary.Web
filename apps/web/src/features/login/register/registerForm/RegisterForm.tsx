@@ -13,8 +13,6 @@ import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppF
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 import LoginDescribedByArea from "./loginDescribedByArea/LoginDescribedByArea";
 
-// TODO: pOKUD JSou vsechny podminky splneny u popisku napr u hesla, tak ten popisek hned zmizne, proto6e pak nejde kliknout na registrovat
-// TODO: Reset hlasky nebude na on blur, ale change, bo se pak blbe klika na cudl
 const RegisterForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);
@@ -24,14 +22,12 @@ const RegisterForm = () => {
   const [formData, setFormData] = useState<RegisterFormModel>(
     new RegisterFormModel()
   );
-  const [errors, setErrors] = useState<RegisterFormErrorModel>(
-    new RegisterFormErrorModel()
-  );
+
   const [loginFocus, setLoginFocus] = useState<boolean>(false);
   const [loginValid, setLoginValid] = useState<boolean>(false);
 
   // Constants
-  const { registerUser } = useRegister();
+  const { registerUser, errors, setErrors } = useRegister();
 
   // Other
   useEffect(() => {
@@ -41,11 +37,11 @@ const RegisterForm = () => {
   const handleAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
 
-    if (result) {
+    if (result && false) {
       setErrors(result);
+      refErrorMessage.current?.focus();
     } else {
       const response = await registerUser(data);
-
       if (response) {
         // update({
         //   uuid: response.uuid,
@@ -53,8 +49,11 @@ const RegisterForm = () => {
         //   userRoles: response.userRoles,
         //   accessToken: response.accessToken,
         // });
+      } else {
+        refErrorMessage.current?.focus();
       }
     }
+
     // const isValid = validateRegisterForm(data);
     // if (isValid) {
     //   console.log("Form is valid");
@@ -82,18 +81,7 @@ const RegisterForm = () => {
 
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    if (loginValid) {
-      const valid = validateLogin(value);
-
-      setLoginValid(valid);
-    }
-  };
-
-  const handleOnBlurLogin = () => {
-    setLoginFocus(false);
-
-    const valid = validateLogin(formData.login);
-
+    const valid = validateLogin(value);
     setLoginValid(valid);
 
     if (errors.login !== "") {
@@ -101,14 +89,16 @@ const RegisterForm = () => {
     }
   };
 
+  const handleOnChangeEmail = () => {
+    if (errors.email !== "") {
+      resetError("email");
+    }
+  };
+
   const handleOnBlurEmail = (e: FocusEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));
-
-    if (errors.email !== "") {
-      resetError("email");
-    }
   };
 
   const resetError = (name: keyof RegisterFormErrorModel) => {
@@ -147,7 +137,7 @@ const RegisterForm = () => {
               !!formData.login && loginFocus && !loginValid
             }
             onChange={handleOnChangeLogin}
-            onBlur={handleOnBlurLogin}
+            onBlur={() => setLoginFocus(false)}
             onFocus={() => setLoginFocus(true)}
           />
 
@@ -161,6 +151,7 @@ const RegisterForm = () => {
             error={!!errors.email}
             helperText={errors.email}
             autoComplete="email"
+            onChange={handleOnChangeEmail}
             onBlur={handleOnBlurEmail}
           />
 

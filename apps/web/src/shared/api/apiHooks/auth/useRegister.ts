@@ -2,22 +2,19 @@ import { useState } from "react";
 
 import { SerializedError } from "@reduxjs/toolkit";
 import { getErrorTextByKey } from "@repo/shared/errorLibrary";
-import { capitalizeFirstLetter } from "@repo/shared/helpers";
-import { LoginErrorType, ResponseType } from "@repo/shared/types";
+import { RegisterFormErrorModel } from "@repo/shared/models";
+import { LibraryType, LoginErrorType, ResponseType } from "@repo/shared/types";
 
 import { useRegisterMutation } from "../../auth/authApi";
 
 const useRegister = () => {
   // Api
   const [register, response] = useRegisterMutation();
-  // TODO: Bude tady setError jako ve validaci registracniho formu
+
   // State
-  const [errorMessage, setErrorMessage] = useState<string>("");
-  const [loginErrorMessage, setLoginErrorMessage] = useState<string>("");
-  const [emailErrorMessage, setEmailErrorMessage] = useState<string>("");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>("");
-  const [confirmPasswordErrorMessage, setConfirmPasswordErrorMessage] =
-    useState<string>("");
+  const [errors, setErrors] = useState<RegisterFormErrorModel>(
+    new RegisterFormErrorModel()
+  );
 
   // Constants
   const isLoading = response.isLoading;
@@ -37,51 +34,52 @@ const useRegister = () => {
 
       if (typeof error === "object" && !!message) {
         console.error(message);
-        setErrorMessage("Registrace skončila chybou, zkuste to prosím znovu");
+        setErrors((prev) => ({
+          ...prev,
+          main: getErrorTextByKey("registerUserMainError"),
+        }));
 
         return;
       }
       if (typeof error == "string") {
         console.error(error);
-        setErrorMessage("Registrace skončila chybou, zkuste to prosím znovu");
+        setErrors((prev) => ({
+          ...prev,
+          main: getErrorTextByKey("registerUserMainError"),
+        }));
 
         return;
       }
 
+      const errors: RegisterFormErrorModel = new RegisterFormErrorModel();
       const keys = Object.keys(error);
 
       keys.forEach((item) => {
-        let errorText = (error as LoginErrorType)?.[item][0];
+        const key = item as keyof RegisterFormErrorModel;
+        const values = (
+          (error as LoginErrorType)?.[key][0] as keyof LibraryType
+        ).split("|") as (keyof LibraryType)[];
 
-        if (item === "unauthorized" || item === "forbidden") item = "";
-
-        errorText = getErrorTextByKey(errorText);
-        eval(`set${capitalizeFirstLetter(item)}ErrorMessage("${errorText}")`);
+        if (errors[key] === "") {
+          errors[key] = getErrorTextByKey(values[0], values[1] || undefined);
+        }
       });
 
-      return;
-    } else {
-      setErrorMessage("");
-      setLoginErrorMessage("");
-      setPasswordErrorMessage("");
-    }
+      setErrors(errors);
 
-    return response.data;
+      return false;
+    } else {
+      setErrors(new RegisterFormErrorModel());
+
+      return true;
+    }
   };
 
   return {
     registerUser,
     isLoading,
-    errorMessage,
-    setErrorMessage,
-    loginErrorMessage,
-    setLoginErrorMessage,
-    emailErrorMessage,
-    setEmailErrorMessage,
-    passwordErrorMessage,
-    setPasswordErrorMessage,
-    confirmPasswordErrorMessage,
-    setConfirmPasswordErrorMessage,
+    errors,
+    setErrors,
   };
 };
 
