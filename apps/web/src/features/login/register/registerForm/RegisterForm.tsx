@@ -117,8 +117,12 @@ const RegisterForm = () => {
     }
   };
 
-  // TODO: Položky nebudou required a pude se validovat po kliku na submit
-  // TODO: Pokud nejsou polozky validn9 a jsou vyplnene, budou lehce podbarveny vervene jinak zxelene
+  const resetError = (name: string) => {
+    if (errors[name as keyof RegisterFormErrorModel] !== "") {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
   return (
     <section>
       <div className="flex flex-col items-center">
