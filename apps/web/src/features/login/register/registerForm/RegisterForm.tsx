@@ -4,7 +4,8 @@ import { RegisterFormErrorModel, RegisterFormModel } from "@repo/shared/models";
 import { validateLogin, validateRegisterForm } from "@repo/shared/validations";
 
 import useRegister from "../../../../shared/api/apiHooks/auth/useRegister";
-import SubmitButton from "../../../../shared/components/submitButton/SubmitButton";
+import AppForm from "../../../../shared/components/form/AppForm";
+import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
 import AppConfirmPassword from "../../../../shared/styledComponents/confirmPassword/AppConfirmPassword";
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 import LoginDescribedByArea from "./loginDescribedByArea/LoginDescribedByArea";
@@ -34,15 +35,6 @@ const RegisterForm = () => {
   useEffect(() => {
     refLogin.current?.focus();
   }, []);
-
-  useEffect(() => {
-    resetErrors();
-  }, [
-    formData.login,
-    formData.email,
-    formData.password,
-    formData.confirmPassword,
-  ]);
 
   const handleAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
@@ -109,20 +101,13 @@ const RegisterForm = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const resetErrors = () => {
-    if (
-      JSON.stringify(errors) !== JSON.stringify(new RegisterFormErrorModel())
-    ) {
-      setErrors(new RegisterFormErrorModel());
-    }
-  };
-
   const resetError = (name: keyof RegisterFormErrorModel) => {
     if (errors[name] !== "") {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
     // TODO: Dodelat if pro reset hlavni erorove hlasky
   };
+  // TODO: Dat form do spolecne komponenty
   // TODO: D8t nadpis a hlavni erorovou hl83ku do styled komponenty a pou6ivat ji vsude
   // TODO: Zkusit se n2kde zagistrovat, co to nap93e za hlasku. Ale asi me to pak p5esm2ruje na login a nap93e hlasku, 6e jsem byl uspesn2 registrovan7 a muzu se prihlasit a prijde mi email
   // TODO: Pri registraci mi to mus9 hlasit, 6e email a uder name jisz existuje. Hledqbi v dbd podle videa na yutube
@@ -139,14 +124,13 @@ const RegisterForm = () => {
           </p>
         )}
 
-        <form action={handleAction} className="w-full">
+        <AppForm handleAction={handleAction}>
           <AppTextField
             ref={refLogin}
             value={formData.login}
             name="login"
             label="Uživatelské jméno"
             required
-            requiredOnlyLabel
             className="mb-3"
             error={!!errors.login}
             helperText={errors.login}
@@ -167,9 +151,8 @@ const RegisterForm = () => {
             value={formData.email}
             name="email"
             label="Email"
-            type="text"
+            type="email"
             required
-            requiredOnlyLabel
             className="mb-3"
             error={!!errors.email}
             helperText={errors.email}
@@ -185,10 +168,10 @@ const RegisterForm = () => {
             confirmPasswordErrorMessage={errors.confirmPassword}
           />
 
-          <SubmitButton className="w-full" variant="contained">
+          <AppSubmitButton className="w-full" variant="contained">
             Registrovat
-          </SubmitButton>
-        </form>
+          </AppSubmitButton>
+        </AppForm>
       </div>
     </section>
   );

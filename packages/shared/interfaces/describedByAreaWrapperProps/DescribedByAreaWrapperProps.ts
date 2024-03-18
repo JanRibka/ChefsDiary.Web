@@ -1,7 +1,9 @@
+import { ReactNode } from "react";
+
 import BaseProps from "../baseProps/BaseProps";
 
 interface DescribedByAreaWrapperProps extends BaseProps {
-  children: JSX.Element;
+  children: ReactNode;
 }
 
 export default DescribedByAreaWrapperProps;

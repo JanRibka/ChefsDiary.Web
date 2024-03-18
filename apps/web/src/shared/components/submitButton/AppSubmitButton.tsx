@@ -4,7 +4,7 @@ import { SubmitButtonProps } from "@repo/shared/interfaces";
 
 import AppButton from "../../styledComponents/button/AppButton";
 
-const SubmitButton = (props: SubmitButtonProps) => {
+const AppSubmitButton = (props: SubmitButtonProps) => {
   // Props
   const { disableLoadingState, ...restProps } = props;
 
@@ -22,4 +22,4 @@ const SubmitButton = (props: SubmitButtonProps) => {
   );
 };
 
-export default SubmitButton;
+export default AppSubmitButton;

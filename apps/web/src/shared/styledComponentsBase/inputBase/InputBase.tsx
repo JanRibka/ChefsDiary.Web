@@ -14,7 +14,6 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
     disabled,
     placeholder,
     required,
-    requiredOnlyLabel,
     error,
     variant,
     size,
@@ -49,8 +48,8 @@ const InputBase = forwardRef<HTMLInputElement, InputBaseProps>((props, ref) => {
         placeholder={placeholder || " "}
         disabled={disabled}
         aria-disabled={disabled}
-        required={!requiredOnlyLabel && required}
-        aria-required={!requiredOnlyLabel && required}
+        required={required}
+        aria-required={required}
         onChange={handleOnChange}
         aria-describedby={ariaDescribedBy}
         className={mergeStyles(

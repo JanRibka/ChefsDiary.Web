@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 import { ButtonVariantType, RadiusType } from "../../types";
 import ButtonSizeType from "../../types/button/ButtonSizeType";
 import BaseProps from "../baseProps/BaseProps";
@@ -7,7 +9,7 @@ interface ButtonBaseProps extends BaseProps {
   size?: ButtonSizeType;
   radius?: RadiusType;
   disabled?: boolean;
-  children: JSX.Element | string;
+  children: ReactNode | string;
 }
 
 export default ButtonBaseProps;

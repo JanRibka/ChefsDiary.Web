@@ -78,7 +78,6 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
             name="password"
             label="Heslo"
             required
-            requiredOnlyLabel
             className="mb-3"
             error={!!props.passwordErrorMessage}
             helperText={props.passwordErrorMessage}
@@ -100,7 +99,6 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
             name="confirmPassword"
             label="Potvrdit heslo"
             required
-            requiredOnlyLabel
             className="mb-3"
             error={!!props.confirmPasswordErrorMessage}
             helperText={props.confirmPasswordErrorMessage}

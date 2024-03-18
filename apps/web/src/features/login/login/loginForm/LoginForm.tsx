@@ -4,7 +4,7 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
-import SubmitButton from "../../../../shared/components/submitButton/SubmitButton";
+import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
 import AppAnchor from "../../../../shared/styledComponents/anchor/AppAnchor";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
 import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHoverCard";
@@ -65,7 +65,7 @@ const LoginForm = () => {
 
   const handleAction = async (data: FormData) => {
     const response = await loginUser(data);
-    debugger;
+
     if (response) {
       update({
         uuid: response.uuid,
@@ -143,9 +143,9 @@ const LoginForm = () => {
             </p>
           </div>
 
-          <SubmitButton className="w-full" variant="contained">
+          <AppSubmitButton className="w-full" variant="contained">
             Přihlásit
-          </SubmitButton>
+          </AppSubmitButton>
         </form>
       </div>
     </section>

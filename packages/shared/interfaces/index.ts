@@ -14,3 +14,4 @@ export type { default as DescribedByAreaProps } from "./describedByAreaProps/Des
 export type { default as ConfirmPasswordProps } from "./confirmPasswordProps/ConfirmPasswordProps";
 export type { default as DescribedByAreaWrapperProps } from "./describedByAreaWrapperProps/DescribedByAreaWrapperProps";
 export type { default as DescribedByAreaItemProps } from "./describedByAreaItemProps/DescribedByAreaItemProps";
+export type { default as AppFormProps } from "./form/AppFormProps";
