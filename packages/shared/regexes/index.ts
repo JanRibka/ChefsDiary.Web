@@ -10,4 +10,5 @@ export {
   customCharRegex,
   SPECIAL_CHARACTERS_REGEX,
   minMaxLengthRegex,
+  EMAIL_END_REGEX,
 } from "./common/commonRegexes";

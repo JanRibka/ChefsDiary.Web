@@ -3,6 +3,7 @@ import { object, ref, string } from "yup";
 import { getErrorTextByKey } from "../../../errorLibrary";
 import { RegisterFormModel } from "../../../models";
 import {
+  EMAIL_END_REGEX,
   LOWER_UPPERCASE_REGEX,
   LOWERCASE_REGEX,
   loweUpperCaseNumberSpecialCharRegex,
@@ -10,8 +11,7 @@ import {
   UPPERCASE_REGEX,
 } from "../../../regexes";
 
-// TODO: Na email Pridat regex na .cz .com .net .org a je to dlouhe 2 az 4 znaky
-const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
+const registerFormValidationSchema = object<RegisterFormModel>().shape({
   login: string()
     .required(getErrorTextByKey("loginRequired"))
     .min(4, getErrorTextByKey("loginMinLength", "1"))
@@ -26,7 +26,8 @@ const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
     ),
   email: string()
     .email(getErrorTextByKey("emailInvalid"))
-    .required(getErrorTextByKey("emailRequired")),
+    .required(getErrorTextByKey("emailRequired"))
+    .matches(new RegExp(EMAIL_END_REGEX), getErrorTextByKey("emailInvalid")),
   password: string()
     .required(getErrorTextByKey("passwordRequired"))
     .min(8, getErrorTextByKey("passwordMinLength", "8"))
@@ -43,4 +44,4 @@ const RegisterFormValidationSchema = object<RegisterFormModel>().shape({
     .oneOf([ref("password")], getErrorTextByKey("confirmPasswordOneOf")),
 });
 
-export default RegisterFormValidationSchema;
+export default registerFormValidationSchema;

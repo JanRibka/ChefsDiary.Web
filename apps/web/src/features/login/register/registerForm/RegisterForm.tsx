@@ -13,9 +13,8 @@ import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppF
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 import LoginDescribedByArea from "./loginDescribedByArea/LoginDescribedByArea";
 
-// TODO:Pokud smazu napr jenom email, smaze s emi erro pouze pro email, ne pro vsechno + hlavni chyba se smaze
 // TODO: pOKUD JSou vsechny podminky splneny u popisku napr u hesla, tak ten popisek hned zmizne, proto6e pak nejde kliknout na registrovat
-
+// TODO: Reset hlasky nebude na on blur, ale change, bo se pak blbe klika na cudl
 const RegisterForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);

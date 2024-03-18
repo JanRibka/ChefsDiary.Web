@@ -8,7 +8,7 @@ const AppFormError = forwardRef<HTMLParagraphElement, AppFormErrorProps>(
     // Props
     const { children, className, ...restProps } = props;
 
-    if (!children) undefined;
+    if (!children) return undefined;
 
     return (
       <p

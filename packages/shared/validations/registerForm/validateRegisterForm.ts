@@ -1,13 +1,13 @@
 import { ValidationError } from "yup";
 
 import { RegisterFormErrorModel, RegisterFormModel } from "../../models";
-import RegisterFormValidationSchema from "../schemas/registerForm/RegisterFormValidationSchema";
+import registerFormValidationSchema from "../schemas/registerForm/registerFormValidationSchema";
 
 const validateRegisterForm = async (formData: RegisterFormModel) => {
   const errors: RegisterFormErrorModel = new RegisterFormErrorModel();
 
   try {
-    await RegisterFormValidationSchema.validate(formData, {
+    await registerFormValidationSchema.validate(formData, {
       abortEarly: false,
     });
   } catch (error) {

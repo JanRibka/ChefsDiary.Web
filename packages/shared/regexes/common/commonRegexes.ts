@@ -16,3 +16,4 @@ export const ALL_ALFA_NUMERIC_REGEX = "[\\w]";
 export const allAlfaNumericCustomCharRegex = (customChar: string) => {
   return `[\\w${customChar}]`;
 };
+export const EMAIL_END_REGEX = "\\.[a-zA-Z]{2,4}$";
