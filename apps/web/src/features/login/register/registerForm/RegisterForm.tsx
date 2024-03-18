@@ -124,6 +124,8 @@ const RegisterForm = () => {
     // TODO: Dodelat if pro reset hlavni erorove hlasky
   };
   // TODO: D8t nadpis a hlavni erorovou hl83ku do styled komponenty a pou6ivat ji vsude
+  // TODO: Zkusit se n2kde zagistrovat, co to nap93e za hlasku. Ale asi me to pak p5esm2ruje na login a nap93e hlasku, 6e jsem byl uspesn2 registrovan7 a muzu se prihlasit a prijde mi email
+  // TODO: Pri registraci mi to mus9 hlasit, 6e email a uder name jisz existuje. Hledqbi v dbd podle videa na yutube
   return (
     <section>
       <div className="flex flex-col items-center">
