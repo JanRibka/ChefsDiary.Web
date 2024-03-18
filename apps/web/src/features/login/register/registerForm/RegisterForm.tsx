@@ -117,8 +117,8 @@ const RegisterForm = () => {
     }
   };
 
-  const resetError = (name: string) => {
-    if (errors[name as keyof RegisterFormErrorModel] !== "") {
+  const resetError = (name: keyof RegisterFormErrorModel) => {
+    if (errors[name] !== "") {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
     // TODO: Dodelat if pro reset hlavni erorove hlasky
