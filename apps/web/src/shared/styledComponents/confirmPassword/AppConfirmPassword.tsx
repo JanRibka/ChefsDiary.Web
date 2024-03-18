@@ -1,6 +1,8 @@
 import { ChangeEvent, FocusEvent, useState } from "react";
 
+import { nameof } from "@repo/shared/helpers";
 import { ConfirmPasswordProps } from "@repo/shared/interfaces";
+import { RegisterFormModel } from "@repo/shared/models";
 import {
   validateConfirmPassword,
   validatePassword,
@@ -44,6 +46,10 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
     const confirmValid = validateConfirmPassword(value, props.confirmPassword);
     setConfirmPasswordValid(confirmValid);
+
+    if (props.errors.password !== "") {
+      props.resetError("password");
+    }
   };
 
   const handleOnChangeConfirmPassword = (e: ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +73,10 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
     const valid = validateConfirmPassword(props.password, value);
 
     setConfirmPasswordValid(valid);
+
+    if (props.errors.confirmPassword !== "") {
+      props.resetError("confirmPassword");
+    }
   };
 
   return (
@@ -75,12 +85,12 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
         <div>
           <AppPasswordField
             value={props.password}
-            name="password"
+            name={nameof<RegisterFormModel>("password")}
             label="Heslo"
             required
             className="mb-3"
-            error={!!props.passwordErrorMessage}
-            helperText={props.passwordErrorMessage}
+            error={!!props.errors.password}
+            helperText={props.errors.password}
             autoComplete="new-password"
             ariaDescribedBy="passwordNote"
             ariaDescribedByContent={
@@ -96,12 +106,12 @@ const AppConfirmPassword = (props: ConfirmPasswordProps) => {
 
           <AppPasswordField
             value={props.confirmPassword}
-            name="confirmPassword"
+            name={nameof<RegisterFormModel>("confirmPassword")}
             label="Potvrdit heslo"
             required
             className="mb-3"
-            error={!!props.confirmPasswordErrorMessage}
-            helperText={props.confirmPasswordErrorMessage}
+            error={!!props.errors.confirmPassword}
+            helperText={props.errors.confirmPassword}
             autoComplete="new-password"
             ariaDescribedBy="confirmPasswordNote"
             ariaDescribedByContent={

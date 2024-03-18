@@ -15,3 +15,5 @@ export type { default as ConfirmPasswordProps } from "./confirmPasswordProps/Con
 export type { default as DescribedByAreaWrapperProps } from "./describedByAreaWrapperProps/DescribedByAreaWrapperProps";
 export type { default as DescribedByAreaItemProps } from "./describedByAreaItemProps/DescribedByAreaItemProps";
 export type { default as AppFormProps } from "./form/AppFormProps";
+export type { default as AppFormHeadingProps } from "./formHeading/AppFormHeadingProps";
+export type { default as AppFormErrorProps } from "./formError/AppFormErrorProps";

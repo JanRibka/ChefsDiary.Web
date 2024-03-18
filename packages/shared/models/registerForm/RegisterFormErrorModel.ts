@@ -1,4 +1,5 @@
 class RegisterFormErrorModel {
+  main: string = "";
   login: string = "";
   email: string = "";
   password: string = "";

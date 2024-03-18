@@ -2,7 +2,6 @@ import {
   validateLowerCase,
   validateMinMaxLength,
   validateNumbers,
-  validateSpecialCharacters,
   validateUpperCase,
 } from "@repo/shared/validations";
 
@@ -30,11 +29,6 @@ const PasswordDescribedByArea = (props: Props) => {
         </DescribedByAreaItem>
         <DescribedByAreaItem itemValid={validateNumbers(props.password)}>
           Musí obsahovat čísla
-        </DescribedByAreaItem>
-        <DescribedByAreaItem
-          itemValid={validateSpecialCharacters(props.password)}
-        >
-          Doporučujeme použít i speciální znaky
         </DescribedByAreaItem>
       </>
     </DescribedByAreaWrapper>
