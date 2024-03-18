@@ -121,8 +121,9 @@ const RegisterForm = () => {
     if (errors[name as keyof RegisterFormErrorModel] !== "") {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
+    // TODO: Dodelat if pro reset hlavni erorove hlasky
   };
-
+  // TODO: D8t nadpis a hlavni erorovou hl83ku do styled komponenty a pou6ivat ji vsude
   return (
     <section>
       <div className="flex flex-col items-center">
