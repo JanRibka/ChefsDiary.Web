@@ -37,11 +37,14 @@ const RegisterForm = () => {
   const handleAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
 
-    if (result) {
+    if (
+      JSON.stringify(result) !== JSON.stringify(new RegisterFormErrorModel())
+    ) {
       setErrors(result);
       refErrorMessage.current?.focus();
     } else {
       const response = await registerUser(data);
+
       if (response) {
         // update({
         //   uuid: response.uuid,
