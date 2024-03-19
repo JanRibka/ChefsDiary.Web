@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 
-const LayoutLoginMain = () => {
+const LayoutLoginContent = () => {
   return (
     <section className="w-full lg:lg:w-2/5">
       <div className="py-10">
@@ -14,4 +14,4 @@ const LayoutLoginMain = () => {
   );
 };
 
-export default LayoutLoginMain;
+export default LayoutLoginContent;
