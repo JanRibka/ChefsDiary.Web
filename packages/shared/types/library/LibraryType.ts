@@ -1,5 +1,6 @@
 type LibraryTypeProperty =
   | "registerUserMainError"
+  | "loginUserMainError"
   | "loginRequired"
   | "loginMinLength"
   | "loginMaxLength"

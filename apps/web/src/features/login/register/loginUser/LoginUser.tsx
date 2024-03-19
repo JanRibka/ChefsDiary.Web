@@ -2,16 +2,16 @@ import { Link } from "react-router-dom";
 
 import { AppRoutes } from "../../../../app/routes/appRoutes";
 
-const CreateAccount = () => {
+const LoginUser = () => {
   return (
     <section>
       <div className="flex flex-col items-center mt-5">
         <p className="mb-2">
-          Nemáte účet? <Link to={AppRoutes.Register}>Vytvořte si jej</Link>
+          Máte účet? <Link to={AppRoutes.Login}>Přihlašte se</Link>
         </p>
       </div>
     </section>
   );
 };
 
-export default CreateAccount;
+export default LoginUser;

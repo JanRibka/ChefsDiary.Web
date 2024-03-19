@@ -1,5 +1,6 @@
 import { ChangeEvent, FocusEvent, useEffect, useRef, useState } from "react";
 
+import * as Checkbox from "@radix-ui/react-checkbox";
 import { nameof } from "@repo/shared/helpers";
 import { RegisterFormErrorModel, RegisterFormModel } from "@repo/shared/models";
 import { validateLogin, validateRegisterForm } from "@repo/shared/validations";
@@ -7,6 +8,7 @@ import { validateLogin, validateRegisterForm } from "@repo/shared/validations";
 import useRegister from "../../../../shared/api/apiHooks/auth/useRegister";
 import AppForm from "../../../../shared/components/form/AppForm";
 import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
+import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
 import AppConfirmPassword from "../../../../shared/styledComponents/confirmPassword/AppConfirmPassword";
 import AppFormError from "../../../../shared/styledComponents/formError/AppFormError";
 import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppFormHeading";
@@ -33,6 +35,38 @@ const RegisterForm = () => {
   useEffect(() => {
     refLogin.current?.focus();
   }, []);
+
+  const handleOnChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    const valid = validateLogin(value);
+    setLoginValid(valid);
+
+    if (errors.login !== "") {
+      resetError("login");
+    }
+  };
+
+  const handleOnChangeEmail = () => {
+    if (errors.email !== "") {
+      resetError("email");
+    }
+  };
+
+  const handleOnBlurEmail = (e: FocusEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleOnCheckedChangeTerms = (state: Checkbox.CheckedState) => {
+    const value: boolean = state as boolean;
+
+    setFormData((prev) => ({ ...prev, termsAgreement: value }));
+    localStorage.setItem("persist", JSON.stringify(value));
+  };
 
   const handleAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
@@ -77,31 +111,6 @@ const RegisterForm = () => {
     // } else {
     //   refErrorMessage.current?.focus();
     // }
-  };
-
-  const handleOnChangeLogin = (e: ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    const valid = validateLogin(value);
-    setLoginValid(valid);
-
-    if (errors.login !== "") {
-      resetError("login");
-    }
-  };
-
-  const handleOnChangeEmail = () => {
-    if (errors.email !== "") {
-      resetError("email");
-    }
-  };
-
-  const handleOnBlurEmail = (e: FocusEvent<HTMLInputElement>) => {
-    const { value, name } = e.target;
-
-    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const resetError = (name: keyof RegisterFormErrorModel) => {
@@ -164,6 +173,14 @@ const RegisterForm = () => {
             errors={errors}
             setFormData={setFormData}
             resetError={resetError}
+          />
+
+          <AppCheckbox
+            checked={formData.termsAgreement}
+            name={nameof<RegisterFormModel>("termsAgreement")}
+            label="Souhlasím s podmínkami použití a ochranou osobních údajů"
+            onCheckedChange={handleOnCheckedChangeTerms}
+            className="mb-3"
           />
 
           <AppSubmitButton className="w-full" variant="contained">

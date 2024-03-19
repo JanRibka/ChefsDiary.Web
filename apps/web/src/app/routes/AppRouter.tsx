@@ -25,6 +25,11 @@ const AppRouter = () => {
         <Route path={AppRoutes.Substitutes} element={<Home />} />
         <Route path={AppRoutes.NotFound} element={<>NotFound</>} />
       </Route>
+
+      {/* Protected routes */}
+      <Route element={<></>}>
+        <Route />
+      </Route>
     </Routes>
   );
 };

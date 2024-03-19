@@ -1,12 +1,17 @@
 import { FocusEvent, useEffect, useRef, useState } from "react";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
+import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
+import { validateLoginForm } from "@repo/shared/validations";
 
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
+import AppForm from "../../../../shared/components/form/AppForm";
 import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
 import AppAnchor from "../../../../shared/styledComponents/anchor/AppAnchor";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
+import AppFormError from "../../../../shared/styledComponents/formError/AppFormError";
+import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppFormHeading";
 import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHoverCard";
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
@@ -17,22 +22,14 @@ const LoginForm = () => {
   const refErrorMessage = useRef<HTMLParagraphElement>(null);
 
   // State
-  const [userLogin, setUserLogin] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [stayLogged, setStayLogged] = useState<boolean>(
-    JSON.parse(localStorage.getItem("persist") ?? String(false))
+  const [formData, setFormData] = useState<LoginFormModel>(
+    new LoginFormModel({
+      stayLogged: JSON.parse(localStorage.getItem("persist") ?? String(false)),
+    })
   );
 
   // Constants
-  const {
-    loginUser,
-    errorMessage,
-    setErrorMessage,
-    loginErrorMessage,
-    setLoginErrorMessage,
-    passwordErrorMessage,
-    setPasswordErrorMessage,
-  } = useLogin();
+  const { loginUser, errors, setErrors } = useLogin();
   const { update } = useAuthSlice();
 
   // Other
@@ -40,86 +37,99 @@ const LoginForm = () => {
     refLogin.current?.focus();
   }, []);
 
-  useEffect(() => {
-    resetErrors();
-  }, [userLogin, password]);
+  const handleOnChangeLogin = () => {
+    if (errors.login !== "") {
+      resetError("login");
+    }
+  };
 
   const handleOnBlurLogin = (e: FocusEvent<HTMLInputElement, Element>) => {
-    const value = e.target.value;
+    const { value, name } = e.target;
 
-    setUserLogin(value);
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleOnChangePassword = () => {
+    if (errors.password !== "") {
+      resetError("password");
+    }
   };
 
   const handleOnBlurPassword = (e: FocusEvent<HTMLInputElement, Element>) => {
-    const value = e.target.value;
+    const { value, name } = e.target;
 
-    setPassword(value);
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleOnCheckedChange = (state: Checkbox.CheckedState) => {
     const value: boolean = state as boolean;
 
-    setStayLogged(value);
+    setFormData((prev) => ({ ...prev, stayLogged: value }));
     localStorage.setItem("persist", JSON.stringify(value));
   };
 
   const handleAction = async (data: FormData) => {
-    const response = await loginUser(data);
+    const result = await validateLoginForm(formData);
 
-    if (response) {
-      update({
-        uuid: response.uuid,
-        login: response.login,
-        userRoles: response.userRoles,
-        accessToken: response.accessToken,
-      });
-    } else {
+    if (JSON.stringify(result) !== JSON.stringify(new LoginFormErrorModel())) {
+      setErrors(result);
       refErrorMessage.current?.focus();
+    } else {
+      const response = await loginUser(data);
+
+      if (response) {
+        update({
+          uuid: response.uuid,
+          login: response.login,
+          userRoles: response.userRoles,
+          accessToken: response.accessToken,
+        });
+      } else {
+        refErrorMessage.current?.focus();
+      }
     }
   };
 
-  const resetErrors = () => {
-    setErrorMessage("");
-    setLoginErrorMessage("");
-    setPasswordErrorMessage("");
+  const resetError = (name: keyof LoginFormErrorModel) => {
+    if (errors[name] !== "") {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+    if (errors.main !== "") {
+      setErrors((prev) => ({ ...prev, main: "" }));
+    }
   };
 
   return (
     <section>
       <div className="flex flex-col items-center">
-        <h3 className="!text-3xl mb-7">Přihlášení</h3>
-        {errorMessage && (
-          <p
-            ref={refErrorMessage}
-            className="text-center text-error border-error border-1 rounded-sm p-2.5 mb-3 w-full text-sm bg-red-100 transition-all"
-          >
-            {errorMessage}
-          </p>
-        )}
+        <AppFormHeading>Přihlášení</AppFormHeading>
+        <AppFormError ref={refErrorMessage}>{errors.main}</AppFormError>
 
-        <form action={handleAction} className="w-full">
+        <AppForm handleAction={handleAction}>
           <AppTextField
             ref={refLogin}
-            value={userLogin}
+            value={formData.login}
             name="login"
             label="Uživatelské jméno"
             className="mb-3"
-            // required
-            error={!!loginErrorMessage}
-            helperText={loginErrorMessage}
+            required
+            error={!!errors.login}
+            helperText={errors.login}
             autoComplete="username"
+            onChange={handleOnChangeLogin}
             onBlur={handleOnBlurLogin}
           />
 
           <AppPasswordField
-            value={password}
+            value={formData.password}
             name="password"
             label="Heslo"
             className="mb-3"
-            // required
-            error={!!passwordErrorMessage}
-            helperText={passwordErrorMessage}
+            required
+            error={!!errors.password}
+            helperText={errors.password}
             autoComplete="current-password"
+            onChange={handleOnChangePassword}
             onBlur={handleOnBlurPassword}
           />
 
@@ -128,7 +138,7 @@ const LoginForm = () => {
               <AppHoverCard
                 trigger={
                   <AppCheckbox
-                    checked={stayLogged}
+                    checked={formData.stayLogged}
                     name="stayLogged"
                     label="Zůstat přihlášený"
                     onCheckedChange={handleOnCheckedChange}
@@ -146,7 +156,7 @@ const LoginForm = () => {
           <AppSubmitButton className="w-full" variant="contained">
             Přihlásit
           </AppSubmitButton>
-        </form>
+        </AppForm>
       </div>
     </section>
   );

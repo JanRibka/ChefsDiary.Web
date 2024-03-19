@@ -2,8 +2,8 @@ import { useState } from "react";
 
 import { SerializedError } from "@reduxjs/toolkit/react";
 import { getErrorTextByKey } from "@repo/shared/errorLibrary";
-import { capitalizeFirstLetter } from "@repo/shared/helpers";
-import { LoginErrorType, ResponseType } from "@repo/shared/types";
+import { LoginFormErrorModel } from "@repo/shared/models";
+import { LibraryType, LoginErrorType, ResponseType } from "@repo/shared/types";
 
 import Login from "../../../../entities/auth/Login";
 import { useLoginMutation } from "../../auth/authApi";
@@ -13,9 +13,9 @@ const useLogin = () => {
   const [login, response] = useLoginMutation();
 
   // State
-  const [errorMessage, setErrorMessage] = useState<string>("");
-  const [loginErrorMessage, setLoginErrorMessage] = useState<string>("");
-  const [passwordErrorMessage, setPasswordErrorMessage] = useState<string>("");
+  const [errors, setErrors] = useState<LoginFormErrorModel>(
+    new LoginFormErrorModel()
+  );
 
   // Constants
   const isLoading = response.isLoading;
@@ -35,33 +35,44 @@ const useLogin = () => {
 
       if (typeof error === "object" && !!message) {
         console.error(message);
-        setErrorMessage("Přihlášení skončilo chybou, zkuste to prosím znovu");
+        setErrors((prev) => ({
+          ...prev,
+          main: getErrorTextByKey("loginUserMainError"),
+        }));
 
         return;
       }
       if (typeof error == "string") {
         console.error(error);
-        setErrorMessage("Přihlášení skončilo chybou, zkuste to prosím znovu");
+        setErrors((prev) => ({
+          ...prev,
+          main: getErrorTextByKey("loginUserMainError"),
+        }));
 
         return;
       }
 
+      const errors: LoginFormErrorModel = new LoginFormErrorModel();
       const keys = Object.keys(error);
 
       keys.forEach((item) => {
-        let errorText = (error as LoginErrorType)?.[item][0];
+        let key = item as keyof LoginFormErrorModel;
+        const values = (
+          (error as LoginErrorType)?.[key][0] as keyof LibraryType
+        ).split("|") as (keyof LibraryType)[];
 
-        if (item === "unauthorized" || item === "forbidden") item = "";
+        key = errors[key] !== undefined ? key : "main";
 
-        errorText = getErrorTextByKey(errorText);
-        eval(`set${capitalizeFirstLetter(item)}ErrorMessage("${errorText}")`);
+        if (errors[key] === "") {
+          errors[key] = getErrorTextByKey(values[0], values[1] || undefined);
+        }
       });
 
-      return;
+      setErrors(errors);
+
+      return false;
     } else {
-      setErrorMessage("");
-      setLoginErrorMessage("");
-      setPasswordErrorMessage("");
+      setErrors(new LoginFormErrorModel());
     }
 
     return response.data;
@@ -70,12 +81,8 @@ const useLogin = () => {
   return {
     loginUser,
     isLoading,
-    errorMessage,
-    setErrorMessage,
-    loginErrorMessage,
-    setLoginErrorMessage,
-    passwordErrorMessage,
-    setPasswordErrorMessage,
+    errors,
+    setErrors,
   };
 };
 

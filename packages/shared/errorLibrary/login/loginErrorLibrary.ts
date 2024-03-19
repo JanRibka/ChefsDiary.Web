@@ -3,6 +3,7 @@ import { LibraryType } from "../../types";
 
 const errorTexts: LibraryType = {
   registerUserMainError: "Registrace skončila chybou, zkuste to prosím znovu",
+  loginUserMainError: "Přihlášení skončilo chybou, zkuste to prosím znovu",
   loginRequired: "Uživatelské jméno je povinné",
   loginMinLength: "Uživatelské jméno musí mít alespoň {0} znaků",
   loginMaxLength: "Uživatelské jméno může mít maximálně {0} znaků",
