@@ -1,8 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
+import { UserRoleEnum } from "@repo/shared/enums";
+
 import Home from "../../features/home/Home";
 import LoginPage from "../../pages/LoginPage";
 import RegisterPage from "../../pages/RegisterPage";
+import TestProtected from "../../pages/TestProtected";
+import RequireAuth from "../../shared/components/requireAuth/RequireAuth";
 import Layout from "../../shared/layout/layout/Layout";
 import LayoutLogin from "../../shared/layout/layoutLogin/LayoutLogin";
 import { AppRoutes } from "./appRoutes";
@@ -28,7 +32,9 @@ const AppRouter = () => {
 
       {/* Protected routes */}
       <Route element={<></>}>
-        <Route />
+        <Route element={<RequireAuth allowedRoles={[UserRoleEnum.EDITOR]} />}>
+          <Route path="test" element={<TestProtected />} />
+        </Route>
       </Route>
     </Routes>
   );

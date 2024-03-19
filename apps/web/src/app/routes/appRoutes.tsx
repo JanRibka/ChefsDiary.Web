@@ -8,7 +8,8 @@ export type RouteProperty =
   | "TipsAndTricks"
   | "Wordbook"
   | "Substitutes"
-  | "NotFound";
+  | "NotFound"
+  | "Unauthorized";
 export type RouteValue =
   | "/"
   | "/registrovat"
@@ -19,7 +20,8 @@ export type RouteValue =
   | "/tipy-triky"
   | "/slovnik"
   | "/nahrady-potravin"
-  | "*";
+  | "*"
+  | "/neautorizovan";
 
 export const AppRoutes: Record<RouteProperty, RouteValue> = {
   Home: "/",
@@ -32,4 +34,5 @@ export const AppRoutes: Record<RouteProperty, RouteValue> = {
   Wordbook: "/slovnik",
   Substitutes: "/nahrady-potravin",
   NotFound: "*",
+  Unauthorized: "/neautorizovan",
 };

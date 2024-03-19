@@ -1,9 +1,11 @@
 import { FocusEvent, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
 import { validateLoginForm } from "@repo/shared/validations";
 
+import { AppRoutes } from "../../../../app/routes/appRoutes";
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
 import AppForm from "../../../../shared/components/form/AppForm";
@@ -31,6 +33,9 @@ const LoginForm = () => {
   // Constants
   const { loginUser, errors, setErrors } = useLogin();
   const { update } = useAuthSlice();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from.pathname || AppRoutes.Home;
 
   // Other
   useEffect(() => {
@@ -84,6 +89,8 @@ const LoginForm = () => {
           userRoles: response.userRoles,
           accessToken: response.accessToken,
         });
+
+        navigate(from, { replace: true });
       } else {
         refErrorMessage.current?.focus();
       }
