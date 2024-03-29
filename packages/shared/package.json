@@ -21,7 +21,7 @@
     "@radix-ui/react-checkbox": "^1.0.4",
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/react": "^18.2.70",
+    "@types/react": "^18.2.73",
     "clsx": "^2.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
