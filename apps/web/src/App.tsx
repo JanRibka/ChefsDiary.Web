@@ -11,7 +11,7 @@ import { store } from "./app/store/store";
 const App = () => {
   return (
     <Provider store={store}>
-      <Theme accentColor='red' grayColor='slate' className='h-full'>
+      <Theme accentColor="red" grayColor="slate" className="h-full">
         <AppRouter />
       </Theme>
     </Provider>
