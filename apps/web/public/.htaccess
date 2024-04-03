@@ -1,40 +1,14 @@
-# RewriteEngine On
-
-# # Set HTTP_AUTHORIZATION header
-# RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-# # Redirect to index.html
-# RewriteRule ^index\.html$ - [L]
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule . /index.html [L]
-
-# # Redirect to api folder if "/api" is present in the URL
-# RewriteCond %{REQUEST_URI} !^/api/
-# RewriteRule ^(.*)$ /api/$1 [L]
-
 RewriteEngine On
 
 # Set HTTP_AUTHORIZATION header
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-# Redirect to index.html
-RewriteRule ^index\.html$ - [L]
-
 # Redirect to api folder if "/api" is present in the URL
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteRule ^(.*)$ /api/$1 [L]
-# RewriteRule ^api/(.*)$ /api/$1 [L]
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule ^(.*)$ /api/$1
-# RewriteRule ^api/(.*)$ /api$1 [L]
-# RewriteCond %{REQUEST_URI} ^/api/
-# RewriteRule ^api/(.*)$ /api/$1 [L]
 
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-d
-# RewriteRule . /index.html [L]
-
-
-
+# Redirect to index.html
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
