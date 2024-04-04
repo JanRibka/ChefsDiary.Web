@@ -1,21 +1,8 @@
-import "@radix-ui/themes/styles.css";
-
-import { Provider } from "react-redux";
-
-import { Theme } from "@radix-ui/themes";
-
 import AppRouter from "./app/routes/AppRouter";
-import { store } from "./app/store/store";
 
 //TODO: Pro svg icony bude nová komponenta s tagem svg
 const App = () => {
-  return (
-    <Provider store={store}>
-      <Theme accentColor="red" grayColor="slate" className="h-full">
-        <AppRouter />
-      </Theme>
-    </Provider>
-  );
+  return <AppRouter />;
 };
 
 export default App;

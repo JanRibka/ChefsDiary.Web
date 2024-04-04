@@ -26,14 +26,15 @@ const AppRouter = () => {
         <Route path={AppRoutes.Recipes} element={<Home />} />
         <Route path={AppRoutes.TipsAndTricks} element={<Home />} />
         <Route path={AppRoutes.Wordbook} element={<Home />} />
-        <Route path={AppRoutes.Substitutes} element={<Home />} />
+        <Route path={AppRoutes.Unauthorized} element={<>Neautorizovan</>} />
         <Route path={AppRoutes.NotFound} element={<>NotFound</>} />
       </Route>
 
       {/* Protected routes */}
-      <Route element={<></>}>
+      <Route path={AppRoutes.Home} element={<Layout />}>
         <Route element={<RequireAuth allowedRoles={[UserRoleEnum.EDITOR]} />}>
-          <Route path="test" element={<TestProtected />} />
+          <Route path={AppRoutes.Substitutes} element={<Home />} />
+          <Route path="/test" element={<TestProtected />} />
         </Route>
       </Route>
     </Routes>

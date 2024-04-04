@@ -18,6 +18,7 @@ import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHover
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 
+// Pokud stisknu enter, m2l by se zmacknout cudl pro prihlaseni
 const LoginForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);
@@ -32,7 +33,7 @@ const LoginForm = () => {
 
   // Constants
   const { loginUser, errors, setErrors } = useLogin();
-  const { update } = useAuthSlice();
+  const { update: updateAuth } = useAuthSlice();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from.pathname || AppRoutes.Home;
@@ -73,7 +74,7 @@ const LoginForm = () => {
     localStorage.setItem("persist", JSON.stringify(value));
   };
 
-  const handleAction = async (data: FormData) => {
+  const handleLoginAction = async (data: FormData) => {
     const result = await validateLoginForm(formData);
 
     if (JSON.stringify(result) !== JSON.stringify(new LoginFormErrorModel())) {
@@ -81,9 +82,9 @@ const LoginForm = () => {
       refErrorMessage.current?.focus();
     } else {
       const response = await loginUser(data);
-
+      console.log(response);
       if (response) {
-        update({
+        updateAuth({
           uuid: response.uuid,
           login: response.login,
           userRoles: response.userRoles,
@@ -112,7 +113,7 @@ const LoginForm = () => {
         <AppFormHeading>Přihlášení</AppFormHeading>
         <AppFormError ref={refErrorMessage}>{errors.main}</AppFormError>
 
-        <AppForm handleAction={handleAction}>
+        <AppForm handleAction={handleLoginAction}>
           <AppTextField
             ref={refLogin}
             value={formData.login}

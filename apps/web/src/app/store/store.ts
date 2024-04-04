@@ -16,6 +16,7 @@ export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().prepend([]).concat(mainBaseApi.middleware),
+  devTools: import.meta.env.VITE_ENABLE_DEVTOOLS === "true",
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

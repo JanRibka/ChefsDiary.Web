@@ -68,7 +68,7 @@ const RegisterForm = () => {
     localStorage.setItem("persist", JSON.stringify(value));
   };
 
-  const handleAction = async (data: FormData) => {
+  const handleRegisterAction = async (data: FormData) => {
     const result = await validateRegisterForm(formData);
 
     if (
@@ -90,27 +90,6 @@ const RegisterForm = () => {
         refErrorMessage.current?.focus();
       }
     }
-
-    // const isValid = validateRegisterForm(data);
-    // if (isValid) {
-    //   console.log("Form is valid");
-    // } else {
-    //   console.log("Form is not valid");
-    // }
-    // const response = await registerUser(data);
-    // if (response) {
-    //   // update({
-    //   //   uuid: response.uuid,
-    //   //   login: response.login,
-    //   //   userRoles: response.userRoles,
-    //   //   accessToken: response.accessToken,
-    //   // });
-    //   // TODO: Tady bude jest2 validace a pokud neco nebude validn9 tak ze zobraz9 hl83ka u dan0ho inputu
-    //   // TODO: Po prihlaseni presmerobvat na login a zobrazit hl83ku ze refggistrace byla cajk
-    //   // TODO: Na cudlu nebude disable, ale bude se validovat po kliku na cudl
-    // } else {
-    //   refErrorMessage.current?.focus();
-    // }
   };
 
   const resetError = (name: keyof RegisterFormErrorModel) => {
@@ -130,7 +109,7 @@ const RegisterForm = () => {
         <AppFormHeading>Registrace</AppFormHeading>
         <AppFormError ref={refErrorMessage}>{errors.main}</AppFormError>
 
-        <AppForm handleAction={handleAction}>
+        <AppForm handleAction={handleRegisterAction}>
           <AppTextField
             ref={refLogin}
             value={formData.login}
