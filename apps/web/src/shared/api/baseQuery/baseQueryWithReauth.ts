@@ -1,6 +1,7 @@
 import HttpStatusCodes from "http-status-codes";
 
 import { actions } from "../../../app/store/auth/authSlice";
+import { REFRESH_TOKEN } from "../auth/endpoints";
 import baseQuery from "./baseQuery";
 
 import type {
@@ -15,15 +16,14 @@ const baseQueryWithReauth: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result.error && result.error.status === HttpStatusCodes.FORBIDDEN) {
-    const refreshResult = await baseQuery("", api, extraOptions);
-    // TODO: Dod2lat volan9 refreshtoken a update do store
+    const refreshResult = await baseQuery(REFRESH_TOKEN, api, extraOptions);
+
     if (refreshResult.data) {
-      api.dispatch(actions.update({}));
+      api.dispatch(actions.update(refreshResult.data));
 
       result = await baseQuery(args, api, extraOptions);
     } else {
-      //TODO: Tady bude logg out
-      // navigate(AppRoute.Login, { state: { from: location }, replace: true });
+      api.dispatch(actions.update({ loggedOut: true }));
     }
   }
 

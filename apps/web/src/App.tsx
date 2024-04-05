@@ -1,8 +1,14 @@
 import AppRouter from "./app/routes/AppRouter";
+import LoginRedirect from "./shared/components/loginRedirect/LoginRedirect";
 
 //TODO: Pro svg icony bude nová komponenta s tagem svg
 const App = () => {
-  return <AppRouter />;
+  return (
+    <>
+      <LoginRedirect />
+      <AppRouter />
+    </>
+  );
 };
 
 export default App;

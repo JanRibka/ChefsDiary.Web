@@ -2,7 +2,7 @@ import { transformErrorResponse } from "@repo/shared/apiResponse";
 
 import Login from "../../../entities/auth/Login";
 import { mainBaseApi } from "../mainBaseApi";
-import { LOGIN, REGISTER } from "./endpoints";
+import { LOGIN, LOGOUT, REFRESH_TOKEN, REGISTER } from "./endpoints";
 
 export const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -23,7 +23,26 @@ export const authApi = mainBaseApi.injectEndpoints({
       }),
       transformErrorResponse: transformErrorResponse,
     }),
+
+    logout: build.mutation<void, void>({
+      query: () => ({
+        url: `/${LOGOUT}`,
+        method: "POST",
+      }),
+    }),
+
+    refreshToken: build.mutation<Login, void>({
+      query: () => ({
+        url: `/${REFRESH_TOKEN}`,
+        method: "POST",
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useLogoutMutation,
+  useRefreshTokenMutation,
+} = authApi;

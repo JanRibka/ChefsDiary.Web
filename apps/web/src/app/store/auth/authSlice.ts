@@ -8,6 +8,7 @@ export interface AuthState {
   login: string;
   userRoles: UserRoleEnum[];
   accessToken: string;
+  loggedOut: boolean;
 }
 
 export const initialState: AuthState = {
@@ -15,6 +16,7 @@ export const initialState: AuthState = {
   login: "",
   userRoles: [],
   accessToken: "",
+  loggedOut: false,
 };
 
 export const authSlice = createSlice({
