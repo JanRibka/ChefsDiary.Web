@@ -9,7 +9,7 @@ const baseQuery = fetchBaseQuery({
     const authState = (getState() as RootState).auth;
 
     if (!authorizationHeader && authState.accessToken) {
-      headers.set("Authorization", `Barrier ${authState.accessToken}`);
+      headers.set("Authorization", `Bearer ${authState.accessToken}`);
     }
 
     return headers;
