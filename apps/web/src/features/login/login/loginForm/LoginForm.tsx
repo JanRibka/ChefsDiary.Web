@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { nameof } from "@repo/shared/helpers";
-import { useLocalStorage } from "@repo/shared/hooks";
+import { useToggle } from "@repo/shared/hooks";
 import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
 import { validateLoginForm } from "@repo/shared/validations";
 
@@ -20,14 +20,16 @@ import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHover
 import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
 import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 
-// Pokud stisknu enter, m2l by se zmacknout cudl pro prihlaseni
+//TODO: Pokud stisknu enter, m2l by se zmacknout cudl pro prihlaseni
+// TODO: Predelat state pro inputy podle https://www.youtube.com/watch?v=eQrbjvn_fSc&list=PL0Zuz27SZ-6PRCpm9clX0WiBEMB70FWwd&index=7&ab_channel=DaveGray
+// TODO: Input buude v ls a musi se zrusit form data
 const LoginForm = () => {
   // References
   const refLogin = useRef<HTMLInputElement>(null);
   const refErrorMessage = useRef<HTMLParagraphElement>(null);
 
   // State
-  const [persist] = useLocalStorage<boolean>("persist", false);
+  const [persist, setPersist] = useToggle("persist", false);
   const [formData, setFormData] = useState<LoginFormModel>(
     new LoginFormModel({
       persistLogin: persist,
@@ -74,7 +76,7 @@ const LoginForm = () => {
     const value: boolean = state as boolean;
 
     setFormData((prev) => ({ ...prev, persistLogin: value }));
-    localStorage.setItem("persist", JSON.stringify(value));
+    setPersist(value);
   };
 
   const handleLoginAction = async (data: FormData) => {
@@ -93,6 +95,8 @@ const LoginForm = () => {
           userRoles: response.userRoles,
           accessToken: response.accessToken,
         });
+
+        setFormData(new LoginFormModel());
 
         navigate(from, { replace: true });
       } else {

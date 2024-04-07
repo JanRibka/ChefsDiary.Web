@@ -1,12 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserRoleEnum } from "@repo/shared/enums";
 
 import { RootState } from "../store";
 
 export interface AuthState {
   uuid: string;
   login: string;
-  userRoles: UserRoleEnum[];
   accessToken: string;
   loggedOut: boolean;
 }
@@ -14,7 +12,6 @@ export interface AuthState {
 export const initialState: AuthState = {
   uuid: "",
   login: "",
-  userRoles: [],
   accessToken: "",
   loggedOut: false,
 };

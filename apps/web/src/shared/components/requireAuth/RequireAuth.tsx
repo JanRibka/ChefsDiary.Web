@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 import { useSelector } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
@@ -16,8 +17,13 @@ const RequireAuth = (props: Props) => {
 
   // Constants
   const location = useLocation();
+  const decodedToken = auth.accessToken
+    ? jwtDecode(auth.accessToken)
+    : undefined;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const roles: UserRoleEnum[] = (decodedToken as any)?.userInfo?.roles ?? [];
 
-  return auth.userRoles.find((role) => props.allowedRoles?.includes(role)) ? (
+  return roles.find((role) => props.allowedRoles?.includes(role)) ? (
     <Outlet />
   ) : auth.login ? (
     <Navigate to={AppRoutes.Unauthorized} state={{ from: location }} replace />
