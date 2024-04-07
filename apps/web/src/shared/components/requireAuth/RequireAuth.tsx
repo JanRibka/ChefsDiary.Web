@@ -13,7 +13,7 @@ interface Props {
 const RequireAuth = (props: Props) => {
   // Store
   const auth = useSelector(selectAuth);
-  console.log(props);
+
   // Constants
   const location = useLocation();
 

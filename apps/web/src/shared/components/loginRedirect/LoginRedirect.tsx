@@ -27,7 +27,7 @@ const LoginRedirect = () => {
     }
   };
 
-  return <></>;
+  return undefined;
 };
 
 export default LoginRedirect;

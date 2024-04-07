@@ -29,6 +29,12 @@ export const authSlice = createSlice({
         ...action.payload,
       };
     },
+    reset: (state) => {
+      return {
+        ...state,
+        ...initialState,
+      };
+    },
   },
 });
 

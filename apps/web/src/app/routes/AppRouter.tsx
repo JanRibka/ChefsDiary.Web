@@ -5,7 +5,7 @@ import { UserRoleEnum } from "@repo/shared/enums";
 import Home from "../../features/home/Home";
 import LoginPage from "../../pages/LoginPage";
 import RegisterPage from "../../pages/RegisterPage";
-import TestProtected from "../../pages/TestProtected";
+import PersistLogin from "../../shared/components/persistLogin/PersistLogin";
 import RequireAuth from "../../shared/components/requireAuth/RequireAuth";
 import Layout from "../../shared/layout/layout/Layout";
 import LayoutLogin from "../../shared/layout/layoutLogin/LayoutLogin";
@@ -31,10 +31,11 @@ const AppRouter = () => {
       </Route>
 
       {/* Protected routes */}
-      <Route path={AppRoutes.Home} element={<Layout />}>
-        <Route element={<RequireAuth allowedRoles={[UserRoleEnum.EDITOR]} />}>
-          <Route path={AppRoutes.Substitutes} element={<Home />} />
-          <Route path="/test" element={<TestProtected />} />
+      <Route element={<PersistLogin />}>
+        <Route path={AppRoutes.Home} element={<Layout />}>
+          <Route element={<RequireAuth allowedRoles={[UserRoleEnum.EDITOR]} />}>
+            <Route path={AppRoutes.Substitutes} element={<Home />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

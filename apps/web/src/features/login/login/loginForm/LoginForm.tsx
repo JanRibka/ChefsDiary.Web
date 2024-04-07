@@ -2,6 +2,8 @@ import { FocusEvent, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import * as Checkbox from "@radix-ui/react-checkbox";
+import { nameof } from "@repo/shared/helpers";
+import { useLocalStorage } from "@repo/shared/hooks";
 import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
 import { validateLoginForm } from "@repo/shared/validations";
 
@@ -25,9 +27,10 @@ const LoginForm = () => {
   const refErrorMessage = useRef<HTMLParagraphElement>(null);
 
   // State
+  const [persist] = useLocalStorage<boolean>("persist", false);
   const [formData, setFormData] = useState<LoginFormModel>(
     new LoginFormModel({
-      stayLogged: JSON.parse(localStorage.getItem("persist") ?? String(false)),
+      persistLogin: persist,
     })
   );
 
@@ -70,7 +73,7 @@ const LoginForm = () => {
   const handleOnCheckedChange = (state: Checkbox.CheckedState) => {
     const value: boolean = state as boolean;
 
-    setFormData((prev) => ({ ...prev, stayLogged: value }));
+    setFormData((prev) => ({ ...prev, persistLogin: value }));
     localStorage.setItem("persist", JSON.stringify(value));
   };
 
@@ -82,7 +85,7 @@ const LoginForm = () => {
       refErrorMessage.current?.focus();
     } else {
       const response = await loginUser(data);
-      console.log(response);
+
       if (response) {
         updateAuth({
           uuid: response.uuid,
@@ -117,7 +120,7 @@ const LoginForm = () => {
           <AppTextField
             ref={refLogin}
             value={formData.login}
-            name="login"
+            name={nameof<LoginFormModel>("login")}
             label="Uživatelské jméno"
             className="mb-3"
             required
@@ -130,7 +133,7 @@ const LoginForm = () => {
 
           <AppPasswordField
             value={formData.password}
-            name="password"
+            name={nameof<LoginFormModel>("password")}
             label="Heslo"
             className="mb-3"
             required
@@ -146,8 +149,8 @@ const LoginForm = () => {
               <AppHoverCard
                 trigger={
                   <AppCheckbox
-                    checked={formData.stayLogged}
-                    name="stayLogged"
+                    checked={formData.persistLogin}
+                    name={nameof<LoginFormModel>("persistLogin")}
                     label="Zůstat přihlášený"
                     onCheckedChange={handleOnCheckedChange}
                   />

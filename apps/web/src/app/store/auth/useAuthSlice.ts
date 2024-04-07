@@ -8,5 +8,9 @@ export const useAuthSlice = () => {
     dispatch(actions.update(data));
   };
 
-  return { update };
+  const reset = () => {
+    dispatch(actions.reset());
+  };
+
+  return { update, reset };
 };
