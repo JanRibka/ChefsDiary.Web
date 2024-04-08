@@ -28,9 +28,7 @@ const useRefreshToken = () => {
       navigate(AppRoutes.Login, { state: { from: location }, replace: true });
     } else {
       update({
-        uuid: data.uuid,
         login: data.login,
-        userRoles: data.userRoles,
         accessToken: data.accessToken,
       });
     }

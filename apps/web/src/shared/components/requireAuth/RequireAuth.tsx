@@ -22,7 +22,7 @@ const RequireAuth = (props: Props) => {
     : undefined;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const roles: UserRoleEnum[] = (decodedToken as any)?.userInfo?.roles ?? [];
-
+  console.log("roles", roles);
   return roles.find((role) => props.allowedRoles?.includes(role)) ? (
     <Outlet />
   ) : auth.login ? (

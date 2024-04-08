@@ -90,9 +90,7 @@ const LoginForm = () => {
 
       if (response) {
         updateAuth({
-          uuid: response.uuid,
           login: response.login,
-          userRoles: response.userRoles,
           accessToken: response.accessToken,
         });
 
