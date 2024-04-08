@@ -1,22 +1,26 @@
+import { FocusEvent } from "react";
+
 import useLocalStorage from "../useLocalStorage/useLocalStorage";
 
-const useInput = <T>(
+const useInput = (
   key: string,
-  initValue: T
+  initValue: string
 ): [
-  value: T,
+  value: string,
   reset: () => void,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  attributeObj: { value: T; onBlur: (e: any) => void },
+  attributeObj: {
+    value: string;
+    onBlur: (e: FocusEvent<HTMLInputElement, Element>) => void;
+  },
 ] => {
-  const [value, setValue] = useLocalStorage<T>(key, initValue);
+  const [value, setValue] = useLocalStorage<string>(key, initValue);
 
   const reset = () => setValue(initValue);
 
   const attributeObj = {
     value,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    onBlur: (e: any) => setValue(e.target.value),
+    onBlur: (e: FocusEvent<HTMLInputElement, Element>) =>
+      setValue(e.target.value),
   };
 
   return [value, reset, attributeObj];
