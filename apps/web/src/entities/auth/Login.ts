@@ -1,4 +1,5 @@
 interface Login {
+  login: string;
   accessToken: string;
 }
 
