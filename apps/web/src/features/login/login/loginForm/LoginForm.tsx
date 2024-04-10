@@ -49,9 +49,7 @@ const LoginForm = () => {
   }, []);
 
   const handleOnChangeLogin = () => {
-    if (errors.login !== "") {
-      resetError("login");
-    }
+    resetError("login");
   };
 
   const handleOnBlurLogin = (e: FocusEvent<HTMLInputElement, Element>) => {
@@ -61,9 +59,7 @@ const LoginForm = () => {
   };
 
   const handleOnChangePassword = () => {
-    if (errors.password !== "") {
-      resetError("password");
-    }
+    resetError("password");
   };
 
   const handleOnBlurPassword = (e: FocusEvent<HTMLInputElement, Element>) => {

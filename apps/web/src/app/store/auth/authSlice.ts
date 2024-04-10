@@ -1,15 +1,17 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState } from '../store';
+import { RootState } from "../store";
 
 export interface AuthState {
   login: string;
   accessToken: string;
+  loggedOut: boolean;
 }
 
 export const initialState: AuthState = {
   login: "",
   accessToken: "",
+  loggedOut: false,
 };
 
 export const authSlice = createSlice({

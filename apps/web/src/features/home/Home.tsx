@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { AppRoutes } from "../../app/routes/appRoutes";
-import useLogout from "../../shared/api/apiHooks/auth/useLogout";
+import { useAuthSlice } from "../../app/store/auth/useAuthSlice";
+import {
+  useLogoutMutation,
+  useTestMutation,
+} from "../../shared/api/auth/authApi";
 import AppButton from "../../shared/styledComponents/button/AppButton";
 import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckbox";
 import AppPasswordField from "../../shared/styledComponents/passwordField/AppPasswordField";
@@ -11,11 +15,18 @@ import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 // TODO: Pokud zadám do prohlížeče nějakou stránku a přesměruje mě to na přihlášení, tak po přihlášení mě to musí vrátit tam, kde jsem chtěl původně jít
 const Home = () => {
   const [checked, setChecked] = useState<boolean>(false);
-  const { logoutUser } = useLogout();
+  const [test] = useTestMutation();
+  const [logout] = useLogoutMutation();
   const navigate = useNavigate();
+  const { reset } = useAuthSlice();
+
+  const handleTest = async () => {
+    await test();
+  };
 
   const handleLogout = async () => {
-    await logoutUser();
+    await logout();
+    reset();
     navigate(AppRoutes.Home);
   };
 
@@ -24,6 +35,14 @@ const Home = () => {
       <AppTextField name="sdf" label="Email" radius="full" onBlur={() => {}} />
 
       <AppPasswordField name="password" label="Heslo" onBlur={() => {}} />
+      <button
+        onClick={() => {
+          handleTest();
+        }}
+      >
+        Test
+      </button>
+
       <button
         onClick={() => {
           handleLogout();

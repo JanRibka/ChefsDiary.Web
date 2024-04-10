@@ -44,15 +44,11 @@ const RegisterForm = () => {
     const valid = validateLogin(value);
     setLoginValid(valid);
 
-    if (errors.login !== "") {
-      resetError("login");
-    }
+    resetError("login");
   };
 
   const handleOnChangeEmail = () => {
-    if (errors.email !== "") {
-      resetError("email");
-    }
+    resetError("email");
   };
 
   const handleOnBlurEmail = (e: FocusEvent<HTMLInputElement>) => {

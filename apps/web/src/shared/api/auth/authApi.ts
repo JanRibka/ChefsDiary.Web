@@ -3,6 +3,7 @@ import { transformErrorResponse } from "@repo/shared/apiResponse";
 import Login from "../../../entities/auth/Login";
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, LOGOUT, REFRESH_TOKEN, REGISTER } from "./endpoints";
+import RefreshTokenParams from "./RefreshTokenParams";
 
 export const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({
@@ -31,10 +32,18 @@ export const authApi = mainBaseApi.injectEndpoints({
       }),
     }),
 
-    refreshToken: build.mutation<Login, void>({
-      query: () => ({
+    refreshToken: build.mutation<Login, RefreshTokenParams>({
+      query: (params: RefreshTokenParams) => ({
         url: `/${REFRESH_TOKEN}`,
         method: "GET",
+        params: { persistLogin: params.persistLogin },
+      }),
+    }),
+
+    test: build.mutation<void, void>({
+      query: () => ({
+        url: "/auth/test",
+        method: "POST",
       }),
     }),
   }),
@@ -45,4 +54,5 @@ export const {
   useLoginMutation,
   useLogoutMutation,
   useRefreshTokenMutation,
+  useTestMutation,
 } = authApi;

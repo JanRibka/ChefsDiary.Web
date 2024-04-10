@@ -1,8 +1,8 @@
-import HttpStatusCodes from 'http-status-codes';
+import HttpStatusCodes from "http-status-codes";
 
-import { actions } from '../../../app/store/auth/authSlice';
-import { REFRESH_TOKEN } from '../auth/endpoints';
-import baseQuery from './baseQuery';
+import { actions } from "../../../app/store/auth/authSlice";
+import { REFRESH_TOKEN } from "../auth/endpoints";
+import baseQuery from "./baseQuery";
 
 import type {
   BaseQueryFn,
@@ -16,7 +16,9 @@ const baseQueryWithReauth: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
   if (result?.error?.status === HttpStatusCodes.FORBIDDEN) {
-    const refreshResult = await baseQuery(REFRESH_TOKEN, api, extraOptions);
+    const persistLogin = localStorage.getItem("persist") ?? false;
+    const url = `${REFRESH_TOKEN}?persistLogin=${persistLogin}`;
+    const refreshResult = await baseQuery(url, api, extraOptions);
 
     if (refreshResult?.data) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +33,7 @@ const baseQueryWithReauth: BaseQueryFn<
 
       result = await baseQuery(args, api, extraOptions);
     } else {
-      api.dispatch(actions.reset());
+      api.dispatch(actions.update({ loggedOut: true }));
     }
   }
 
