@@ -1,14 +1,17 @@
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import { AppRoutes } from "../../../app/routes/appRoutes";
-import { selectAuth } from "../../../app/store/auth/authSlice";
 import { useAuthSlice } from "../../../app/store/auth/useAuthSlice";
+import { store } from "../../../app/store/store";
 
-const LoginRedirect = () => {
+interface IProps {
+  children: React.ReactNode;
+}
+
+const LoginRedirect = (props: IProps) => {
   // Store
-  const auth = useSelector(selectAuth);
+  const _store = store.getState();
 
   // Constants
   const navigate = useNavigate();
@@ -18,16 +21,16 @@ const LoginRedirect = () => {
   // Redirect
   useEffect(() => {
     redirect();
-  }, [auth.loggedOut]);
+  }, [_store.auth.loggedOut]);
 
   const redirect = () => {
-    if (auth.loggedOut) {
+    if (_store.auth.loggedOut && location.pathname !== AppRoutes.Login) {
       update({ loggedOut: false });
       navigate(AppRoutes.Login, { state: { from: location }, replace: true });
     }
   };
 
-  return undefined;
+  return <>{props.children}</>;
 };
 
 export default LoginRedirect;

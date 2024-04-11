@@ -20,13 +20,15 @@ const RequireAuth = (props: Props) => {
   const decodedToken = auth.accessToken
     ? jwtDecode(auth.accessToken)
     : undefined;
+
   // TODO: Pokud existuje cookie, tak se smze store a presmerovani na login
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const roles: UserRoleEnum[] = (decodedToken as any)?.userInfo?.roles ?? [];
-  console.log("roles", roles);
+
+  // Other
   return roles.find((role) => props.allowedRoles?.includes(role)) ? (
     <Outlet />
-  ) : auth.login ? (
+  ) : auth.accessToken ? (
     <Navigate to={AppRoutes.Unauthorized} state={{ from: location }} replace />
   ) : (
     <Navigate to={AppRoutes.Login} state={{ from: location }} replace />

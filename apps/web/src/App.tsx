@@ -5,8 +5,9 @@ import LoginRedirect from "./shared/components/loginRedirect/LoginRedirect";
 const App = () => {
   return (
     <>
-      <LoginRedirect />
-      <AppRouter />
+      <LoginRedirect>
+        <AppRouter />
+      </LoginRedirect>
     </>
   );
 };

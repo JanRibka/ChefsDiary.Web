@@ -33,7 +33,9 @@ const baseQueryWithReauth: BaseQueryFn<
 
       result = await baseQuery(args, api, extraOptions);
     } else {
-      api.dispatch(actions.update({ loggedOut: true }));
+      api.dispatch(
+        actions.update({ login: "", accessToken: "", loggedOut: true })
+      );
     }
   }
 

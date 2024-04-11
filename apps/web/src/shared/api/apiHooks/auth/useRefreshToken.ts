@@ -1,11 +1,8 @@
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useRef } from "react";
 
 import { useLocalStorage } from "@repo/shared/hooks";
-import { ResponseType } from "@repo/shared/types";
 
-// import { AppRoutes } from "../../../../app/routes/appRoutes";
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
-import Login from "../../../../entities/auth/Login";
 import { useRefreshTokenMutation } from "../../auth/authApi";
 
 const useRefreshToken = () => {
@@ -15,26 +12,31 @@ const useRefreshToken = () => {
   // Constants
   const isLoading = response.isLoading;
   const { update } = useAuthSlice();
-  // const navigate = useNavigate();
-  // const location = useLocation();
   const [persist] = useLocalStorage("persist", false);
+  const abortController = useRef(new AbortController());
 
   // Other
   const refreshToken = async () => {
-    const refreshTokenResponse: ResponseType<Login> =
-      await refreshTokenMutation({ persistLogin: persist });
-    const error = refreshTokenResponse?.error;
-    const data = refreshTokenResponse?.data;
+    try {
+      // Cancel the previous refresh token request if it's still ongoing
+      abortController.current.abort();
+      // Create a new abort controller for the new request
+      abortController.current = new AbortController();
 
-    if (error || !data) {
+      const response = await refreshTokenMutation({
+        persistLogin: persist,
+        signal: abortController.current.signal,
+      }).unwrap();
+
       update({
-        loggedOut: true,
+        login: response.login,
+        accessToken: response.accessToken,
       });
-      // navigate(AppRoutes.Login, { state: { from: location }, replace: true });
-    } else {
+    } catch (error) {
       update({
-        login: data.login,
-        accessToken: data.accessToken,
+        login: "",
+        accessToken: "",
+        loggedOut: true,
       });
     }
   };

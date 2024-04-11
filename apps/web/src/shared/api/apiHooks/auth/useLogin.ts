@@ -22,6 +22,7 @@ const useLogin = () => {
 
   // Login user
   const loginUser = async (data: FormData) => {
+    // TODO: Ibalit to do try catch .unwrap()
     const loginResponse = await login(data);
 
     return handleResponse(loginResponse);

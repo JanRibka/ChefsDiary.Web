@@ -36,6 +36,7 @@ export const authApi = mainBaseApi.injectEndpoints({
       query: (params: RefreshTokenParams) => ({
         url: `/${REFRESH_TOKEN}`,
         method: "GET",
+        signal: params.signal,
         params: { persistLogin: params.persistLogin },
       }),
     }),
