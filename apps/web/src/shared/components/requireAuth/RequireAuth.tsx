@@ -21,7 +21,6 @@ const RequireAuth = (props: Props) => {
     ? jwtDecode(auth.accessToken)
     : undefined;
 
-  // TODO: Pokud existuje cookie, tak se smze store a presmerovani na login
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const roles: UserRoleEnum[] = (decodedToken as any)?.userInfo?.roles ?? [];
 
