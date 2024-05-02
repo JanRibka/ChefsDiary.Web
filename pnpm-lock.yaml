@@ -24,12 +24,18 @@ importers:
   apps/admin:
     dependencies:
       react:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: 19.0.0-canary-fd0da3eef-20240404
+        version: 19.0.0-canary-fd0da3eef-20240404
       react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: 19.0.0-canary-fd0da3eef-20240404
+        version: 19.0.0-canary-fd0da3eef-20240404(react@19.0.0-canary-fd0da3eef-20240404)
     devDependencies:
+      '@repo/tailwind-config':
+        specifier: workspace:*
+        version: link:../../packages/config-tailwind
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
       '@types/react':
         specifier: ^18.2.66
         version: 18.2.74
@@ -54,6 +60,12 @@ importers:
       eslint-plugin-react-refresh:
         specifier: ^0.4.6
         version: 0.4.6(eslint@8.57.0)
+      tailwind:
+        specifier: ^4.0.0
+        version: 4.0.0
+      tailwindcss:
+        specifier: ^3.4.3
+        version: 3.4.3
       typescript:
         specifier: ^5.2.2
         version: 5.4.4
@@ -721,7 +733,7 @@ packages:
   /@radix-ui/number@1.0.1:
     resolution: {integrity: sha512-T5gIdVO2mmPW3NNhjNgEP3cqMXjXL9UbO0BzWcXfvdBs+BohbQxvd/K5hSVKmn9/lbTdsQVKbUcP5WLCwvUbBg==}
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
 
   /@radix-ui/primitive@1.0.1:
     resolution: {integrity: sha512-yQ8oGX2GVsEYMWGxcovu1uGWPCxV5BFfeeYxqPmuAzUyLT9qmaMXSAhXpb0WrspIeqYzdJpkh2vHModJPgRIaw==}
@@ -741,7 +753,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-visually-hidden': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -762,7 +774,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-visually-hidden': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -782,7 +794,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-visually-hidden': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -801,7 +813,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -827,7 +839,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -852,7 +864,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -876,7 +888,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -896,7 +908,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -916,7 +928,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -935,7 +947,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -956,7 +968,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -976,7 +988,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -995,7 +1007,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1019,7 +1031,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1042,7 +1054,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(react@18.2.0)
@@ -1092,7 +1104,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1119,7 +1131,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -1145,7 +1157,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1169,7 +1181,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1192,7 +1204,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -1240,7 +1252,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-menu': 2.0.6(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1266,7 +1278,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-menu': 2.0.6(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1291,7 +1303,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
       '@radix-ui/react-menu': 2.0.6(react-dom@18.2.0)(react@18.2.0)
@@ -1341,7 +1353,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1375,7 +1387,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1408,7 +1420,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -1490,7 +1502,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1514,7 +1526,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -1537,7 +1549,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1564,7 +1576,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1590,7 +1602,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -1611,7 +1623,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
 
@@ -1624,7 +1636,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       react: 18.2.0
     dev: true
 
@@ -1641,7 +1653,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1664,7 +1676,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1686,7 +1698,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-use-callback-ref': 1.0.1(react@18.2.0)
@@ -1707,7 +1719,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1733,7 +1745,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1758,7 +1770,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -1810,7 +1822,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1838,7 +1850,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -1861,7 +1873,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -1875,7 +1887,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-layout-effect': 1.0.1(react@18.2.0)
       react: 18.2.0
     dev: true
@@ -1893,7 +1905,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -1914,7 +1926,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -1934,7 +1946,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -1953,7 +1965,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -1991,7 +2003,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2028,7 +2040,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
@@ -2064,7 +2076,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2099,7 +2111,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2133,7 +2145,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -2195,7 +2207,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@floating-ui/react-dom': 2.0.6(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-arrow': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2224,7 +2236,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@floating-ui/react-dom': 2.0.6(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-arrow': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
@@ -2272,7 +2284,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -2292,7 +2304,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2332,7 +2344,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
@@ -2353,7 +2365,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-use-layout-effect': 1.0.1(react@18.2.0)
       react: 18.2.0
@@ -2373,7 +2385,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -2393,7 +2405,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -2413,7 +2425,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-slot': 1.0.2(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2432,7 +2444,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2462,7 +2474,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2491,7 +2503,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -2519,7 +2531,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2548,7 +2560,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2576,7 +2588,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
@@ -2603,7 +2615,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2632,7 +2644,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2660,7 +2672,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
@@ -2687,7 +2699,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2728,7 +2740,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2768,7 +2780,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -2867,7 +2879,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2898,7 +2910,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -2928,7 +2940,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/number': 1.0.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-collection': 1.0.3(react-dom@18.2.0)(react@18.2.0)
@@ -2953,7 +2965,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -2967,7 +2979,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       react: 18.2.0
     dev: true
@@ -2985,7 +2997,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3012,7 +3024,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3038,7 +3050,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -3063,7 +3075,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-direction': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3091,7 +3103,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-direction': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3118,7 +3130,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
       '@radix-ui/react-direction': 1.0.1(react@18.2.0)
@@ -3144,7 +3156,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3176,7 +3188,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/react-context': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -3207,7 +3219,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(react@18.2.0)
       '@radix-ui/react-context': 1.0.1(react@18.2.0)
@@ -3233,7 +3245,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
 
@@ -3246,7 +3258,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       react: 18.2.0
     dev: true
 
@@ -3287,7 +3299,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -3301,7 +3313,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-callback-ref': 1.0.1(react@18.2.0)
       react: 18.2.0
     dev: true
@@ -3315,7 +3327,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
 
@@ -3328,7 +3340,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       react: 18.2.0
     dev: true
 
@@ -3341,7 +3353,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
 
@@ -3354,7 +3366,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       react: 18.2.0
     dev: true
 
@@ -3367,7 +3379,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/rect': 1.0.1
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -3381,7 +3393,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/rect': 1.0.1
       react: 18.2.0
     dev: true
@@ -3395,7 +3407,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.74)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -3409,7 +3421,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-use-layout-effect': 1.0.1(react@18.2.0)
       react: 18.2.0
     dev: true
@@ -3427,7 +3439,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       '@types/react-dom': 18.2.24
@@ -3448,7 +3460,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(@types/react@18.2.74)(react-dom@18.2.0)(react@19.0.0-canary-fd0da3eef-20240404)
       '@types/react': 18.2.74
       react: 19.0.0-canary-fd0da3eef-20240404
@@ -3468,7 +3480,7 @@ packages:
       '@types/react-dom':
         optional: true
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
       '@radix-ui/react-primitive': 1.0.3(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -3477,7 +3489,7 @@ packages:
   /@radix-ui/rect@1.0.1:
     resolution: {integrity: sha512-fyrgCaedtvMg9NK3en0pnOYJdtfwxUcNolezkNPUsoX57X8oQk+NkqcvzHXD2uKNij6GXmWU9NDru2IWjrO4BQ==}
     dependencies:
-      '@babel/runtime': 7.23.8
+      '@babel/runtime': 7.24.1
 
   /@radix-ui/themes@2.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404):
     resolution: {integrity: sha512-yaXQ8aWT2P1CQ0Xe6YCRD9HXsfMTvKkrIYkrc4aitCzhGTLS0sjtTqKmrxIWMVA+3DIbEuG9K/8aAMRJBhep8g==}
@@ -6141,6 +6153,7 @@ packages:
       loose-envify: 1.4.0
       react: 18.2.0
       scheduler: 0.23.0
+    dev: true
 
   /react-dom@18.2.0(react@19.0.0-canary-fd0da3eef-20240404):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -6333,6 +6346,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /react@19.0.0-canary-fd0da3eef-20240404:
     resolution: {integrity: sha512-ViGezadMIlZ5kvl1vCR1c0EqiANinvJXTDbyP4b4LIYxxPlSvOrYra9jncw7Jz4X78/8XYooms8dVlGQt4doPA==}
@@ -6496,6 +6510,7 @@ packages:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
     dependencies:
       loose-envify: 1.4.0
+    dev: true
 
   /scheduler@0.25.0-canary-fd0da3eef-20240404:
     resolution: {integrity: sha512-XjgKmXoljRMv1h/nM75sn5Exdh0EvdkA4U1E7gHsXT2QZTplPEcT3lrS3T0pW0BEniBEExgOu7HAVu1ABVFS/A==}
