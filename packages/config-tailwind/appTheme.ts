@@ -1,8 +1,7 @@
 import colors from "tailwindcss/colors";
 import plugin from "tailwindcss/plugin";
 
-import { blackA, mauve } from "@radix-ui/colors";
-import * as radixTheme from "@radix-ui/themes";
+import * as radixColors from "@radix-ui/colors";
 
 export const accentColorNames: string[] = [];
 export const grayColorNames: string[] = [];
@@ -10,11 +9,12 @@ export const grayColorNames: string[] = [];
 const radixColorScales = 12;
 type RadixColorScales = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-radixTheme.themeAccentColorsGrouped.map((group) => {
-  accentColorNames.push(...group.values.filter((color) => color !== "gray"));
-});
-radixTheme.themeGrayColorsGrouped.map((group) => {
-  grayColorNames.push(...group.values.filter((color) => color !== "auto"));
+Object.keys(radixColors).forEach((colorName) => {
+  if (colorName.startsWith("gray")) {
+    accentColorNames.push(colorName);
+  } else {
+    grayColorNames.push(colorName);
+  }
 });
 
 export function getColorTokenName(
@@ -76,24 +76,6 @@ export const getColorDefinitions = (
   return colors;
 };
 
-type RadixColors = Exclude<
-  | (typeof radixTheme.themeAccentColorsOrdered)[number]
-  | (typeof radixTheme.themeGrayColorsGrouped)[0]["values"][number],
-  "auto"
->;
-
-export const tailwindColorsToRadixMap: Record<
-  "zinc" | "neutral" | "stone" | "emerald" | "fuchsia" | "rose",
-  RadixColors | Record<string, string>
-> = {
-  zinc: "sand",
-  neutral: "sage",
-  stone: "sand",
-  emerald: "grass",
-  fuchsia: "plum",
-  rose: "crimson",
-};
-
 const radixRadiusToTailwindMap = {
   1: "xxs",
   2: "xs",
@@ -113,7 +95,7 @@ export function getRadiusTokenName(
 export type RadixThemePluginOptions = {
   useTailwindColorNames?: boolean;
   useTailwindRadiusNames?: boolean;
-  mapMissingTailwindColors?: boolean | Partial<typeof tailwindColorsToRadixMap>;
+  mapMissingTailwindColors?: boolean;
 };
 
 const colorPrimary = "rgb(44, 59, 75)";
@@ -226,7 +208,7 @@ const radixThemePlugin = plugin.withOptions(
 
     let mappingsOfMissingTailwindColors = {};
 
-    if (typeof mapMissingTailwindColors === "boolean") {
+    if (mapMissingTailwindColors) {
       mappingsOfMissingTailwindColors = {
         zinc: generateTailwindColors("sand"),
         neutral: generateTailwindColors("sage"),
@@ -234,33 +216,6 @@ const radixThemePlugin = plugin.withOptions(
         emerald: generateTailwindColors("grass"),
         fuchsia: generateTailwindColors("plum"),
         rose: generateTailwindColors("crimson"),
-      };
-    } else if (typeof mapMissingTailwindColors === "object") {
-      mappingsOfMissingTailwindColors = {
-        zinc:
-          typeof mapMissingTailwindColors["zinc"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["zinc"])
-            : mapMissingTailwindColors["zinc"],
-        neutral:
-          typeof mapMissingTailwindColors["neutral"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["neutral"])
-            : mapMissingTailwindColors["neutral"],
-        stone:
-          typeof mapMissingTailwindColors["stone"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["stone"])
-            : mapMissingTailwindColors["stone"],
-        emerald:
-          typeof mapMissingTailwindColors["emerald"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["emerald"])
-            : mapMissingTailwindColors["emerald"],
-        fuchsia:
-          typeof mapMissingTailwindColors["fuchsia"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["fuchsia"])
-            : mapMissingTailwindColors["fuchsia"],
-        rose:
-          typeof mapMissingTailwindColors["rose"] === "string"
-            ? generateTailwindColors(mapMissingTailwindColors["rose"])
-            : mapMissingTailwindColors["rose"],
       };
     }
 
@@ -488,8 +443,6 @@ const radixThemePlugin = plugin.withOptions(
           gray: generateTailwindColors("gray"),
           ...allRadixColors,
           ...mappingsOfMissingTailwindColors,
-          ...blackA,
-          ...mauve,
           dark: {},
         },
         container: {

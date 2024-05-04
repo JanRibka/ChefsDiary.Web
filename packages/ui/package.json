@@ -9,7 +9,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\""
   },
   "devDependencies": {
-    "@radix-ui/themes": "^2.0.3",
+    "@radix-ui/themes": "^3.0.3",
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",

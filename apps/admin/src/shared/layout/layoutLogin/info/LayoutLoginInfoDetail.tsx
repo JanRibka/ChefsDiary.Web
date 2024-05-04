@@ -6,7 +6,7 @@ const LayoutLoginInfoDetail = () => {
   return (
     <div className="z-2 w-full h-full flex flex-col relative">
       <div className="flex w-full">
-        <div className="mx-5 w-full">
+        <div className="mx-5 md:mx-12 w-full">
           <div className="my-12 lg:mb-0 w-fit">
             <a
               href={import.meta.env.BASE_URL}
@@ -21,13 +21,12 @@ const LayoutLoginInfoDetail = () => {
           </div>
         </div>
       </div>
-      <div className="z-0">
-        <div className="mx-5">
+      <div className="z-0 h-full flex items-center">
+        <div className="mx-5 md:mx-12">
           <div className="mb-12">
             <h1 className="text-white mb-6">Vítejte zpět!</h1>
             <em className="text-white tracking-wider">
-              Získejte přístup k vašim receptům, jídelníčkům a vytváření
-              nákupních seznamů
+              Získejte přístup k administraci webu Kuchařův deník
             </em>
           </div>
         </div>

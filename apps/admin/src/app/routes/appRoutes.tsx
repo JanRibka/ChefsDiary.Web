@@ -5,16 +5,16 @@ export type RouteProperty =
   | "NotFound"
   | "Unauthorized";
 export type RouteValue =
-  | "/"
-  | "/prihlasit"
-  | "/reset-hesla"
-  | "*"
-  | "/neautorizovan";
+  | "/admin"
+  | "/admin/prihlasit"
+  | "/admin/reset-hesla"
+  | "/admin/*"
+  | "/admin/neautorizovan";
 
 export const AppRoutes: Record<RouteProperty, RouteValue> = {
-  Home: "/",
-  Login: "/prihlasit",
-  PasswordReset: "/reset-hesla",
-  NotFound: "*",
-  Unauthorized: "/neautorizovan",
+  Home: "/admin",
+  Login: "/admin/prihlasit",
+  PasswordReset: "/admin/reset-hesla",
+  NotFound: "/admin/*",
+  Unauthorized: "/admin/neautorizovan",
 };
