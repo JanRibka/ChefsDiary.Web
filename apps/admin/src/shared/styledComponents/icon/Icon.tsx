@@ -12,7 +12,7 @@ const Icon = forwardRef<HTMLDivElement, Props>((props, ref) => {
     <div
       {...restProps}
       ref={ref}
-      className={`cursor-pointer text-primary transition 300ms ease-in-out hover:text-primary-dark ${props.disableScaleOnHover ? "" : "hover:scale-125"}`}
+      className={`flex items-center cursor-pointer text-primary transition 300ms ease-in-out hover:text-primary-dark ${props.disableScaleOnHover ? "" : "hover:scale-125"}`}
     >
       {icon}
     </div>

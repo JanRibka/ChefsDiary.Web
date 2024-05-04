@@ -1,4 +1,4 @@
-import HomeIcon from "./Home/HomeIcon";
+import HomeIcon from "./home/HomeIcon";
 
 const LeftMenu = () => {
   return (
