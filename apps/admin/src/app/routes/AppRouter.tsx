@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 
+import HomePage from "../../pages/HomePage";
 import LoginPage from "../../pages/LoginPage";
+import Layout from "../../shared/layout/layout/Layout";
 import LayoutLogin from "../../shared/layout/layoutLogin/LayoutLogin";
 import { AppRoutes } from "./appRoutes";
 
@@ -13,11 +15,11 @@ const AppRouter = () => {
         <Route path={AppRoutes.Login} element={<LoginPage />} />
       </Route>
 
-      {/* <Route path={AppRoutes.Home} element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path={AppRoutes.Unauthorized} element={<>Neautorizovan</>} />
-        <Route path={AppRoutes.NotFound} element={<>NotFound</>} />
-      </Route> */}
+      <Route path={AppRoutes.Home} element={<Layout />}>
+        <Route index element={<HomePage />} />
+        {/* <Route path={AppRoutes.Unauthorized} element={<>Neautorizovan</>} />
+        <Route path={AppRoutes.NotFound} element={<>NotFound</>} /> */}
+      </Route>
 
       {/* Protected routes */}
       {/* <Route element={<PersistLogin />}>

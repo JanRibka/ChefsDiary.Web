@@ -98,8 +98,8 @@ export type RadixThemePluginOptions = {
   mapMissingTailwindColors?: boolean;
 };
 
-const colorPrimary = "rgb(44, 59, 75)";
-const colorPrimaryDark = "rgb(17, 29, 40)";
+const colorPrimary = "rgb(122, 147, 49)";
+const colorPrimaryDark = "rgb(87, 109, 21)";
 
 const radixThemePlugin = plugin.withOptions(
   // eslint-disable-next-line no-empty-pattern
@@ -404,7 +404,7 @@ const radixThemePlugin = plugin.withOptions(
         colors: {
           error: "rgb(204, 0, 0)",
           primary: {
-            light: "rgb(81, 100, 120)",
+            light: "rgb(170, 195, 98)",
             DEFAULT: colorPrimary,
             dark: colorPrimaryDark,
           },

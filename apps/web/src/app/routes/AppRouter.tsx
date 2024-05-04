@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 
 import { UserRoleEnum } from "@repo/shared/enums";
 
-import Home from "../../features/home/Home";
+import HomePage from "../../pages/HomePage";
 import LoginPage from "../../pages/LoginPage";
 import RegisterPage from "../../pages/RegisterPage";
 import PersistLogin from "../../shared/components/persistLogin/PersistLogin";
@@ -22,10 +22,10 @@ const AppRouter = () => {
       </Route>
 
       <Route path={AppRoutes.Home} element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path={AppRoutes.Recipes} element={<Home />} />
-        <Route path={AppRoutes.TipsAndTricks} element={<Home />} />
-        <Route path={AppRoutes.Wordbook} element={<Home />} />
+        <Route index element={<HomePage />} />
+        <Route path={AppRoutes.Recipes} element={<HomePage />} />
+        <Route path={AppRoutes.TipsAndTricks} element={<HomePage />} />
+        <Route path={AppRoutes.Wordbook} element={<HomePage />} />
         <Route path={AppRoutes.Unauthorized} element={<>Neautorizovan</>} />
         <Route path={AppRoutes.NotFound} element={<>NotFound</>} />
       </Route>
@@ -34,7 +34,7 @@ const AppRouter = () => {
       <Route element={<PersistLogin />}>
         <Route path={AppRoutes.Home} element={<Layout />}>
           <Route element={<RequireAuth allowedRoles={[UserRoleEnum.EDITOR]} />}>
-            <Route path={AppRoutes.Substitutes} element={<Home />} />
+            <Route path={AppRoutes.Substitutes} element={<HomePage />} />
           </Route>
         </Route>
       </Route>
