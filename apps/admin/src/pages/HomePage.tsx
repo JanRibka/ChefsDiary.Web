@@ -3,7 +3,7 @@ import PageBase from "../shared/styledComponents/pageBase/PageBase";
 
 const HomePage = () => {
   return (
-    <PageBase>
+    <PageBase header="Dashboard">
       <Home />
     </PageBase>
   );
