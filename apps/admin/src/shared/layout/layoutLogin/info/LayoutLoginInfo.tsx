@@ -9,7 +9,7 @@ const LayoutLoginInfo = () => {
           className="z-0 absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover transition-background-image ease-in delay-300"
           style={{ backgroundImage: `url(${login})` }}
         />
-        <div className="z-1 absolute top-0 left-0 w-full h-full bg-primary opacity-50" />
+        <div className="z-1 absolute top-0 left-0 w-full h-full bg-primary-dark opacity-70" />
         <LayoutLoginInfoDetail />
       </div>
     </section>
