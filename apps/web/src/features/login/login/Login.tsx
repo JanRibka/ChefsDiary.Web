@@ -1,4 +1,4 @@
-import ErrorBoundary from "../../../shared/components/errorBoundary/ErrorBoundary";
+import ErrorBoundary from "../../../../../../packages/ui/components/errorBoundary/ErrorBoundary";
 import CreateAccount from "./createAccount/CreateAccount";
 import LoginForm from "./loginForm/LoginForm";
 import LoginSocial from "./loginSocial/LoginSocial";

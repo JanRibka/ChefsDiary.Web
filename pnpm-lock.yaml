@@ -60,6 +60,9 @@ importers:
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../../packages/config-typescript
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@types/react':
         specifier: ^18.3.1
         version: 18.3.1
@@ -282,6 +285,9 @@ importers:
       '@repo/eslint-config':
         specifier: workspace:*
         version: link:../config-eslint
+      '@repo/shared':
+        specifier: workspace:*
+        version: link:../shared
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../config-tailwind

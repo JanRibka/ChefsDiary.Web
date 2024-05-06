@@ -1,8 +1,9 @@
-import { mergeStyles } from "@repo/shared/helpers";
-import { ButtonBaseProps } from "@repo/shared/interfaces";
+import { mergeStyles } from '@repo/shared/helpers';
+import { ButtonBaseProps } from '@repo/shared/interfaces';
 
-import buttonBaseVariants from "./buttonBaseVariants";
+import buttonBaseVariants from './buttonBaseVariants';
 
+// TODO: Zkusi dát komponentu do packages
 const ButtonBase = (props: ButtonBaseProps) => {
   const { disabled, size, variant, className, children, radius, ...restProps } =
     props;

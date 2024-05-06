@@ -1,4 +1,5 @@
-import ErrorBoundary from "../../../shared/components/errorBoundary/ErrorBoundary";
+import { ErrorBoundary } from "@repo/ui/components";
+
 import LoginForm from "./loginForm/LoginForm";
 import LoginSocial from "./loginSocial/LoginSocial";
 

@@ -2,7 +2,7 @@
   "name": "@repo/ui",
   "version": "1.0.0",
   "exports": {
-    "./AppTextField": "./styledComponents/textField/AppTextField.tsx"
+    "./components": "./components/index.ts"
   },
   "license": "MIT",
   "scripts": {
@@ -13,6 +13,7 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@repo/shared": "workspace:*",
     "@types/react": "^18.2.74",
     "eslint": "^9.0.0",
     "typescript": "^5.4.4"

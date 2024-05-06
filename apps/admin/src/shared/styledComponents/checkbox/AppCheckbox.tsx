@@ -10,6 +10,7 @@ import CheckLabelBase from "../../styledComponentsBase/checkLabelBase/CheckLabel
 import HelperTextBase from "../helperText/HelperText";
 import { appCheckboxVariants } from "./appCheckboxVariants";
 
+// TODO: Odstranit forward ref a presunout ho do Props
 const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
   (props, ref) => {
     // Constants

@@ -10,7 +10,6 @@ import {
 
 import ConfirmPasswordDescribedByArea from "../../../features/login/register/registerForm/confirmPasswordDescribedByArea/ConfirmPasswordDescribedByArea";
 import PasswordDescribedByArea from "../../../features/login/register/registerForm/passwordDescribedByArea/PasswordDescribedByArea";
-import ErrorBoundary from "../../components/errorBoundary/ErrorBoundary";
 import AppPasswordField from "../passwordField/AppPasswordField";
 
 const AppConfirmPassword = (props: ConfirmPasswordProps) => {
