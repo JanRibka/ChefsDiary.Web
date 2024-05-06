@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 
-import { rippleVariants } from "./rippleVarinats";
+import { rippleVariants } from "./rippleVariants";
 
 const useRipple = () => {
   const refRipple = useRef<HTMLSpanElement>(null);
