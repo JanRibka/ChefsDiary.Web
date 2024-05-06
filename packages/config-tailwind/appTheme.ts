@@ -1,7 +1,7 @@
-import colors from "tailwindcss/colors";
-import plugin from "tailwindcss/plugin";
+import colors from 'tailwindcss/colors';
+import plugin from 'tailwindcss/plugin';
 
-import * as radixColors from "@radix-ui/colors";
+import * as radixColors from '@radix-ui/colors';
 
 export const accentColorNames: string[] = [];
 export const grayColorNames: string[] = [];
@@ -477,7 +477,7 @@ const radixThemePlugin = plugin.withOptions(
             slideRightFade:
               "slideRightFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
             slideLeftFade: "slideLeftFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
-            ripple: "ripple 500ms ease-in-out",
+            ripple: "ripple 500ms cubic-bezier(0.4, 0, 0.2, 1)",
           },
         },
       },
