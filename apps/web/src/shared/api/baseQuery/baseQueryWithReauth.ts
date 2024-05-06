@@ -9,12 +9,14 @@ import type {
   FetchArgs,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
+
 const baseQueryWithReauth: BaseQueryFn<
   string | FetchArgs,
   unknown,
   FetchBaseQueryError
 > = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
+
   if (result?.error?.status === HttpStatusCodes.FORBIDDEN) {
     const persistLogin = localStorage.getItem("persist") ?? false;
     const url = `${REFRESH_TOKEN}?persistLogin=${persistLogin}`;
