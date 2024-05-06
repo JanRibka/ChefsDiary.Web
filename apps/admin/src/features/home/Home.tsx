@@ -1,6 +1,11 @@
+import AppButton from "../../shared/styledComponents/button/AppButton";
+
 const Home = () => {
   return (
     <div>
+      <AppButton variant="contained" className="w-full">
+        Test Ripple
+      </AppButton>
       <table
         style={{
           backgroundColor: "#f2f2f2",

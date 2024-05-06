@@ -466,6 +466,10 @@ const radixThemePlugin = plugin.withOptions(
               "0%": { opacity: "0", transform: "translateX(2px)" },
               "100%": { opacity: "1", transform: "translateX(0)" },
             },
+            ripple: {
+              "0%": { transform: "scale(0)", opacity: "0.05" },
+              "100%": { transform: "scale(1)", opacity: "0.1" },
+            },
           },
           animation: {
             slideUpFade: "slideUpAndFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
@@ -473,6 +477,7 @@ const radixThemePlugin = plugin.withOptions(
             slideRightFade:
               "slideRightFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
             slideLeftFade: "slideLeftFade 300ms cubic-bezier(0.16, 0, 0.13, 1)",
+            ripple: "ripple 500ms ease-in-out",
           },
         },
       },

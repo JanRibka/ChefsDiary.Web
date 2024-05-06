@@ -1,14 +1,23 @@
-import { mergeStyles } from '@repo/shared/helpers';
-import { ButtonBaseProps } from '@repo/shared/interfaces';
+import { useRef } from "react";
 
-import buttonBaseVariants from './buttonBaseVariants';
+import { mergeStyles } from "@repo/shared/helpers";
+import { ButtonBaseProps } from "@repo/shared/interfaces";
+
+import useRipple from "../../hooks/useRipple";
+import buttonBaseVariants from "./buttonBaseVariants";
 
 // TODO: Zkusi dát komponentu do packages
 const ButtonBase = (props: ButtonBaseProps) => {
+  const refButton = useRef<HTMLButtonElement>(null);
   const { disabled, size, variant, className, children, radius, ...restProps } =
     props;
+
+  // Ripple effect
+  useRipple(refButton);
+
   return (
     <button
+      ref={refButton}
       disabled={disabled}
       aria-disabled={disabled}
       className={mergeStyles(

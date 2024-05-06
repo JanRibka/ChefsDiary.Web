@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 const buttonBaseVariants = cva(
-  "appearance-none px-4 transition-background-color font-bold relative",
+  "appearance-none px-4 transition-background-color font-bold",
   {
     variants: {
       size: {
