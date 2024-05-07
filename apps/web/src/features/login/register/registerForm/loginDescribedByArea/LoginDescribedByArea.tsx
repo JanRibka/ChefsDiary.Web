@@ -4,9 +4,6 @@ import {
   validateMinMaxLength,
 } from "@repo/shared/validations";
 
-import DescribedByAreaItem from "../../../../../shared/styledComponents/describedByAreaItem/DescribedByAreaItem";
-import DescribedByAreaWrapper from "../../../../../shared/styledComponents/describedByAreaWrapper/DescribedByAreaWrapper";
-
 interface Props {
   login: string;
 }

@@ -1,3 +1,5 @@
+// TODO: Modely přehodit do projektů
+
 class LoginFormErrorModel {
   main: string = "";
   login: string = "";

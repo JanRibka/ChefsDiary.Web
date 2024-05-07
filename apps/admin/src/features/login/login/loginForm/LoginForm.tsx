@@ -7,11 +7,11 @@ import { useToggle } from "@repo/shared/hooks";
 import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
 import { validateLoginForm } from "@repo/shared/validations";
 
+import AppSubmitButton from "../../../../../../../packages/ui/components/submitButton/AppSubmitButton";
 import { AppRoutes } from "../../../../app/routes/appRoutes";
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
 import AppForm from "../../../../shared/components/form/AppForm";
-import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
 import AppAnchor from "../../../../shared/styledComponents/anchor/AppAnchor";
 import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
 import AppFormError from "../../../../shared/styledComponents/formError/AppFormError";

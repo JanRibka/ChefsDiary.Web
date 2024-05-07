@@ -1,15 +1,12 @@
 import { ChangeEvent, FocusEvent, useState } from "react";
 
 import { nameof } from "@repo/shared/helpers";
-import { ConfirmPasswordProps } from "@repo/shared/interfaces";
 import { RegisterFormModel } from "@repo/shared/models";
 import {
   validateConfirmPassword,
   validatePassword,
 } from "@repo/shared/validations";
 
-import ConfirmPasswordDescribedByArea from "../../../features/login/register/registerForm/confirmPasswordDescribedByArea/ConfirmPasswordDescribedByArea";
-import PasswordDescribedByArea from "../../../features/login/register/registerForm/passwordDescribedByArea/PasswordDescribedByArea";
 import AppPasswordField from "../passwordField/AppPasswordField";
 
 const AppConfirmPassword = (props: ConfirmPasswordProps) => {

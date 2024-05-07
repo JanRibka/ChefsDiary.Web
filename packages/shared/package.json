@@ -7,7 +7,7 @@
     "./errorLibrary": "./errorLibrary/index.ts",
     "./helpers": "./helpers/index.ts",
     "./hooks": "./hooks/index.ts",
-    "./interfaces": "./interfaces/index.ts",
+    "./props": "./props/index.ts",
     "./regexes": "./regexes/index.ts",
     "./types": "./types/index.ts",
     "./validations": "./validations/index.ts",

@@ -1,5 +1,6 @@
 import { mergeStyles } from "@repo/shared/helpers";
-import { DescribedByAreaWrapperProps } from "@repo/shared/interfaces";
+
+import DescribedByAreaWrapperProps from "./DescribedByAreaWrapperProps";
 
 const DescribedByAreaWrapper = (props: DescribedByAreaWrapperProps) => {
   // Props
