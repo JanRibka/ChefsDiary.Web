@@ -1,5 +1,3 @@
-// TODO: Zkusit to d8t do packages
-
 import { RefObject, useEffect } from "react";
 
 const useRipple = (ref: RefObject<any>) => {
@@ -9,7 +7,7 @@ const useRipple = (ref: RefObject<any>) => {
     const handleClick = (mouseEvent: any) => {
       const parentWidth = parentElement.offsetWidth;
       const parentHeight = parentElement.offsetHeight;
-      const rippleElDiameter = Math.max(parentWidth, parentHeight) * 2;
+      const rippleElDiameter = Math.max(parentWidth, parentHeight);
       const x = mouseEvent.offsetX;
       const y = mouseEvent.offsetY;
       const rippleEl = document.createElement("span");
@@ -21,10 +19,11 @@ const useRipple = (ref: RefObject<any>) => {
         "z-0",
         "pointer-events-none"
       );
-      rippleEl.style.left = `${x - rippleElDiameter / 2}px`;
-      rippleEl.style.top = `${y - rippleElDiameter / 2}px`;
-      rippleEl.style.width = `${rippleElDiameter}px`;
-      rippleEl.style.height = `${rippleElDiameter}px`;
+      rippleEl.style.left = `${x - rippleElDiameter}px`;
+      rippleEl.style.top = `${y - rippleElDiameter}px`;
+      rippleEl.style.width = `${rippleElDiameter * 2}px`;
+      rippleEl.style.height = `${rippleElDiameter * 2}px`;
+
       parentElement.appendChild(rippleEl);
 
       requestAnimationFrame(() => {
@@ -50,10 +49,9 @@ const useRipple = (ref: RefObject<any>) => {
 
     return () => {
       if (parentElement) {
-        parentElement.removeEventListener("click", handleClick);
+        parentElement.removeEventListener("pointerdown", handleClick);
       }
     };
   }, []);
 };
-
 export default useRipple;

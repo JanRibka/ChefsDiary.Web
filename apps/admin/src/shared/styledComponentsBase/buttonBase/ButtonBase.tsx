@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
 import { mergeStyles } from "@repo/shared/helpers";
+import { useRipple } from "@repo/shared/hooks";
 import { ButtonBaseProps } from "@repo/shared/interfaces";
 
-import useRipple from "../../hooks/useRipple";
 import buttonBaseVariants from "./buttonBaseVariants";
 
 // TODO: Zkusi dát komponentu do packages
