@@ -4,8 +4,8 @@ import { useUniqueId } from "@repo/shared/hooks";
 
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
-import DescribedByArea from "../describedByArea/DescribedByArea";
-import HelperText from "../helperText/HelperText";
+import DescribedByArea from "../describedByArea/AppDescribedByArea";
+import HelperText from "../helperText/AppHelperText";
 import AppTextFieldProps from "./AppTextFieldProps";
 
 const AppTextField = forwardRef<HTMLInputElement, AppTextFieldProps>(

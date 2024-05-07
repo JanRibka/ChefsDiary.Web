@@ -1,4 +1,4 @@
-import BaseProps from "../../shared/props/base/BaseProps";
+import { BaseProps } from "@repo/shared/props";
 
 interface AppFormHeadingProps extends BaseProps {
   children: string;

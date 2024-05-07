@@ -2,8 +2,9 @@ import { IoSunnyOutline } from "react-icons/io5";
 import { MdComputer } from "react-icons/md";
 import { RxMoon } from "react-icons/rx";
 
+import { AppIcon } from "@repo/ui/styledComponents";
+
 import { AppTheme } from "../../../../../../app/store/theme/themeSlice";
-import Icon from "../../../../icon/Icon";
 
 interface Props {
   theme: AppTheme;
@@ -12,12 +13,14 @@ interface Props {
 
 const ThemeIcon = (props: Props) => {
   if (props.theme === "light") {
-    return <Icon icon={<IoSunnyOutline onClick={props.handleOnClickIcon} />} />;
+    return (
+      <AppIcon icon={<IoSunnyOutline onClick={props.handleOnClickIcon} />} />
+    );
   } else if (props.theme === "dark") {
-    return <Icon icon={<RxMoon onClick={props.handleOnClickIcon} />} />;
+    return <AppIcon icon={<RxMoon onClick={props.handleOnClickIcon} />} />;
   }
 
-  return <Icon icon={<MdComputer onClick={props.handleOnClickIcon} />} />;
+  return <AppIcon icon={<MdComputer onClick={props.handleOnClickIcon} />} />;
 };
 
 export default ThemeIcon;

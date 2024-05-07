@@ -1,8 +1,8 @@
 import { useRef } from "react";
 
-import ImageProps from "./ImageProps";
+import AppImageProps from "./AppImageProps";
 
-const Image = (props: ImageProps) => {
+const AppImage = (props: AppImageProps) => {
   // Reference
   const ref = useRef<HTMLImageElement>(null);
   const refImageSmall = useRef<HTMLDivElement>(null);
@@ -36,4 +36,4 @@ const Image = (props: ImageProps) => {
   );
 };
 
-export default Image;
+export default AppImage;

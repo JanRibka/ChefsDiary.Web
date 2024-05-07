@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const describedByAreaVariants = cva(
+export const appDescribedByAreaVariants = cva(
   "mt-1 bg-dialogBackground rounded-sm px-2.5 py-1.5 shadow-sm transition-all duration-100 overflow-hidden",
   {
     variants: {

@@ -1,8 +1,9 @@
 import { HTMLInputTypeAttribute } from "react";
 
+import { BaseProps } from "@repo/shared/props";
+
 import ComponentVariantType from "../../types/component/ComponentVariantType";
 import RadiusType from "../../types/radius/RadiusType";
-import BaseProps from "../base/BaseProps";
 import ComponentCommonProps from "../component/ComponentCommonProps";
 
 interface FieldBaseProps extends ComponentCommonProps, BaseProps {

@@ -2,7 +2,7 @@ import { ChangeEvent, forwardRef, useState } from "react";
 
 import { mergeStyles } from "@repo/shared/helpers";
 
-import Icon from "../../styledComponents/icon/Icon";
+import Icon from "../../styledComponents/icon/AppIcon";
 import InputBaseProps from "./InputBaseProps";
 import { inputBaseVariants } from "./inputBaseVariants";
 

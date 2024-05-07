@@ -1,9 +1,9 @@
 import { useFormStatus } from "react-dom";
 
 import AppButton from "../button/AppButton";
-import SubmitButtonProps from "./SubmitButtonProps";
+import AppButtonSubmitProps from "./AppButtonSubmitProps";
 
-const AppSubmitButton = (props: SubmitButtonProps) => {
+const AppButtonSubmit = (props: AppButtonSubmitProps) => {
   // Props
   const { disableLoadingState, ...restProps } = props;
 
@@ -21,4 +21,4 @@ const AppSubmitButton = (props: SubmitButtonProps) => {
   );
 };
 
-export default AppSubmitButton;
+export default AppButtonSubmit;

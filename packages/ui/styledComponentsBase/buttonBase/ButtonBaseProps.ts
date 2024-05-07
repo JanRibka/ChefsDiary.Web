@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
-import BaseProps from "../../shared/props/base/BaseProps";
+import { BaseProps } from "@repo/shared/props";
+
 import ButtonSizeType from "../../shared/types/button/ButtonSizeType";
 import ButtonVariantType from "../../shared/types/button/ButtonVariantType";
 import RadiusType from "../../shared/types/radius/RadiusType";

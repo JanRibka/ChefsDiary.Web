@@ -5,6 +5,9 @@ import { useUniqueId } from "@repo/shared/hooks";
 
 import InputBase from "../../styledComponentsBase/inputBase/InputBase";
 import InputLabelBase from "../../styledComponentsBase/inputLabelBase/InputLabelBase";
+import AppDescribedByArea from "../describedByArea/AppDescribedByArea";
+import AppHelperText from "../helperText/AppHelperText";
+import AppPasswordFieldProps from "./AppPasswordFieldProps";
 
 const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
   (props, ref) => {
@@ -64,9 +67,9 @@ const AppPasswordField = forwardRef<HTMLInputElement, AppPasswordFieldProps>(
             error={error}
           />
         </div>
-        <HelperText helperText={helperText} error={error} />
+        <AppHelperText helperText={helperText} error={error} />
 
-        <DescribedByArea
+        <AppDescribedByArea
           id={ariaDescribedBy}
           ariaDescribedByContent={ariaDescribedByContent}
           ariaDescribedByDisplay={ariaDescribedByDisplay}

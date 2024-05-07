@@ -1,9 +1,9 @@
 import { FiHome } from "react-icons/fi";
 
-import Icon from "../../../../icon/Icon";
+import { AppIcon } from "@repo/ui/styledComponents";
 
 const HomeIcon = () => {
-  return <Icon icon={<FiHome fontSize="x-large" />} />;
+  return <AppIcon icon={<FiHome fontSize="x-large" />} />;
 };
 
 export default HomeIcon;

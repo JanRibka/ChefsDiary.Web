@@ -1,16 +1,12 @@
 import * as HoverCard from "@radix-ui/react-hover-card";
 
+import AppHoverCardProps from "./AppHoverCardProps";
+
 // TODO: Propsy budou v shared a asi tu bude jenom class name pro root
-interface Props {
-  trigger: JSX.Element;
-  triggerClassName?: string;
-  content: JSX.Element | string;
-  contentClassName?: string;
-}
 // TODO: Dat shadow do default theme
 // TODO: Pokud content je pr8zdn7, nic se nezobraz9
 // TODO: Budetu merge styles
-const AppHoverCard = (props: Props) => {
+const AppHoverCard = (props: AppHoverCardProps) => {
   return (
     <HoverCard.Root>
       <HoverCard.Trigger asChild className={props.triggerClassName}>

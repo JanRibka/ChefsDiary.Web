@@ -1,4 +1,4 @@
-import BaseProps from "../base/BaseProps";
+import { BaseProps } from "@repo/shared/props";
 
 interface LabelBaseProps extends BaseProps {
   label: string;

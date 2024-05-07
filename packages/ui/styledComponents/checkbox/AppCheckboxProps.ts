@@ -4,7 +4,7 @@ import ComponentCommonProps from "../../shared/props/component/ComponentCommonPr
 import CheckSizeType from "../../shared/types/check/CheckSizeType";
 import RadiusType from "../../shared/types/radius/RadiusType";
 import CheckLabelBaseProps from "../../styledComponentsBase/checkLabelBase/CheckLabelBaseProps";
-import HelperTextProps from "../helperText/HelperTextProps";
+import HelperTextProps from "../helperText/AppHelperTextProps";
 
 interface AppCheckboxProps
   extends ComponentCommonProps,

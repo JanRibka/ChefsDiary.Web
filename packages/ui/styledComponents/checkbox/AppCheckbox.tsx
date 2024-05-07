@@ -6,7 +6,7 @@ import { mergeStyles } from "@repo/shared/helpers";
 import { useUniqueId } from "@repo/shared/hooks";
 
 import CheckLabelBase from "../../styledComponentsBase/checkLabelBase/CheckLabelBase";
-import HelperTextBase from "../helperText/HelperText";
+import HelperTextBase from "../helperText/AppHelperText";
 import AppCheckboxProps from "./AppCheckboxProps";
 import { appCheckboxVariants } from "./appCheckboxVariants";
 

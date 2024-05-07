@@ -1,7 +1,7 @@
 import InputBaseProps from "../../styledComponentsBase/inputBase/InputBaseProps";
 import InputLabelBaseProps from "../../styledComponentsBase/inputLabelBase/InputLabelBaseProps";
-import DescribedByAreaProps from "../describedByArea/DescribedByAreaProps";
-import HelperTextProps from "../helperText/HelperTextProps";
+import DescribedByAreaProps from "../describedByArea/AppDescribedByAreaProps";
+import HelperTextProps from "../helperText/AppHelperTextProps";
 
 interface AppTextFieldProps
   extends InputBaseProps,

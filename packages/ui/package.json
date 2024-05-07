@@ -2,7 +2,8 @@
   "name": "@repo/ui",
   "version": "1.0.0",
   "exports": {
-    "./components": "./components/index.ts"
+    "./components": "./components/index.ts",
+    "./styledComponents": "./styledComponents/index.ts"
   },
   "license": "MIT",
   "scripts": {

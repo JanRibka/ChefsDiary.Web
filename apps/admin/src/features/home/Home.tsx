@@ -1,4 +1,4 @@
-import AppButton from "../../shared/styledComponents/button/AppButton";
+import { AppButton } from "@repo/ui/styledComponents";
 
 const Home = () => {
   return (

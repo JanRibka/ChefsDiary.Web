@@ -1,4 +1,5 @@
-import Image from "../../../styledComponents/image/Image";
+import { AppImage } from "@repo/ui/styledComponents";
+
 import logo from "../img/logo-light.png";
 
 const LayoutLoginInfoDetail = () => {
@@ -12,7 +13,7 @@ const LayoutLoginInfoDetail = () => {
               href={import.meta.env.BASE_URL}
               title={import.meta.env.VITE_APP_NAME}
             >
-              <Image
+              <AppImage
                 src={logo}
                 srcSmall=""
                 alt={`Logo | ${import.meta.env.VITE_APP_NAME}`}

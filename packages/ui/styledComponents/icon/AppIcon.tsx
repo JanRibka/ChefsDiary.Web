@@ -1,11 +1,8 @@
 import { forwardRef } from "react";
 
-interface Props {
-  icon: JSX.Element;
-  disableScaleOnHover?: boolean;
-}
+import AppIconProps from "./AppIconProps";
 
-const Icon = forwardRef<HTMLDivElement, Props>((props, ref) => {
+const AppIcon = forwardRef<HTMLDivElement, AppIconProps>((props, ref) => {
   const { icon, ...restProps } = props;
 
   return (
@@ -19,4 +16,4 @@ const Icon = forwardRef<HTMLDivElement, Props>((props, ref) => {
   );
 });
 
-export default Icon;
+export default AppIcon;
