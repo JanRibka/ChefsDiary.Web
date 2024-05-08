@@ -1,5 +1,5 @@
 import { mergeStyles } from "@repo/shared/helpers";
-import { AppFormProps } from "@repo/shared/interfaces";
+import { AppFormProps } from "@repo/shared/props";
 
 const AppForm = (props: AppFormProps) => {
   // Props

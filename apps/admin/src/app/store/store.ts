@@ -4,12 +4,14 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
 import { mainBaseApi } from "../../shared/api/mainBaseApi";
 import authReducer from "./auth/authSlice";
+import sideBarReducer from "./sideBar/sideBarSlice";
 import themeReducer from "./theme/themeSlice";
 
 export const rootReducer = combineReducers({
   [mainBaseApi.reducerPath]: mainBaseApi.reducer,
   auth: authReducer,
   theme: themeReducer,
+  sideBar: sideBarReducer,
 });
 
 export const store = configureStore({

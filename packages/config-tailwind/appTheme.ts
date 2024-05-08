@@ -1,7 +1,7 @@
-import colors from 'tailwindcss/colors';
-import plugin from 'tailwindcss/plugin';
+import colors from "tailwindcss/colors";
+import plugin from "tailwindcss/plugin";
 
-import * as radixColors from '@radix-ui/colors';
+import * as radixColors from "@radix-ui/colors";
 
 export const accentColorNames: string[] = [];
 export const grayColorNames: string[] = [];
