@@ -1,3 +1,5 @@
+import { ErrorBoundary } from "@repo/ui/components";
+
 import LoginUser from "./loginUser/LoginUser";
 import RegisterForm from "./registerForm/RegisterForm";
 import RegisterSocial from "./registerSocial/RegisterSocial";

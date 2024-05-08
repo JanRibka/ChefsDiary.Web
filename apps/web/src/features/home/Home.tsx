@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import {
+  AppButton,
+  AppCheckbox,
+  AppPasswordField,
+  AppTextField,
+} from "@repo/ui/styledComponents";
+
 import { AppRoutes } from "../../app/routes/appRoutes";
 import { useAuthSlice } from "../../app/store/auth/useAuthSlice";
 import {
   useLogoutMutation,
   useTestMutation,
 } from "../../shared/api/auth/authApi";
-import AppButton from "../../shared/styledComponents/button/AppButton";
-import AppCheckbox from "../../shared/styledComponents/checkbox/AppCheckbox";
-import AppPasswordField from "../../shared/styledComponents/passwordField/AppPasswordField";
-import AppTextField from "../../shared/styledComponents/textField/AppTextField";
 
 // TODO: Pokud zadám do prohlížeče nějakou stránku a přesměruje mě to na přihlášení, tak po přihlášení mě to musí vrátit tam, kde jsem chtěl původně jít
 const Home = () => {

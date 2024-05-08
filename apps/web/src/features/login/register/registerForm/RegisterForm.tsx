@@ -4,15 +4,17 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import { nameof } from "@repo/shared/helpers";
 import { RegisterFormErrorModel, RegisterFormModel } from "@repo/shared/models";
 import { validateLogin, validateRegisterForm } from "@repo/shared/validations";
+import {
+  AppButtonSubmit,
+  AppCheckbox,
+  AppFormError,
+  AppFormHeading,
+  AppTextField,
+} from "@repo/ui/styledComponents";
 
 import useRegister from "../../../../shared/api/apiHooks/auth/useRegister";
 import AppForm from "../../../../shared/components/form/AppForm";
-import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
-import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
-import AppConfirmPassword from "../../../../shared/styledComponents/confirmPassword/AppConfirmPassword";
-import AppFormError from "../../../../shared/styledComponents/formError/AppFormError";
-import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppFormHeading";
-import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
+import AppConfirmPassword from "./confirmPassword/AppConfirmPassword";
 import LoginDescribedByArea from "./loginDescribedByArea/LoginDescribedByArea";
 
 const RegisterForm = () => {
@@ -158,9 +160,9 @@ const RegisterForm = () => {
             className="mb-3"
           />
 
-          <AppSubmitButton className="w-full" variant="contained">
+          <AppButtonSubmit className="w-full" variant="contained">
             Registrovat
-          </AppSubmitButton>
+          </AppButtonSubmit>
         </AppForm>
       </div>
     </section>

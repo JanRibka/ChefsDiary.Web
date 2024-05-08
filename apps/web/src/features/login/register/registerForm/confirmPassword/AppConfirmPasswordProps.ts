@@ -1,8 +1,8 @@
 import { Dispatch, SetStateAction } from "react";
 
-import { RegisterFormErrorModel, RegisterFormModel } from "../../models";
+import { RegisterFormErrorModel, RegisterFormModel } from "@repo/shared/models";
 
-interface ConfirmPasswordProps {
+interface AppConfirmPasswordProps {
   password: string;
   confirmPassword: string;
   errors: RegisterFormErrorModel;
@@ -10,4 +10,4 @@ interface ConfirmPasswordProps {
   resetError: (name: keyof RegisterFormErrorModel) => void;
 }
 
-export default ConfirmPasswordProps;
+export default AppConfirmPasswordProps;

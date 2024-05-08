@@ -1,5 +1,8 @@
 import { validateConfirmPassword } from "@repo/shared/validations";
 
+import DescribedByAreaItem from "../../../../../shared/styledComponents/describedByAreaItem/DescribedByAreaItem";
+import DescribedByAreaWrapper from "../../../../../shared/styledComponents/describedByAreaWrapper/DescribedByAreaWrapper";
+
 interface Props {
   password: string;
   confirmPassword: string;

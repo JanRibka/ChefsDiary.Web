@@ -6,19 +6,21 @@ import { nameof } from "@repo/shared/helpers";
 import { useToggle } from "@repo/shared/hooks";
 import { LoginFormErrorModel, LoginFormModel } from "@repo/shared/models";
 import { validateLoginForm } from "@repo/shared/validations";
+import {
+  AppAnchor,
+  AppButtonSubmit,
+  AppCheckbox,
+  AppFormError,
+  AppFormHeading,
+  AppHoverCard,
+  AppPasswordField,
+  AppTextField,
+} from "@repo/ui/styledComponents";
 
 import { AppRoutes } from "../../../../app/routes/appRoutes";
 import { useAuthSlice } from "../../../../app/store/auth/useAuthSlice";
 import useLogin from "../../../../shared/api/apiHooks/auth/useLogin";
 import AppForm from "../../../../shared/components/form/AppForm";
-import AppSubmitButton from "../../../../shared/components/submitButton/AppSubmitButton";
-import AppAnchor from "../../../../shared/styledComponents/anchor/AppAnchor";
-import AppCheckbox from "../../../../shared/styledComponents/checkbox/AppCheckbox";
-import AppFormError from "../../../../shared/styledComponents/formError/AppFormError";
-import AppFormHeading from "../../../../shared/styledComponents/formHeading/AppFormHeading";
-import AppHoverCard from "../../../../shared/styledComponents/hoverCard/AppHoverCard";
-import AppPasswordField from "../../../../shared/styledComponents/passwordField/AppPasswordField";
-import AppTextField from "../../../../shared/styledComponents/textField/AppTextField";
 
 //TODO: Pokud stisknu enter, m2l by se zmacknout cudl pro prihlaseni
 // TODO: Predelat state pro inputy podle https://www.youtube.com/watch?v=eQrbjvn_fSc&list=PL0Zuz27SZ-6PRCpm9clX0WiBEMB70FWwd&index=7&ab_channel=DaveGray
@@ -162,9 +164,9 @@ const LoginForm = () => {
             </p>
           </div>
 
-          <AppSubmitButton className="w-full" variant="contained">
+          <AppButtonSubmit className="w-full" variant="contained">
             Přihlásit
-          </AppSubmitButton>
+          </AppButtonSubmit>
         </AppForm>
       </div>
     </section>

@@ -6,10 +6,14 @@ import {
   validateConfirmPassword,
   validatePassword,
 } from "@repo/shared/validations";
+import { ErrorBoundary } from "@repo/ui/components";
 
-import AppPasswordField from "../passwordField/AppPasswordField";
+import AppPasswordField from "../../../../../../../../packages/ui/styledComponents/passwordField/AppPasswordField";
+import ConfirmPasswordDescribedByArea from "../confirmPasswordDescribedByArea/ConfirmPasswordDescribedByArea";
+import PasswordDescribedByArea from "../passwordDescribedByArea/PasswordDescribedByArea";
+import AppConfirmPasswordProps from "./AppConfirmPasswordProps";
 
-const AppConfirmPassword = (props: ConfirmPasswordProps) => {
+const AppConfirmPassword = (props: AppConfirmPasswordProps) => {
   // State
   const [passwordFocus, setPasswordFocus] = useState<boolean>(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] =

@@ -1,4 +1,4 @@
-import Icon from "../icon/Icon";
+import { AppIcon } from "@repo/ui/styledComponents";
 
 interface Props {
   title: string;
@@ -15,7 +15,7 @@ const ListItem = (props: Props) => {
         target="_blank"
         aria-label={props.title}
       >
-        <Icon icon={props.icon} />
+        <AppIcon icon={props.icon} />
       </a>
     </li>
   );
