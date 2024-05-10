@@ -23,6 +23,9 @@ importers:
 
   apps/admin:
     dependencies:
+      '@radix-ui/react-accordion':
+        specifier: ^1.1.2
+        version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
       '@radix-ui/themes':
         specifier: ^3.0.3
         version: 3.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
@@ -314,6 +317,9 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+      uuid:
+        specifier: ^9.0.1
+        version: 9.0.1
     devDependencies:
       '@radix-ui/themes':
         specifier: ^3.0.3
@@ -336,6 +342,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/uuid':
+        specifier: ^9.0.8
+        version: 9.0.8
       eslint:
         specifier: ^9.0.0
         version: 9.0.0
@@ -919,6 +928,35 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: true
 
+  /@radix-ui/react-accordion@1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404):
+    resolution: {integrity: sha512-fDG7jcoNKVjSK6yfmuAs0EnPDro0WMXIhMtXdTBWqEioVW206ku+4Lw07e+13lUkFkpoEQ2PdeMIAGpdqEAmDg==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.24.1
+      '@radix-ui/primitive': 1.0.1
+      '@radix-ui/react-collapsible': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-collection': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-context': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-direction': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-id': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@types/react': 18.3.1
+      '@types/react-dom': 18.3.0
+      react: 19.0.0-canary-fd0da3eef-20240404
+      react-dom: 19.0.0-canary-fd0da3eef-20240404(react@19.0.0-canary-fd0da3eef-20240404)
+    dev: false
+
   /@radix-ui/react-alert-dialog@1.0.5(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404):
     resolution: {integrity: sha512-OrVIOcZL0tl6xibeuGt5/+UxoT2N27KCFOPjFyfXMnchxSHZ/OW7cCX2nGlIYJrbHK/fczPcFzAwvNBB6XBNMA==}
     peerDependencies:
@@ -1409,6 +1447,34 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
+
+  /@radix-ui/react-collapsible@1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404):
+    resolution: {integrity: sha512-UBmVDkmR6IvDsloHVN+3rtx4Mi5TFvylYXpluuv0f37dtaz3H99bp8No0LGXRigVpl3UAT4l9j6bIchh42S/Gg==}
+    peerDependencies:
+      '@types/react': '*'
+      '@types/react-dom': '*'
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.24.1
+      '@radix-ui/primitive': 1.0.1
+      '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-context': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-id': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-presence': 1.0.1(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.3.0)(@types/react@18.3.1)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-use-controllable-state': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.3.1)(react@19.0.0-canary-fd0da3eef-20240404)
+      '@types/react': 18.3.1
+      '@types/react-dom': 18.3.0
+      react: 19.0.0-canary-fd0da3eef-20240404
+      react-dom: 19.0.0-canary-fd0da3eef-20240404(react@19.0.0-canary-fd0da3eef-20240404)
+    dev: false
 
   /@radix-ui/react-collection@1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.74)(react-dom@19.0.0-canary-fd0da3eef-20240404)(react@19.0.0-canary-fd0da3eef-20240404):
     resolution: {integrity: sha512-3SzW+0PW7yBBoQlT8wNcGtaxaD0XSu0uLUFgrtHY08Acx05TaHaOmVLR73c0j/cqpDy53KBMO7s0dx2wmOIDIA==}
@@ -5549,6 +5615,10 @@ packages:
   /@types/use-sync-external-store@0.0.3:
     resolution: {integrity: sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA==}
 
+  /@types/uuid@9.0.8:
+    resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
+    dev: true
+
   /@typescript-eslint/eslint-plugin@7.5.0(@typescript-eslint/parser@7.5.0)(eslint@8.57.0)(typescript@5.4.5):
     resolution: {integrity: sha512-HpqNTH8Du34nLxbKgVMGljZMG0rJd2O9ecvr2QLYp+7512ty1j42KnsFwspPXg1Vh8an9YImf6CokUBltisZFQ==}
     engines: {node: ^18.18.0 || >=20.0.0}
@@ -9099,6 +9169,11 @@ packages:
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
     hasBin: true
     dev: true
+
+  /uuid@9.0.1:
+    resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
+    hasBin: true
+    dev: false
 
   /uuidv4@2.0.0:
     resolution: {integrity: sha512-sAUlwUVepcVk6bwnaW/oi6LCwMdueako5QQzRr90ioAVVcms6p1mV0PaSxK8gyAC4CRvKddsk217uUpZUbKd2Q==}

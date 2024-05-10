@@ -4,10 +4,12 @@ import { RootState } from "../store";
 
 export interface SideBarState {
   open: boolean;
+  actualValue: string;
 }
 
 export const initialState: SideBarState = {
   open: false,
+  actualValue: "",
 };
 
 export const sideBarSlice = createSlice({
@@ -18,6 +20,12 @@ export const sideBarSlice = createSlice({
       return {
         ...state,
         open: action.payload,
+      };
+    },
+    setActualValue: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        actualValue: action.payload,
       };
     },
   },

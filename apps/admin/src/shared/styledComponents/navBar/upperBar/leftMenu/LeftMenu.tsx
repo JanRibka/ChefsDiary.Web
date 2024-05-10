@@ -5,7 +5,7 @@ const LeftMenu = () => {
   return (
     <div className="flex flex-row items-center">
       <HomeIcon />
-      <div className="ml-7">
+      <div className="ml-7 md:hidden xl:block">
         <AppHamburgerIcon />
       </div>
     </div>

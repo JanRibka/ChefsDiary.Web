@@ -5,7 +5,7 @@ interface Props {
 
 const PageBase = (props: Props) => {
   return (
-    <main className="bg-dialogBackground h-full">
+    <main className="bg-dialogBackground h-full ml-0 md:ml-24 xl:ml-0">
       <div className="px-4 py-8">
         <div>
           <div className="mb-4">

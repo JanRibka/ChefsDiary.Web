@@ -9,7 +9,7 @@ const config: Omit<Config, "content" | "presets"> = {
         "background-image": "background-image",
         opacity: "opacity",
         "background-color": "background-color",
-        hamburger: "all",
+        all: "all",
       },
       maxWidth: {
         main: "1140px",

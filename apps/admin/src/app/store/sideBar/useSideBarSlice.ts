@@ -8,5 +8,9 @@ export const useSideBarSlice = () => {
     dispatch(actions.setOpen(open));
   };
 
-  return { setOpen };
+  const setActualValue = (actualValue: string) => {
+    dispatch(actions.setActualValue(actualValue));
+  };
+
+  return { setOpen, setActualValue };
 };
