@@ -2,7 +2,7 @@ interface Props {
   header: string;
   children: JSX.Element;
 }
-
+// TODO: Pokud xl, nude menu v6dy viditeln2 a ml, bude podle toho, zada je menu otevrene nebo zavrene
 const PageBase = (props: Props) => {
   return (
     <main className="bg-dialogBackground h-full ml-0 md:ml-24 xl:ml-0">
