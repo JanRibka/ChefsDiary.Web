@@ -1,7 +1,7 @@
-import { cva } from 'class-variance-authority';
+import { cva } from "class-variance-authority";
 
 export const accordionItemIconVariants = cva(
-  "transition-transform duration-500",
+  "transition-transform duration-500 md:hidden xl:block",
   {
     variants: {
       opened: {

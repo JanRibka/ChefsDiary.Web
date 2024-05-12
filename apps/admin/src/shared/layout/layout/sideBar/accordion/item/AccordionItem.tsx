@@ -1,14 +1,11 @@
-import { useRef } from 'react';
-import { AiFillCaretRight } from 'react-icons/ai';
+import { AiFillCaretRight } from "react-icons/ai";
 
-import { accordionItemButtonVariants } from './accordionItemButtonVariants';
-import { accordionItemIconVariants } from './accordionItemIconVariants';
-import AccordionItemProps from './AccordionItemProps';
+import { accordionItemButtonVariants } from "./accordionItemButtonVariants";
+import { accordionItemContentVariants } from "./accordionItemContentVariants";
+import { accordionItemIconVariants } from "./accordionItemIconVariants";
+import AccordionItemProps from "./AccordionItemProps";
 
 const AccordionItem = (props: AccordionItemProps) => {
-  // References
-  const refContent = useRef<HTMLDivElement>(null);
-
   // Constants
   const isOpened = props.value === props.actualValue;
 
@@ -23,16 +20,25 @@ const AccordionItem = (props: AccordionItemProps) => {
         onClick={handleOnClick}
         className={accordionItemButtonVariants({ opened: isOpened })}
       >
-        <div className="flex w-full items-center">
-          {props.labelIcon && <props.labelIcon />}
-          <p className="ml-3">{props.label}</p>
+        <div className="flex w-full items-center justify-start md:justify-center xl:justify-start">
+          {props.labelIcon && (
+            <props.labelIcon className="text-xl md:text-3xl xl:text-2xl" />
+          )}
+          <p className="ml-3 md:hidden xl:block">{props.label}</p>
         </div>
-        <AiFillCaretRight
-          className={accordionItemIconVariants({ opened: isOpened })}
-        />
+
+        {props.content && (
+          <AiFillCaretRight
+            className={accordionItemIconVariants({ opened: isOpened })}
+          />
+        )}
       </button>
 
-      <div ref={refContent}>{props.content}</div>
+      {props.content && (
+        <div className={accordionItemContentVariants({ opened: isOpened })}>
+          {props.content}
+        </div>
+      )}
     </li>
   );
 };
