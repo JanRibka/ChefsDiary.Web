@@ -1,10 +1,10 @@
 import { cva } from "class-variance-authority";
 
-export const accordionItemLabelVariants = cva("ml-3 md:hidden", {
+export const accordionItemLabelIconVariants = cva("text-xl md:text-3xl", {
   variants: {
     sideBarOpened: {
-      true: "xl:block",
-      false: "xl:hidden",
+      true: "xl:text-2xl",
+      false: "xl:text-3xl",
     },
   },
   defaultVariants: { sideBarOpened: false },

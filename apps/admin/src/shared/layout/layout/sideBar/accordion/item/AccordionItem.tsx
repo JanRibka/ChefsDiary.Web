@@ -1,12 +1,14 @@
-import { AiFillCaretRight } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { AiFillCaretRight } from "react-icons/ai";
+import { useSelector } from "react-redux";
 
-import { selectSideBar } from '../../../../../../app/store/sideBar/sideBarSlice';
-import { accordionItemButtonVariants } from './accordionItemButtonVariants';
-import { accordionItemContentVariants } from './accordionItemContentVariants';
-import { accordionItemIconVariants } from './accordionItemIconVariants';
-import { accordionItemLabelVariants } from './accordionItemLabelVariants';
-import AccordionItemProps from './AccordionItemProps';
+import { selectSideBar } from "../../../../../../app/store/sideBar/sideBarSlice";
+import { accordionItemButtonVariants } from "./accordionItemButtonVariants";
+import { accordionItemContentVariants } from "./accordionItemContentVariants";
+import { accordionItemIconLabelWrapperVariants } from "./accordionItemIconLabelWrapperVariants";
+import { accordionItemIconVariants } from "./accordionItemIconVariants";
+import { accordionItemLabelIconVariants } from "./accordionItemLabelIconVariants";
+import { accordionItemLabelVariants } from "./accordionItemLabelVariants";
+import AccordionItemProps from "./AccordionItemProps";
 
 const AccordionItem = (props: AccordionItemProps) => {
   // Store
@@ -26,9 +28,17 @@ const AccordionItem = (props: AccordionItemProps) => {
         onClick={handleOnClick}
         className={accordionItemButtonVariants({ opened: isOpened })}
       >
-        <div className="flex w-full items-center justify-start md:justify-center xl:justify-start">
+        <div
+          className={accordionItemIconLabelWrapperVariants({
+            sideBarOpened: sideBar.open,
+          })}
+        >
           {props.labelIcon && (
-            <props.labelIcon className="text-xl md:text-3xl xl:text-2xl" />
+            <props.labelIcon
+              className={accordionItemLabelIconVariants({
+                sideBarOpened: sideBar.open,
+              })}
+            />
           )}
           <p
             className={accordionItemLabelVariants({
@@ -41,13 +51,21 @@ const AccordionItem = (props: AccordionItemProps) => {
 
         {props.content && (
           <AiFillCaretRight
-            className={accordionItemIconVariants({ opened: isOpened })}
+            className={accordionItemIconVariants({
+              opened: isOpened,
+              sideBarOpened: sideBar.open,
+            })}
           />
         )}
       </button>
 
       {props.content && (
-        <div className={accordionItemContentVariants({ opened: isOpened })}>
+        <div
+          className={accordionItemContentVariants({
+            opened: isOpened,
+            sideBarOpened: sideBar.open,
+          })}
+        >
           {props.content}
         </div>
       )}
