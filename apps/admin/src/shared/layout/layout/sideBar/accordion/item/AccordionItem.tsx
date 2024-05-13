@@ -1,11 +1,17 @@
-import { AiFillCaretRight } from "react-icons/ai";
+import { AiFillCaretRight } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
-import { accordionItemButtonVariants } from "./accordionItemButtonVariants";
-import { accordionItemContentVariants } from "./accordionItemContentVariants";
-import { accordionItemIconVariants } from "./accordionItemIconVariants";
-import AccordionItemProps from "./AccordionItemProps";
+import { selectSideBar } from '../../../../../../app/store/sideBar/sideBarSlice';
+import { accordionItemButtonVariants } from './accordionItemButtonVariants';
+import { accordionItemContentVariants } from './accordionItemContentVariants';
+import { accordionItemIconVariants } from './accordionItemIconVariants';
+import { accordionItemLabelVariants } from './accordionItemLabelVariants';
+import AccordionItemProps from './AccordionItemProps';
 
 const AccordionItem = (props: AccordionItemProps) => {
+  // Store
+  const sideBar = useSelector(selectSideBar);
+
   // Constants
   const isOpened = props.value === props.actualValue;
 
@@ -24,7 +30,13 @@ const AccordionItem = (props: AccordionItemProps) => {
           {props.labelIcon && (
             <props.labelIcon className="text-xl md:text-3xl xl:text-2xl" />
           )}
-          <p className="ml-3 md:hidden xl:block">{props.label}</p>
+          <p
+            className={accordionItemLabelVariants({
+              sideBarOpened: sideBar.open,
+            })}
+          >
+            {props.label}
+          </p>
         </div>
 
         {props.content && (
