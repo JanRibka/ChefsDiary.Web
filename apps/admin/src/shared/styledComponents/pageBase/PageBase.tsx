@@ -1,11 +1,19 @@
+import { useSelector } from "react-redux";
+
+import { selectSideBar } from "../../../app/store/sideBar/sideBarSlice";
+import { pageBaseVariants } from "./pageBaseVariants";
+
 interface Props {
   header: string;
   children: JSX.Element;
 }
-// TODO: Pokud xl, nude menu v6dy viditeln2 a ml, bude podle toho, zada je menu otevrene nebo zavrene
+
 const PageBase = (props: Props) => {
+  // Store
+  const sideBar = useSelector(selectSideBar);
+
   return (
-    <main className="bg-dialogBackground h-full ml-0 md:ml-24 xl:ml-0">
+    <main className={pageBaseVariants({ sideBarOpened: sideBar.open })}>
       <div className="px-4 py-8">
         <div>
           <div className="mb-4">
