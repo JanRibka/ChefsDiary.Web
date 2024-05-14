@@ -443,7 +443,9 @@ const radixThemePlugin = plugin.withOptions(
           gray: generateTailwindColors("gray"),
           ...allRadixColors,
           ...mappingsOfMissingTailwindColors,
-          dark: {},
+          dark: {
+            // TODO: Tmavyrezim podle laravel design systemu
+          },
         },
         container: {
           center: true,

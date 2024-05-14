@@ -1,6 +1,8 @@
 import { AiFillCaretRight } from "react-icons/ai";
 import { useSelector } from "react-redux";
 
+import { AppHoverCard } from "@repo/ui/styledComponents";
+
 import { selectSideBar } from "../../../../../../app/store/sideBar/sideBarSlice";
 import { accordionItemButtonVariants } from "./accordionItemButtonVariants";
 import { accordionItemContentVariants } from "./accordionItemContentVariants";
@@ -24,40 +26,47 @@ const AccordionItem = (props: AccordionItemProps) => {
 
   return (
     <li className="px-4 my-1">
-      <button
-        onClick={handleOnClick}
-        className={accordionItemButtonVariants({ opened: isOpened })}
-      >
-        <div
-          className={accordionItemIconLabelWrapperVariants({
-            sideBarOpened: sideBar.open,
-          })}
-        >
-          {props.labelIcon && (
-            <props.labelIcon
-              className={accordionItemLabelIconVariants({
+      <AppHoverCard
+        side="right"
+        disable={sideBar.open}
+        trigger={
+          <button
+            onClick={handleOnClick}
+            className={accordionItemButtonVariants({ opened: isOpened })}
+          >
+            <div
+              className={accordionItemIconLabelWrapperVariants({
                 sideBarOpened: sideBar.open,
               })}
-            />
-          )}
-          <p
-            className={accordionItemLabelVariants({
-              sideBarOpened: sideBar.open,
-            })}
-          >
-            {props.label}
-          </p>
-        </div>
+            >
+              {props.labelIcon && (
+                <props.labelIcon
+                  className={accordionItemLabelIconVariants({
+                    sideBarOpened: sideBar.open,
+                  })}
+                />
+              )}
+              <p
+                className={accordionItemLabelVariants({
+                  sideBarOpened: sideBar.open,
+                })}
+              >
+                {props.label}
+              </p>
+            </div>
 
-        {props.content && (
-          <AiFillCaretRight
-            className={accordionItemIconVariants({
-              opened: isOpened,
-              sideBarOpened: sideBar.open,
-            })}
-          />
-        )}
-      </button>
+            {props.content && (
+              <AiFillCaretRight
+                className={accordionItemIconVariants({
+                  opened: isOpened,
+                  sideBarOpened: sideBar.open,
+                })}
+              />
+            )}
+          </button>
+        }
+        content={props.content as JSX.Element}
+      />
 
       {props.content && (
         <div

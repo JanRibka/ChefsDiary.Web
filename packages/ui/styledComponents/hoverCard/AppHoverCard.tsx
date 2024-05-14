@@ -2,32 +2,26 @@ import * as HoverCard from "@radix-ui/react-hover-card";
 
 import AppHoverCardProps from "./AppHoverCardProps";
 
-// TODO: Propsy budou v shared a asi tu bude jenom class name pro root
-// TODO: Dat shadow do default theme
 // TODO: Pokud content je pr8zdn7, nic se nezobraz9
-// TODO: Budetu merge styles
 const AppHoverCard = (props: AppHoverCardProps) => {
   return (
     <HoverCard.Root>
-      <HoverCard.Trigger asChild className={props.triggerClassName}>
-        {props.trigger}
-      </HoverCard.Trigger>
+      <HoverCard.Trigger asChild>{props.trigger}</HoverCard.Trigger>
       <HoverCard.Portal>
         <HoverCard.Content
-          className={
-            props.contentClassName +
-            ` data-[side=bottom]:animate-slideUpFade
-            data-[side=right]:animate-slideLeftFade
-            data-[side=left]:animate-slideRightFade
-            data-[side=top]:animate-slideDownFade
-            rounded-md bg-background p-5
-            shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px]
-            data-[state=open]:transition-all`
-          }
+          side={props.side}
+          hidden={props.disable || !props.content}
+          className={`data-[side=bottom]:animate-slideUpFade 
+              data-[side=right]:animate-slideLeftFade 
+              data-[side=left]:animate-slideRightFade
+              data-[side=top]:animate-slideDownFade
+              rounded-[0.5rem] bg-dialogBackground p-[1rem]
+              shadow-dialog data-[state=open]:transition-all`}
           sideOffset={5}
         >
           <>
-            {props.content} <HoverCard.Arrow className="fill-white" />
+            {props.content}{" "}
+            <HoverCard.Arrow className="fill-dialogBackground" />
           </>
         </HoverCard.Content>
       </HoverCard.Portal>
