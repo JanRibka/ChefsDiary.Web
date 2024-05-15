@@ -1,5 +1,5 @@
-import Home from "../features/home/Home";
-import PageBase from "../shared/styledComponents/pageBase/PageBase";
+import Home from "../../features/home/Home";
+import PageBase from "../../shared/styledComponents/pageBase/PageBase";
 
 const HomePage = () => {
   return (
