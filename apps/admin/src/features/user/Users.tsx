@@ -1,10 +1,11 @@
 import ContentSection from "../../shared/styledComponents/contentSection/ContentSection";
+import UsersTable from "./usersTable/UsersTable";
 
 const Users = () => {
   return (
     <div>
       <ContentSection>
-        <div>dsad</div>
+        <UsersTable />
       </ContentSection>
     </div>
   );

@@ -5,7 +5,7 @@ interface TableProps {
 }
 
 const Table = (props: TableProps) => {
-  <table className="w-full text-sm text-left">{props.children}</table>;
+  return <table className="w-full text-sm text-left">{props.children}</table>;
 };
 
 export default Table;

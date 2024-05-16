@@ -1,7 +1,9 @@
-interface TableBodyProps {}
+interface TableBodyProps {
+  data: any[][];
+}
 
 const TableBody = (props: TableBodyProps) => {
-  return <tbody></tbody>;
+  return <tbody>{props.data.map((item, index))}</tbody>;
 };
 
 export default TableBody;
