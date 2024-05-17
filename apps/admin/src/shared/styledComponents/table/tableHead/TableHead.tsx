@@ -1,3 +1,6 @@
+import { mergeStyles } from "@repo/shared/helpers";
+
+import TableColumnDefinition from "./TableColumnDefinition";
 import { tableHeadCellVariants } from "./tableHeadCellVariants";
 
 interface TableHeadProps {
@@ -11,8 +14,10 @@ const TableHead = (props: TableHeadProps) => {
         {props.columns.map((column, index) => (
           <th
             key={index}
-            className={tableHeadCellVariants({
-              width: column.width })}
+            className={mergeStyles(
+              column.width ? `w-${column.width}` : undefined,
+              tableHeadCellVariants({})
+            )}
           >
             {column.label}
           </th>
