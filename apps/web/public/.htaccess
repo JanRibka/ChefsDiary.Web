@@ -14,3 +14,6 @@ RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+# Redirect to admin folder if "/admin" is present in the URL
+RewriteRule ^admin$ /admin/index.html [L]
