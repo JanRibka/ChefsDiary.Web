@@ -10,6 +10,7 @@ const AppIcon = forwardRef<HTMLDivElement, AppIconProps>((props, ref) => {
       {...restProps}
       ref={ref}
       className={`flex items-center cursor-pointer text-primary transition 300ms ease-in-out hover:text-primary-dark ${props.disableScaleOnHover ? "" : "hover:scale-125"}`}
+      onClick={props.onClick}
     >
       {icon}
     </div>
