@@ -14,5 +14,6 @@ export default defineConfig({
   preview: {
     port: 4002,
   },
+  base: "/admin",
   plugins: [react()],
 });

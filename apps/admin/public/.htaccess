@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Set HTTP_AUTHORIZATION header
+RewriteRule .\* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+# Redirect to api folder if "/api" is present in the URL
+# Toto tu podle m2 nemusí být, protože to bude směřovat do root
+#RewriteCond %{REQUEST_URI} ^/api/
+#RewriteRule ^(.\*)$ ../api/$1 [L]
+
+# Redirect to index.html
+RewriteRule ^index\.html$ - [L]
+
+# Rewrite to index.html if file or directory doesn't exist
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.\*)$ /admin/index.html [L]
