@@ -11,3 +11,6 @@ export { default as AppImage } from "./image/AppImage";
 export { default as AppIcon } from "./icon/AppIcon";
 export { default as AppPasswordField } from "./passwordField/AppPasswordField";
 export { default as AppTextField } from "./textField/AppTextField";
+export { default as AppTable } from "./table/AppTable";
+export type { default as TableColumnDefinition } from "./table/tableHead/TableColumnDefinition";
+export type { default as TableRowDefinition } from "./table/tableBody/TableRowDefinition";

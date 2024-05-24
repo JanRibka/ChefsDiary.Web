@@ -3,7 +3,7 @@ import { transformErrorResponse } from "@repo/shared/apiResponse";
 import Login from "../../../entities/auth/Login";
 import { mainBaseApi } from "../mainBaseApi";
 import { LOGIN, LOGOUT, REFRESH_TOKEN } from "./endpoints";
-import RefreshTokenParams from "./RefreshTokenParams";
+import RefreshTokenParams from "./params/RefreshTokenParams";
 
 export const authApi = mainBaseApi.injectEndpoints({
   endpoints: (build) => ({

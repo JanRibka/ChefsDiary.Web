@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "exports": {
     "./apiResponse": "./apiResponse/index.ts",
+    "./entities": "./entities/index.ts",
     "./enums": "./enums/index.ts",
     "./errorLibrary": "./errorLibrary/index.ts",
     "./helpers": "./helpers/index.ts",

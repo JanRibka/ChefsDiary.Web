@@ -1,11 +1,7 @@
 import { mergeStyles } from "@repo/shared/helpers";
 
-import TableColumnDefinition from "./TableColumnDefinition";
 import { tableHeadCellVariants } from "./tableHeadCellVariants";
-
-interface TableHeadProps {
-  columns: TableColumnDefinition[];
-}
+import TableHeadProps from "./TableHeadProps";
 
 const TableHead = (props: TableHeadProps) => {
   return (

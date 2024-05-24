@@ -1,26 +1,25 @@
-import Table from "../../../shared/styledComponents/table/table/Table";
-import TableBody from "../../../shared/styledComponents/table/tableBody/TableBody";
-import TableRowDefinition from "../../../shared/styledComponents/table/tableBody/TableRowDefinition";
-import TableColumnDefinition from "../../../shared/styledComponents/table/tableHead/TableColumnDefinition";
-import TableHead from "../../../shared/styledComponents/table/tableHead/TableHead";
+import { nameof } from "@repo/shared/helpers";
+import { AppTable, TableColumnDefinition } from "@repo/ui/styledComponents";
+
+import User from "../../../entities/user/User";
+import useGetAllUsersPaginated from "../../../shared/api/apiHooks/user/useGetAllUsersPaginated";
 
 const UsersTable = () => {
+  const { paginatedUsers } = useGetAllUsersPaginated();
+  // Table definitions
   const columns: TableColumnDefinition[] = [
-    { label: "Name" },
-    { label: "Email" },
-  ];
-
-  const rows: TableRowDefinition[] = [
-    { name: "John Doe", email: "email" },
-    { name: "Jane Doe2", email: "email2" },
+    { label: "Login", field: nameof<User>("login"), type: "string" },
+    { label: "Email", field: nameof<User>("email"), type: "string" },
+    {
+      label: "Zda zakázán",
+      field: nameof<User>("isDisabled"),
+      type: "boolean",
+    },
   ];
 
   return (
     <div>
-      <Table>
-        <TableHead columns={columns} />
-        <TableBody rows={rows} />
-      </Table>
+      <AppTable columns={columns} rows={paginatedUsers.data} />
     </div>
   );
 };
