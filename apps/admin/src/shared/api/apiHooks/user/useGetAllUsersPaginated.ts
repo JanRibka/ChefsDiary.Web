@@ -28,7 +28,7 @@ const useGetAllUsersPaginated = () => {
 
       setPaginatedUsers(newData);
     }
-  }, []);
+  }, [isLoading, isFetching]);
 
   const mapUserToTableRowDefinition = (users: User[]): TableRowDefinition[] => {
     return users.map(
