@@ -4,10 +4,12 @@ import TableHead from "./tableHead/TableHead";
 
 const AppTable = (props: AppTableProps) => {
   return (
-    <table className="w-full text-sm text-left">
-      <TableHead columns={props.columns} />
-      <TableBody rows={props.rows} columns={props.columns} />
-    </table>
+    <div className="overflow-hidden rounded-md shadow-md">
+      <table className="w-full text-sm text-left">
+        <TableHead columns={props.columns} />
+        <TableBody rows={props.rows} columns={props.columns} />
+      </table>
+    </div>
   );
 };
 
