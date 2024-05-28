@@ -15,11 +15,21 @@ const UsersTable = () => {
       field: nameof<User>("isDisabled"),
       type: "boolean",
     },
+    {
+      label: "Registrován dne",
+      field: nameof<User>("createdAt"),
+      type: "date",
+    },
   ];
 
   return (
     <div>
-      <AppTable columns={columns} rows={paginatedUsers.data} />
+      <AppTable
+        name="name"
+        columns={columns}
+        rows={paginatedUsers.data}
+        search
+      />
     </div>
   );
 };

@@ -14,3 +14,4 @@ export { default as AppTextField } from "./textField/AppTextField";
 export { default as AppTable } from "./table/AppTable";
 export type { default as TableColumnDefinition } from "./table/tableHead/TableColumnDefinition";
 export type { default as TableRowDefinition } from "./table/tableBody/TableRowDefinition";
+export { default as AppSearchField } from "./searchField/AppSearchField";

@@ -1,7 +1,5 @@
-import TableColumnDefinition from "./TableColumnDefinition";
+import AppTableBaseProps from "../AppTableBaseProps";
 
-interface TableHeadProps {
-  columns: TableColumnDefinition[];
-}
+interface TableHeadProps extends AppTableBaseProps {}
 
 export default TableHeadProps;

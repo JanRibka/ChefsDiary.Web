@@ -1,7 +1,7 @@
-import TableHeadProps from "../tableHead/TableHeadProps";
+import AppTableBaseProps from "../AppTableBaseProps";
 import TableRowDefinition from "./TableRowDefinition";
 
-interface TableBodyProps extends Pick<TableHeadProps, "columns"> {
+interface TableBodyProps extends AppTableBaseProps {
   rows: TableRowDefinition[];
 }
 

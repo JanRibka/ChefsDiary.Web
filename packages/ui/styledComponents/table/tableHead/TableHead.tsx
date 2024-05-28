@@ -9,7 +9,7 @@ const TableHead = (props: TableHeadProps) => {
       <tr className="">
         {props.columns.map((column, index) => (
           <th
-            key={index}
+            key={`table-head-row_${props.name}_${index}`}
             className={mergeStyles(
               column.width ? `w-${column.width}` : undefined,
               tableHeadCellVariants({})
