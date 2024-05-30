@@ -3,7 +3,7 @@ interface User {
   login: string;
   isDisabled: boolean;
   email: string;
-  createdAt: string;
+  createdAt: Date;
 }
 
 export default User;

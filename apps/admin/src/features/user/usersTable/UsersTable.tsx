@@ -20,6 +20,11 @@ const UsersTable = () => {
       field: nameof<User>("createdAt"),
       type: "date",
     },
+    {
+      label: "Akce",
+      field: "actions",
+      type: "actions",
+    },
   ];
 
   return (

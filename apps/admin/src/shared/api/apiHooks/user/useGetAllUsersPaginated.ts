@@ -37,8 +37,8 @@ const useGetAllUsersPaginated = () => {
           [nameof<User>("uuid")]: u.uuid,
           [nameof<User>("login")]: u.login,
           [nameof<User>("isDisabled")]: u.isDisabled,
-          [nameof<User>("email")]: "email",
-          [nameof<User>("createdAt")]: u.createdAt,
+          [nameof<User>("email")]: u.email,
+          [nameof<User>("createdAt")]: u.createdAt.toString(),
         })
     );
   };

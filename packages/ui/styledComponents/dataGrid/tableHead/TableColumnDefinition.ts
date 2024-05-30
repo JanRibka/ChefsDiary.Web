@@ -4,7 +4,7 @@ interface TableColumnDefinition {
   label: string;
   field: string;
   width?: number;
-  type?: "string" | "number" | "boolean" | "date" | "action";
+  type?: "string" | "number" | "boolean" | "date" | "actions";
   getActions?: (
     id: string | number
   ) => React.ReactElement<
