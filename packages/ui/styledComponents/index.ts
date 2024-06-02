@@ -13,5 +13,5 @@ export { default as AppPasswordField } from "./passwordField/AppPasswordField";
 export { default as AppTextField } from "./textField/AppTextField";
 export { AppDataGrid } from "./dataGrid/AppDataGrid";
 export type { default as TableColumnDefinition } from "./dataGrid/tableHead/TableColumnDefinition";
-export type { default as TableRowDefinition } from "./dataGrid/tableBody/TableRowDefinition";
+export type { default as TableRowDefinition } from "./dataGrid/dataGridBody/TableRowDefinition";
 export { default as AppSearchField } from "./searchField/AppSearchField";

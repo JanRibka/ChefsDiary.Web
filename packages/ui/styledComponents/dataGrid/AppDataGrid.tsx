@@ -1,11 +1,9 @@
-import React, { RefAttributes } from "react";
-
 import AppDataGridProps from "./AppDataGridProps";
+import TableBody from "./dataGridBody/DataGridBody";
 import Search from "./search/Search";
-import TableBody from "./tableBody/TableBody";
 import TableHead from "./tableHead/TableHead";
 
-const AppDataGridRaw = (props: AppTableProps) => {
+const AppDataGrid = (props: AppDataGridProps) => {
   return (
     <div className="rounded-md border-1 p-4 shadow-md">
       <div className="">
@@ -25,10 +23,4 @@ const AppDataGridRaw = (props: AppTableProps) => {
   );
 };
 
-interface DataGridComponent {
-  <R extends GridValidRowModel = any>(
-    props: AppDataGridProps<R> & RefAttributes<HTMLDivElement>
-  ): JSX.Element;
-}
-
-export const AppDataGrid = React.memo(AppDataGridRaw) as DataGridComponent;
+export default AppDataGrid;

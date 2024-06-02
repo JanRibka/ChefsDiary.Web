@@ -1,10 +1,11 @@
 import GridActionsCellItemProps from "../actions/GridActionsCellProps";
+import ColumnValueType from "../types/ColumnValueType";
 
 interface TableColumnDefinition {
   label: string;
   field: string;
   width?: number;
-  type?: "string" | "number" | "boolean" | "date" | "actions";
+  type?: ColumnValueType;
   getActions?: (
     id: string | number
   ) => React.ReactElement<
