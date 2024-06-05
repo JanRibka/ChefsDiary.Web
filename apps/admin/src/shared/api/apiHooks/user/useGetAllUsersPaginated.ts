@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import { PaginatedData } from "@repo/shared/entities";
-import { nameof } from "@repo/shared/helpers";
+import { PaginatedData } from '@repo/shared/entities';
+import { nameof } from '@repo/shared/helpers';
+import { TableRowDefinition } from '@repo/ui/styledComponents';
 
-import TableRowDefinition from "../../../../../../../packages/ui/styledComponents/table/tableBody/TableRowDefinition";
-import User from "../../../../entities/user/User";
-import { useGetAllQuery } from "../../user/userApi";
+import User from '../../../../entities/user/User';
+import { useGetAllQuery } from '../../user/userApi';
 
 const useGetAllUsersPaginated = () => {
   // Api

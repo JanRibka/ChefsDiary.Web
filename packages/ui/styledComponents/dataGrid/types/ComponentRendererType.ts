@@ -1,7 +1,5 @@
-import { ReactElement } from "react";
-
-import ColumnValueType from "./ColumnValueType";
-
-type ComponentRendererType = (value: keyof ColumnValueType) => ReactElement;
+type ComponentRendererType = (
+  value: string | number | boolean | Date
+) => JSX.Element;
 
 export default ComponentRendererType;

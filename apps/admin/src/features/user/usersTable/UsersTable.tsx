@@ -1,5 +1,5 @@
 import { nameof } from "@repo/shared/helpers";
-import { AppTable, TableColumnDefinition } from "@repo/ui/styledComponents";
+import { AppDataGrid, TableColumnDefinition } from "@repo/ui/styledComponents";
 
 import User from "../../../entities/user/User";
 import useGetAllUsersPaginated from "../../../shared/api/apiHooks/user/useGetAllUsersPaginated";
@@ -29,7 +29,7 @@ const UsersTable = () => {
 
   return (
     <div>
-      <AppTable
+      <AppDataGrid
         name="name"
         columns={columns}
         rows={paginatedUsers.data}
