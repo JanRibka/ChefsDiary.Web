@@ -10,14 +10,13 @@ export const formatDate = (
   pFormat: string = "yyyy-MM-dd"
 ): string => {
   if (date === null) return "";
-  console.log("date", date);
 
   if (typeof date === "string") {
     date = new Date(date);
   }
 
   if (!isDate(date)) return "";
-  console.log("date2", date);
+
   return format(date, pFormat);
 };
 
