@@ -1,5 +1,5 @@
 import { FaCheck } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
+import { ImCross } from "react-icons/im";
 
 import DataGridCellBase, { DataGridCellBaseProps } from "./DataGridCellBase";
 
@@ -15,7 +15,7 @@ const DataGridCellBoolean = (props: DataGridCellBooleanProps) => {
     if (value) {
       return <FaCheck />;
     } else if (value === false) {
-      return <RxCross2 />;
+      return <ImCross color="gray" />;
     } else {
       return undefined;
     }

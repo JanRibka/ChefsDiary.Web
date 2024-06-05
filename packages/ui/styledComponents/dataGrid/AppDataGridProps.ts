@@ -1,7 +1,7 @@
-import AppTableBaseProps from "./AppTableBaseProps";
+import AppTableBaseProps from "./AppDataGridBaseProps";
 import TableBodyProps from "./dataGridBody/TableBodyProps";
+import TableHeadProps from "./dataGridHead/DataGridHeadProps";
 import SearchProps from "./search/SearchProps";
-import TableHeadProps from "./tableHead/TableHeadProps";
 
 interface AppDataGridProps
   extends TableHeadProps,

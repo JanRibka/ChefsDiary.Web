@@ -1,11 +1,12 @@
 import GridActionsCellItemProps from "../actions/GridActionsCellProps";
 import ColumnValueType from "../types/ColumnValueType";
 
-interface TableColumnDefinition {
+interface DataGridColumnDefinition {
   label: string;
   field: string;
   width?: number;
   type?: ColumnValueType;
+  dateFormat?: string;
   getActions?: (
     id: string | number
   ) => React.ReactElement<
@@ -14,4 +15,4 @@ interface TableColumnDefinition {
   >[];
 }
 
-export default TableColumnDefinition;
+export default DataGridColumnDefinition;

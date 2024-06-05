@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.5",
+    "date-fns": "^3.6.0",
     "react": "19.0.0-rc-f994737d14-20240522",
     "yup": "^1.4.0"
   }

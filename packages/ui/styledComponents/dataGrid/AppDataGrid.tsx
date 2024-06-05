@@ -1,7 +1,7 @@
-import AppDataGridProps from "./AppDataGridProps";
-import TableBody from "./dataGridBody/DataGridBody";
-import Search from "./search/Search";
-import TableHead from "./tableHead/TableHead";
+import AppDataGridProps from './AppDataGridProps';
+import TableBody from './dataGridBody/DataGridBody';
+import TableHead from './dataGridHead/DataGridHead';
+import Search from './search/Search';
 
 const AppDataGrid = (props: AppDataGridProps) => {
   return (

@@ -1,23 +1,25 @@
 import DataGridCellBoolean from "../dataGridCell/DataGridCellBoolean";
+import DataGridCellDate from "../dataGridCell/DataGridCellDate";
+import DataGridCellString from "../dataGridCell/DataGridCellString";
 import ColumnValueType from "../types/ColumnValueType";
 import ComponentRendererType from "../types/ComponentRendererType";
+import ColumnValueDataProps from "./ColumnValueDataProps";
 
 const typeToComponentConversionMap: Record<
   ColumnValueType,
   ComponentRendererType
 > = {
-  string: (value) => <div>{value as string} </div>,
-  number: (value) => <div>{value as string} </div>,
-  boolean: (value) => (
-    <DataGridCellBoolean
-      value={value as boolean}
-      indexItem={1}
-      indexRow={1}
-      name=""
-    />
+  string: ({ value, ...restData }: ColumnValueDataProps) => (
+    <DataGridCellString value={value as string | null} {...restData} />
   ),
-  date: (value) => <div>{value as string} </div>,
-  actions: (value) => <div>{value as string} </div>,
+  number: ({ value }: ColumnValueDataProps) => <div>{value as string} </div>,
+  boolean: ({ value, ...restData }: ColumnValueDataProps) => (
+    <DataGridCellBoolean value={value as boolean | null} {...restData} />
+  ),
+  date: ({ value, ...restData }: ColumnValueDataProps) => (
+    <DataGridCellDate value={value as Date | null} {...restData} />
+  ),
+  actions: ({ value }: ColumnValueDataProps) => <div>{value as string} </div>,
 };
 
 export default typeToComponentConversionMap;

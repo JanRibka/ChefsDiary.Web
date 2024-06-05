@@ -1,5 +1,5 @@
-type ComponentRendererType = (
-  value: string | number | boolean | Date
-) => JSX.Element;
+import ColumnValueDataProps from "../conversionMaps/ColumnValueDataProps";
+
+type ComponentRendererType = (data: ColumnValueDataProps) => JSX.Element;
 
 export default ComponentRendererType;

@@ -7,3 +7,4 @@ export {
   GetCookieNames,
   RemoveCookie,
 } from "./cookie/cookieHelper";
+export { formatHours, formatDate, isDateEqual } from "./date/dateHelper";

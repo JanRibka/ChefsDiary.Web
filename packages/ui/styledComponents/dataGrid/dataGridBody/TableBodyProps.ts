@@ -1,4 +1,4 @@
-import AppTableBaseProps from "../AppTableBaseProps";
+import AppTableBaseProps from "../AppDataGridBaseProps";
 import TableRowDefinition from "./TableRowDefinition";
 
 interface TableBodyProps extends AppTableBaseProps {

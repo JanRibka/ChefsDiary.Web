@@ -1,9 +1,9 @@
 import { mergeStyles } from "@repo/shared/helpers";
 
-import { tableHeadCellVariants } from "./tableHeadCellVariants";
-import TableHeadProps from "./TableHeadProps";
+import { dataGridHeadCellVariants } from "./dataGridHeadCellVariants";
+import TableHeadProps from "./DataGridHeadProps";
 
-const TableHead = (props: TableHeadProps) => {
+const DataGridHead = (props: TableHeadProps) => {
   return (
     <thead className="text-xs uppercase bg-gray-100 rounded-lg">
       <tr className="">
@@ -12,7 +12,7 @@ const TableHead = (props: TableHeadProps) => {
             key={`table-head-row_${props.name}_${index}`}
             className={mergeStyles(
               column.width ? `w-${column.width}` : undefined,
-              tableHeadCellVariants({})
+              dataGridHeadCellVariants({})
             )}
           >
             {column.label}
@@ -23,4 +23,4 @@ const TableHead = (props: TableHeadProps) => {
   );
 };
 
-export default TableHead;
+export default DataGridHead;

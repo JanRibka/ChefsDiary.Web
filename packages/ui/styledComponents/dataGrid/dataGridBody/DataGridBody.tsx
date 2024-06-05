@@ -1,3 +1,5 @@
+import typeToComponentConversionMap from "../conversionMaps/typeToComponentConversionMap";
+import ColumnValueType from "../types/ColumnValueType";
 import TableBodyProps from "./TableBodyProps";
 import { tableBodyVariants } from "./tableBodyVariants";
 
@@ -14,12 +16,23 @@ const TableBody = (props: TableBodyProps) => {
           >
             {props.columns.map((column, indexItem) => {
               return (
-                <td
-                  key={`table-row_${props.name}_${indexRow}_${indexItem}`}
-                  className="px-6 py-4"
-                >
-                  {row[column.field] ?? ""}
-                </td>
+                <>
+                  {typeToComponentConversionMap[column.type as ColumnValueType](
+                    {
+                      value:
+                        (row[column.field] as
+                          | string
+                          | number
+                          | boolean
+                          | Date
+                          | null) ?? null,
+                      indexItem: indexItem,
+                      indexRow: indexRow,
+                      name: column.field,
+                      dateFormat: column.dateFormat,
+                    }
+                  )}
+                </>
               );
             })}
           </tr>
