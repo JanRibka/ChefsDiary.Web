@@ -11,7 +11,11 @@ export const formatDate = (
 ): string => {
   if (date === null) return "";
   console.log("date", date);
-  debugger;
+
+  if (typeof date === "string") {
+    date = new Date(date);
+  }
+
   if (!isDate(date)) return "";
   console.log("date2", date);
   return format(date, pFormat);
