@@ -1,19 +1,32 @@
+import { GridRowParams } from "../../params/gridRowParams";
 import GridActionsCellItemProps from "../actions/GridActionsCellProps";
 import ColumnValueType from "../types/ColumnValueType";
 
-interface DataGridColumnDefinition {
+interface DataGridColumnDefinitionBase {
   label: string;
   field: string;
   width?: number;
   flex?: number;
-  type?: ColumnValueType;
-  dateFormat?: string;
-  getActions?: (
-    id: string | number
-  ) => React.ReactElement<
-    GridActionsCellItemProps,
-    string | React.JSXElementConstructor<any>
-  >[];
+  type?: Omit<ColumnValueType, "actions" | "date">;
 }
+
+export interface DataGridColumnDefinitionDate
+  extends Omit<DataGridColumnDefinitionBase, "type"> {
+  type?: "date";
+  dateFormat?: string;
+}
+
+interface DataGridColumnDefinitionActions
+  extends Omit<DataGridColumnDefinitionBase, "type"> {
+  type?: "actions";
+  getActions?: (
+    params: GridRowParams
+  ) => React.ReactElement<GridActionsCellItemProps>[];
+}
+
+type DataGridColumnDefinition =
+  | DataGridColumnDefinitionBase
+  | DataGridColumnDefinitionDate
+  | DataGridColumnDefinitionActions;
 
 export default DataGridColumnDefinition;

@@ -1,7 +1,7 @@
-import { mergeStyles } from "@repo/shared/helpers";
+import { mergeStyles } from '@repo/shared/helpers';
 
-import { dataGridHeadCellVariants } from "./dataGridHeadCellVariants";
-import TableHeadProps from "./DataGridHeadProps";
+import { dataGridHeadCellVariants } from './dataGridHeadCellVariants';
+import TableHeadProps from './DataGridHeadProps';
 
 const DataGridHead = (props: TableHeadProps) => {
   return (
