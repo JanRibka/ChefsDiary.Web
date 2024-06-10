@@ -1,8 +1,9 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
 const noErrorStyle: string[] = ["text-gray-700"];
 
-export const appHelperTextVariants = cva("text-xs mt-1", {
+export const appHelperTextVariants = tv({
+  base: "text-xs mt-1",
   variants: {
     error: {
       true: "text-error",

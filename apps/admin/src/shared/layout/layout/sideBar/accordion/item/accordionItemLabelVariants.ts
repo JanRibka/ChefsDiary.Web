@@ -1,6 +1,7 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
-export const accordionItemLabelVariants = cva("ml-3 md:hidden", {
+export const accordionItemLabelVariants = tv({
+  base: "ml-3 md:hidden",
   variants: {
     sideBarOpened: {
       true: "xl:block",

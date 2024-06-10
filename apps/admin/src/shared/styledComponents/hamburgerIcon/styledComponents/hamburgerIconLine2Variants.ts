@@ -1,6 +1,7 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
-export const hamburgerIconLine2Variants = cva("w-[28px]", {
+export const hamburgerIconLine2Variants = tv({
+  base: "w-[28px]",
   variants: {
     opened: {
       true: "translate-x-[50px] opacity-0",

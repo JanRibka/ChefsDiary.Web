@@ -1,14 +1,12 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
-export const tableBodyVariants = cva(
-  "hover:bg-gray-100 border-b-1 last:border-b-0",
-  {
-    variants: {
-      isEven: {
-        true: "bg-gray-100",
-        false: "",
-      },
+export const tableBodyVariants = tv({
+  base: "hover:bg-gray-100 border-b-1 last:border-b-0",
+  variants: {
+    isEven: {
+      true: "bg-gray-100",
+      false: "",
     },
-    defaultVariants: { isEven: false },
-  }
-);
+  },
+  defaultVariants: { isEven: false },
+});

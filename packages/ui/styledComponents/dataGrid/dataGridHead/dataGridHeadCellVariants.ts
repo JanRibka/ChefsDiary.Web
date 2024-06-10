@@ -1,5 +1,9 @@
-import { cva } from "class-variance-authority";
+import { tv } from 'tailwind-variants';
 
-export const dataGridHeadCellVariants = cva("px-6 py-3", {
+export const dataGridHeadCellVariants = tv({
+  base: "px-6 py-3 ",
   variants: {},
+  slots: {
+    width: "",
+  },
 });

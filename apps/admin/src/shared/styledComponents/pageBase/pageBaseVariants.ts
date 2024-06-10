@@ -1,14 +1,12 @@
-import { cva } from 'class-variance-authority';
+import { tv } from "tailwind-variants";
 
-export const pageBaseVariants = cva(
-  "bg-dialogBackground h-full ml-0 md:ml-24 flex-1 transition-all duration-700 cubic-bezier(0.9, 0, 0.33, 1)",
-  {
-    variants: {
-      sideBarOpened: {
-        true: "xl:ml-64",
-        false: "xl:ml-24",
-      },
+export const pageBaseVariants = tv({
+  base: "bg-dialogBackground h-full ml-0 md:ml-24 flex-1 transition-all duration-700 cubic-bezier(0.9, 0, 0.33, 1)",
+  variants: {
+    sideBarOpened: {
+      true: "xl:ml-64",
+      false: "xl:ml-24",
     },
-    defaultVariants: { sideBarOpened: false },
-  }
-);
+  },
+  defaultVariants: { sideBarOpened: false },
+});

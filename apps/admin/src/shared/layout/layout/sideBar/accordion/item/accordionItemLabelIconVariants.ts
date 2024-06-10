@@ -1,6 +1,7 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
-export const accordionItemLabelIconVariants = cva("text-xl md:text-3xl", {
+export const accordionItemLabelIconVariants = tv({
+  base: "text-xl md:text-3xl",
   variants: {
     sideBarOpened: {
       true: "xl:text-2xl",

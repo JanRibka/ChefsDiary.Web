@@ -1,8 +1,9 @@
-import { cva } from "class-variance-authority";
+import { tv } from "tailwind-variants";
 
 const disabledStyle: string = "text-componentText";
 
-export const checkboxLabelBaseVariants = cva("text-sm cursor-pointer ml-2", {
+export const checkboxLabelBaseVariants = tv({
+  base: "text-sm cursor-pointer ml-2",
   variants: {
     disable: {
       true: "text-componentText-light cursor-not-allowed",

@@ -12,7 +12,7 @@ const DataGridHead = (props: TableHeadProps) => {
             key={`table-head-row_${props.name}_${index}`}
             className={mergeStyles(
               column.width ? `w-${column.width}` : undefined,
-              dataGridHeadCellVariants({})
+              dataGridHeadCellVariants()
             )}
           >
             {column.label}

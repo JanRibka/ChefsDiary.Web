@@ -5,6 +5,7 @@ interface DataGridColumnDefinition {
   label: string;
   field: string;
   width?: number;
+  flex?: number;
   type?: ColumnValueType;
   dateFormat?: string;
   getActions?: (
