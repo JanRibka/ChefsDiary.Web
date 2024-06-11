@@ -26,6 +26,9 @@ importers:
       '@radix-ui/themes':
         specifier: ^3.0.5
         version: 3.0.5(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522)
+      ag-grid-react:
+        specifier: ^31.3.2
+        version: 31.3.2(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522)
       react:
         specifier: 19.0.0-rc-f994737d14-20240522
         version: 19.0.0-rc-f994737d14-20240522
@@ -758,6 +761,7 @@ packages:
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
+    deprecated: Use @eslint/config-array instead
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
       debug: 4.3.4
@@ -3700,6 +3704,22 @@ packages:
     engines: {node: '>=0.4.0'}
     hasBin: true
 
+  /ag-grid-community@31.3.2:
+    resolution: {integrity: sha512-GxqFRD0OcjaVRE1gwLgoP0oERNPH8Lk8wKJ1txulsxysEQ5dZWHhiIoXXSiHjvOCVMkK/F5qzY6HNrn6VeDMTQ==}
+    dev: false
+
+  /ag-grid-react@31.3.2(react-dom@19.0.0-rc-f994737d14-20240522)(react@19.0.0-rc-f994737d14-20240522):
+    resolution: {integrity: sha512-SFHN05bsXp901rIT00Fa6iQLCtyavoJiKaXEDUtAU5LMu+GTkjs/FPQBQ8754omgdDFr4NsS3Ri6QbqBne3rug==}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      ag-grid-community: 31.3.2
+      prop-types: 15.8.1
+      react: 19.0.0-rc-f994737d14-20240522
+      react-dom: 19.0.0-rc-f994737d14-20240522(react@19.0.0-rc-f994737d14-20240522)
+    dev: false
+
   /ajv@6.10.0:
     resolution: {integrity: sha512-nffhOpkymDECQyR0mnsUtoCE8RlX38G0rYP+wgLWFyZuUyuuojSSvi/+euOiQBIn63whYwYVIIH1TvE3tu4OEg==}
     dependencies:
@@ -5737,6 +5757,14 @@ packages:
       babel-runtime: 6.26.0
     dev: true
 
+  /prop-types@15.8.1:
+    resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+      react-is: 16.13.1
+    dev: false
+
   /property-expr@2.0.6:
     resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==}
     dev: false
@@ -5810,6 +5838,10 @@ packages:
       react: '*'
     dependencies:
       react: 19.0.0-rc-f994737d14-20240522
+
+  /react-is@16.13.1:
+    resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
