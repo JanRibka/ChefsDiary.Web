@@ -1,4 +1,4 @@
-import BaseProps from "../baseProps/BaseProps";
+import { BaseProps } from "@repo/shared/props";
 
 interface DescribedByAreaItemProps extends BaseProps {
   itemValid: boolean;

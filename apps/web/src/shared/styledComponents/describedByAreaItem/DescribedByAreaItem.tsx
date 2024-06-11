@@ -1,7 +1,7 @@
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-import { DescribedByAreaItemProps } from "@repo/shared/interfaces";
+import DescribedByAreaItemProps from "./DescribedByAreaItemProps";
 
 const DescribedByAreaItem = (props: DescribedByAreaItemProps) => {
   // Props

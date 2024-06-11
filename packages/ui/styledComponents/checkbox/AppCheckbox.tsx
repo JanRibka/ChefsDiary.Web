@@ -47,7 +47,7 @@ const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
               className={mergeStyles(
                 appCheckboxVariants({
                   size: size,
-                  checked: checked,
+                  checked: checked ?? undefined,
                   radius: radius,
                 }),
                 ""

@@ -1,5 +1,5 @@
-import { GridRowsId } from "../dataGrid/types/gridRows";
+import { GridRowId } from "../dataGrid/types/gridRows";
 
 export interface GridRowParams {
-  id: GridRowsId;
+  id: GridRowId;
 }

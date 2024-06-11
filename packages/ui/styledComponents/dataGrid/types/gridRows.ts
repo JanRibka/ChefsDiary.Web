@@ -1,1 +1,1 @@
-export type GridRowsId = string | number;
+export type GridRowId = string | number;

@@ -1,5 +1,5 @@
 import { GridRowParams } from "../../params/gridRowParams";
-import GridActionsCellItemProps from "../actions/GridActionsCellProps";
+import { DataGridCellActionItemProps } from "../models/cell";
 import ColumnValueType from "../types/ColumnValueType";
 
 interface DataGridColumnDefinitionBase {
@@ -16,12 +16,10 @@ export interface DataGridColumnDefinitionDate
   dateFormat?: string;
 }
 
-interface DataGridColumnDefinitionActions
+export interface DataGridColumnDefinitionActions
   extends Omit<DataGridColumnDefinitionBase, "type"> {
   type?: "actions";
-  getActions?: (
-    params: GridRowParams
-  ) => React.ReactElement<GridActionsCellItemProps>[];
+  getActions?: (params: GridRowParams) => DataGridCellActionItemProps[];
 }
 
 type DataGridColumnDefinition =

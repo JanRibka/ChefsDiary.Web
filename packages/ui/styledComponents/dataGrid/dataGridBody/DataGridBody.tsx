@@ -1,6 +1,10 @@
 import typeToComponentConversionMap from "../conversionMaps/typeToComponentConversionMap";
-import { DataGridColumnDefinitionDate } from "../dataGridHead/DataGridColumnDefinition";
+import {
+  DataGridColumnDefinitionActions,
+  DataGridColumnDefinitionDate,
+} from "../dataGridHead/DataGridColumnDefinition";
 import ColumnValueType from "../types/ColumnValueType";
+import { GridRowId } from "../types/gridRows";
 import TableBodyProps from "./TableBodyProps";
 import { tableBodyVariants } from "./tableBodyVariants";
 
@@ -16,25 +20,28 @@ const TableBody = (props: TableBodyProps) => {
             className={tableBodyVariants({ isEven: isEvenRow })}
           >
             {props.columns.map((column, indexItem) => {
-              const newColumn = { ...column } as DataGridColumnDefinitionDate;
-
+              debugger;
               return (
                 <>
-                  {typeToComponentConversionMap[
-                    newColumn.type as ColumnValueType
-                  ]({
-                    value:
-                      (row[newColumn.field] as
-                        | string
-                        | number
-                        | boolean
-                        | Date
-                        | null) ?? null,
-                    indexItem: indexItem,
-                    indexRow: indexRow,
-                    name: newColumn.field,
-                    dateFormat: newColumn.dateFormat,
-                  })}
+                  {typeToComponentConversionMap[column.type as ColumnValueType](
+                    {
+                      value:
+                        (row[column.field] as
+                          | string
+                          | number
+                          | boolean
+                          | Date
+                          | null) ?? null,
+                      indexItem: indexItem,
+                      indexRow: indexRow,
+                      name: column.field,
+                      dateFormat: (column as DataGridColumnDefinitionDate)
+                        .dateFormat,
+                      rowId: row.id as GridRowId,
+                      getActions: (column as DataGridColumnDefinitionActions)
+                        .getActions,
+                    }
+                  )}
                 </>
               );
             })}

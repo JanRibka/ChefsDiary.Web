@@ -1,12 +1,8 @@
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 
-import DataGridCellBase, { DataGridCellBaseProps } from "./DataGridCellBase";
-
-interface DataGridCellBooleanProps
-  extends Omit<DataGridCellBaseProps, "children"> {
-  value: boolean | null;
-}
+import { DataGridCellBooleanProps } from "../models/cell";
+import DataGridCellBase from "./DataGridCellBase";
 
 const DataGridCellBoolean = (props: DataGridCellBooleanProps) => {
   const { value, ...restProps } = props;

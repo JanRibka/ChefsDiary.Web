@@ -1,11 +1,4 @@
-import { ReactNode } from "react";
-
-export interface DataGridCellBaseProps {
-  name: string;
-  indexRow: number;
-  indexItem: number;
-  children: ReactNode;
-}
+import { DataGridCellBaseProps } from "../models/cell";
 
 const DataGridCellBase = (props: DataGridCellBaseProps) => {
   return (

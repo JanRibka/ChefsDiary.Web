@@ -1,14 +1,9 @@
 import { formatDate } from "@repo/shared/helpers";
 
-import DataGridCellBase, { DataGridCellBaseProps } from "./DataGridCellBase";
+import { DataGridCellDateProps } from "../models/cell";
+import DataGridCellBase from "./DataGridCellBase";
 
-interface DataGridCellBooleanProps
-  extends Omit<DataGridCellBaseProps, "children"> {
-  value: Date | null;
-  dateFormat?: string;
-}
-
-const DataGridCellDate = (props: DataGridCellBooleanProps) => {
+const DataGridCellDate = (props: DataGridCellDateProps) => {
   const { value, dateFormat = "yyyy-MM-dd HH:mm:ss", ...restProps } = props;
 
   return (

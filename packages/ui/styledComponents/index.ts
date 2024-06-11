@@ -1,6 +1,7 @@
 export { default as AppAnchor } from "./anchor/AppAnchor";
 export { default as AppButton } from "./button/AppButton";
 export { default as AppButtonSubmit } from "./buttonSubmit/AppButtonSubmit";
+export { default as AppButtonIcon } from "./buttonIcon/AppButtonIcon";
 export { default as AppDescribedByArea } from "./describedByArea/AppDescribedByArea";
 export { default as AppFormError } from "./formError/AppFormError";
 export { default as AppFormHeading } from "./formHeading/AppFormHeading";

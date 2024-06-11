@@ -1,11 +1,7 @@
-import DataGridCellBase, { DataGridCellBaseProps } from "./DataGridCellBase";
+import { DataGridCellStringProps } from "../models/cell";
+import DataGridCellBase from "./DataGridCellBase";
 
-interface DataGridCellBooleanProps
-  extends Omit<DataGridCellBaseProps, "children"> {
-  value: string | null;
-}
-
-const DataGridCellString = (props: DataGridCellBooleanProps) => {
+const DataGridCellString = (props: DataGridCellStringProps) => {
   const { value, ...restProps } = props;
 
   return <DataGridCellBase {...restProps}>{value ?? ""}</DataGridCellBase>;

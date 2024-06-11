@@ -1,7 +1,5 @@
 import { tv } from "tailwind-variants";
 
-const notCheckedStyle: string = "bg-background";
-
 export const appCheckboxVariants = tv({
   base: `text-xs bg-background border-2 border-componentBorder appearance-none 
    flex items-center justify-center transition-background-color disabled:hover:border-componentBorder
@@ -14,9 +12,7 @@ export const appCheckboxVariants = tv({
     },
     checked: {
       true: "bg-primary text-white disabled:bg-gray-500 border-none",
-      false: notCheckedStyle,
-      undefined: notCheckedStyle,
-      null: notCheckedStyle,
+      false: "bg-background",
     },
     radius: {
       none: "rounded-none",
@@ -25,5 +21,5 @@ export const appCheckboxVariants = tv({
       full: "rounded-full",
     },
   },
-  defaultVariants: { size: "medium", radius: "normal" },
+  defaultVariants: { size: "medium", radius: "normal", checked: false },
 });

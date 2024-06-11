@@ -1,3 +1,4 @@
+import DataGridCellAction from "../dataGridCell/DataGridCellAction";
 import DataGridCellBoolean from "../dataGridCell/DataGridCellBoolean";
 import DataGridCellDate from "../dataGridCell/DataGridCellDate";
 import DataGridCellString from "../dataGridCell/DataGridCellString";
@@ -19,7 +20,9 @@ const typeToComponentConversionMap: Record<
   date: ({ value, ...restData }: ColumnValueDataProps) => (
     <DataGridCellDate value={value as Date | null} {...restData} />
   ),
-  actions: ({ value }: ColumnValueDataProps) => <div>{value as string} </div>,
+  actions: (props: Omit<ColumnValueDataProps, "value">) => (
+    <DataGridCellAction {...props} />
+  ),
 };
 
 export default typeToComponentConversionMap;
