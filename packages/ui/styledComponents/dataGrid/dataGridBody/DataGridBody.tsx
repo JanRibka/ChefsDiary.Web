@@ -5,6 +5,7 @@ import {
 } from "../dataGridHead/DataGridColumnDefinition";
 import ColumnValueType from "../types/ColumnValueType";
 import { GridRowId } from "../types/gridRows";
+import { getRowIdFromRowModel } from "../utils/gridRowUtils";
 import TableBodyProps from "./TableBodyProps";
 import { tableBodyVariants } from "./tableBodyVariants";
 
@@ -20,7 +21,6 @@ const TableBody = (props: TableBodyProps) => {
             className={tableBodyVariants({ isEven: isEvenRow })}
           >
             {props.columns.map((column, indexItem) => {
-              debugger;
               return (
                 <>
                   {typeToComponentConversionMap[column.type as ColumnValueType](
@@ -37,7 +37,10 @@ const TableBody = (props: TableBodyProps) => {
                       name: column.field,
                       dateFormat: (column as DataGridColumnDefinitionDate)
                         .dateFormat,
-                      rowId: row.id as GridRowId,
+                      rowId: getRowIdFromRowModel(
+                        row,
+                        props.getRowId
+                      ) as GridRowId,
                       getActions: (column as DataGridColumnDefinitionActions)
                         .getActions,
                     }

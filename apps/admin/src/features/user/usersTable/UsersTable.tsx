@@ -55,6 +55,7 @@ const UsersTable = () => {
         columns={columns}
         rows={paginatedUsers.data}
         search
+        getRowId={(row) => row.uuid}
       />
     </div>
   );

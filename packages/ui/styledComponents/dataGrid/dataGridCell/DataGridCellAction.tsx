@@ -8,13 +8,12 @@ const DataGridCellAction = (props: DataGridCellActionsProps) => {
       indexItem={props.indexItem}
       indexRow={props.indexRow}
       name={props.name}
+      className="-py-4"
     >
       <span className="flex flex-row gap-1">
         {props.getActions?.({ id: props.rowId ?? "" }).map((action, index) => (
           <AppButtonIcon
             key={`action-button_${props.name}_${props.indexRow}_${index}`}
-            radius="full"
-            variant="text"
             onClick={action.onClick}
           >
             {action.icon}

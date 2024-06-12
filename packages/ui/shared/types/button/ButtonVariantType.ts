@@ -1,3 +1,3 @@
-type ButtonVariantType = "text" | "contained" | "outlined";
+type ButtonVariantType = "text" | "contained" | "outlined" | "icon";
 
 export default ButtonVariantType;

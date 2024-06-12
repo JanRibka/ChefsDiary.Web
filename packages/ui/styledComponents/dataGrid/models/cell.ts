@@ -1,9 +1,11 @@
 import { MouseEvent, ReactElement, ReactNode } from "react";
 
+import { BaseProps } from "@repo/shared/props";
+
 import { GridRowParams } from "../../params/gridRowParams";
 import { GridRowId } from "../types/gridRows";
 
-export interface DataGridCellBaseProps {
+export interface DataGridCellBaseProps extends BaseProps {
   name: string;
   indexRow: number;
   indexItem: number;

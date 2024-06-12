@@ -1,7 +1,7 @@
 import { tv } from "tailwind-variants";
 
 const buttonBaseVariants = tv({
-  base: "appearance-none px-4 transition-background-color font-bold",
+  base: "appearance-none transition-background-color font-bold",
   variants: {
     size: {
       small: "py-1",
@@ -9,10 +9,11 @@ const buttonBaseVariants = tv({
       large: "py-2",
     },
     variant: {
-      text: "text-primary hover:bg-primary hover:bg-opacity-5 bg-background",
-      contained: "text-white bg-primary hover:bg-primary-dark",
+      text: "px-4 text-primary bg-background hover:bg-primary hover:bg-opacity-5",
+      contained: "px-4 text-white bg-primary hover:bg-primary-dark",
       outlined:
-        "text-primary border-1 border-primary bg-background hover:bg-primary hover:bg-opacity-5 hover:border-primary-dark",
+        "px-4 text-primary border-1 border-primary bg-background hover:bg-primary hover:bg-opacity-5 hover:border-primary-dark",
+      icon: "px-2 text-2xl text-primary aspect-square bg-transparent hover:bg-gray-500",
     },
     radius: {
       none: "rounded-none",
