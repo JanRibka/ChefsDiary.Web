@@ -1,10 +1,9 @@
 import { AppDataGridBaseProps } from "../../props/AppDataGridProps";
-import { GridValidRowModel } from "../types/gridRows";
-import TableRowDefinition from "./TableRowDefinition";
+import { GridRowsProp, GridValidRowModel } from "../types/gridRows";
 
 interface DataGridBodyProps<R extends GridValidRowModel = any>
   extends AppDataGridBaseProps<R> {
-  rows: TableRowDefinition[];
+  rows: GridRowsProp<R>;
 }
 
 export default DataGridBodyProps;

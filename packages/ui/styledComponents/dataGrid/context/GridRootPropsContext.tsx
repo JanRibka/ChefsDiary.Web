@@ -1,5 +1,5 @@
-import * as React from "react";
+import { createContext } from "react";
 
-const GridRootPropsContext = React.createContext<unknown>(undefined);
+const GridRootPropsContext = createContext<unknown>(undefined);
 
 export { GridRootPropsContext };

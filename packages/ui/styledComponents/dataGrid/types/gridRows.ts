@@ -1,3 +1,6 @@
+export type GridRowsProp<R extends GridValidRowModel = GridValidRowModel> =
+  Readonly<GridRowIdGetter<R>[]>;
+
 export type GridRowModel<R extends GridValidRowModel = GridValidRowModel> = R;
 
 export type GridValidRowModel = { [key: string | symbol]: any };
