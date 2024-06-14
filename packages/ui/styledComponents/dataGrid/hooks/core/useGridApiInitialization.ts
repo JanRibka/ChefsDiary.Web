@@ -1,0 +1,87 @@
+import { useCallback, useEffect, useImperativeHandle, useRef } from "react";
+
+import { GridApiCommon } from "../../models/api/gridApiCommon";
+import { GridCoreApi } from "../../models/api/gridCoreApi";
+import { DataGridProcessedProps } from "../../models/props/gridProps";
+import { unstable_resetCreateSelectorCache } from "../../utils/createSelector";
+import { EventManager } from "../../utils/EventManager";
+import { GridSignature } from "../utils/useGridApiEventHandler";
+import { useGridApiMethod } from "../utils/useGridApiMethod";
+
+const isSyntheticEvent = (event: any): event is React.SyntheticEvent => {
+  return event.isPropagationStopped !== undefined;
+};
+
+let globalId = 0;
+
+export function useGridApiInitialization<Api extends GridApiCommon>(
+  inputApiRef: React.MutableRefObject<Api> | undefined,
+  props: Pick<DataGridProcessedProps, "signature">
+): React.MutableRefObject<Api> {
+  const apiRef = useRef() as React.MutableRefObject<Api>;
+
+  if (!apiRef.current) {
+    apiRef.current = {
+      unstable_eventManager: new EventManager(),
+      unstable_caches: {} as Api["unstable_caches"],
+      state: {} as Api["state"],
+      instanceId: globalId,
+    } as Api;
+
+    globalId += 1;
+  }
+
+  useImperativeHandle(inputApiRef, () => apiRef.current, [apiRef]);
+
+  const publishEvent = useCallback<GridCoreApi["publishEvent"]>(
+    (...args: any[]) => {
+      const [name, params, event = {}] = args;
+      event.defaultMuiPrevented = false;
+
+      if (isSyntheticEvent(event) && event.isPropagationStopped()) {
+        return;
+      }
+      const details =
+        props.signature === GridSignature.DataGridPro
+          ? { api: apiRef.current }
+          : {};
+      apiRef.current.unstable_eventManager.emit(name, params, event, details);
+    },
+    [apiRef, props.signature]
+  );
+
+  const subscribeEvent = useCallback<GridCoreApi["subscribeEvent"]>(
+    (event, handler, options?) => {
+      apiRef.current.unstable_eventManager.on(event, handler, options);
+      const api = apiRef.current;
+      return () => {
+        api.unstable_eventManager.removeListener(event, handler);
+      };
+    },
+    [apiRef]
+  );
+
+  const showError = useCallback<GridCoreApi["showError"]>(
+    (args) => {
+      apiRef.current.publishEvent("componentError", args);
+    },
+    [apiRef]
+  );
+
+  useGridApiMethod(
+    apiRef,
+    { subscribeEvent, publishEvent, showError } as any,
+    "GridCoreApi"
+  );
+
+  useEffect(() => {
+    const api = apiRef.current;
+
+    return () => {
+      unstable_resetCreateSelectorCache(api.instanceId);
+      api.publishEvent("unmount");
+    };
+  }, [apiRef]);
+
+  return apiRef;
+}

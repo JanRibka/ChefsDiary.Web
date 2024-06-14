@@ -1,5 +1,3 @@
-import * as React from "react";
-
 import { GridFilterItem } from "../../../models/gridFilterItem";
 
 import type { GridApiCommon } from "../../../models/api/gridApiCommon";

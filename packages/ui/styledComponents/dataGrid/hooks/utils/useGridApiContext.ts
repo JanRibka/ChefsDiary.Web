@@ -1,8 +1,8 @@
 import { useContext } from "react";
 
-import { GridApiContext } from "../context/GridApiContext";
-import { GridApiCommon } from "../models/api/gridApiCommon";
-import { GridApiCommunity } from "../models/api/gridApiCommunity";
+import { GridApiContext } from "../../context/GridApiContext";
+import { GridApiCommon } from "../../models/api/gridApiCommon";
+import { GridApiCommunity } from "../../models/api/gridApiCommunity";
 
 export function useGridApiContext<
   Api extends GridApiCommon = GridApiCommunity,

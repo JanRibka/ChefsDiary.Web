@@ -1,11 +1,7 @@
-import * as React from "react";
-
-import { GridInitialState } from "../../hooks/core/gridState";
 import { GridPinnedColumns } from "../../hooks/features/columnPinning/gridColumnPinningInterface";
 import { GridColumnVisibilityModel } from "../../hooks/features/columns/gridColumnsInterfaces";
 import { GridPinnedRowsProp } from "../../hooks/features/rowPinning/gridRowPinningInterface";
 import { GridApi } from "../api/gridApi";
-import { GridApiCommunity } from "../api/gridApiCommunity";
 import { GridCallbackDetails } from "../api/gridCallbackDetails";
 import { GridCellModesModel, GridRowModesModel } from "../api/gridEditingApi";
 import { GridColumns } from "../colDef/gridColDef";
@@ -32,6 +28,7 @@ import {
   GridSelectionModel,
 } from "../gridSelectionModel";
 import { GridSortDirection, GridSortModel } from "../gridSortModel";
+import { GridInitialState } from "../gridState";
 import { Logger } from "../logger";
 import { GridCellParams } from "../params/gridCellParams";
 import {
@@ -81,9 +78,9 @@ export interface GridExperimentalFeatures {
  */
 export interface DataGridProps<R extends GridValidRowModel = any>
   extends Omit<
-    Partial<DataGridPropsWithDefaultValue> &
+    Partial<DataGridPropsWithDefaultValues> &
       DataGridPropsWithComplexDefaultValueBeforeProcessing &
-      DataGridProPropsWithoutDefaultValue<R>,
+      DataGridPropsWithoutDefaultValue<R>,
     DataGridForcedPropsKey
   > {}
 
@@ -91,9 +88,9 @@ export interface DataGridProps<R extends GridValidRowModel = any>
  * The props of the `DataGridPro` component after the pre-processing phase.
  */
 export interface DataGridProcessedProps<R extends GridValidRowModel = any>
-  extends DataGridPropsWithDefaultValue,
+  extends DataGridPropsWithDefaultValues,
     DataGridPropsWithComplexDefaultValueAfterProcessing,
-    DataGridProPropsWithoutDefaultValue<R> {}
+    DataGridPropsWithoutDefaultValue<R> {}
 
 export type DataGridForcedPropsKey = "signature";
 
@@ -102,7 +99,7 @@ export type DataGridForcedPropsKey = "signature";
  * None of the entry of this interface should be optional, they all have default values and `DataGridProps` already applies a `Partial<DataGridSimpleOptions>` for the public interface
  * The controlled model do not have a default value at the prop processing level, so they must be defined in `DataGridOtherProps`
  */
-export interface DataGridPropsWithDefaultValue {
+export interface DataGridPropsWithDefaultValues {
   /**
    * If `true`, the grid height is dynamic and follow the number of rows in the grid.
    * @default false
@@ -388,7 +385,7 @@ export interface DataGridPropsWithDefaultValue {
   keepColumnPositionIfDraggedOutside: boolean;
 }
 
-export interface DataGridProPropsWithoutDefaultValue<
+export interface DataGridPropsWithoutDefaultValue<
   R extends GridValidRowModel = any,
 > {
   /**

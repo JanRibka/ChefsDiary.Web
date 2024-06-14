@@ -6,8 +6,8 @@ import DataGridBody from "./dataGridBody/DataGridBody";
 import DataGridHead from "./dataGridHead/DataGridHead";
 import { GridValidRowModel } from "./models/gridRows";
 import { DataGridProps } from "./models/props/gridProps";
-import { useDataGridProps } from "./models/props/useDataGridProps";
 import { useDataGridComponent } from "./useDataGridComponent";
+import { useDataGridProps } from "./useDataGridProps";
 
 // import Search from "./search/Search";
 

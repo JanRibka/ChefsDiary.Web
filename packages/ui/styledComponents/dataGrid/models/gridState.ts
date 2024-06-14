@@ -1,14 +1,14 @@
-import {
-  GridInitialStateCommunity,
-  GridStateCommunity,
-} from "../../models/gridStateCommunity";
-import { GridColumnPinningState } from "../features/columnPinning/gridColumnPinningInterface";
-import { GridColumnReorderState } from "../features/columnReorder/columnReorderInterfaces";
-import { GridColumnResizeState } from "../features/columnResize/columnResizeState";
+import { GridColumnPinningState } from "../hooks/features/columnPinning/gridColumnPinningInterface";
+import { GridColumnReorderState } from "../hooks/features/columnReorder/columnReorderInterfaces";
+import { GridColumnResizeState } from "../hooks/features/columnResize/columnResizeState";
 import {
   GridDetailPanelInitialState,
   GridDetailPanelState,
-} from "../features/detailPanel/gridDetailPanelInterface";
+} from "../hooks/features/detailPanel/gridDetailPanelInterface";
+import {
+  GridInitialStateCommunity,
+  GridStateCommunity,
+} from "./gridStateCommunity";
 
 /**
  * The state of `DataGrid`.

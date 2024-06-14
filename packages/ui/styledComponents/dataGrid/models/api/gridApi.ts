@@ -1,8 +1,8 @@
-import { GridInitialState, GridState } from "../../hooks/core/gridState";
 import { GridColumnPinningApi } from "../../hooks/features/columnPinning/gridColumnPinningInterface";
 import { GridDetailPanelApi } from "../../hooks/features/detailPanel/gridDetailPanelInterface";
 import { GridRowPinningApi } from "../../hooks/features/rowPinning/gridRowPinningInterface";
 import { GridStatePersistenceApi } from "../../hooks/features/statePersistance/gridStatePersistanceInterface";
+import { GridInitialState, GridState } from "../gridState";
 import { GridApiCommon } from "./gridApiCommon";
 import { GridStateApi } from "./gridStateApi";
 
