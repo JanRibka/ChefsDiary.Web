@@ -1,28 +1,32 @@
-import { forwardRef, memo, Ref } from "react";
+import { forwardRef, memo, Ref, RefAttributes } from "react";
 
-import AppDataGridProps from "../props/AppDataGridProps";
-import DataGridRoot from "./containers/GridRoot";
-import { DataGridContextProvider } from "./context/DataGridContextProvider";
+import { GridRoot } from "./components/containers/GridRoot";
+import { DataGridContextProvider } from "./context/GridContextProvider";
 import DataGridBody from "./dataGridBody/DataGridBody";
 import DataGridHead from "./dataGridHead/DataGridHead";
+import { GridValidRowModel } from "./models/gridRows";
+import { DataGridProps } from "./models/props/gridProps";
+import { useDataGridProps } from "./models/props/useDataGridProps";
+import { useDataGridComponent } from "./useDataGridComponent";
+
 // import Search from "./search/Search";
-import { GridValidRowModel } from "./types/gridRows";
 
 const DataGridRaw = forwardRef(function AppDataGrid<
   R extends GridValidRowModel,
->(props: AppDataGridProps<R>, ref: Ref<HTMLTableElement>) {
-  const { rows, search, searchOnChange, ...restProps } = props;
+>(inProps: DataGridProps<R>, ref: Ref<HTMLDivElement>) {
+  const props = useDataGridProps(inProps);
+  const apiRef = useDataGridComponent(props.apiRef, props);
 
   return (
     // <div className="rounded-md border-1 p-4 shadow-md">
     //   <div className="">
     //     <Search search={search} searchOnChange={searchOnChange} />
     //     <div className="rounded-md overflow-hidden">
-    <DataGridContextProvider privateApiRef={} props={props}>
-      <DataGridRoot ref={ref}>
+    <DataGridContextProvider apiRef={apiRef} props={props}>
+      <GridRoot ref={ref} className={props.className}>
         <DataGridHead {...restProps} />
         <DataGridBody rows={rows} {...restProps} />
-      </DataGridRoot>
+      </GridRoot>
     </DataGridContextProvider>
     //     </div>
     //   </div>
@@ -30,10 +34,12 @@ const DataGridRaw = forwardRef(function AppDataGrid<
   );
 });
 
-interface AppDataGridComponent {
-  <R extends GridValidRowModel = any>(props: AppDataGridProps<R>): JSX.Element;
+interface DataGridComponent {
+  <R extends GridValidRowModel = any>(
+    props: DataGridProps<R> & RefAttributes<HTMLDivElement>
+  ): JSX.Element;
 }
 
-const AppDataGrid = memo(DataGridRaw) as AppDataGridComponent;
+const AppDataGrid = memo(DataGridRaw) as DataGridComponent;
 
 export default AppDataGrid;

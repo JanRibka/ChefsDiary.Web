@@ -311,6 +311,9 @@ importers:
       react-loading-spinner:
         specifier: ^1.0.12
         version: 1.0.12(react@19.0.0-rc-f994737d14-20240522)
+      reselect:
+        specifier: ^5.1.1
+        version: 5.1.1
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -2792,6 +2795,9 @@ packages:
 
   reselect@5.1.0:
     resolution: {integrity: sha512-aw7jcGLDpSgNDyWBQLv2cedml85qd95/iszJjN988zX1t7AVRJi19d9kto5+W7oCfQ94gyo40dVbT6g2k4/kXg==}
+
+  reselect@5.1.1:
+    resolution: {integrity: sha512-K/BG6eIky/SBpzfHZv/dd+9JBFiS4SWV7FIujVyJRux6e45+73RaUHXLmIR1f7WOMaQ0U1km6qwklRQxpJJY0w==}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -5898,6 +5904,8 @@ snapshots:
       set-function-name: 2.0.1
 
   reselect@5.1.0: {}
+
+  reselect@5.1.1: {}
 
   resolve-from@4.0.0: {}
 
