@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <div className={layoutVariants()}>
       <NavBar />
-      <SideBar />
+      {/* <SideBar /> */}
       <Outlet />
     </div>
   );
