@@ -1,16 +1,21 @@
-import { ReactNode } from "react";
-
 import { mergeStyles } from "@repo/shared/helpers";
+import { Table } from "@tanstack/react-table";
 
-interface AppTableProps {
-  children: ReactNode;
+import AppTableHead from "../tableHead/AppTableHead";
+
+interface AppTableProps<T> {
   className?: string;
+  table: Table<T>;
 }
 
-const AppTable = (props: AppTableProps) => {
-  const { children, className } = props;
+const AppTable = <T extends object>(props: AppTableProps<T>) => {
+  const { table, className } = props;
 
-  return <table className={mergeStyles("", className)}>{children}</table>;
+  return (
+    <table className={mergeStyles("", className)}>
+      {<AppTableHead<T> table={table} />}
+    </table>
+  );
 };
 
 export default AppTable;

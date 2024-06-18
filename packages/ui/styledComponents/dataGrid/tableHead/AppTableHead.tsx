@@ -1,4 +1,4 @@
-import { flexRender, Table } from "@tanstack/react-table";
+import { Table } from "@tanstack/react-table";
 
 import TableHeadRow from "../tableHeadRow/TableHeadRow";
 
@@ -10,18 +10,7 @@ const AppTableHead = <T extends object>(props: AppTableHeadProps<T>) => {
   return (
     <thead>
       {props.table.getHeaderGroups().map((headerGroup) => (
-        <TableHeadRow<T> id={headerGroup.id}>
-          {headerGroup.headers.map((header) => (
-            <th key={header.id}>
-              {header.isPlaceholder
-                ? null
-                : flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-            </th>
-          ))}
-        </TableHeadRow>
+        <TableHeadRow<T> headerGroup={headerGroup} />
       ))}
     </thead>
   );
