@@ -14,3 +14,5 @@ export { default as AppPasswordField } from "./passwordField/AppPasswordField";
 export { default as AppTextField } from "./textField/AppTextField";
 export { default as AppSearchField } from "./searchField/AppSearchField";
 export { default as AppDataGrid } from "./dataGrid/AppDataGrid";
+export { default as GridBodyCellString } from "./dataGrid/cellComponents/body/GridBodyCellString";
+export { default as GridBodyCellBoolean } from "./dataGrid/cellComponents/body/GridBodyCellBoolean";

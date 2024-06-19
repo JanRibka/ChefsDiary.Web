@@ -1,14 +1,5 @@
-import { CiEdit } from "react-icons/ci";
-import { MdDeleteOutline } from "react-icons/md";
-
 import { AppDataGrid } from "@repo/ui/styledComponents";
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable,
-} from "@tanstack/react-table";
 
-import User from "../../../entities/user/User";
 import useGetAllUsersPaginated from "../../../shared/api/apiHooks/user/useGetAllUsersPaginated";
 import { columns } from "./usersTableColumnDefinition";
 

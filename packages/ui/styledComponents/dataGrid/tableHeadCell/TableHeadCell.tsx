@@ -1,18 +1,21 @@
-import { flexRender, Header } from "@tanstack/react-table";
+import { mergeStyles } from "@repo/shared/helpers";
+import { flexRender, Header, Table } from "@tanstack/react-table";
+
+import Resizer from "./features/Resizer";
 
 interface TableHeadCellProps<T> {
   header: Header<T, unknown>;
+  table: Table<T>;
 }
 
 const TableHeadCell = <T extends object>(props: TableHeadCellProps<T>) => {
+  const { header, table } = props;
   return (
-    <th key={props.header.id}>
-      {props.header.isPlaceholder
+    <th key={header.id} className={mergeStyles(`w-[${header.getSize()}px]`)}>
+      {header.isPlaceholder
         ? null
-        : flexRender(
-            props.header.column.columnDef.header,
-            props.header.getContext()
-          )}
+        : flexRender(header.column.columnDef.header, header.getContext())}
+      <Resizer<T> header={header} table={table} />
     </th>
   );
 };

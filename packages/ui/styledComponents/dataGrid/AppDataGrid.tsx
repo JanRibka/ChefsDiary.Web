@@ -1,12 +1,28 @@
-import { useReactTable } from "@tanstack/react-table";
+import { mergeStyles } from "@repo/shared/helpers";
+import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 
 import AppDataGridProps from "./AppDataGridProps";
-import AppTable from "./table/AppTable";
+import TableBody from "./tableBody/TableBody";
+import TableHead from "./tableHead/TableHead";
 
-const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
-  const table = useReactTable<T>({ ...props });
+const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
+  const { className, columnResizeMode, columnResizeDirection, ...restProps } =
+    props;
+  const table = useReactTable<T>({
+    getCoreRowModel: getCoreRowModel(),
+    columnResizeMode: columnResizeMode ?? "onChange",
+    columnResizeDirection: columnResizeDirection ?? "ltr",
+    ...restProps,
+  });
 
-  return <AppTable table={table} />;
+  return (
+    <div>
+      <table className={mergeStyles("w-full", className)}>
+        {<TableHead<T> table={table} />}
+        {<TableBody<T> table={table} />}
+      </table>
+    </div>
+  );
 };
 
-export default AppDataGrid;
+export default AppTable;

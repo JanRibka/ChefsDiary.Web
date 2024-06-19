@@ -1,5 +1,11 @@
 import { TableOptions } from "@tanstack/react-table";
 
-interface AppDataGridProps<T> extends TableOptions<T> {}
+interface AppDataGridProps<T>
+  extends Pick<
+    TableOptions<T>,
+    "columns" | "data" | "columnResizeMode" | "columnResizeDirection"
+  > {
+  className?: string;
+}
 
 export default AppDataGridProps;
