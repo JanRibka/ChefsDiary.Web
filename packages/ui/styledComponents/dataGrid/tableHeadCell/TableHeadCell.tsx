@@ -10,8 +10,14 @@ interface TableHeadCellProps<T> {
 
 const TableHeadCell = <T extends object>(props: TableHeadCellProps<T>) => {
   const { header, table } = props;
+
   return (
-    <th key={header.id} className={mergeStyles(`w-[${header.getSize()}px]`)}>
+    <th
+      key={header.id}
+      onMouseDown={header.getResizeHandler()}
+      onTouchStart={header.getResizeHandler()}
+      className={mergeStyles("relative", `w-[${header.getSize()}px]`)}
+    >
       {header.isPlaceholder
         ? null
         : flexRender(header.column.columnDef.header, header.getContext())}

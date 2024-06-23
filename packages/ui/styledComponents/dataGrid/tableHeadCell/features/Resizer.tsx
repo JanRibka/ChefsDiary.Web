@@ -1,4 +1,9 @@
+import { RxDividerVertical } from "react-icons/rx";
+
+import { mergeStyles } from "@repo/shared/helpers";
 import { Header, Table } from "@tanstack/react-table";
+
+import { resizerVariants } from "./resizerVariants";
 
 interface ResizerProps<T> {
   header: Header<T, unknown>;
@@ -8,14 +13,17 @@ interface ResizerProps<T> {
 const Resizer = <T extends object>(props: ResizerProps<T>) => {
   const { header, table } = props;
 
+  const direction = table.options.columnResizeDirection;
+
   if (!header.column.getCanResize()) {
     return null;
   }
 
   const getTranslateValue = () => {
-    header.column.getIsResizing()
-      ? (table.options.columnResizeDirection === "ltr" ? -1 : 1) *
-        (table.getState().columnSizingInfo.deltaOffset ?? 0)
+    return table.options.columnResizeMode === "onEnd" &&
+      header.column.getIsResizing()
+      ? (direction === "ltr" ? -1 : 1) *
+          (table.getState().columnSizingInfo.deltaOffset ?? 0)
       : 0;
   };
 
@@ -24,8 +32,13 @@ const Resizer = <T extends object>(props: ResizerProps<T>) => {
       onDoubleClick={() => header.column.resetSize()}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
-      className={`w-0.5 h-full translate-x-[${getTranslateValue()}px] bg-error hover:cursor-col-resize`}
-    />
+      className={mergeStyles(
+        `translate-x-[${getTranslateValue()}px]`,
+        resizerVariants({ direction: direction })
+      )}
+    >
+      <RxDividerVertical className="h-full max-h-5" />
+    </div>
   );
 };
 
