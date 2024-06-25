@@ -11,21 +11,14 @@ interface ResizerProps<T> {
 }
 
 const Resizer = <T extends object>(props: ResizerProps<T>) => {
-  const { header, table } = props;
+  const { header, table, ...restProps } = props;
 
   const direction = table.options.columnResizeDirection;
+  const canResize = header.column.getCanResize();
 
-  if (!header.column.getCanResize()) {
+  if (!canResize) {
     return null;
   }
-
-  const getTranslateValue = () => {
-    return table.options.columnResizeMode === "onEnd" &&
-      header.column.getIsResizing()
-      ? (direction === "ltr" ? -1 : 1) *
-          (table.getState().columnSizingInfo.deltaOffset ?? 0)
-      : 0;
-  };
 
   return (
     <div
@@ -33,9 +26,11 @@ const Resizer = <T extends object>(props: ResizerProps<T>) => {
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
       className={mergeStyles(
-        `translate-x-[${getTranslateValue()}px]`,
+        "resizer",
+        canResize ? "can-resize" : undefined,
         resizerVariants({ direction: direction })
       )}
+      {...restProps}
     >
       <RxDividerVertical className="h-full max-h-5" />
     </div>

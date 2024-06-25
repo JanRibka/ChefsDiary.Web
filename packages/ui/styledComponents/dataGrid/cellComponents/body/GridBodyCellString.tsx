@@ -1,13 +1,17 @@
-import { cellVariants } from "./cellVariants";
+import GridBodyCellBase, { GridBodyCellBaseProps } from "./GridBodyCellBase";
 
-interface GridBodyCellStringProps {
+interface GridBodyCellStringProps
+  extends Omit<GridBodyCellBaseProps, "children"> {
   value: string | null;
-  align?: "left" | "center" | "right";
 }
 
 const GridBodyCellString = (props: GridBodyCellStringProps) => {
+  const { align, ...restProps } = props;
+
   return (
-    <span className={cellVariants({ align: props.align })}>{props.value}</span>
+    <GridBodyCellBase align={align} {...restProps}>
+      {props.value}
+    </GridBodyCellBase>
   );
 };
 

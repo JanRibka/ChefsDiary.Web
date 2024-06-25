@@ -1,11 +1,13 @@
-import { cellVariants } from "./cellVariants";
+import GridBodyCellBase, { GridBodyCellBaseProps } from "./GridBodyCellBase";
 
-interface GridBodyCellBooleanProps {
+interface GridBodyCellBooleanProps
+  extends Omit<GridBodyCellBaseProps, "children"> {
   value: boolean | null;
-  align?: "left" | "center" | "right";
 }
 
 const GridBodyCellBoolean = (props: GridBodyCellBooleanProps) => {
+  const { align, ...restProps } = props;
+
   const renderIcon = () => {
     if (props.value) {
       return <>✔</>;
@@ -17,7 +19,9 @@ const GridBodyCellBoolean = (props: GridBodyCellBooleanProps) => {
   };
 
   return (
-    <div className={cellVariants({ align: props.align })}>{renderIcon()}</div>
+    <GridBodyCellBase align={align} {...restProps}>
+      {renderIcon()}
+    </GridBodyCellBase>
   );
 };
 

@@ -1,20 +1,17 @@
-import {
-  GridBodyCellBoolean,
-  GridBodyCellString,
-} from "@repo/ui/styledComponents";
-import { createColumnHelper } from "@tanstack/react-table";
+import { GridBodyCellBoolean, GridBodyCellString } from '@repo/ui/styledComponents';
+import { createColumnHelper } from '@tanstack/react-table';
 
-import User from "../../../entities/user/User";
+import User from '../../../entities/user/User';
 
 const columnHelper = createColumnHelper<User>();
-
+Pridat komponentu header cell a dá tam zarovnání
 export const columns = [
   columnHelper.accessor("login", {
     header: "Login",
     cell: (info) => (
       <GridBodyCellString value={info.getValue()} align="center" />
     ),
-    size: 150,
+    size: 200,
     minSize: 50,
     maxSize: 500,
     enableResizing: true,
@@ -24,7 +21,7 @@ export const columns = [
     cell: (info) => (
       <GridBodyCellString value={info.getValue()} align="center" />
     ),
-    size: 150,
+    size: 250,
     minSize: 50,
     maxSize: 500,
     enableResizing: true,
@@ -34,7 +31,7 @@ export const columns = [
     cell: (info) => (
       <GridBodyCellBoolean value={info.getValue()} align="center" />
     ),
-    size: 150,
+    size: 200,
     minSize: 50,
     maxSize: 500,
     enableResizing: true,

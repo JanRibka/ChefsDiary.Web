@@ -1,4 +1,3 @@
-import { mergeStyles } from "@repo/shared/helpers";
 import { flexRender, Header, Table } from "@tanstack/react-table";
 
 import Resizer from "./features/Resizer";
@@ -9,14 +8,16 @@ interface TableHeadCellProps<T> {
 }
 
 const TableHeadCell = <T extends object>(props: TableHeadCellProps<T>) => {
-  const { header, table } = props;
+  const { header, table, ...restProps } = props;
 
   return (
     <th
       key={header.id}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
-      className={mergeStyles("relative", `w-[${header.getSize()}px]`)}
+      className="relative"
+      style={{ width: `${header.getSize()}px` }}
+      {...restProps}
     >
       {header.isPlaceholder
         ? null

@@ -10,7 +10,7 @@
     "lint": "eslint \"**/*.{ts,tsx}\""
   },
   "devDependencies": {
-    "@radix-ui/themes": "^3.0.5",
+    "@radix-ui/themes": "^3.1.1",
     "@repo/eslint-config": "workspace:*",
     "@repo/shared": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
@@ -22,10 +22,10 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.4",
-    "@radix-ui/react-hover-card": "^1.0.7",
+    "@radix-ui/react-checkbox": "^1.1.0",
+    "@radix-ui/react-hover-card": "^1.1.1",
     "@tanstack/react-table": "^8.17.3",
-    "@tanstack/react-virtual": "^3.5.1",
+    "@tanstack/react-virtual": "^3.7.0",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
     "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
     "react-icons": "^5.2.1",

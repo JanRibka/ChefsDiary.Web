@@ -6,7 +6,7 @@ interface TableBodyCellProps<T> {
 
 const TableBodyCell = <T extends object>(props: TableBodyCellProps<T>) => {
   return (
-    <th className={`w-[${props.cell.column.getSize()}px]`}>
+    <th style={{ width: `${props.cell.column.getSize()}px` }}>
       {flexRender(props.cell.column.columnDef.cell, props.cell.getContext())}
     </th>
   );
