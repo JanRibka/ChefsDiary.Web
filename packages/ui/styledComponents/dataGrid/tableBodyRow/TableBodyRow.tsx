@@ -5,17 +5,21 @@ import TableBodyCell from "../tableBodyCell/TableBodyCell";
 
 interface TableBodyRowProps<T> {
   row: Row<T>;
-  virtualRow?: VirtualItem;
-  rowVirtualizer?: Virtualizer<HTMLTableSectionElement, Element>;
+  virtualRow: VirtualItem<Element>;
+  rowVirtualizer: Virtualizer<HTMLTableSectionElement, Element>;
   index: number;
 }
 
 const TableBodyRow = <T extends object>(props: TableBodyRowProps<T>) => {
   return (
     <tr
-      data-index={props.virtualRow?.index ?? 0}
-      ref={(node) => props.rowVirtualizer?.measureElement(node)}
-      // className={`h-[${props.virtualRow.size}px] translate-y-[${props.virtualRow.start - index *  props.virtualRow?.start ?? 0}px]`}
+      ref={(node) => props.rowVirtualizer.measureElement(node)}
+      data-index={props.virtualRow.index}
+      className="flex absolute w-full"
+      style={{
+        // height: `${props.virtualRow.size}px`,
+        transform: `translateY(${props.virtualRow.start}px)`,
+      }}
     >
       {props.row.getVisibleCells().map((cell) => (
         <TableBodyCell key={cell.id} cell={cell} />

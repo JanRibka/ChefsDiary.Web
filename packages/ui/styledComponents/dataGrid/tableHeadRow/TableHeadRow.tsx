@@ -32,7 +32,12 @@ const TableHeadRow = <T extends object>(props: TableHeadRowProps<T>) => {
   };
 
   return (
-    <tr ref={ref} onMouseEnter={handleOnEnter} onMouseLeave={handleOnLeave}>
+    <tr
+      className="flex w-full"
+      ref={ref}
+      onMouseEnter={handleOnEnter}
+      onMouseLeave={handleOnLeave}
+    >
       {headerGroup.headers.map((header) => (
         <TableHeadCell<T> key={header.id} header={header} table={table} />
       ))}

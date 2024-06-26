@@ -30,7 +30,7 @@ const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
   return (
     <div className="w-full">
       <table
-        className={mergeStyles("", className)}
+        className={mergeStyles("grid", className)}
         style={{ width: `${table.getCenterTotalSize()}px` }}
       >
         {<TableHead<T> table={table} />}

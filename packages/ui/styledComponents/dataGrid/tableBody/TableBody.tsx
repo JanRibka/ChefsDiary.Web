@@ -14,36 +14,39 @@ const TableBody = <T extends object>(props: TableBodyProps<T>) => {
   const refTableBody = useRef<HTMLTableSectionElement>(null);
 
   // Constants
-  // const { rows } = props.table.getRowModel();
+  const { rows } = props.table.getRowModel();
 
   // TODO: Až bude react 19 můžu pustit virtualizaci
 
-  // const rowVirtualizer = useVirtualizer({
-  //   count: rows.length,
-  //   // Estimate row height for accurate scrollbar
-  //   estimateSize: () => 40, // TODO: Dat do props
-  //   getScrollElement: () => refTableBody.current,
-  //   // Measure dynamic row height, except in firefox because it measures table border height incorrectly
-  //   measureElement:
-  //     typeof window !== "undefined" &&
-  //     navigator.userAgent.indexOf("Firefox") === -1
-  //       ? (element) => element?.getBoundingClientRect().height
-  //       : undefined,
-  //   overscan: 5,
-  // });
+  const rowVirtualizer = useVirtualizer({
+    count: rows.length,
+    // Estimate row height for accurate scrollbar
+    estimateSize: () => 33, // TODO: Dat do props
+    getScrollElement: () => refTableBody.current,
+    // Measure dynamic row height, except in firefox because it measures table border height incorrectly
+    measureElement:
+      typeof window !== "undefined" &&
+      navigator.userAgent.indexOf("Firefox") === -1
+        ? (element) => element?.getBoundingClientRect().height
+        : undefined,
+    overscan: 5,
+  });
 
   return (
-    <tbody ref={refTableBody}>
-      {/* {rowVirtualizer.getVirtualItems().map((virtualRow) => {
-        const row = rows[virtualRow.index] as Row<T>; */}
-      {props.table.getRowModel().rows.map((row, index) => {
-        // const row = rows[virtualRow.index] as Row<T>;
+    <tbody
+      ref={refTableBody}
+      className="grid relative"
+      style={{ height: `${rowVirtualizer.getTotalSize()}px` }}
+    >
+      {rowVirtualizer.getVirtualItems().map((virtualRow, index) => {
+        const row = rows[virtualRow.index] as Row<T>;
+
         return (
           <TableBodyRow
             key={row.id}
             row={row}
-            // virtualRow={virtualRow}
-            // rowVirtualizer={rowVirtualizer}
+            virtualRow={virtualRow}
+            rowVirtualizer={rowVirtualizer}
             index={index}
           />
         );

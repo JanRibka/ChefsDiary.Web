@@ -15,13 +15,17 @@ const TableHeadCell = <T extends object>(props: TableHeadCellProps<T>) => {
       key={header.id}
       onMouseDown={header.getResizeHandler()}
       onTouchStart={header.getResizeHandler()}
-      className="relative"
+      className="relative flex"
       style={{ width: `${header.getSize()}px` }}
       {...restProps}
     >
-      {header.isPlaceholder
-        ? null
-        : flexRender(header.column.columnDef.header, header.getContext())}
+      <div className="w-full mx-4 my-2 flex justify-center">
+        <span className="">
+          {header.isPlaceholder
+            ? null
+            : flexRender(header.column.columnDef.header, header.getContext())}
+        </span>
+      </div>
       <Resizer<T> header={header} table={table} />
     </th>
   );

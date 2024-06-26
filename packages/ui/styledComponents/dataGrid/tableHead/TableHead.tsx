@@ -10,7 +10,7 @@ const TableHead = <T extends object>(props: AppTableHeadProps<T>) => {
   const { table } = props;
 
   return (
-    <thead>
+    <thead className="grid sticky top-0 z-[1]">
       {table.getHeaderGroups().map((headerGroup) => (
         <TableHeadRow<T>
           key={headerGroup.id}

@@ -1,6 +1,6 @@
 import { tv } from "tailwind-variants";
 
-export const cellBaseVariants = tv({
+export const gridHeaderCellVariants = tv({
   base: "flex w-full",
   variants: {
     align: {
