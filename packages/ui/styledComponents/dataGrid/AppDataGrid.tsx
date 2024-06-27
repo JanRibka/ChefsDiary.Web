@@ -1,13 +1,25 @@
 import { mergeStyles } from "@repo/shared/helpers";
-import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import {
+  getCoreRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
 
 import AppDataGridProps from "./AppDataGridProps";
 import TableBody from "./tableBody/TableBody";
 import TableHead from "./tableHead/TableHead";
 
 const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
-  const { className, columnResizeMode, columnResizeDirection, ...restProps } =
-    props;
+  // Props
+  const {
+    className,
+    columnResizeMode,
+    columnResizeDirection,
+    serverSideSorting,
+    ...restProps
+  } = props;
+
+  // Constants
   const enableResizing = props.columns.some((column) => column.enableResizing);
   const resizeMode = enableResizing
     ? columnResizeMode
@@ -20,8 +32,10 @@ const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
       : "ltr"
     : undefined;
 
+  // Table definition
   const table = useReactTable<T>({
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: serverSideSorting ? undefined : getSortedRowModel(), // Client-side sorting
     columnResizeMode: resizeMode,
     columnResizeDirection: resizeDirection,
     ...restProps,

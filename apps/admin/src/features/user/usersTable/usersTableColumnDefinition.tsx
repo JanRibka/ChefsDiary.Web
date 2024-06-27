@@ -19,6 +19,7 @@ export const columns = [
     maxSize: 500,
     enableResizing: true,
     enableSorting: true,
+    enableColumnFilter: true,
   }),
   columnHelper.accessor("email", {
     header: "Email",

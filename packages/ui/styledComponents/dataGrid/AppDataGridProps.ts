@@ -6,6 +6,7 @@ interface AppDataGridProps<T>
     "columns" | "data" | "columnResizeMode" | "columnResizeDirection"
   > {
   className?: string;
+  serverSideSorting?: boolean;
 }
 
 export default AppDataGridProps;

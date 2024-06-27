@@ -8,7 +8,11 @@ const UsersTable = () => {
 
   return (
     <div className="p-2">
-      <AppDataGrid columns={columns} data={paginatedUsers.data} />
+      <AppDataGrid
+        columns={columns}
+        data={paginatedUsers.data}
+        serverSideSorting
+      />
     </div>
   );
   // // Table definitions
