@@ -4,6 +4,7 @@ import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 import { Header } from "@tanstack/react-table";
 
 import { AppButtonIcon } from "../../..";
+import SortingType from "../../types/SortingType";
 
 interface SorterProps<T> extends HTMLAttributes<HTMLSpanElement> {
   header: Header<T, unknown>;
@@ -45,7 +46,7 @@ const Sorter = <T extends object>(props: SorterProps<T>) => {
                 <FaArrowDown />
               </AppButtonIcon>
             ),
-          }[header.column.getIsSorted() as string] ?? null}
+          }[header.column.getIsSorted() as keyof SortingType] ?? null}
         </>
       </span>
     );
