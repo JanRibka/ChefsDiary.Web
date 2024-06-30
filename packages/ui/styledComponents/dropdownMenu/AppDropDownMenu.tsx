@@ -9,12 +9,14 @@ const AppDropDownMenu = (props: AppDropDownMenuProps) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger asChild>{children}</DropdownMenu.Trigger>
+      {/* <DropdownMenu.Portal> */}
       <DropdownMenu.Content
         className="min-w-56 bg-background rounded-md p-2 shadow-dialog"
         sideOffset={5}
       >
         {content}
       </DropdownMenu.Content>
+      {/* </DropdownMenu.Portal> */}
     </DropdownMenu.Root>
   );
 };

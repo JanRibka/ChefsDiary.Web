@@ -4,7 +4,8 @@ import { PiDotsThreeOutlineVerticalFill } from "react-icons/pi";
 import { mergeStyles } from "@repo/shared/helpers";
 import { Header } from "@tanstack/react-table";
 
-import { AppButtonIcon, AppDropDownMenu } from "../../..";
+import AppButtonIcon from "../../../buttonIcon/AppButtonIcon";
+import AppDropDownMenu from "../../../dropdownMenu/AppDropDownMenu";
 import FilterContent from "./FilterContent";
 
 interface FilterProps<T> extends HTMLAttributes<HTMLDivElement> {

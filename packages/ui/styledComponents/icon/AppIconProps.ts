@@ -1,5 +1,7 @@
+import { ReactNode } from "react";
+
 interface AppIconProps {
-  icon: JSX.Element;
+  icon: ReactNode;
   disableScaleOnHover?: boolean;
   onClick?: () => void;
 }

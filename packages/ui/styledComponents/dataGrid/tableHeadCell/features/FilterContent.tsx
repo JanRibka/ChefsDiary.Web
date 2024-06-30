@@ -1,8 +1,15 @@
+import { BiSolidHide } from "react-icons/bi";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
+import { TfiLayoutColumn3Alt } from "react-icons/tfi";
+import { TiDeleteOutline } from "react-icons/ti";
+
 import { Header } from "@tanstack/react-table";
 
 import AppDropDownMenuItem from "../../../dropdownMenu/components/DropDownMenuItem";
 import AppDropDownMenuSeparator from "../../../dropdownMenu/components/DropDownMenuSeparator";
+import AppPopover from "../../../popover/AppPopover";
 import SortingType from "../../types/SortingType";
+import FilterContentItem from "./FilterContentItem";
 
 interface FilterContentProps<T> {
   header: Header<T, unknown>;
@@ -35,13 +42,25 @@ const FilterContent = <T extends object>(props: FilterContentProps<T>) => {
       {sortingEnabled && (
         <>
           {showHideSortingItem("asc") && (
-            <AppDropDownMenuItem>Řadit vzestupně</AppDropDownMenuItem>
+            <AppDropDownMenuItem>
+              <FilterContentItem icon={<FaArrowUp />} label="Řadit vzestupně" />
+            </AppDropDownMenuItem>
           )}
           {showHideSortingItem("desc") && (
-            <AppDropDownMenuItem>Řadit sestupně</AppDropDownMenuItem>
+            <AppDropDownMenuItem>
+              <FilterContentItem
+                icon={<FaArrowDown />}
+                label="Řadit sestupně"
+              />
+            </AppDropDownMenuItem>
           )}
           {showHideSortingItem(false) && (
-            <AppDropDownMenuItem>Zrušit řazení</AppDropDownMenuItem>
+            <AppDropDownMenuItem>
+              <FilterContentItem
+                icon={<TiDeleteOutline />}
+                label="Zrušit řazení"
+              />
+            </AppDropDownMenuItem>
           )}
 
           <AppDropDownMenuSeparator />
@@ -49,9 +68,20 @@ const FilterContent = <T extends object>(props: FilterContentProps<T>) => {
           <AppDropDownMenuItem
             onClick={header.column.getToggleVisibilityHandler()}
           >
-            Skrýt sloupec
+            <FilterContentItem icon={<BiSolidHide />} label="Skrýt sloupec" />
           </AppDropDownMenuItem>
-          <AppDropDownMenuItem>Spravovat sloupce</AppDropDownMenuItem>
+          <AppPopover content={<div>Content</div>}>
+            <AppDropDownMenuItem
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+            >
+              <FilterContentItem
+                icon={<TfiLayoutColumn3Alt />}
+                label="Spravovat sloupce"
+              />
+            </AppDropDownMenuItem>
+          </AppPopover>
         </>
       )}
     </>
