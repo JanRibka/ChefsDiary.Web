@@ -15,6 +15,7 @@ const TableHeadRow = <T extends object>(props: TableHeadRowProps<T>) => {
 
   const { headerGroup, table } = props;
 
+  // Handlers
   const handleOnEnter = () => {
     const resizers = ref.current?.getElementsByClassName("can-resize");
 

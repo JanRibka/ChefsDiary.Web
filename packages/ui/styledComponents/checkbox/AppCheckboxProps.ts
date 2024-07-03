@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 import * as Checkbox from "@radix-ui/react-checkbox";
 
 import ComponentCommonProps from "../../shared/props/component/ComponentCommonProps";
@@ -13,7 +15,8 @@ interface AppCheckboxProps
   size?: CheckSizeType;
   radius?: RadiusType;
   checked?: boolean | null;
-  onCheckedChange: (state: Checkbox.CheckedState) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+  onCheckedChange?: (state: Checkbox.CheckedState) => void;
 }
 
 export default AppCheckboxProps;

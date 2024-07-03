@@ -13,7 +13,7 @@ const AppDropDownMenuItem = (props: DropdownMenuItemProps) => {
 
   return (
     <DropdownMenu.Item
-      className="group text-base font-normal leading-none rounded-xs flex items-center h-6 px-2 relative pl-6 select-none border-0 hover:border-0 hover:bg-primary/10"
+      className="my-2 group text-base font-normal leading-none rounded-xs flex items-center h-6 px-2 relative pl-6 select-none border-0 hover:border-0 hover:bg-primary/10"
       onClick={onClick}
     >
       {children}

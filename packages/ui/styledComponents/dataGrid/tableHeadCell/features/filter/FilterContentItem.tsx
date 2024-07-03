@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import AppIcon from "../../../icon/AppIcon";
+import AppIcon from "../../../../icon/AppIcon";
 
 interface FilterContentItemProps {
   icon: ReactNode;
@@ -12,7 +12,7 @@ const FilterContentItem = (props: FilterContentItemProps) => {
   const { icon, label } = props;
 
   return (
-    <div className="flex w-full items justify-start gap-3 ">
+    <div className="flex w-full items justify-start gap-3">
       <AppIcon icon={icon} />
       {label}
     </div>

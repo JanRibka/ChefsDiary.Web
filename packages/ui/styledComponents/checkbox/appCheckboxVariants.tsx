@@ -11,7 +11,7 @@ export const appCheckboxVariants = tv({
       large: "w-6 h-6",
     },
     checked: {
-      true: "bg-primary text-white disabled:bg-gray-500 border-none",
+      true: "bg-primary bg-checkbox bg-no-repeat bg-center bg-70 text-white disabled:bg-gray-500 border-none",
       false: "bg-background",
     },
     radius: {

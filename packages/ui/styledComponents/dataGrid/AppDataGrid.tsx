@@ -9,7 +9,7 @@ import AppDataGridProps from "./AppDataGridProps";
 import TableBody from "./tableBody/TableBody";
 import TableHead from "./tableHead/TableHead";
 
-const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
+const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
   // Props
   const {
     className,
@@ -54,4 +54,4 @@ const AppTable = <T extends object>(props: AppDataGridProps<T>) => {
   );
 };
 
-export default AppTable;
+export default AppDataGrid;

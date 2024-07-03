@@ -1,7 +1,5 @@
 import { forwardRef } from "react";
-import { FaCheck } from "react-icons/fa6";
 
-import * as Checkbox from "@radix-ui/react-checkbox";
 import { mergeStyles } from "@repo/shared/helpers";
 import { useUniqueId } from "@repo/shared/hooks";
 
@@ -39,7 +37,8 @@ const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
       >
         <div className="flex items-center">
           <span className="bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex p-2.5 rounded-full">
-            <Checkbox.Root
+            <input
+              type="checkbox"
               id={uniqueId}
               checked={checked ?? false}
               disabled={disabled}
@@ -53,9 +52,7 @@ const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
                 ""
               )}
               {...restProps}
-            >
-              <Checkbox.Indicator>{<FaCheck />}</Checkbox.Indicator>
-            </Checkbox.Root>
+            />
           </span>
 
           <CheckLabelBase

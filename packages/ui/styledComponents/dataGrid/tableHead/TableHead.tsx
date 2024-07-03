@@ -2,11 +2,11 @@ import { Table } from "@tanstack/react-table";
 
 import TableHeadRow from "../tableHeadRow/TableHeadRow";
 
-interface AppTableHeadProps<T> {
+interface TableHeadProps<T> {
   table: Table<T>;
 }
 
-const TableHead = <T extends object>(props: AppTableHeadProps<T>) => {
+const TableHead = <T extends object>(props: TableHeadProps<T>) => {
   const { table } = props;
 
   return (

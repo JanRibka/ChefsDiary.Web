@@ -5,19 +5,19 @@ import { TiDeleteOutline } from "react-icons/ti";
 
 import { Header } from "@tanstack/react-table";
 
-import AppDropDownMenuItem from "../../../dropdownMenu/components/DropDownMenuItem";
-import AppDropDownMenuSeparator from "../../../dropdownMenu/components/DropDownMenuSeparator";
-import AppPopover from "../../../popover/AppPopover";
-import SortingType from "../../types/SortingType";
+import AppDropDownMenuItem from "../../../../dropdownMenu/components/DropDownMenuItem";
+import AppDropDownMenuSeparator from "../../../../dropdownMenu/components/DropDownMenuSeparator";
+import SortingType from "../../../types/SortingType";
 import FilterContentItem from "./FilterContentItem";
 
 interface FilterContentProps<T> {
   header: Header<T, unknown>;
+  handleOpenManageColumns: () => void;
 }
 
 const FilterContent = <T extends object>(props: FilterContentProps<T>) => {
   // Props
-  const { header } = props;
+  const { header, handleOpenManageColumns } = props;
 
   // Constants
   const sortingEnabled = header.column.getCanSort();
@@ -70,18 +70,13 @@ const FilterContent = <T extends object>(props: FilterContentProps<T>) => {
           >
             <FilterContentItem icon={<BiSolidHide />} label="Skrýt sloupec" />
           </AppDropDownMenuItem>
-          <AppPopover content={<div>Content</div>}>
-            <AppDropDownMenuItem
-              onClick={(e) => {
-                e.preventDefault();
-              }}
-            >
-              <FilterContentItem
-                icon={<TfiLayoutColumn3Alt />}
-                label="Spravovat sloupce"
-              />
-            </AppDropDownMenuItem>
-          </AppPopover>
+
+          <AppDropDownMenuItem onClick={handleOpenManageColumns}>
+            <FilterContentItem
+              icon={<TfiLayoutColumn3Alt />}
+              label="Spravovat sloupce"
+            />
+          </AppDropDownMenuItem>
         </>
       )}
     </>

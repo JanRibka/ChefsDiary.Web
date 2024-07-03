@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 import { flexRender, Header, Table } from "@tanstack/react-table";
 
-import Filter from "./features/Filter";
+import Filter from "./features/filter/Filter";
 import Resizer from "./features/Resizer";
 import Sorter from "./features/Sorter";
 
