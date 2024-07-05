@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { FaCheck } from "react-icons/fa";
 
 import { mergeStyles } from "@repo/shared/helpers";
 import { useUniqueId } from "@repo/shared/hooks";
@@ -36,7 +37,7 @@ const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
         className={mergeStyles("flex flex-col", className)}
       >
         <div className="flex items-center">
-          <span className="bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex p-2.5 rounded-full">
+          <span className="relative bg-transparent hover:bg-primary hover:bg-opacity-5 inline-flex justify-center items-center p-2.5 rounded-full">
             <input
               type="checkbox"
               id={uniqueId}
@@ -53,6 +54,9 @@ const AppCheckbox = forwardRef<HTMLDivElement, AppCheckboxProps>(
               )}
               {...restProps}
             />
+            {checked && (
+              <FaCheck className="absolute text-white scale-[0.85] pointer-events-none" />
+            )}
           </span>
 
           <CheckLabelBase
