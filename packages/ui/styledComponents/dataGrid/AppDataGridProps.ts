@@ -7,6 +7,7 @@ interface AppDataGridProps<T>
   > {
   className?: string;
   serverSideSorting?: boolean;
+  serverSidePagination?: boolean;
 }
 
 export default AppDataGridProps;

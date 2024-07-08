@@ -1,12 +1,14 @@
 import { mergeStyles } from "@repo/shared/helpers";
 import {
   getCoreRowModel,
+  getPaginationRowModel,
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 
 import AppDataGridProps from "./AppDataGridProps";
 import TableBody from "./tableBody/TableBody";
+import TableFooter from "./tableFooter/TableFooter";
 import TableHead from "./tableHead/TableHead";
 
 const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
@@ -16,6 +18,7 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
     columnResizeMode,
     columnResizeDirection,
     serverSideSorting,
+    serverSidePagination,
     ...restProps
   } = props;
 
@@ -38,6 +41,10 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
     getSortedRowModel: serverSideSorting ? undefined : getSortedRowModel(), // Client-side sorting
     columnResizeMode: resizeMode,
     columnResizeDirection: resizeDirection,
+    manualPagination: serverSidePagination,
+    getPaginationRowModel: serverSidePagination
+      ? undefined
+      : getPaginationRowModel(), // Client-side pagination
     ...restProps,
   });
 
@@ -49,6 +56,8 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
       >
         {<TableHead<T> table={table} />}
         {<TableBody<T> table={table} />}
+        {<TableFooter<T> table={table} />}
+        {}
       </table>
     </div>
   );
