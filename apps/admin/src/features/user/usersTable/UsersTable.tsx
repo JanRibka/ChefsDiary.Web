@@ -12,6 +12,7 @@ const UsersTable = () => {
         columns={columns}
         data={paginatedUsers.data}
         serverSideSorting
+        pageSizeList={[10, 25, 50]}
       />
     </div>
   );

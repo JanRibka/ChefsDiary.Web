@@ -7,7 +7,7 @@ import {
 
 import { Table } from "@tanstack/react-table";
 
-import AppButtonIcon from "../../../buttonIcon/AppButtonIcon";
+import NavigationButton from "./navigationButton/NavigationButton";
 
 interface Props<T> {
   table: Table<T>;
@@ -18,37 +18,34 @@ const NavigationButtons = <T extends object>(props: Props<T>) => {
   const { table } = props;
 
   return (
-    <div>
-      <AppButtonIcon
+    <div className="flex justify-center text-xs">
+      <NavigationButton
         disabled={!table.getCanPreviousPage()}
+        icon={<MdFirstPage />}
         onClick={table.firstPage}
-      >
-        <MdFirstPage />
-      </AppButtonIcon>
-      <AppButtonIcon
+      />
+      <NavigationButton
         disabled={!table.getCanPreviousPage()}
+        icon={<MdChevronLeft />}
         onClick={table.previousPage}
-      >
-        <MdChevronLeft />
-      </AppButtonIcon>
+      />
 
-      <span>
+      <span className="content-center">
         {table.getState().pagination.pageIndex + 1} /{" "}
         {table.getPageCount().toLocaleString()}
       </span>
 
-      <AppButtonIcon
+      <NavigationButton
         disabled={!table.getCanNextPage()}
+        icon={<MdChevronRight />}
         onClick={table.nextPage}
-      >
-        <MdChevronRight />
-      </AppButtonIcon>
-      <AppButtonIcon
+      />
+
+      <NavigationButton
         disabled={!table.getCanNextPage()}
+        icon={<MdLastPage />}
         onClick={table.lastPage}
-      >
-        <MdLastPage />
-      </AppButtonIcon>
+      />
     </div>
   );
 };

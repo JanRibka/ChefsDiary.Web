@@ -19,6 +19,7 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
     columnResizeDirection,
     serverSideSorting,
     serverSidePagination,
+    pageSizeList,
     ...restProps
   } = props;
 
@@ -56,7 +57,7 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
       >
         {<TableHead<T> table={table} />}
         {<TableBody<T> table={table} />}
-        {<TableFooter<T> table={table} />}
+        {<TableFooter<T> table={table} pageSizeList={pageSizeList} />}
         {}
       </table>
     </div>
