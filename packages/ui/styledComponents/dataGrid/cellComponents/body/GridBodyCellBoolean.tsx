@@ -6,12 +6,12 @@ interface GridBodyCellBooleanProps
 }
 
 const GridBodyCellBoolean = (props: GridBodyCellBooleanProps) => {
-  const { align, ...restProps } = props;
+  const { align, value, ...restProps } = props;
 
   const renderIcon = () => {
-    if (props.value) {
+    if (value) {
       return <>✔</>;
-    } else if (props.value === false) {
+    } else if (value === false) {
       return <>❌</>;
     } else {
       return null;

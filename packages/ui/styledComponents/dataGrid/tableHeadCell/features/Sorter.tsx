@@ -28,7 +28,7 @@ const Sorter = <T extends object>(props: SorterProps<T>) => {
 
     return (
       <span
-        className="cursor-pointer select-none flex items-center"
+        className="cursor-pointer select-none flex items-center w-full"
         onClick={header.column.getToggleSortingHandler()}
         title={title}
         {...restProps}

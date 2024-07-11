@@ -44,11 +44,11 @@ const TableHeadCell = <T extends object>(props: TableHeadCellProps<T>) => {
       onTouchStart={header.getResizeHandler()}
       onMouseEnter={handleOnEnter}
       onMouseLeave={handleOnLeave}
-      className="relative flex items-center"
+      className="relative flex items-center box-border px-4 py-2"
       style={{ width: `${header.getSize()}px` }}
       {...restProps}
     >
-      <div className="w-full mx-4 my-2 flex justify-center ">
+      <div className="w-full flex justify-center ">
         <Sorter<T> header={header}>
           {header.isPlaceholder
             ? null

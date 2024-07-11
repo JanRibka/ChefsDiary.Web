@@ -41,6 +41,7 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: serverSideSorting ? undefined : getSortedRowModel(), // Client-side sorting
     columnResizeMode: resizeMode,
+    enableColumnResizing: enableResizing,
     columnResizeDirection: resizeDirection,
     manualPagination: serverSidePagination,
     getPaginationRowModel: serverSidePagination
@@ -52,8 +53,8 @@ const AppDataGrid = <T extends object>(props: AppDataGridProps<T>) => {
   return (
     <div className="w-full">
       <table
-        className={mergeStyles("grid", className)}
-        style={{ width: `${table.getCenterTotalSize()}px` }}
+        className={mergeStyles("w-full", className)}
+        // style={{ width: `${table.getCenterTotalSize()}px` }}
       >
         {<TableHead<T> table={table} />}
         {<TableBody<T> table={table} />}

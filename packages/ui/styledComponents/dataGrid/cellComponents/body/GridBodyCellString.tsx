@@ -6,11 +6,11 @@ interface GridBodyCellStringProps
 }
 
 const GridBodyCellString = (props: GridBodyCellStringProps) => {
-  const { align, ...restProps } = props;
+  const { align, value, ...restProps } = props;
 
   return (
     <GridBodyCellBase align={align} {...restProps}>
-      {props.value}
+      {value}
     </GridBodyCellBase>
   );
 };

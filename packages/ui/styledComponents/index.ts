@@ -16,6 +16,7 @@ export { default as AppSearchField } from "./searchField/AppSearchField";
 export { default as AppDataGrid } from "./dataGrid/AppDataGrid";
 export { default as GridBodyCellString } from "./dataGrid/cellComponents/body/GridBodyCellString";
 export { default as GridBodyCellBoolean } from "./dataGrid/cellComponents/body/GridBodyCellBoolean";
+export { default as GridBodyCellActions } from "./dataGrid/cellComponents/body/GridBodyCellActions";
 export { default as GridHeaderCell } from "./dataGrid/cellComponents/header/GridHeaderCell";
 export { default as AppDropDownMenu } from "./dropdownMenu/AppDropDownMenu";
 export { default as AppDropDownMenuItem } from "./dropdownMenu/components/DropDownMenuItem";

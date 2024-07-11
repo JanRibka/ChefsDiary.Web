@@ -11,7 +11,9 @@ export interface GridBodyCellBaseProps
 }
 
 const GridHeaderCell = (props: GridBodyCellBaseProps) => {
+  // Props
   const { className, align, children, ...restProps } = props;
+
   return (
     <span
       className={mergeStyles(

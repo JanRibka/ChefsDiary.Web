@@ -35,7 +35,7 @@ const TableBody = <T extends object>(props: TableBodyProps<T>) => {
   return (
     <tbody
       ref={refTableBody}
-      className="grid relative"
+      className="relative"
       style={{ height: `${rowVirtualizer.getTotalSize()}px` }}
     >
       {rowVirtualizer.getVirtualItems().map((virtualRow, index) => {
