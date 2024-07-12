@@ -22,3 +22,4 @@ export { default as AppDropDownMenu } from "./dropdownMenu/AppDropDownMenu";
 export { default as AppDropDownMenuItem } from "./dropdownMenu/components/DropDownMenuItem";
 export { default as AppDropDownMenuSeparator } from "./dropdownMenu/components/DropDownMenuSeparator";
 export { default as AppPopover } from "./popover/AppPopover";
+export { default as AppDialog } from "./dialog/AppDialog";

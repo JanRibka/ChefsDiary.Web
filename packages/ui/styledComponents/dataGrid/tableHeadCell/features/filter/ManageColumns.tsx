@@ -9,7 +9,7 @@ interface ManageColumnsProps<T> {
 const ManageColumns = <T extends object>(props: ManageColumnsProps<T>) => {
   // Props
   const { header } = props;
-  debugger;
+
   // Constants
   const columns = header.getContext().table.getAllLeafColumns();
   const visibleColumns = columns.filter((column) => column.getIsVisible());

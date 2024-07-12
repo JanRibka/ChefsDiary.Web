@@ -1,9 +1,10 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 
 import {
   AppButtonIcon,
   AppDataGrid,
+  AppDialog,
   GridBodyCellActions,
   GridBodyCellBoolean,
   GridBodyCellString,
@@ -18,12 +19,20 @@ const UsersTable = () => {
   // Api
   const { paginatedUsers } = useGetAllUsersPaginated();
 
+  // State
+  const [editDialogOpen, setEditDialogOpen] = useState<boolean>(false);
+  const [editDialogData, setEditDialogData] = useState<Partial<User>>({
+    login: "",
+    uuid: "",
+  });
+
   // Constants
   const columnHelper = createColumnHelper<User>();
 
   // Handlers
-  const handleOnClickEditUser = (uuid: string) => {
-    console.log("Edit user", uuid);
+  const handleOnClickEditUser = (uuid: string, login: string) => {
+    setEditDialogData({ uuid: uuid, login: login });
+    setEditDialogOpen(true);
   };
 
   // Column definition
@@ -37,7 +46,12 @@ const UsersTable = () => {
             title="Editovat uživatele"
             actionButtons={[
               <AppButtonIcon
-                onClick={() => handleOnClickEditUser(info.row.original.uuid)}
+                onClick={() =>
+                  handleOnClickEditUser(
+                    info.row.original.uuid,
+                    info.row.original.login
+                  )
+                }
               >
                 <CiEdit />
               </AppButtonIcon>,
@@ -88,14 +102,24 @@ const UsersTable = () => {
   );
 
   return (
-    <div className="p-2">
-      <AppDataGrid
-        columns={columns}
-        data={paginatedUsers.data}
-        serverSideSorting
-        pageSizeList={[10, 25, 50]}
+    <>
+      <div className="p-2">
+        <AppDataGrid<User>
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          columns={columns as any}
+          data={paginatedUsers?.data ?? []}
+          serverSideSorting
+          pageSizeList={[10, 25, 50]}
+        />
+      </div>
+
+      <AppDialog
+        open={editDialogOpen}
+        setOpen={setEditDialogOpen}
+        title={`Editace uživatele ${editDialogData.login}`}
+        content={<div>sdf</div>}
       />
-    </div>
+    </>
   );
 };
 
